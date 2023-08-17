@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: d9ea2b6c2e7014bd6868579534d0f22c
+  m_SerializeEntries:
+  - m_GUID: c26833473ce06df4ba5631fd7a4b98bc
+    m_Address: Assets/Addressables/Mob_Skeleton.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 880858dfd9b1e784e89d45242bf78d2b
+    m_Address: Assets/Addressables/Player.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d230cc8be529a542a08cb878ab14b18
+    m_Address: Assets/Addressables/Floating Joystick.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - prefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 964f38e7ecabe44f4b4b0b851626e572
+    m_Address: Assets/Addresables/UIRestart.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - prefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd5c7534bc9b84aeda05780df84afa01
+    m_Address: Assets/Addressables/Levels/Level2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - prefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8918266be79f449fd820c9d49b0c0c8d
+    m_Address: Assets/Addressables/Levels/Level1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - prefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1985b6b795ca48c7b77e02ae281c0e3
+    m_Address: Assets/Addressables/Levels/Level3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - prefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5c855da4daee4165848f084abad0de8
+    m_Address: Assets/Addressables/coin.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - prefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e46737070ee0c48978d97d8c96058705
+    m_Address: Assets/Addressables/YellowGem.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - prefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 04725fdec597b415abc0c494e033142d
+    m_Address: Assets/Addressables/DamageText.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - prefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b85e42ff8a9eb4ff391d0a323cee9307
+    m_Address: Assets/Addressables/Skills/UiSkills.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d43de33d69810440496f91df3f0ef668
+    m_Address: Assets/Addressables/Skills/skill.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: bc78e5816f38b47e78192b2f6716f131, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ce41606fd91c14934af5bca9b39d37d0, type: 2}
+    - {fileID: 11400000, guid: 158c5837fca91458ea9c5b680f353bc8, type: 2}
