@@ -1,6 +1,6 @@
 using System;
 
-namespace Factory
+namespace Scripts
 {
     [Serializable]
     public struct UnitConfig

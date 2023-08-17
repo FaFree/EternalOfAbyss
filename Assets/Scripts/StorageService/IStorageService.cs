@@ -1,4 +1,4 @@
-namespace Factory.StorageService
+namespace Scripts.StorageService
 {
     public interface IStorageService
     {

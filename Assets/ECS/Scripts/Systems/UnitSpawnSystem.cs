@@ -1,6 +1,6 @@
 using DefaultNamespace;
 using ECS.Scripts.Events;
-using Factory;
+using Scripts;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using State_Machine.MobStateMachine;

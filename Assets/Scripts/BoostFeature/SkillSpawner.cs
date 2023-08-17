@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Factory;
+using DG.Tweening;
+using Scripts;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -26,6 +27,13 @@ public class SkillSpawner : MonoBehaviour
 
             var boost = boosts.BoostsMap.ElementAt(Random.Range(0, boosts.BoostsMap.Count));
             boostView.Init(boost.Key);
+
+            var seq = DOTween.Sequence();
+
+            seq.Append(go.transform.DOScale(Vector3.one * 1.2f, 2));
+            seq.Append(go.transform.DOScale(Vector3.one * 0.8f, 2));
+
+            seq.SetLoops(-1);
         }
     }
 }

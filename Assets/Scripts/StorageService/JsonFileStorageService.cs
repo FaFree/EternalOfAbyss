@@ -2,7 +2,7 @@ using System.IO;
 using UnityEngine;
 using Application = UnityEngine.Device.Application;
 
-namespace Factory.StorageService
+namespace Scripts.StorageService
 {
     public class JsonFileStorageService : IStorageService
     {

@@ -1,9 +1,9 @@
 using System;
-using Factory.StorageService;
+using Scripts.StorageService;
 using UnityEngine;
 using Resources = ResourceFeature.Resources;
 
-namespace Factory.LevelFeature
+namespace Scripts.LevelFeature
 {
     public static class LevelManager
     {

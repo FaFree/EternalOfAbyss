@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Model Initializer
   m_EditorClassIdentifier: 
   boosts: {fileID: 11400000, guid: c225c8360f15d493ab94690a5ff99073, type: 2}
+  levels: {fileID: 11400000, guid: 64d15a0f5eda243a79cf3d5237e809c0, type: 2}
+  items: {fileID: 11400000, guid: 235794d913be14603a9d23f44d54f7b0, type: 2}

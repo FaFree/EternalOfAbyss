@@ -1,6 +1,6 @@
 using System;
 using ECS.Scripts.Components;
-using Factory;
+using Scripts;
 using Scellecs.Morpeh;
 using UnityEngine;
 using Object = UnityEngine.Object;

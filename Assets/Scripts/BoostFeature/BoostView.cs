@@ -1,6 +1,6 @@
 using DG.Tweening;
 using ECS.Scripts.Events;
-using Factory;
+using Scripts;
 using Scellecs.Morpeh;
 using UnityEngine;
 using UnityEngine.UI;

@@ -1,7 +1,10 @@
+using System.Collections.Generic;
 using System.Linq;
 using ECS.Scripts.Events;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
+using Scripts;
+using Scripts.LevelModel;
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -16,6 +19,8 @@ namespace ECS.Scripts.Components
         
         private Event<LevelEndEvent> levelEndEvent;
         private Event<NavMeshUpdateRequest> updateRequest;
+
+        private Dictionary<string, string> levels;
         public override void OnAwake()
         {
             this.unitFilter = this.World.Filter.With<UnitComponent>();
@@ -23,6 +28,8 @@ namespace ECS.Scripts.Components
             
             this.levelEndEvent = this.World.GetEvent<LevelEndEvent>();
             this.updateRequest = this.World.GetEvent<NavMeshUpdateRequest>();
+
+            this.levels = WorldModels.Default.Get<Levels>().levelsMap;
         }
 
         public override void OnUpdate(float deltaTime)
@@ -33,7 +40,7 @@ namespace ECS.Scripts.Components
             foreach (var evt in levelEndEvent.BatchedChanges)
             {
                 var newLevel = Addressables.LoadAssetAsync<GameObject>
-                    ($"Assets/Addressables/Levels/Level{evt.levelNum + 1}.prefab").WaitForCompletion();
+                    (levels[$"Level{evt.levelNum + 1}"]).WaitForCompletion();
 
                 foreach (var entity in unitFilter)
                 {

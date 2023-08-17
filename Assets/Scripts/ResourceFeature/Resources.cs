@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Factory.StorageService;
+using Scripts.StorageService;
 
 namespace ResourceFeature
 {

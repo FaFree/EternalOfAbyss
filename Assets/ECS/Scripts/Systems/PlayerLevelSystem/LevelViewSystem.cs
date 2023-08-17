@@ -1,6 +1,6 @@
 using ECS.Scripts.Components;
 using ECS.Scripts.Events;
-using Factory.LevelFeature;
+using Scripts.LevelFeature;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using UnityEngine;

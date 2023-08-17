@@ -1,4 +1,4 @@
-using Factory;
+using Scripts;
 using Scellecs.Morpeh;
 
 namespace ECS.Scripts.Events

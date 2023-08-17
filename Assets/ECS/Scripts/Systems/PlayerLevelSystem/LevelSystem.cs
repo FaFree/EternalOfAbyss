@@ -1,6 +1,6 @@
 using ECS.Scripts.Events;
 using ECS.Scripts.Events.BankEvents;
-using Factory.LevelFeature;
+using Scripts.LevelFeature;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 
