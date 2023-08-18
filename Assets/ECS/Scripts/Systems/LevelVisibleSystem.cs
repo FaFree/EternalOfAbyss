@@ -29,7 +29,7 @@ namespace ECS.Scripts.Components
             this.levelEndEvent = this.World.GetEvent<LevelEndEvent>();
             this.updateRequest = this.World.GetEvent<NavMeshUpdateRequest>();
 
-            this.levels = WorldModels.Default.Get<Levels>().levelsMap;
+            this.levels = WorldModels.Default.Get<Prefabs>().prefabMap;
         }
 
         public override void OnUpdate(float deltaTime)

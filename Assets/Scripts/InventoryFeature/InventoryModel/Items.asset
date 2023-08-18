@@ -13,19 +13,23 @@ MonoBehaviour:
   m_Name: Items
   m_EditorClassIdentifier: 
   items:
-  - itemId: 
+  - itemId: 0b0042d8-f405-4f37-bf71-013c3456f345
     key: DEFAULT_WEAPON
     itemType: 2
     itemStats:
       damage: 50
       attackRange: 2
       health: 0
+      speed: 0
+      isRangeWeapon: 0
     isEquip: 1
-  - itemId: 
+  - itemId: 8e5d3bc0-b1c1-4137-a023-e8ed33826537
     key: DEFAULT_BOW
     itemType: 2
     itemStats:
-      damage: 0
-      attackRange: 0
+      damage: 100
+      attackRange: 20
       health: 0
+      speed: 0
+      isRangeWeapon: 1
     isEquip: 1

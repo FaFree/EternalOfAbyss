@@ -2,6 +2,8 @@ using DefaultNamespace;
 using ECS.Scripts.Events;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
+using Scripts;
+using Scripts.InventoryFeature;
 using State_Machine;
 using UnityEngine;
 
@@ -13,6 +15,7 @@ namespace ECS.Scripts.Components
         
         private Event<DieRequestEvent> dieRequestEvent;
         private Event<TextViewRequest> textRequest;
+        private Event<ArrowRequest> arrowRequest;
         
         private float timer;
         
@@ -25,6 +28,7 @@ namespace ECS.Scripts.Components
         
             this.dieRequestEvent = this.World.GetEvent<DieRequestEvent>();
             this.textRequest = this.World.GetEvent<TextViewRequest>();
+            this.arrowRequest = this.World.GetEvent<ArrowRequest>();
         }
         
         public override void OnUpdate(float deltaTime)
@@ -60,7 +64,6 @@ namespace ECS.Scripts.Components
                     continue;
                 }
                 
-                ref var unitModel = ref entity.GetComponent<UnitComponent>().unit;
                 ref var unitTransform = ref entity.GetComponent<TransformComponent>().transform;
                 ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
                 ref var playerModel = ref playerEntity.GetComponent<PlayerComponent>().UnitPlayerModel;
@@ -88,35 +91,48 @@ namespace ECS.Scripts.Components
                     this.timer = 0f;
 
                     ref var healthComponent = ref entity.GetComponent<HealthComponent>();
+                    var inventory = WorldModels.Default.Get<Inventory>();
 
-                    if (healthComponent.health > playerModel.Damage)
+                    if (inventory.CurrentItems[ItemType.Weapon].itemStats.isRangeWeapon)
                     {
-                        healthComponent.health -= playerModel.Damage;
-                        textRequest.NextFrame(new TextViewRequest()
+                        arrowRequest.NextFrame(new ArrowRequest
                         {
-                            position = unitTransform.position,
-                            text = "-" + playerModel.Damage
+                            direction = playerTransform.position - unitTransform.position,
+                            spawnPosition = playerTransform.position
                         });
                     }
                     else
                     {
-                        ref var zone = ref entity.GetComponent<UnitComponent>().zone;
-                        zone.GetComponent<ZoneComponent>().currentUnitCount--;
-                        
-                        entity.AddComponent<NotAttackMarker>();
-                        
-                        textRequest.NextFrame(new TextViewRequest()
+                        if (healthComponent.health > playerModel.Damage)
                         {
-                            position = unitTransform.position,
-                            text = "-" + playerModel.Damage
-                        });
+                            healthComponent.health -= playerModel.Damage;
                         
-                        dieRequestEvent.NextFrame(new DieRequestEvent
+                            textRequest.NextFrame(new TextViewRequest()
+                            {
+                                position = unitTransform.position,
+                                text = "-" + playerModel.Damage
+                            });
+                        }
+                        else
                         {
-                            entityId = entity.ID
-                        });
+                            ref var zone = ref entity.GetComponent<UnitComponent>().zone;
+                            zone.GetComponent<ZoneComponent>().currentUnitCount--;
                         
-                        stateMachine.SetState<IdleState>();
+                            entity.AddComponent<NotAttackMarker>();
+                        
+                            textRequest.NextFrame(new TextViewRequest()
+                            {
+                                position = unitTransform.position,
+                                text = "-" + playerModel.Damage
+                            });
+                        
+                            dieRequestEvent.NextFrame(new DieRequestEvent
+                            {
+                                entityId = entity.ID
+                            });
+                        
+                            stateMachine.SetState<IdleState>();
+                        }
                     }
                 }
             }
@@ -124,10 +140,30 @@ namespace ECS.Scripts.Components
         
         private bool CanAttackUnit(Transform playerTransform, Transform unitTransform, UnitPlayer unitPlayerModel)
         {
+            var inventory = WorldModels.Default.Get<Inventory>();
             var sqrDistance = Vector3.SqrMagnitude(playerTransform.position
                                                    - unitTransform.position);
+
+            if (!inventory.CurrentItems[ItemType.Weapon].itemStats.isRangeWeapon)
+            {
+                return unitPlayerModel.CanAttack(sqrDistance);
+            }
+
+            Ray ray = new Ray(playerTransform.position, (unitTransform.position 
+                                                         - playerTransform.position).normalized);
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, unitPlayerModel.AttackRange))
+            {
+                Debug.Log(hit.collider.gameObject.name);
+                if (hit.collider.CompareTag("Unit"))
+                {
+                    return true;
+                }
+            }
             
-            return unitPlayerModel.CanAttack(sqrDistance);
+            return false;
         }
     }
 }

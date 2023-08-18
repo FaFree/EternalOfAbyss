@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c57b752cf7945198b1d99b03cb9098c, type: 3}
   m_Name: Levels
   m_EditorClassIdentifier: 
-  levels:
+  prefabs:
   - key: Level1
     address: Assets/Addressables/Levels/Level1.prefab
   - key: Level2
     address: Assets/Addressables/Levels/Level2.prefab
   - key: Level3
     address: Assets/Addressables/Levels/Level3.prefab
-  - key: Level4
-    address: Assets/Addressables/Levels/Level4.prefab
+  - key: Arrow
+    address: Assets/Addressables/YellowGem.prefab

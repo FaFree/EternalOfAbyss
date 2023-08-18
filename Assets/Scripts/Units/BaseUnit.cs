@@ -1,11 +1,19 @@
 using System;
+using System.Collections.Generic;
+using ECS.Scripts.Events;
 using Scripts;
 using Scellecs.Morpeh;
+using Scripts.InventoryFeature;
 
 namespace DefaultNamespace
 {
     public abstract class BaseUnit
     {
+        private float healthWithoutItem;
+        private float damageWithoutItem;
+        private float attackRangeWithouItem;
+        private float speedWithoutItem;
+        
         protected Entity entity;
         public float MaxHealth { get; private set; }
 
@@ -29,6 +37,11 @@ namespace DefaultNamespace
             this.AttackTime = config.attackTime;
             this.AnimationAttackTime = attackAnimationTime / this.AttackTime;
             this.FirstAttackTime = firstAttackTime / AnimationAttackTime;
+
+            this.damageWithoutItem = Damage;
+            this.healthWithoutItem = MaxHealth;
+            this.speedWithoutItem = Speed;
+            this.attackRangeWithouItem = AttackRange;
             
             this.entity = entity;
         }
@@ -59,6 +72,30 @@ namespace DefaultNamespace
         {
             this.Damage += boost.damage;
             this.MaxHealth += boost.health;
+        }
+
+        public virtual void ChangeItem(Dictionary<ItemType, Item> currentItems)
+        {
+            float damage = 0;
+            float speed = 0;
+            float health = 0;
+            float attackRange = 0;
+            
+            foreach (var item in currentItems)
+            {
+                if (item.Value != default)
+                {
+                    damage += item.Value.itemStats.damage;
+                    speed += item.Value.itemStats.speed;
+                    health += item.Value.itemStats.health;
+                    attackRange += item.Value.itemStats.attackRange;
+                }
+            }
+
+            Damage = damageWithoutItem + damage;
+            Speed = speedWithoutItem + speed;
+            MaxHealth = healthWithoutItem + health;
+            AttackRange = attackRangeWithouItem + attackRange;
         }
     }
 }

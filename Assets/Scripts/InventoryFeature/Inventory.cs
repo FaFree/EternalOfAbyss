@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ECS.Scripts.Events.InventoryEvents;
+using Scellecs.Morpeh;
 using Scripts.InventoryFeature.InventoryModel;
 using Scripts.StorageService;
 
@@ -17,7 +19,9 @@ namespace Scripts.InventoryFeature
     public class Inventory
     {
         private const string saveKey = "Inventory";
-        
+
+        private Event<OnItemChanged> onItemChanged;
+
         private IStorageService storageService;
 
         private InventorySaver inventorySaver;
@@ -31,23 +35,16 @@ namespace Scripts.InventoryFeature
             storageService = new JsonFileStorageService();
             
             CurrentItems = new Dictionary<ItemType, Item>();
+            Items = new List<Item>();
         }
 
         public void Initialize()
         {
-            try
-            {
-                Load();
-            }
-            catch
-            {
-                Save();
-            }
-            
+            this.onItemChanged = World.Default.GetEvent<OnItemChanged>();
+
             var itemsMap = WorldModels.Default.Get<Items>().ItemsMap;
-            
-            this.AddItem(itemsMap["DEFAULT_WEAPON"]);
-            
+            this.AddItem(itemsMap["DEFAULT_BOW"]);
+
             CurrentItems.Add(ItemType.Helmet, default);
             CurrentItems.Add(ItemType.Chest, default);
             CurrentItems.Add(ItemType.Weapon, default);
@@ -57,7 +54,7 @@ namespace Scripts.InventoryFeature
             {
                 if (item.isEquip)
                 {
-                    CurrentItems[item.itemType] = item;
+                    Equip(item);
                 }
             }
         }
@@ -113,6 +110,12 @@ namespace Scripts.InventoryFeature
             
             CurrentItems[item.itemType] = item;
             item.isEquip = true;
+            
+            onItemChanged.NextFrame(new OnItemChanged
+            {
+                itemType = item.itemType,
+                itemKey = item.key
+            });
         }
 
         private void Load()

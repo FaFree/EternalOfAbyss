@@ -1,5 +1,7 @@
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
+using Scripts;
+using Scripts.InventoryFeature;
 using State_Machine;
 using State_Machine.MobStateMachine;
 using UnityEngine;
@@ -62,6 +64,8 @@ namespace ECS.Scripts.Components
         {
             foreach (var mobEntity in mobFilter)
             {
+                var inventory = WorldModels.Default.Get<Inventory>();
+                
                 ref var mobTransform = ref mobEntity.GetComponent<TransformComponent>().transform;
 
                 var sqrDistance = Vector3.SqrMagnitude(playerTransform.transform.position
@@ -69,8 +73,24 @@ namespace ECS.Scripts.Components
 
                 var isDie = mobEntity.Has<NotAttackMarker>();
                 var isDieAnimation = mobEntity.Has<DieAnimationMarker>();
-                
-                if (player.UnitPlayerModel.CanAttack(sqrDistance) && !isDie && !isDieAnimation)
+
+                if (inventory.CurrentItems[ItemType.Weapon].itemStats.isRangeWeapon)
+                {
+                    Ray ray = new Ray(playerTransform.transform.position,
+                        (mobTransform.position - playerTransform.transform.position).normalized);
+                    
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(ray, out hit, player.UnitPlayerModel.AttackRange))
+                    {
+                        Debug.Log(hit.collider.gameObject.name);
+                        if (hit.collider.CompareTag("Unit"))
+                        {
+                            return mobEntity;
+                        }
+                    }
+                }
+                else if (player.UnitPlayerModel.CanAttack(sqrDistance) && !isDie && !isDieAnimation)
                 {
                     return mobEntity;
                 }
