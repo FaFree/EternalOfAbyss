@@ -3,15 +3,21 @@ using Scellecs.Morpeh.Systems;
 using State_Machine;
 using State_Machine.MobStateMachine;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace ECS.Scripts.Components.MobStateMachineSystems
 {
     public class IdleUnitStateSystem : UpdateSystem
     {
+        private bool isCorrected;
+        private NavMeshPath path;
+        
         private Filter playerFilter;
         private Filter mobFilter;
         public override void OnAwake()
         {
+            path = new NavMeshPath();
+            
             this.playerFilter = this.World.Filter
                 .With<PlayerComponent>()
                 .With<TransformComponent>();
@@ -35,30 +41,44 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                     ref var unitComponent = ref unitEntity.GetComponent<UnitComponent>();
                     ref var unitModel = ref unitComponent.unit;
                     ref var stateMachine = ref unitComponent.stateMachine;
-                    var radius = unitComponent.zone.GetComponent<ZoneComponent>().radius;
+                    ref var zoneComponent = ref unitComponent.zone.GetComponent<ZoneComponent>();
+                    
+                    var radius = zoneComponent.radius;
 
+                    unitAgent.speed = 0.5f;
+                    
                     var sqrDistanceToDirection = Vector3.SqrMagnitude(unitComponent.DirectionPosition
                                                                       - unitTransform.position);
 
-                    if (unitComponent.DirectionPosition == Vector3.zero || sqrDistanceToDirection <= 1)
+                    if (unitComponent.DirectionPosition == Vector3.zero || sqrDistanceToDirection <= 1.5)
                     {
+                        isCorrected = false;
                         unitAgent.isStopped = true;
-                        
-                        var randomX = Random.Range(unitTransform.position.x - radius,
-                            unitTransform.position.x + radius);
 
-                        var randomZ = Random.Range(unitTransform.position.z - radius,
-                            unitTransform.position.z + radius);
+                        while (isCorrected == false)
+                        {
+                            var randomX = Random.Range(zoneComponent.position.position.x - radius,
+                                zoneComponent.position.position.x + radius);
 
-                        var newPosition = new Vector3(randomX, 0, randomZ);
-                        unitComponent.DirectionPosition = newPosition;
+                            var randomZ = Random.Range(zoneComponent.position.position.z - radius,
+                                zoneComponent.position.position.z + radius);
+
+                            var newPosition = new Vector3(randomX, 0, randomZ);
+                            
+                            unitAgent.CalculatePath(newPosition, path);
+
+                            if (path.status == NavMeshPathStatus.PathComplete)
+                            {
+                                unitComponent.DirectionPosition = newPosition;
+                                unitAgent.SetDestination(unitComponent.DirectionPosition);
+                                unitAgent.isStopped = false;
+                                isCorrected = true;
+                                break;
+                            }
+                        }
                     }
                     
-                    unitAgent.SetDestination(unitComponent.DirectionPosition);
-                    unitAgent.isStopped = false;
                     unitTransform.rotation = Quaternion.LookRotation(unitAgent.velocity.normalized);
-                    
-                    unitTransform.rotation = Quaternion.identity;
                     
                     var sqrDistance = Vector3.SqrMagnitude(playerTransform.transform.position 
                                                            - unitTransform.transform.position);

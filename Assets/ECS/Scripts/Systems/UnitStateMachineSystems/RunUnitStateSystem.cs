@@ -43,10 +43,13 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                     var sqrDistanceToSpawn = Vector3.SqrMagnitude(unitTransform.position
                                                                   - unitComponent.spawnPosition);
 
+                    unitAgent.speed = 3.5f;
+
                     if (sqrDistanceToSpawn > Math.Pow(unitComponent.zone.GetComponent<ZoneComponent>().radius, 2))
                     {
                         unitAgent.isStopped = true;
                         stateMachine.SetState<ComeBackMobState>();
+                        continue;
                     }
                     else if (unitModel.CanAttack(sqrDistance))
                     {

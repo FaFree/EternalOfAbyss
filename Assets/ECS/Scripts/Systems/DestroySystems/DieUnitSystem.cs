@@ -34,6 +34,10 @@ namespace ECS.Scripts.Components
                     if (this.World.TryGetEntity(evt.entityId, out var unit))
                     {
                         ref var healthBar = ref unit.GetComponent<HealthBarComponent>().healthBar;
+                        ref var unitAgent = ref unit.GetComponent<NavMeshAgentComponent>().agent;
+
+                        unitAgent.isStopped = true;
+                        
                         healthBar.fillAmount = 0;
                         unit.GetComponent<HealthComponent>().health = 0;
                         

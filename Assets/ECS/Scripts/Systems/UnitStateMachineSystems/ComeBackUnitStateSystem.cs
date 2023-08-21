@@ -25,7 +25,8 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                 ref var unitTransform = ref unitEntity.GetComponent<TransformComponent>().transform;
                 var unitSpawnPosition = unitComponent.spawnPosition;
                 ref var navMeshAgent = ref unitEntity.GetComponent<NavMeshAgentComponent>().agent;
-                
+
+                navMeshAgent.speed = 3.5f;
                 
                 var direction = unitSpawnPosition - unitTransform.position;
                 direction.y = 0;
