@@ -67,6 +67,12 @@ namespace ECS.Scripts.Components
             {
                 agent = go.GetComponent<NavMeshAgent>()
             });
+            
+            entity.SetComponent(new BoostComponent
+            {
+                isReboundArrow = false,
+                isTripleArrow = false
+            });
         }
 
         public override void OnUpdate(float deltaTime)

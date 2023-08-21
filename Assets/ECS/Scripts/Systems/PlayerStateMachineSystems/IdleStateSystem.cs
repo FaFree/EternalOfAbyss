@@ -74,7 +74,7 @@ namespace ECS.Scripts.Components
                 var isDie = mobEntity.Has<NotAttackMarker>();
                 var isDieAnimation = mobEntity.Has<DieAnimationMarker>();
 
-                if (inventory.CurrentItems[ItemType.Weapon].itemStats.isRangeWeapon)
+                if (inventory.CurrentItems[ItemType.Weapon].itemStats.isRangeWeapon && !isDie && !isDieAnimation)
                 {
                     Ray ray = new Ray(playerTransform.transform.position,
                         (mobTransform.position - playerTransform.transform.position).normalized);
@@ -83,7 +83,6 @@ namespace ECS.Scripts.Components
 
                     if (Physics.Raycast(ray, out hit, player.UnitPlayerModel.AttackRange))
                     {
-                        Debug.Log(hit.collider.gameObject.name);
                         if (hit.collider.CompareTag("Unit"))
                         {
                             return mobEntity;

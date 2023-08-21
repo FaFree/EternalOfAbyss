@@ -10,6 +10,7 @@ public class SkillSpawner : MonoBehaviour
 {
     private const string prefabKey = "Assets/Addressables/Skills/skill.prefab";
     private Boosts boosts;
+    private int previousSkill = -1;
 
     // Start is called before the first frame update
     private void Start()
@@ -25,7 +26,17 @@ public class SkillSpawner : MonoBehaviour
 
             var boostView = go.GetComponent<BoostView>();
 
-            var boost = boosts.BoostsMap.ElementAt(Random.Range(0, boosts.BoostsMap.Count));
+            int skillNum;
+
+            do
+            {
+                skillNum = Random.Range(0, boosts.BoostsMap.Count);
+            } 
+            while (skillNum == previousSkill);
+
+            previousSkill = skillNum;
+            
+            var boost = boosts.BoostsMap.ElementAt(skillNum);
             boostView.Init(boost.Key);
 
             var seq = DOTween.Sequence();

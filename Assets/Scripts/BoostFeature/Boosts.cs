@@ -27,6 +27,10 @@ public struct Boost
     public float health;
     
     public float damage;
+
+    public bool isReboundBoost;
+
+    public bool isTripleArrow;
     
     public Sprite sprite;
 }

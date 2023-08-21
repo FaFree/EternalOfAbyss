@@ -69,6 +69,17 @@ namespace ECS.Scripts.Components
                 ref var playerModel = ref playerEntity.GetComponent<PlayerComponent>().UnitPlayerModel;
                 playerTransform.LookAt(unitTransform);
 
+                if (entity.Has<NotAttackMarker>())
+                {
+                    this.timer = 0f;
+                    
+                    stateMachine.SetState<IdleState>();
+
+                    playerEntity.RemoveComponent<TargetComponent>();
+                    
+                    continue;
+                }
+                
                 if (!this.CanAttackUnit(playerTransform, unitTransform, playerModel))
                 {
                     this.timer = 0f;
@@ -97,8 +108,9 @@ namespace ECS.Scripts.Components
                     {
                         arrowRequest.NextFrame(new ArrowRequest
                         {
-                            direction = playerTransform.position - unitTransform.position,
-                            spawnPosition = playerTransform.position
+                            direction = unitTransform.position - playerTransform.position,
+                            spawnPosition = playerTransform.position,
+                            damage = playerModel.Damage
                         });
                     }
                     else

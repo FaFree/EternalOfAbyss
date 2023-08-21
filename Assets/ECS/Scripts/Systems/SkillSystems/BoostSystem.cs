@@ -37,7 +37,16 @@ namespace ECS.Scripts.Components
             foreach (var evt in boostRequest.BatchedChanges)
             {
                 ref var playerModel = ref playerEntity.GetComponent<PlayerComponent>().UnitPlayerModel;
-                
+                ref var boostComponent = ref playerEntity.GetComponent<BoostComponent>();
+
+                var boost = boosts.BoostsMap[evt.boostKey];
+
+                if (boost.isReboundBoost || boost.isTripleArrow)
+                {
+                    boostComponent.isTripleArrow = boost.isTripleArrow;
+                    boostComponent.isReboundArrow = boost.isReboundBoost;
+                }
+
                 playerModel.AddBoost(boosts.BoostsMap[evt.boostKey]);
 
                 playerEntity.GetComponent<HealthComponent>().health += boosts.BoostsMap[evt.boostKey].heal;

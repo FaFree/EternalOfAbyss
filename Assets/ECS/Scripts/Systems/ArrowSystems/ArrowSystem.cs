@@ -30,6 +30,8 @@ namespace ECS.Scripts.Components
                 ref var arrowComponent = ref arrowEntity.GetComponent<ArrowComponent>();
                 ref var arrowTransform = ref arrowEntity.GetComponent<TransformComponent>().transform;
 
+                arrowTransform.position += arrowComponent.direction * deltaTime;
+                
                 Ray ray = new Ray(arrowTransform.position, arrowComponent.direction.normalized);
                 RaycastHit hit;
 
@@ -43,6 +45,8 @@ namespace ECS.Scripts.Components
                         return;
                     }
                 }
+                
+                
 
                 foreach (var unitEntity in unitFilter)
                 {
@@ -55,18 +59,27 @@ namespace ECS.Scripts.Components
                     {
                         if (healthComponent.health < arrowComponent.damage)
                         {
-                            dieRequest.NextFrame(new DieRequestEvent
+                            if (healthComponent.health != 0)
                             {
-                                entityId = unitEntity.ID
-                            });
+                                ref var zone = ref unitEntity.GetComponent<UnitComponent>().zone;
+                                ref var zoneComponent = ref zone.GetComponent<ZoneComponent>();
+                                zoneComponent.currentUnitCount--;
+                                
+                                dieRequest.NextFrame(new DieRequestEvent
+                                {
+                                    entityId = unitEntity.ID
+                                });
 
-                            healthComponent.health = 0;
+                                healthComponent.health = 0;
                             
-                            textRequest.NextFrame(new TextViewRequest
-                            {
-                                position = unitTransform.position,
-                                text = "-" + arrowComponent.damage
-                            });
+                                textRequest.NextFrame(new TextViewRequest
+                                {
+                                    position = unitTransform.position,
+                                    text = "-" + arrowComponent.damage
+                                });
+                            
+                                unitEntity.AddComponent<NotAttackMarker>();
+                            }
                         }
                         else
                         {
