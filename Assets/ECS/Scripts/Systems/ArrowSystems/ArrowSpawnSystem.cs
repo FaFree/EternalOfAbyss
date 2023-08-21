@@ -40,7 +40,8 @@ namespace ECS.Scripts.Components
             
             foreach (var evt in arrowRequest.BatchedChanges)
             {
-                SpawnArrow(evt.spawnPosition, evt.direction, evt.damage, boostComponent.isTripleArrow, boostComponent.isReboundArrow);
+                var spawnPosition = new Vector3(evt.spawnPosition.x, 0, evt.spawnPosition.z);
+                SpawnArrow(spawnPosition, evt.direction, evt.damage, boostComponent.isTripleArrow, boostComponent.isReboundArrow);
             }
         }
 
