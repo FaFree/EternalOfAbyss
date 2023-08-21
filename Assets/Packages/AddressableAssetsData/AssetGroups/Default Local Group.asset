@@ -85,6 +85,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5187dfa4d8f19524e8bbf7c6894b7de7
+    m_Address: Assets/Addressables/Arrow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - prefabs
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: bc78e5816f38b47e78192b2f6716f131, type: 2}
   m_SchemaSet:

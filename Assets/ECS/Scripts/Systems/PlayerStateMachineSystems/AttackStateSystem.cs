@@ -108,7 +108,7 @@ namespace ECS.Scripts.Components
                     {
                         arrowRequest.NextFrame(new ArrowRequest
                         {
-                            direction = unitTransform.position - playerTransform.position,
+                            direction = (unitTransform.position - playerTransform.position).normalized,
                             spawnPosition = playerTransform.position,
                             damage = playerModel.Damage
                         });
@@ -168,7 +168,6 @@ namespace ECS.Scripts.Components
 
             if (Physics.Raycast(ray, out hit, unitPlayerModel.AttackRange))
             {
-                Debug.Log(hit.collider.gameObject.name);
                 if (hit.collider.CompareTag("Unit"))
                 {
                     return true;

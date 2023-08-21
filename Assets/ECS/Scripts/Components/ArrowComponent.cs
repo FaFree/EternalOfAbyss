@@ -5,6 +5,8 @@ namespace ECS.Scripts.Components
 {
     public struct ArrowComponent : IComponent
     {
+        public float currentDuration;
+        public float maxDuration;
         public float speed;
         public float damage;
 

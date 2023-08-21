@@ -20,4 +20,4 @@ MonoBehaviour:
   - key: Level3
     address: Assets/Addressables/Levels/Level3.prefab
   - key: Arrow
-    address: Assets/Addressables/YellowGem.prefab
+    address: Assets/Addressables/Arrow.prefab

@@ -1,3 +1,4 @@
+using System.Linq;
 using DG.Tweening;
 using ECS.Scripts.Events;
 using Scellecs.Morpeh;
@@ -45,19 +46,23 @@ namespace ECS.Scripts.Components
 
         private void SpawnArrow(Vector3 spawnPosition, Vector3 direction, float damage, bool isTripleArrow, bool isRebound)
         {
-            var go = Instantiate(arrowPrefab, spawnPosition, Quaternion.identity);
-            
-            go.transform.LookAt(direction);
+            var playerEntity = playerFilter.FirstOrDefault();
+            ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
 
+            var go = Instantiate(arrowPrefab, spawnPosition,
+                Quaternion.Euler(0, playerTransform.rotation.eulerAngles.y, 0));
+            
             var entity = this.World.CreateEntity();
             
             entity.SetComponent(new ArrowComponent
             {
                 damage = damage,
-                speed = 5,
-                direction = direction,
+                speed = 10,
+                direction = direction.normalized,
                 isRebound = isRebound,
-                collisionCount = 4
+                collisionCount = 4,
+                maxDuration = 10,
+                currentDuration = 0
             });
             
             entity.SetComponent(new TransformComponent
@@ -67,12 +72,12 @@ namespace ECS.Scripts.Components
 
             if (isTripleArrow)
             {
-                float angleFirstArrow = go.transform.rotation.eulerAngles.y;
-                
-                float angleOffSet = 45f;
+                float angleFirstArrow = playerTransform.rotation.eulerAngles.y;
+
+                float angleOffSet = 15f;
                 float angle1 = angleFirstArrow + angleOffSet;
                 float angle2 = angleFirstArrow - angleOffSet;
-                
+
                 Quaternion rotation1 = Quaternion.Euler(0, angle1, 0);
                 Quaternion rotation2 = Quaternion.Euler(0, angle2, 0);
 
@@ -82,34 +87,33 @@ namespace ECS.Scripts.Components
                 var entity1 = this.World.CreateEntity();
                 var entity2 = this.World.CreateEntity();
                 
-                entity1.SetComponent(new ArrowComponent
-                {
-                    damage = damage,
-                    collisionCount = 4,
-                    speed = 5,
-                    direction = go1.transform.forward,
-                    isRebound = isRebound
-                });
-                
-                entity2.SetComponent(new ArrowComponent
-                {
-                    damage = damage,
-                    collisionCount = 4,
-                    speed = 5,
-                    direction = go2.transform.forward,
-                    isRebound = isRebound
-                });
-                
-                entity1.SetComponent(new TransformComponent
-                {
-                    transform = go1.transform
-                });
-                
-                entity2.SetComponent(new TransformComponent
-                {
-                    transform = go2.transform
-                });
+                SpawnEntity(damage, 3, 10, go1.transform.forward.normalized, isRebound, go1.transform);
+                SpawnEntity(damage, 3, 10, go2.transform.forward.normalized, isRebound, go2.transform);
+
             }
         }
+
+        private void SpawnEntity(float damage, int collisionCount, float speed, Vector3 direction, bool isRebound, Transform transform)
+        {
+            var entity = this.World.CreateEntity();
+            
+            entity.SetComponent(new ArrowComponent
+            {
+                collisionCount = collisionCount,
+                damage = damage,
+                speed = speed,
+                direction = direction,
+                isRebound = isRebound,
+                maxDuration = 10,
+                currentDuration = 0
+            });
+            
+            entity.SetComponent(new TransformComponent
+            {
+                transform = transform
+                
+            });
+        }
+        
     }
 }

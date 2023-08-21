@@ -8,8 +8,12 @@ namespace ECS.Scripts.Components
 {
     public class ArrowSystem : UpdateSystem
     {
+        private float minBounceAngle = 20f;
+        private float maxBounceAngle = 90f;
+        
         private Filter unitFilter;
         private Filter arrowFilter;
+        private Filter playerFilter;
 
         private Event<DieRequestEvent> dieRequest;
         private Event<TextViewRequest> textRequest;
@@ -18,6 +22,7 @@ namespace ECS.Scripts.Components
         {
             this.arrowFilter = this.World.Filter.With<ArrowComponent>();
             this.unitFilter = this.World.Filter.With<UnitComponent>();
+            this.playerFilter = this.World.Filter.With<PlayerComponent>();
 
             this.dieRequest = this.World.GetEvent<DieRequestEvent>();
             this.textRequest = this.World.GetEvent<TextViewRequest>();
@@ -29,8 +34,21 @@ namespace ECS.Scripts.Components
             {
                 ref var arrowComponent = ref arrowEntity.GetComponent<ArrowComponent>();
                 ref var arrowTransform = ref arrowEntity.GetComponent<TransformComponent>().transform;
+                
+                var playerEntity = playerFilter.FirstOrDefault();
+                ref var boostComponent = ref playerEntity.GetComponent<BoostComponent>();
 
-                arrowTransform.position += arrowComponent.direction * deltaTime;
+                arrowComponent.currentDuration += deltaTime;
+
+                if (arrowComponent.currentDuration > arrowComponent.maxDuration)
+                {
+                    Destroy(arrowTransform.gameObject);
+                    this.World.RemoveEntity(arrowEntity);
+                    return;
+                }
+                
+
+                arrowTransform.position += arrowComponent.direction * (deltaTime * arrowComponent.speed);
                 
                 Ray ray = new Ray(arrowTransform.position, arrowComponent.direction.normalized);
                 RaycastHit hit;
@@ -39,14 +57,31 @@ namespace ECS.Scripts.Components
                 {
                     if (hit.collider.CompareTag("Walls"))
                     {
-                        arrowTransform.DOKill();
-                        Destroy(arrowTransform.gameObject);
-                        this.World.RemoveEntity(arrowEntity);
-                        return;
+                        if (arrowComponent.collisionCount > 0 && boostComponent.isReboundArrow)
+                        {
+                            var incomingDirection = arrowComponent.direction;
+                            var normal = hit.normal;
+
+                            var angle = Vector3.Angle(incomingDirection, normal);
+                            var bounceAngle = Mathf.Lerp(minBounceAngle, maxBounceAngle, angle / 180);
+
+                            var newDirection = Vector3.Reflect(incomingDirection, normal);
+                            
+                            arrowComponent.direction = new Vector3(newDirection.x, 0, newDirection.z).normalized;
+
+                            Quaternion rotation = Quaternion.LookRotation(arrowComponent.direction);
+
+                            arrowTransform.rotation = rotation;
+                            arrowComponent.collisionCount--;
+                        }
+                        else
+                        {
+                            Destroy(arrowTransform.gameObject);
+                            this.World.RemoveEntity(arrowEntity);
+                            return;
+                        }
                     }
                 }
-                
-                
 
                 foreach (var unitEntity in unitFilter)
                 {
@@ -77,8 +112,15 @@ namespace ECS.Scripts.Components
                                     position = unitTransform.position,
                                     text = "-" + arrowComponent.damage
                                 });
+                                
+                                if (!unitEntity.Has<NotAttackMarker>())
+                                {
+                                    Destroy(arrowTransform.gameObject);
+                                    this.World.RemoveEntity(arrowEntity);
+                                }
                             
                                 unitEntity.AddComponent<NotAttackMarker>();
+                                return;
                             }
                         }
                         else
@@ -90,12 +132,14 @@ namespace ECS.Scripts.Components
                                 position = unitTransform.position,
                                 text = "-" + arrowComponent.damage
                             });
+                            
+                            if (!unitEntity.Has<NotAttackMarker>())
+                            {
+                                Destroy(arrowTransform.gameObject);
+                                this.World.RemoveEntity(arrowEntity);
+                                return;
+                            }
                         }
-                        
-                        arrowTransform.DOKill();
-                        Destroy(arrowTransform.gameObject);
-                        this.World.RemoveEntity(arrowEntity);
-                        return;
                     }
                 }
             }
