@@ -50,6 +50,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5d74ad572c5754949874233a4e1dd24f, type: 2}
   updateSystems:
   - enabled: 1
+    system: {fileID: 11400000, guid: ef93fc7af002e46c189d42d3ba07c37a, type: 2}
+  - enabled: 1
     system: {fileID: 11400000, guid: 4054bdbc7a40b4bb48ff9ef00fb83a85, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: 8a19c2558bd51463895d6657bbe5baca, type: 2}
@@ -105,8 +107,6 @@ MonoBehaviour:
     system: {fileID: 11400000, guid: 93b855bef8d20465bb437cfde5a2b77a, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: dbc6e4eb86cef4b1187e7de9a67b7e4a, type: 2}
-  - enabled: 1
-    system: {fileID: 11400000, guid: ef93fc7af002e46c189d42d3ba07c37a, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: e1d2d417f476f4ecb83141a43b7194df, type: 2}
   - enabled: 1

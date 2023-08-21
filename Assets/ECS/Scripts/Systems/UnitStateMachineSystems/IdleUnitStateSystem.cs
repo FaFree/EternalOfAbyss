@@ -52,29 +52,26 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
 
                     if (unitComponent.DirectionPosition == Vector3.zero || sqrDistanceToDirection <= 1.5)
                     {
+                        
                         isCorrected = false;
                         unitAgent.isStopped = true;
+                        
+                        var randomX = Random.Range(zoneComponent.position.position.x - radius,
+                            zoneComponent.position.position.x + radius);
 
-                        while (isCorrected == false)
+                        var randomZ = Random.Range(zoneComponent.position.position.z - radius,
+                            zoneComponent.position.position.z + radius);
+
+                        var newPosition = new Vector3(randomX, 0, randomZ);
+                        
+                        unitAgent.CalculatePath(newPosition, path);
+
+                        if (path.status == NavMeshPathStatus.PathComplete)
                         {
-                            var randomX = Random.Range(zoneComponent.position.position.x - radius,
-                                zoneComponent.position.position.x + radius);
-
-                            var randomZ = Random.Range(zoneComponent.position.position.z - radius,
-                                zoneComponent.position.position.z + radius);
-
-                            var newPosition = new Vector3(randomX, 0, randomZ);
-                            
-                            unitAgent.CalculatePath(newPosition, path);
-
-                            if (path.status == NavMeshPathStatus.PathComplete)
-                            {
-                                unitComponent.DirectionPosition = newPosition;
-                                unitAgent.SetDestination(unitComponent.DirectionPosition);
-                                unitAgent.isStopped = false;
-                                isCorrected = true;
-                                break;
-                            }
+                            unitComponent.DirectionPosition = newPosition;
+                            unitAgent.SetDestination(unitComponent.DirectionPosition);
+                            unitAgent.isStopped = false;
+                            isCorrected = true;
                         }
                     }
                     
