@@ -11,7 +11,9 @@ namespace ECS.Scripts.Components
         public float damage;
 
         public int collisionCount;
+        public int passingCount;
 
+        public bool isPassing;
         public bool isRebound;
 
         public Vector3 direction;

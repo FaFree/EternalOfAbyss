@@ -22,6 +22,11 @@ namespace ECS.Scripts.Components
 
             boostRequest = this.World.GetEvent<BoostRequest>();
             textRequest = this.World.GetEvent<TextViewRequest>();
+            
+            boostRequest.NextFrame(new BoostRequest
+            {
+                boostKey = "PassingArrow"
+            });
         }
 
         public override void OnUpdate(float deltaTime)
@@ -41,10 +46,11 @@ namespace ECS.Scripts.Components
 
                 var boost = boosts.BoostsMap[evt.boostKey];
 
-                if (boost.isReboundBoost || boost.isTripleArrow)
+                if (boost.isReboundBoost || boost.isTripleArrow || boost.isPassingArrow)
                 {
-                    boostComponent.isTripleArrow = boost.isTripleArrow;
-                    boostComponent.isReboundArrow = boost.isReboundBoost;
+                    boostComponent.isTripleArrow = boostComponent.isTripleArrow || boost.isTripleArrow;
+                    boostComponent.isReboundArrow = boostComponent.isReboundArrow || boost.isReboundBoost;
+                    boostComponent.isPassingArrow = boostComponent.isPassingArrow || boost.isPassingArrow;
                 }
 
                 playerModel.AddBoost(boosts.BoostsMap[evt.boostKey]);

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Items
   m_EditorClassIdentifier: 
   items:
-  - itemId: 1f5de5a7-4c91-4cc1-b2aa-69944bfa4ccc
+  - itemId: fe68c40d-7c21-435b-b692-85b8402c8b43
     key: DEFAULT_WEAPON
     itemType: 2
     itemStats:
@@ -21,9 +21,10 @@ MonoBehaviour:
       attackRange: 2
       health: 0
       speed: 0
+      attackSpeed: 0
       isRangeWeapon: 0
     isEquip: 1
-  - itemId: 95a2b5d5-0166-402f-ab65-e3ebfcadf92a
+  - itemId: aaec1bb2-d1ea-454e-ab3e-703ce54d8a59
     key: DEFAULT_BOW
     itemType: 2
     itemStats:
@@ -31,5 +32,6 @@ MonoBehaviour:
       attackRange: 5
       health: 0
       speed: 0
+      attackSpeed: 1
       isRangeWeapon: 1
     isEquip: 1

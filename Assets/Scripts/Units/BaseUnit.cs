@@ -14,6 +14,9 @@ namespace DefaultNamespace
         private float attackRangeWithouItem;
         private float speedWithoutItem;
         
+        private float attackAnimationTime;
+        private float firstAttackTime;
+        
         protected Entity entity;
         public float MaxHealth { get; private set; }
 
@@ -42,6 +45,9 @@ namespace DefaultNamespace
             this.healthWithoutItem = MaxHealth;
             this.speedWithoutItem = Speed;
             this.attackRangeWithouItem = AttackRange;
+
+            this.attackAnimationTime = attackAnimationTime;
+            this.firstAttackTime = firstAttackTime;
             
             this.entity = entity;
         }
@@ -80,7 +86,7 @@ namespace DefaultNamespace
             float speed = 0;
             float health = 0;
             float attackRange = 0;
-            
+
             foreach (var item in currentItems)
             {
                 if (item.Value != default)
@@ -89,6 +95,13 @@ namespace DefaultNamespace
                     speed += item.Value.itemStats.speed;
                     health += item.Value.itemStats.health;
                     attackRange += item.Value.itemStats.attackRange;
+
+                    if (item.Value.itemType == ItemType.Weapon)
+                    {
+                        this.AttackTime = item.Value.itemStats.attackSpeed;
+                        this.AnimationAttackTime = attackAnimationTime / this.AttackTime;
+                        this.FirstAttackTime = firstAttackTime / AnimationAttackTime;
+                    }
                 }
             }
 

@@ -60,8 +60,8 @@ namespace ECS.Scripts
                         {
                             ResourceName = resource.ResourceType
                         });
-                        
-                        DOTween.Kill(resourceComponent.sequenceId);
+
+                        resourceTransform.DOKill();
                         
                         Destroy(resourceTransform.gameObject);
                         this.World.RemoveEntity(resourceEntity);

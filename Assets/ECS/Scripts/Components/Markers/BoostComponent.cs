@@ -6,5 +6,6 @@ namespace ECS.Scripts.Components
     {
         public bool isReboundArrow;
         public bool isTripleArrow;
+        public bool isPassingArrow;
     }
 }

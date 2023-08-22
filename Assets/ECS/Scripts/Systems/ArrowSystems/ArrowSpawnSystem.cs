@@ -41,11 +41,14 @@ namespace ECS.Scripts.Components
             foreach (var evt in arrowRequest.BatchedChanges)
             {
                 var spawnPosition = new Vector3(evt.spawnPosition.x, 0, evt.spawnPosition.z);
-                SpawnArrow(spawnPosition, evt.direction, evt.damage, boostComponent.isTripleArrow, boostComponent.isReboundArrow);
+                
+                SpawnArrow(spawnPosition, evt.direction, evt.damage, 
+                    boostComponent.isTripleArrow, boostComponent.isReboundArrow, boostComponent.isPassingArrow);
             }
         }
 
-        private void SpawnArrow(Vector3 spawnPosition, Vector3 direction, float damage, bool isTripleArrow, bool isRebound)
+        private void SpawnArrow(Vector3 spawnPosition, Vector3 direction, float damage, 
+            bool isTripleArrow, bool isRebound, bool isPassing)
         {
             var playerEntity = playerFilter.FirstOrDefault();
             ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
@@ -63,7 +66,9 @@ namespace ECS.Scripts.Components
                 isRebound = isRebound,
                 collisionCount = 4,
                 maxDuration = 10,
-                currentDuration = 0
+                currentDuration = 0,
+                passingCount = 1,
+                isPassing = isPassing
             });
             
             entity.SetComponent(new TransformComponent
@@ -75,7 +80,7 @@ namespace ECS.Scripts.Components
             {
                 float angleFirstArrow = playerTransform.rotation.eulerAngles.y;
 
-                float angleOffSet = 15f;
+                float angleOffSet = 30f;
                 float angle1 = angleFirstArrow + angleOffSet;
                 float angle2 = angleFirstArrow - angleOffSet;
 
@@ -88,13 +93,14 @@ namespace ECS.Scripts.Components
                 var entity1 = this.World.CreateEntity();
                 var entity2 = this.World.CreateEntity();
                 
-                SpawnEntity(damage, 3, 10, go1.transform.forward.normalized, isRebound, go1.transform);
-                SpawnEntity(damage, 3, 10, go2.transform.forward.normalized, isRebound, go2.transform);
+                SpawnEntity(damage, 3, 10, go1.transform.forward.normalized, isRebound, go1.transform, isPassing);
+                SpawnEntity(damage, 3, 10, go2.transform.forward.normalized, isRebound, go2.transform, isPassing);
 
             }
         }
 
-        private void SpawnEntity(float damage, int collisionCount, float speed, Vector3 direction, bool isRebound, Transform transform)
+        private void SpawnEntity(float damage, int collisionCount, float speed, 
+            Vector3 direction, bool isRebound, Transform transform, bool isPassing)
         {
             var entity = this.World.CreateEntity();
             
@@ -106,13 +112,14 @@ namespace ECS.Scripts.Components
                 direction = direction,
                 isRebound = isRebound,
                 maxDuration = 10,
-                currentDuration = 0
+                currentDuration = 0,
+                isPassing = isPassing,
+                passingCount = 1
             });
             
             entity.SetComponent(new TransformComponent
             {
                 transform = transform
-                
             });
         }
         

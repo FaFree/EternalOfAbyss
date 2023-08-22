@@ -37,6 +37,8 @@ namespace Scripts.InventoryFeature
 
         public float speed;
 
+        public float attackSpeed;
+
         public bool isRangeWeapon;
     }
 }

@@ -13,12 +13,11 @@ namespace ECS.Scripts
 {
     public class ResourceSpawnSystem : UpdateSystem
     {
-        private const int MAX_COUNT = 10;
+        private const int MAX_COUNT = 1;
         
         private const float DIE_ANIMATION_TIME = 3.25f;
 
         private const string COIN_PREFAB = "Assets/Addressables/coin.prefab";
-        private const string XP_PREFAB = "Assets/Addressables/YellowGem.prefab";
 
         private Filter unitDieFilter;
         
@@ -56,23 +55,14 @@ namespace ECS.Scripts
                     var spawnPosition = unitTransform.position + unitTransform.forward * 2;
 
                     var coinReward = unitComponent.coinReward;
-
-                    var xpReward = unitComponent.xpReward;
                     
                     var coinCount = Math.Min(coinReward, MAX_COUNT);
-                    var xpCount = Math.Min(xpReward, MAX_COUNT);
                     
                     var coinPrice = coinReward / coinCount;
-                    var xpPrice = xpReward / xpCount;
                     
                     for (int i = 0; i < coinCount; i++)
                     {
                         SpawnResource(spawnPosition, coinPrice, COIN_PREFAB, "Coin", 0.15f);
-                    }
-
-                    for (int i = 0; i < xpCount; i++)
-                    {
-                        SpawnResource(spawnPosition, xpPrice, XP_PREFAB, "Exp", 0.75f);
                     }
 
                     unit.RemoveComponent<DieAnimationMarker>();
@@ -90,18 +80,11 @@ namespace ECS.Scripts
             var prefabGo = Addressables.LoadAssetAsync<GameObject>(prefab).WaitForCompletion();
             
             var go = Instantiate(prefabGo, unitPosition, Quaternion.identity);
-
-            var seq = DOTween.Sequence();
             
             go.transform.DOJump(Random.insideUnitSphere * radius + unitPosition + Vector3.up, 3, 1, 0.5f, false);
 
-            var firstScale = go.transform.localScale;
-            
-            seq.Append(go.transform.DOScale(Vector3.one * scaleMax, 1));
-            seq.Append(go.transform.DOScale(firstScale, 1));
+            go.transform.DOScale(Vector3.one * scaleMax, 1).SetLoops(-1, LoopType.Yoyo);
 
-            seq.SetLoops(-1);
-            
             var entity = this.World.CreateEntity();
             
             entity.SetComponent(new ResourceComponent
@@ -109,7 +92,6 @@ namespace ECS.Scripts
                 transform = go.transform,
                 reward = reward,
                 resourceType = resourceType,
-                sequenceId = seq.intId
             });
         }
     }

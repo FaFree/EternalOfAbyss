@@ -1,9 +1,11 @@
 using ECS.Scripts.Events;
+using ECS.Scripts.Events.BankEvents;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using State_Machine.MobStateMachine;
 using Unity.VisualScripting;
 using UnityEngine;
+using Resources = ResourceFeature.Resources;
 
 namespace ECS.Scripts.Components
 {
@@ -15,11 +17,13 @@ namespace ECS.Scripts.Components
 
         private Event<DieRequestEvent> dieRequestEvent;
         private Event<DestroyUnitRequestEvent> destroyUnitRequestEvent;
+        private Event<OnResourceChanged> onResourceChanged;
 
         public override void OnAwake()
         {
             this.dieRequestEvent = this.World.GetEvent<DieRequestEvent>();
             this.destroyUnitRequestEvent = this.World.GetEvent<DestroyUnitRequestEvent>();
+            this.onResourceChanged = this.World.GetEvent<OnResourceChanged>();
 
             this.unitDieFilter = this.World.Filter.With<DieStateMarker>();
 
@@ -49,12 +53,24 @@ namespace ECS.Scripts.Components
             foreach (var unitEntity in unitDieFilter)
             {
                 ref var dieMarker = ref unitEntity.GetComponent<DieStateMarker>();
-                
+
                 if (dieMarker.timer > AnimationDieTime)
+                {
                     destroyUnitRequestEvent.NextFrame(new DestroyUnitRequestEvent
                     {
                         entityId = unitEntity.ID
                     });
+
+                    var res = Resources.GetResource("Exp");
+
+                    res.AddResource(unitEntity.GetComponent<UnitComponent>().xpReward);
+                    
+                    onResourceChanged.NextFrame(new OnResourceChanged
+                    {
+                        ResourceName = res.ResourceType
+                    });
+                }
+                    
                 else
                 {
                     dieMarker.timer += deltaTime;

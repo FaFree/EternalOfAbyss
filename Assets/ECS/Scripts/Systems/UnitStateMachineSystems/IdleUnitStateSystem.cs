@@ -1,7 +1,7 @@
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
-using State_Machine;
 using State_Machine.MobStateMachine;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,7 +9,6 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
 {
     public class IdleUnitStateSystem : UpdateSystem
     {
-        private bool isCorrected;
         private NavMeshPath path;
         
         private Filter playerFilter;
@@ -52,28 +51,32 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
 
                     if (unitComponent.DirectionPosition == Vector3.zero || sqrDistanceToDirection <= 1.5)
                     {
-                        
-                        isCorrected = false;
-                        unitAgent.isStopped = true;
-                        
-                        var randomX = Random.Range(zoneComponent.position.position.x - radius,
-                            zoneComponent.position.position.x + radius);
-
-                        var randomZ = Random.Range(zoneComponent.position.position.z - radius,
-                            zoneComponent.position.position.z + radius);
-
-                        var newPosition = new Vector3(randomX, 0, randomZ);
-                        
-                        unitAgent.CalculatePath(newPosition, path);
-
-                        if (path.status == NavMeshPathStatus.PathComplete)
+                        if (unitAgent.isOnNavMesh)
                         {
-                            unitComponent.DirectionPosition = newPosition;
-                            unitAgent.SetDestination(unitComponent.DirectionPosition);
-                            unitAgent.isStopped = false;
-                            isCorrected = true;
+                            var randomX = Random.Range(zoneComponent.position.position.x - radius,
+                                zoneComponent.position.position.x + radius);
+
+                            var randomZ = Random.Range(zoneComponent.position.position.z - radius,
+                                zoneComponent.position.position.z + radius);
+
+                            var newPosition = new Vector3(randomX, 0, randomZ);
+                        
+                            unitAgent.CalculatePath(newPosition, path);
+
+                            if (path.status == NavMeshPathStatus.PathComplete)
+                            {
+                                unitComponent.DirectionPosition = newPosition;
+                                unitAgent.isStopped = false;
+                            }
                         }
                     }
+
+                    if (!unitAgent.hasPath)
+                    {
+                        unitAgent.SetDestination(unitComponent.DirectionPosition);
+                    }
+
+                    unitAgent.isStopped = false;
                     
                     unitTransform.rotation = Quaternion.LookRotation(unitAgent.velocity.normalized);
                     
@@ -83,6 +86,7 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                     if (unitModel.CanAttack(sqrDistance))
                     {
                         unitAgent.isStopped = true;
+                        unitComponent.DirectionPosition = Vector3.zero;
                         stateMachine.SetState<AttackMobState>();
                     }
                 }

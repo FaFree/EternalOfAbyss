@@ -42,17 +42,18 @@ public class BoostView : MonoBehaviour
         {
             boostKey = boostKey,
         });
-
+        
         button.interactable = false;
         
         parent = this.gameObject.transform.parent;
-
+        
         var seq = DOTween.Sequence();
         
         seq.Append(parent.DOMoveY(-600, 2, false));
-
-        seq.OnComplete(() =>
+        
+        seq.AppendCallback(() =>
         {
+            seq.Kill();
             Destroy(parent.parent.gameObject);
         });
     }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using DG.Tweening;
 using ECS.Scripts.Events;
 using Scellecs.Morpeh;
@@ -7,6 +8,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.PlayerLoop;
+using Sequence = DG.Tweening.Sequence;
 
 namespace ECS.Scripts.Components
 {
@@ -17,6 +19,7 @@ namespace ECS.Scripts.Components
         private const string DAMAGE_PREFAB = "Assets/Addressables/DamageText.prefab";
 
         private GameObject prefab;
+
         public override void OnAwake()
         {
             this.textRequest = this.World.GetEvent<TextViewRequest>();
@@ -40,14 +43,14 @@ namespace ECS.Scripts.Components
             
             var go = Instantiate(prefab, position, Quaternion.identity);
 
-            go.GetComponent<TextMeshPro>().text = text;
-            
+            go.GetComponentInChildren<TextMeshPro>().text = text;
+
             var seq = DOTween.Sequence();
             
             seq.Append(go.transform.DOMove(position + Vector3.up, 1, false));
             seq.Join(go.transform.DOScale(Vector3.one * 0.5f, 1));
             
-            seq.OnComplete(() =>
+            seq.OnKill(() =>
             {
                 Destroy(go);
             });

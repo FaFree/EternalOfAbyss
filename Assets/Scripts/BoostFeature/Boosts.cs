@@ -31,6 +31,8 @@ public struct Boost
     public bool isReboundBoost;
 
     public bool isTripleArrow;
+
+    public bool isPassingArrow;
     
     public Sprite sprite;
 }

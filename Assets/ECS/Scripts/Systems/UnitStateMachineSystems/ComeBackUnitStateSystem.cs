@@ -36,8 +36,14 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                     if (!navMeshAgent.hasPath)
                     {
                         navMeshAgent.SetDestination(unitSpawnPosition);
-                        navMeshAgent.isStopped = false;
                     }
+                    else
+                    {
+                        navMeshAgent.ResetPath();
+                        navMeshAgent.SetDestination(unitSpawnPosition);
+                    }
+                    
+                    navMeshAgent.isStopped = false;
                     unitTransform.rotation = Quaternion.LookRotation(navMeshAgent.velocity.normalized);
                 }
                 else

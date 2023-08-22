@@ -1,16 +1,13 @@
-using DG.Tweening;
 using ECS.Scripts.Events;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
+using State_Machine.MobStateMachine;
 using UnityEngine;
 
 namespace ECS.Scripts.Components
 {
     public class ArrowSystem : UpdateSystem
     {
-        private float minBounceAngle = 20f;
-        private float maxBounceAngle = 90f;
-        
         private Filter unitFilter;
         private Filter arrowFilter;
         private Filter playerFilter;
@@ -61,10 +58,7 @@ namespace ECS.Scripts.Components
                         {
                             var incomingDirection = arrowComponent.direction;
                             var normal = hit.normal;
-
-                            var angle = Vector3.Angle(incomingDirection, normal);
-                            var bounceAngle = Mathf.Lerp(minBounceAngle, maxBounceAngle, angle / 180);
-
+                            
                             var newDirection = Vector3.Reflect(incomingDirection, normal);
                             
                             arrowComponent.direction = new Vector3(newDirection.x, 0, newDirection.z).normalized;
@@ -115,17 +109,36 @@ namespace ECS.Scripts.Components
                                 
                                 if (!unitEntity.Has<NotAttackMarker>())
                                 {
-                                    Destroy(arrowTransform.gameObject);
-                                    this.World.RemoveEntity(arrowEntity);
+                                    if (arrowComponent.isPassing == false || arrowComponent.passingCount == 0)
+                                    {
+                                        Destroy(arrowTransform.gameObject);
+                                        this.World.RemoveEntity(arrowEntity);
+                                        unitEntity.AddComponent<NotAttackMarker>();
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        arrowComponent.passingCount--;
+                                        unitEntity.AddComponent<NotAttackMarker>();
+                                        return;
+                                    }
                                 }
-                            
-                                unitEntity.AddComponent<NotAttackMarker>();
-                                return;
                             }
                         }
                         else
                         {
                             healthComponent.health -= arrowComponent.damage;
+
+                            ref var unitComponent = ref unitEntity.GetComponent<UnitComponent>();
+
+                            ref var stateMachine = ref unitComponent.stateMachine;
+                            ref var navMesh = ref unitEntity.GetComponent<NavMeshAgentComponent>().agent;
+                            
+                            unitComponent.DirectionPosition = Vector3.zero;
+                            
+                            navMesh.isStopped = true;
+                            
+                            stateMachine.SetState<AttackMobState>();
                             
                             textRequest.NextFrame(new TextViewRequest
                             {
@@ -133,11 +146,16 @@ namespace ECS.Scripts.Components
                                 text = "-" + arrowComponent.damage
                             });
                             
-                            if (!unitEntity.Has<NotAttackMarker>())
+                            if (arrowComponent.isPassing == false || arrowComponent.passingCount == 0)
                             {
                                 Destroy(arrowTransform.gameObject);
                                 this.World.RemoveEntity(arrowEntity);
                                 return;
+                            }
+                            else
+                            {
+                                arrowComponent.passingCount--;
+                                arrowTransform.position += arrowComponent.direction.normalized;
                             }
                         }
                     }

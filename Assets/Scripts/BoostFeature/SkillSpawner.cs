@@ -12,6 +12,8 @@ public class SkillSpawner : MonoBehaviour
     private Boosts boosts;
     private int previousSkill = -1;
 
+    private Sequence sequence;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -26,25 +28,17 @@ public class SkillSpawner : MonoBehaviour
 
             var boostView = go.GetComponent<BoostView>();
 
-            int skillNum;
+            int skillNum =  Random.Range(0, boosts.BoostsMap.Count);
 
-            do
+            if (skillNum == previousSkill)
             {
-                skillNum = Random.Range(0, boosts.BoostsMap.Count);
-            } 
-            while (skillNum == previousSkill);
+                skillNum = (skillNum + 1) % boosts.BoostsMap.Count;
+            }
 
             previousSkill = skillNum;
             
             var boost = boosts.BoostsMap.ElementAt(skillNum);
             boostView.Init(boost.Key);
-
-            var seq = DOTween.Sequence();
-
-            seq.Append(go.transform.DOScale(Vector3.one * 1.2f, 2));
-            seq.Append(go.transform.DOScale(Vector3.one * 0.8f, 2));
-
-            seq.SetLoops(-1);
         }
     }
 }
