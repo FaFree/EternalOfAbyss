@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7931096692366878871}
-  - component: {fileID: 8882031734647146500}
   m_Layer: 5
   m_Name: Coins
   m_TagString: Untagged
@@ -29,8 +28,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8096063872171701820}
   - {fileID: 6650080174688140427}
+  - {fileID: 8096063872171701820}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -38,18 +37,6 @@ RectTransform:
   m_AnchoredPosition: {x: 225, y: 770}
   m_SizeDelta: {x: -450, y: -1540}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8882031734647146500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7042300146531768419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318ae3baef104764acc8789cd63454bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7292467124576166221
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,6 +48,7 @@ GameObject:
   - component: {fileID: 6650080174688140427}
   - component: {fileID: 7791448065835410329}
   - component: {fileID: 6793585393159977831}
+  - component: {fileID: 4588331074849738346}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -75,7 +63,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7292467124576166221}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -84,8 +72,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 60}
+  m_AnchoredPosition: {x: 0, y: -7}
+  m_SizeDelta: {x: 170, y: 60}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &7791448065835410329
 CanvasRenderer:
@@ -184,6 +172,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4588331074849738346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7292467124576166221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef5c2c1174c44525bfed137c96f1c1f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    text: {fileID: 6793585393159977831}
 --- !u!1 &7584038674372943887
 GameObject:
   m_ObjectHideFlags: 0
