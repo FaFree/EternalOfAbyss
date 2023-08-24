@@ -7,6 +7,7 @@ public class ResumeButtonClick : MonoBehaviour
 {
     public void OnClick()
     {
-        this.transform.DOScale(0, 0.5f).OnComplete(() => this.gameObject.SetActive(false));
+        Time.timeScale = 1f;
+        this.gameObject.GetComponent<CanvasGroup>().DOFade(0, 0.5f).OnComplete(() => this.gameObject.SetActive(false));
     }
 }

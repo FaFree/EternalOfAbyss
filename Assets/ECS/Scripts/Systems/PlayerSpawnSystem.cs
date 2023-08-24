@@ -2,6 +2,7 @@ using DefaultNamespace;
 using Scripts;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
+using Scripts.InventoryFeature;
 using State_Machine;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -52,6 +53,8 @@ namespace ECS.Scripts.Components
                 animator = anim,
                 UnitPlayerModel = unitPlayer
             });
+            
+            unitPlayer.ChangeItem(WorldModels.Default.Get<Inventory>().CurrentItems);
             
             entity.SetComponent(new HealthBarComponent
             {

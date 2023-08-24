@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 
@@ -21,6 +22,8 @@ namespace ECS.Scripts.Components
             {
                 this.World.RemoveEntity(entity);
             }
+
+            DOTween.KillAll();
             
             base.Dispose();
         }

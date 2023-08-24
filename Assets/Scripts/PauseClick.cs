@@ -8,6 +8,10 @@ public class PauseClick : MonoBehaviour
     public void OnClick()
     {
         pauseMenu.SetActive(true);
-        pauseMenu.transform.DOScale(1, 1);
+        var groupCanvas = pauseMenu.GetComponent<CanvasGroup>();
+
+        Time.timeScale = 0f;
+        
+        groupCanvas.DOFade(1, 1);
     }
 }

@@ -4,8 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelRestart : MonoBehaviour
 {
-    private const string EMPTY_SCENE = "Empty Scene";
-
     private string sceneName;
 
     private void Start()
