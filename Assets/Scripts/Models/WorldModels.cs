@@ -43,5 +43,10 @@ namespace Scripts
                 container.Add(typeof(T), t);
             }
         }
+
+        public bool isNull()
+        {
+            return container.Count == 0;
+        }
     }
 }

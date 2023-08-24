@@ -15,7 +15,6 @@ public class LevelRestart : MonoBehaviour
 
     public void OnClick()
     {
-        SceneManager.LoadScene(EMPTY_SCENE, LoadSceneMode.Single);
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 }
