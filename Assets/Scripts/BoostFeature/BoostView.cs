@@ -2,6 +2,8 @@ using DG.Tweening;
 using ECS.Scripts.Events;
 using Scripts;
 using Scellecs.Morpeh;
+using Scripts.LevelFeature;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +11,9 @@ public class BoostView : MonoBehaviour
 {
     [SerializeField] private Image image;
     [SerializeField] private Button button;
-
+    [SerializeField] private TextMeshProUGUI skillName;
+    [SerializeField] private TextMeshProUGUI skillInfo;
+ 
     private Event<BoostRequest> boostRequest;
 
     private Transform parent;
@@ -25,6 +29,8 @@ public class BoostView : MonoBehaviour
         this.boostKey = boostKey;
         
         this.image.sprite = this.Boost.sprite;
+        this.skillName.text = this.Boost.skillName;
+        this.skillInfo.text = this.Boost.skillInfo;
     }
     
     private void Awake()
@@ -46,15 +52,18 @@ public class BoostView : MonoBehaviour
         button.interactable = false;
         
         parent = this.gameObject.transform.parent;
-        
-        var seq = DOTween.Sequence();
-        
-        seq.Append(parent.DOMoveY(-600, 2, false));
-        
-        seq.AppendCallback(() =>
+
+        parent.DOMoveY(-1000, 1).OnComplete(() =>
         {
-            seq.Kill();
+            parent.DOKill();
+            
+            if (!Boost.isMultiple)
+            {
+                boosts.BoostsMap.Remove(Boost.key);
+            }
+            
             Destroy(parent.parent.gameObject);
+            LevelManager.isView = false;
         });
     }
 }

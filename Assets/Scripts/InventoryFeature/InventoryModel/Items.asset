@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Items
   m_EditorClassIdentifier: 
   items:
-  - itemId: fe68c40d-7c21-435b-b692-85b8402c8b43
+  - itemId: 1d42a858-0dca-4351-b6ce-a0e6a3346136
     key: DEFAULT_WEAPON
     itemType: 2
     itemStats:
@@ -24,7 +24,7 @@ MonoBehaviour:
       attackSpeed: 0
       isRangeWeapon: 0
     isEquip: 1
-  - itemId: aaec1bb2-d1ea-454e-ab3e-703ce54d8a59
+  - itemId: 907314d3-9e8a-4fbd-a66d-267c62ab251d
     key: DEFAULT_BOW
     itemType: 2
     itemStats:

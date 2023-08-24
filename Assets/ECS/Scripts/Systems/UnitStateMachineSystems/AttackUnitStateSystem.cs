@@ -85,9 +85,6 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                         
                         attackStateMarker.timer = 0f;
                         unitComponent.stateMachine.SetState<IdleMobState>();
-                        // DieRequestedEvent
-                        // DestroyUnitRequestedEvent
-                        // DestroyedUnitEvent
                     }
                     else
                     {

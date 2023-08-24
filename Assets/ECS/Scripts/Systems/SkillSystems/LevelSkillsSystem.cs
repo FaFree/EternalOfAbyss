@@ -24,8 +24,11 @@ namespace ECS.Scripts.Components
         {
             if (!onLevelChanged.IsPublished)
                 return;
-            
-            Spawn();
+
+            foreach (var evt in onLevelChanged.BatchedChanges)
+            {
+                Spawn();
+            }
         }
 
         private void Spawn()

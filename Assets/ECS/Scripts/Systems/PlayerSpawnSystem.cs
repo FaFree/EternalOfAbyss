@@ -42,7 +42,8 @@ namespace ECS.Scripts.Components
             var config = new UnitConfig("Assets/Addressables/Player.prefab", 
                 15, 2000, 2, 50, 2, 0, 0);
             
-            UnitPlayer unitPlayer = new UnitPlayer(config, 0.7f,ATTACK_LENGTH, ref entity);
+            UnitPlayer unitPlayer = new UnitPlayer(config, 0.7f,ATTACK_LENGTH, 
+                0.2f, 5f, ref entity);
 
             entity.SetComponent(new PlayerComponent
             {

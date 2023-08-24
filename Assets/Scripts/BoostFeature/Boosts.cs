@@ -22,6 +22,9 @@ public struct Boost
 {
     public string key;
 
+    public string skillName;
+    public string skillInfo;
+
     public float heal;
 
     public float health;
@@ -33,6 +36,12 @@ public struct Boost
     public bool isTripleArrow;
 
     public bool isPassingArrow;
+
+    public bool isMultiple;
     
     public Sprite sprite;
+
+    public GameObject boostEffect;
+
+    public float effectPlayTime;
 }

@@ -13,7 +13,7 @@ namespace ECS.Scripts
 {
     public class ResourceSpawnSystem : UpdateSystem
     {
-        private const int MAX_COUNT = 1;
+        private const int MAX_COUNT = 6;
         
         private const float DIE_ANIMATION_TIME = 3.25f;
 
