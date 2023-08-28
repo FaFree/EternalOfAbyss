@@ -36,6 +36,8 @@ namespace ECS.Scripts.Components
             if (prefab.IsUnityNull())
                 prefab = Addressables.LoadAssetAsync<GameObject>(KEY).WaitForCompletion();
 
+            Time.timeScale = 0f;
+
             var go = Instantiate(prefab, Vector3.zero, Quaternion.identity);
         }
     }

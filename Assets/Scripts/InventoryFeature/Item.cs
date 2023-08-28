@@ -1,4 +1,6 @@
 using System;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace Scripts.InventoryFeature
 
@@ -15,6 +17,8 @@ namespace Scripts.InventoryFeature
         public ItemStats itemStats;
         
         public bool isEquip;
+
+        public Sprite sprite;
 
         public Item(string key, ItemType itemType, ItemStats itemStats)
         {

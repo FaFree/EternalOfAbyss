@@ -53,6 +53,8 @@ public class BoostView : MonoBehaviour
         
         parent = this.gameObject.transform.parent;
 
+        Time.timeScale = 1f;
+
         parent.DOMoveY(-1000, 1).OnComplete(() =>
         {
             parent.DOKill();

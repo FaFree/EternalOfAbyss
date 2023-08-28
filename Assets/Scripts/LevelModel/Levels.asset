@@ -21,3 +21,5 @@ MonoBehaviour:
     address: Assets/Addressables/Levels/Level3.prefab
   - key: Arrow
     address: Assets/Addressables/Arrow.prefab
+  - key: IconItem
+    address: Assets/Prefabs/IconItem.prefab

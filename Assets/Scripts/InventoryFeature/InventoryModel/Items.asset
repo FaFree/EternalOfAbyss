@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Items
   m_EditorClassIdentifier: 
   items:
-  - itemId: 1d42a858-0dca-4351-b6ce-a0e6a3346136
+  - itemId: e37f3151-e7be-44ad-9485-2bdd1dd326a4
     key: DEFAULT_WEAPON
     itemType: 2
     itemStats:
@@ -23,8 +23,9 @@ MonoBehaviour:
       speed: 0
       attackSpeed: 0
       isRangeWeapon: 0
-    isEquip: 1
-  - itemId: 907314d3-9e8a-4fbd-a66d-267c62ab251d
+    isEquip: 0
+    sprite: {fileID: 21300000, guid: 3925691c2a021aa429c1dc89712a1253, type: 3}
+  - itemId: 758be747-cd28-4b66-b4da-c8950fe15a5b
     key: DEFAULT_BOW
     itemType: 2
     itemStats:
@@ -35,3 +36,16 @@ MonoBehaviour:
       attackSpeed: 1
       isRangeWeapon: 1
     isEquip: 1
+    sprite: {fileID: 21300000, guid: 4029a9cfeb86f134c9c5af05993eaac8, type: 3}
+  - itemId: f1d0f506-7bfd-428f-976e-a15197ec995d
+    key: CHEST01
+    itemType: 1
+    itemStats:
+      damage: 0
+      attackRange: 0
+      health: 0
+      speed: 0
+      attackSpeed: 0
+      isRangeWeapon: 0
+    isEquip: 1
+    sprite: {fileID: 21300000, guid: c46d83f2b73aaa141bd5015819342d81, type: 3}

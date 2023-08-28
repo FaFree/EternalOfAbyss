@@ -91,6 +91,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - prefabs
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef623f53bccb045f6b05e0319daf4e65
+    m_Address: Assets/Prefabs/IconItem.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: bc78e5816f38b47e78192b2f6716f131, type: 2}
   m_SchemaSet:

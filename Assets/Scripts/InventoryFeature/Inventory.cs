@@ -13,6 +13,8 @@ namespace Scripts.InventoryFeature
         Helmet,
         Chest,
         Weapon,
+        Pants,
+        Boots,
         Ring
     }
     
@@ -26,7 +28,8 @@ namespace Scripts.InventoryFeature
 
         private InventorySaver inventorySaver;
         
-        public List<Item> Items { get; private set; }
+        public List<Item> AllItems { get; private set; }
+        public List<Item> InventoryItems { get; private set; }
 
         public Dictionary<ItemType, Item> CurrentItems { get; private set; }
 
@@ -35,7 +38,8 @@ namespace Scripts.InventoryFeature
             storageService = new JsonFileStorageService();
             
             CurrentItems = new Dictionary<ItemType, Item>();
-            Items = new List<Item>();
+            InventoryItems = new List<Item>();
+            AllItems = new List<Item>();
         }
 
         public void Initialize()
@@ -43,14 +47,19 @@ namespace Scripts.InventoryFeature
             this.onItemChanged = World.Default.GetEvent<OnItemChanged>();
 
             var itemsMap = WorldModels.Default.Get<Items>().ItemsMap;
+            
             this.AddItem(itemsMap["DEFAULT_BOW"]);
+            this.AddItem(itemsMap["CHEST01"]);
+            this.AddItem(itemsMap["DEFAULT_WEAPON"]);
 
             CurrentItems.Add(ItemType.Helmet, default);
             CurrentItems.Add(ItemType.Chest, default);
             CurrentItems.Add(ItemType.Weapon, default);
+            CurrentItems.Add(ItemType.Pants, default);
+            CurrentItems.Add(ItemType.Boots, default);
             CurrentItems.Add(ItemType.Ring, default);
 
-            foreach (var item in Items)
+            foreach (var item in AllItems)
             {
                 if (item.isEquip)
                 {
@@ -61,11 +70,11 @@ namespace Scripts.InventoryFeature
 
         public bool TryRemoveItem(string key)
         {
-            foreach (var item in Items)
+            foreach (var item in InventoryItems)
             {
                 if (item.key == key)
                 {
-                    Items.Remove(item);
+                    InventoryItems.Remove(item);
 
                     if (item.isEquip)
                     {
@@ -81,17 +90,18 @@ namespace Scripts.InventoryFeature
 
         public void AddRange(Item[] items)
         {
-            this.Items.AddRange(items);
+            this.InventoryItems.AddRange(items);
         }
         
         public void AddItem(Item item)
         {
-            Items.Add(item);
+            InventoryItems.Add(item);
+            AllItems.Add(item);
         }
 
         public Item GetItemOrDefault(string key)
         {
-            foreach (var item in Items)
+            foreach (var item in AllItems)
             {
                 if (item.key == key)
                     return item;
@@ -106,10 +116,12 @@ namespace Scripts.InventoryFeature
             {
                 var lastItem = CurrentItems[item.itemType];
                 lastItem.isEquip = false;
+                InventoryItems.Add(lastItem);
             }
             
             CurrentItems[item.itemType] = item;
             item.isEquip = true;
+            InventoryItems.Remove(item);
             
             onItemChanged.NextFrame(new OnItemChanged
             {
@@ -118,24 +130,47 @@ namespace Scripts.InventoryFeature
             });
         }
 
+        public void UnEquip(ItemType itemType)
+        {
+            var lastItem = CurrentItems[itemType];
+            
+            if (lastItem != default)
+            {
+                lastItem.isEquip = false;
+                
+                InventoryItems.Add(lastItem);
+                CurrentItems[itemType] = default;
+            }
+        }
+
         private void Load()
         {
             inventorySaver = storageService.Load<InventorySaver>(saveKey);
 
-            this.Items = inventorySaver.items;
+            this.InventoryItems = inventorySaver.items;
 
-            foreach (var item in Items)
+            foreach (var item in InventoryItems)
             {
                 if (item.isEquip)
                 {
                     CurrentItems[item.itemType] = item;
+                    InventoryItems.Remove(item);
                 }
             }
         }
         
         private void Save()
         {
-            inventorySaver = new InventorySaver(this.Items);
+            List<Item> items = new List<Item>();
+            
+            items.AddRange(this.InventoryItems.ToArray());
+
+            foreach (var item in CurrentItems)
+            {
+                items.Add(item.Value);
+            }
+            
+            inventorySaver = new InventorySaver(items);
             
             storageService.Save(saveKey, inventorySaver);
         }
