@@ -24,14 +24,19 @@ namespace ECS.Scripts.Components
         {
             if (!onLevelChanged.IsPublished)
                 return;
-            
-            Spawn();
+
+            foreach (var evt in onLevelChanged.BatchedChanges)
+            {
+                Spawn();
+            }
         }
 
         private void Spawn()
         {
             if (prefab.IsUnityNull())
                 prefab = Addressables.LoadAssetAsync<GameObject>(KEY).WaitForCompletion();
+
+            Time.timeScale = 0f;
 
             var go = Instantiate(prefab, Vector3.zero, Quaternion.identity);
         }

@@ -37,6 +37,8 @@ namespace ECS.Scripts.Components
             {
                 Joystick = joystick,
             });
+            
+            canvasObject.transform.SetAsLastSibling();
         }
 
         public override void OnUpdate(float deltaTime)

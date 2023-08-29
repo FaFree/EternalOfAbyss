@@ -19,17 +19,16 @@ namespace ECS.Scripts
 
         public override void OnUpdate(float deltaTime)
         {
-            if (!onResourceChanged.IsPublished)
-                return;
-
-            foreach (var evt in onResourceChanged.BatchedChanges)
+            if (!LevelManager.isView)
             {
-                if (evt.ResourceName != "Exp")
-                    return;
-
                 if (LevelManager.TryAddLevel())
                 {
-                    onLevelChanged.NextFrame(new OnLevelChanged());
+                    onLevelChanged.NextFrame(new OnLevelChanged
+                    {
+                        CurrentLevel = LevelManager.CurrentLevel
+                    });
+
+                    LevelManager.isView = true;
                 }
             }
         }

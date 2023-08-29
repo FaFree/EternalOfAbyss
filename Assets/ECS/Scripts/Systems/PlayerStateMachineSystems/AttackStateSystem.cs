@@ -110,19 +110,21 @@ namespace ECS.Scripts.Components
                         {
                             direction = (unitTransform.position - playerTransform.position).normalized,
                             spawnPosition = playerTransform.position,
-                            damage = playerModel.Damage
+                            damage = playerModel.GetDamage()
                         });
                     }
                     else
                     {
-                        if (healthComponent.health > playerModel.Damage)
+                        var damage = playerModel.GetDamage();
+                        
+                        if (healthComponent.health > damage)
                         {
-                            healthComponent.health -= playerModel.Damage;
+                            healthComponent.health -= damage;
                         
                             textRequest.NextFrame(new TextViewRequest()
                             {
                                 position = unitTransform.position,
-                                text = "-" + playerModel.Damage
+                                text = "-" + damage
                             });
                         }
                         else

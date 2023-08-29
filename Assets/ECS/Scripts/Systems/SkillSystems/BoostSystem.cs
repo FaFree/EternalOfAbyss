@@ -2,6 +2,7 @@ using ECS.Scripts.Events;
 using Scripts;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
+using UnityEngine;
 
 namespace ECS.Scripts.Components
 {
@@ -22,11 +23,6 @@ namespace ECS.Scripts.Components
 
             boostRequest = this.World.GetEvent<BoostRequest>();
             textRequest = this.World.GetEvent<TextViewRequest>();
-            
-            boostRequest.NextFrame(new BoostRequest
-            {
-                boostKey = "PassingArrow"
-            });
         }
 
         public override void OnUpdate(float deltaTime)
@@ -56,11 +52,27 @@ namespace ECS.Scripts.Components
                 playerModel.AddBoost(boosts.BoostsMap[evt.boostKey]);
 
                 playerEntity.GetComponent<HealthComponent>().health += boosts.BoostsMap[evt.boostKey].heal;
+
+                var playerPosition = playerEntity.GetComponent<TransformComponent>().transform.position;
+
+                var spawnPosition = playerPosition + Vector3.up * 0.5f;
                 
                 textRequest.NextFrame(new TextViewRequest
                 {
                     text = "Boost Added!",
                     position = playerEntity.GetComponent<TransformComponent>().transform.position
+                });
+
+                var go = Instantiate(boost.boostEffect, spawnPosition,
+                    Quaternion.identity);
+
+                var entity = this.World.CreateEntity();
+                
+                entity.SetComponent(new EffectMarker
+                {
+                    playTime = boost.effectPlayTime,
+                    effectObject = go,
+                    currentTime = 0f
                 });
             }
         }

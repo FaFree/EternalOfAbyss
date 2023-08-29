@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using DG.Tweening;
 using ECS.Scripts.Events;
 using Scellecs.Morpeh;
@@ -7,8 +6,6 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.PlayerLoop;
-using Sequence = DG.Tweening.Sequence;
 
 namespace ECS.Scripts.Components
 {
@@ -31,7 +28,7 @@ namespace ECS.Scripts.Components
             {
                 foreach (var evt in textRequest.BatchedChanges)
                 {
-                    SpawnText(evt.text, evt.position + new Vector3(2, 2, 0));
+                    SpawnText(evt.text, evt.position + new Vector3(0, 2, 0));
                 }
             }
         }
@@ -43,15 +40,15 @@ namespace ECS.Scripts.Components
             
             var go = Instantiate(prefab, position, Quaternion.identity);
 
-            go.GetComponentInChildren<TextMeshPro>().text = text;
+            var textObj = go.GetComponent<TextConfig>().textObject;
 
-            var seq = DOTween.Sequence();
+            textObj.GetComponent<TextMeshPro>().text = text;
+
+            textObj.transform.DOMove(textObj.transform.position + Vector3.up, 1);
             
-            seq.Append(go.transform.DOMove(position + Vector3.up, 1, false));
-            seq.Join(go.transform.DOScale(Vector3.one * 0.5f, 1));
-            
-            seq.OnKill(() =>
+            textObj.transform.DOScale(Vector3.one * 0.5f, 1).OnComplete(() =>
             {
+                textObj.transform.DOKill();
                 Destroy(go);
             });
         }

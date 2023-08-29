@@ -1,7 +1,6 @@
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using State_Machine.MobStateMachine;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -58,11 +57,11 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
 
                             var randomZ = Random.Range(zoneComponent.position.position.z - radius,
                                 zoneComponent.position.position.z + radius);
-
+                        
                             var newPosition = new Vector3(randomX, 0, randomZ);
                         
                             unitAgent.CalculatePath(newPosition, path);
-
+                        
                             if (path.status == NavMeshPathStatus.PathComplete)
                             {
                                 unitComponent.DirectionPosition = newPosition;
@@ -70,19 +69,19 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                             }
                         }
                     }
-
+                    
                     if (!unitAgent.hasPath)
                     {
                         unitAgent.SetDestination(unitComponent.DirectionPosition);
                     }
-
+                    
                     unitAgent.isStopped = false;
                     
                     unitTransform.rotation = Quaternion.LookRotation(unitAgent.velocity.normalized);
                     
                     var sqrDistance = Vector3.SqrMagnitude(playerTransform.transform.position 
                                                            - unitTransform.transform.position);
-
+                    
                     if (unitModel.CanAttack(sqrDistance))
                     {
                         unitAgent.isStopped = true;

@@ -12,6 +12,8 @@ namespace Scripts.LevelFeature
         private const double linearFactor = 5.0;
         private const double baseNeedXp = 10.0;
         
+        public static bool isView = false;
+        
         private static IStorageService storageService;
         
         private static int maxLevel;

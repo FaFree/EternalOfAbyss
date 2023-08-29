@@ -18,16 +18,19 @@ namespace ECS.Scripts.Initializers
         
         public override void OnAwake()
         {
-            this.boosts.Initialize();
-            this.prefabs.Initialize();
-            this.items.Initialize();
+            if (WorldModels.Default.isNull())
+            {
+                this.boosts.Initialize();
+                this.prefabs.Initialize();
+                this.items.Initialize();
             
-            WorldModels.Default.Set<Boosts>(boosts);
-            WorldModels.Default.Set<Prefabs>(prefabs);
-            WorldModels.Default.Set<Items>(items);
-            WorldModels.Default.Set<Inventory>(inventory);
+                WorldModels.Default.Set<Boosts>(boosts);
+                WorldModels.Default.Set<Prefabs>(prefabs);
+                WorldModels.Default.Set<Items>(items);
+                WorldModels.Default.Set<Inventory>(inventory);
             
-            this.inventory.Initialize();
+                this.inventory.Initialize();
+            }
         }
     }
 }

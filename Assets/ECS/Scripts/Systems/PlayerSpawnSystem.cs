@@ -2,6 +2,7 @@ using DefaultNamespace;
 using Scripts;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
+using Scripts.InventoryFeature;
 using State_Machine;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -42,7 +43,8 @@ namespace ECS.Scripts.Components
             var config = new UnitConfig("Assets/Addressables/Player.prefab", 
                 15, 2000, 2, 50, 2, 0, 0);
             
-            UnitPlayer unitPlayer = new UnitPlayer(config, 0.7f,ATTACK_LENGTH, ref entity);
+            UnitPlayer unitPlayer = new UnitPlayer(config, 0.7f,ATTACK_LENGTH, 
+                0.2f, 5f, ref entity);
 
             entity.SetComponent(new PlayerComponent
             {
@@ -51,6 +53,8 @@ namespace ECS.Scripts.Components
                 animator = anim,
                 UnitPlayerModel = unitPlayer
             });
+            
+            unitPlayer.ChangeItem(WorldModels.Default.Get<Inventory>().CurrentItems);
             
             entity.SetComponent(new HealthBarComponent
             {

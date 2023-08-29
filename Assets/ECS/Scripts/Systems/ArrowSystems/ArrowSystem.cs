@@ -33,6 +33,10 @@ namespace ECS.Scripts.Components
                 ref var arrowTransform = ref arrowEntity.GetComponent<TransformComponent>().transform;
                 
                 var playerEntity = playerFilter.FirstOrDefault();
+
+                if (playerEntity == default)
+                    return;
+                
                 ref var boostComponent = ref playerEntity.GetComponent<BoostComponent>();
 
                 arrowComponent.currentDuration += deltaTime;

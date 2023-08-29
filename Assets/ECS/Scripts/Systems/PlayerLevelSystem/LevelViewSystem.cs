@@ -36,7 +36,7 @@ namespace ECS.Scripts
                 image.fillAmount = (float) (res.ResourceCount / LevelManager.GetRequiredXp());
                 
                 if (onLevelChanged.IsPublished)
-                    text.text = $"LVL {LevelManager.CurrentLevel}";
+                    text.text = $"LV. {LevelManager.CurrentLevel}";
             }
         }
     }

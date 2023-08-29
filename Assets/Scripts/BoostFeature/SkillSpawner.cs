@@ -14,14 +14,13 @@ public class SkillSpawner : MonoBehaviour
 
     private Sequence sequence;
 
-    // Start is called before the first frame update
     private void Start()
     {
         this.boosts = WorldModels.Default.Get<Boosts>();
 
         var prefab = Addressables.LoadAssetAsync<GameObject>(prefabKey).WaitForCompletion();
 
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 3; i++)
         {
             var go = Instantiate(prefab);
             go.transform.SetParent(this.transform);
