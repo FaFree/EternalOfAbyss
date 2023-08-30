@@ -96,6 +96,17 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe17bdbaa8bfb4230b861d71da96a47a
+    m_Address: Assets/Prefabs/Ui/ItemInfoPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - prefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d09e0251da04444ba1afca2d310f883
+    m_Address: Assets/Prefabs/Ui/EqupedItemInfoPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: bc78e5816f38b47e78192b2f6716f131, type: 2}
   m_SchemaSet:

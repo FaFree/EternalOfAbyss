@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Scripts.InventoryFeature.InventoryModel
@@ -13,11 +14,13 @@ namespace Scripts.InventoryFeature.InventoryModel
 
         public void Initialize()
         {
-            this.ItemsMap = items.ToDictionary(x => x.key, x => x);
+            this.ItemsMap = items.ToDictionary(x => x.key, x => (Item) x.Clone());
 
             foreach (var item in ItemsMap)
             {
                 item.Value.itemId = Guid.NewGuid().ToString();
+                
+                item.Value.Initialize();
             }
         }
     }

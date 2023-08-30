@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ECS.Scripts.Events.InventoryEvents;
+using ResourceFeature;
 using Scellecs.Morpeh;
 using Scripts.InventoryFeature.InventoryModel;
 using Scripts.StorageService;
@@ -51,6 +52,10 @@ namespace Scripts.InventoryFeature
             this.AddItem(itemsMap["DEFAULT_BOW"]);
             this.AddItem(itemsMap["CHEST01"]);
             this.AddItem(itemsMap["DEFAULT_WEAPON"]);
+            this.AddItem(itemsMap["BOOTS01"]);
+            this.AddItem(itemsMap["PANTS01"]);
+            this.AddItem(itemsMap["RING01"]);
+            this.AddItem(itemsMap["HELMET01"]);
 
             CurrentItems.Add(ItemType.Helmet, default);
             CurrentItems.Add(ItemType.Chest, default);
@@ -99,11 +104,11 @@ namespace Scripts.InventoryFeature
             AllItems.Add(item);
         }
 
-        public Item GetItemOrDefault(string key)
+        public Item GetItemOrDefault(string itemId)
         {
             foreach (var item in AllItems)
             {
-                if (item.key == key)
+                if (item.itemId == itemId)
                     return item;
             }
 
@@ -141,6 +146,27 @@ namespace Scripts.InventoryFeature
                 InventoryItems.Add(lastItem);
                 CurrentItems[itemType] = default;
             }
+        }
+
+        public bool TryUpgradeItem(string itemID)
+        {
+            var item = GetItemOrDefault(itemID);
+
+            if (item == default)
+                return false;
+
+            if (item.currentItemLevel == item.itemStats.maxLevel)
+                return false;
+
+            var coins = Resources.GetResource("Coin");
+
+            if (coins.ResourceCount < item.upgradeCost)
+                return false;
+
+            coins.TakeResource(item.upgradeCost);
+            item.Upgrade();
+            
+            return true;
         }
 
         private void Load()

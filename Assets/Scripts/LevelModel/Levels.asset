@@ -23,3 +23,7 @@ MonoBehaviour:
     address: Assets/Addressables/Arrow.prefab
   - key: IconItem
     address: Assets/Prefabs/IconItem.prefab
+  - key: ItemInfo
+    address: Assets/Prefabs/Ui/ItemInfoPanel.prefab
+  - key: ItemEquipInfo
+    address: Assets/Prefabs/Ui/EqupedItemInfoPanel.prefab

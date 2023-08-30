@@ -13,6 +13,7 @@ namespace InventoryFeature.InventoryView
         [SerializeField] private Sprite emptySprite;
         
         [SerializeField] private RectTransform inventoryRoot;
+        [SerializeField] private RectTransform canvasRoot;
 
         [SerializeField] private CurrentItemView helmetImage;
         [SerializeField] private CurrentItemView chestImage;
@@ -26,6 +27,10 @@ namespace InventoryFeature.InventoryView
         private Inventory inventory;
         
         private GameObject itemPrefab;
+
+        private ItemInfoView itemInfoView;
+
+        private ItemInfoEquipedView itemInfoEquipedView;
         
         private Dictionary<ItemType, CurrentItemView> equippedInventoryViews;
 
@@ -36,6 +41,25 @@ namespace InventoryFeature.InventoryView
             this.inventory = WorldModels.Default.Get<Inventory>();
 
             var key = WorldModels.Default.Get<Prefabs>().prefabMap["IconItem"];
+
+            var infoKey = WorldModels.Default.Get<Prefabs>().prefabMap["ItemInfo"];
+
+            var itemInfoEquipKey = WorldModels.Default.Get<Prefabs>().prefabMap["ItemEquipInfo"];
+
+            var itemInfoPrefab = Addressables.LoadAssetAsync<GameObject>(infoKey).WaitForCompletion();
+            var itemInfoEquipPrefab = Addressables.LoadAssetAsync<GameObject>(itemInfoEquipKey).WaitForCompletion();
+
+            var itemInfo = Instantiate(itemInfoPrefab);
+            var itemInfoEquip = Instantiate(itemInfoEquipPrefab);
+            
+            itemInfoEquip.transform.SetParent(canvasRoot);
+            itemInfo.transform.SetParent(canvasRoot);
+
+            this.itemInfoView = itemInfo.GetComponent<ItemInfoView>();
+            this.itemInfoEquipedView = itemInfoEquip.GetComponent<ItemInfoEquipedView>();
+            
+            this.itemInfoView.Reset();
+            this.itemInfoEquipedView.Reset();
 
             this.itemPrefab = Addressables.LoadAssetAsync<GameObject>(key).WaitForCompletion();
 
@@ -51,15 +75,32 @@ namespace InventoryFeature.InventoryView
 
             foreach (var kvp in this.equippedInventoryViews)
             {
-                kvp.Value.OnClicked += () => this.UnEquipInventory(kvp.Key);
+                kvp.Value.OnClicked += () =>
+                {
+                    itemInfoEquipedView.Reset();
+                    itemInfoEquipedView.Initialize(this.inventory.CurrentItems[kvp.Key]);
+                    itemInfoView.Reset();
+                    itemInfoEquipedView.onUpgradeClick += () => Upgrade(this.inventory.CurrentItems[kvp.Key]);
+                    itemInfoEquipedView.onUnequipClick += () => UnEquipInventory(kvp.Key);
+                };
             }
             
             UpdateInventory();
         }
 
+        private void Upgrade(Item item)
+        {
+            inventory.TryUpgradeItem(item.itemId);
+            
+            var position = itemInfoEquipedView.transform.position;
+            
+            itemInfoEquipedView.Initialize(item);
+        }
         private void UnEquipInventory(ItemType itemType)
         {
             this.inventory.UnEquip(itemType);
+            
+            itemInfoEquipedView.Reset();
             
             this.UpdateInventory();
         }
@@ -69,6 +110,21 @@ namespace InventoryFeature.InventoryView
             this.inventory.Equip(item);
             
             this.UpdateInventory();
+        }
+
+        private void OpenInfoPanel(ItemView itemView)
+        {
+            itemInfoEquipedView.Reset();
+            
+            var item = this.inventory.GetItemOrDefault(itemView.ItemId);
+            
+            itemInfoView.Initialize(item.sprite, item.key, item.textInfo);
+
+            itemInfoView.onEquipClick += (() =>
+            {
+                this.EquipItem(item);
+                itemInfoView.Reset();
+            });
         }
 
         private void UpdateInventory()
@@ -87,7 +143,11 @@ namespace InventoryFeature.InventoryView
                     var newItemView = go.GetComponent<ItemView>();
 
                     newItemView.OnClicked += 
-                        () => this.EquipItem(this.inventory.GetItemOrDefault(newItemView.ItemKey));
+                        () =>
+                        {
+                            itemInfoView.Reset();
+                            this.OpenInfoPanel(newItemView);
+                        };
                     
                     this.itemViews.Add(newItemView);
                 }

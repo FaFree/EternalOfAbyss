@@ -1043,22 +1043,22 @@ PrefabInstance:
     - target: {fileID: 3707241724817560051, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.config.damage
-      value: 150
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3707241724817560051, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.config.xpReward
-      value: 20
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3707241724817560051, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.config.maxHealth
-      value: 2000
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 3707241724817560051, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.config.coinReward
-      value: 20
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7704809690384017569, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}

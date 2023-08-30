@@ -2348,6 +2348,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 740588808546952806, guid: b61224a00f8d24ea491a170942e48815,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7516733234912818783, guid: b61224a00f8d24ea491a170942e48815,
         type: 3}
       propertyPath: m_Name
@@ -2616,6 +2621,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -140
       objectReference: {fileID: 0}
+    - target: {fileID: 5706413579316345373, guid: 5aedff0350530445b88e03310f506260,
+        type: 3}
+      propertyPath: canvasRoot
+      value: 
+      objectReference: {fileID: 2027628114}
     - target: {fileID: 7239614411995098430, guid: 5aedff0350530445b88e03310f506260,
         type: 3}
       propertyPath: m_AnchorMax.y

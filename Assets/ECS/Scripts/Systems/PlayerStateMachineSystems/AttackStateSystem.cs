@@ -90,7 +90,7 @@ namespace ECS.Scripts.Components
 
                     continue;
                 }
-
+                
                 ref var attackStateMarker = ref playerEntity.GetComponent<AttackStateMarker>();
 
                 var attackTime = attackStateMarker.isFirstAttack ? playerModel.FirstAttackTime : playerModel.AttackTime;

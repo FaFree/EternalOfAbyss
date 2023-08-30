@@ -22,7 +22,7 @@ namespace Scripts
         {
             this.inventory = WorldModels.Default.Get<Inventory>();
 
-            this.currentItem = this.inventory.GetItemOrDefault(ItemKey);
+            this.currentItem = this.inventory.GetItemOrDefault(ItemId);
             
             this.image.sprite = this.currentItem.sprite;
         }
