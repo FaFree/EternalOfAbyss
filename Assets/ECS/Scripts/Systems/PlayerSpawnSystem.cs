@@ -3,6 +3,7 @@ using Scripts;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Scripts.InventoryFeature;
+using Scripts.LevelModel;
 using State_Machine;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -20,10 +21,32 @@ namespace ECS.Scripts.Components
 
         public override void OnAwake()
         {
+            var inventory = WorldModels.Default.Get<Inventory>();
+            
             var prefab = Addressables.LoadAssetAsync<GameObject>(PLAYER_PREFAB).WaitForCompletion();
 
             var go = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
-        
+
+            var playerConfig = go.GetComponent<PlayerConfig>();
+
+            if (inventory.CurrentItems[ItemType.Weapon] != default)
+            {
+                var item = inventory.CurrentItems[ItemType.Weapon];
+
+                var key = WorldModels.Default.Get<Prefabs>().prefabMap[item.key];
+
+                var weaponPrefab = Addressables.LoadAssetAsync<GameObject>(key).WaitForCompletion();
+
+                if (item.itemStats.isRangeWeapon)
+                {
+                    var weaponGo = Instantiate(weaponPrefab, playerConfig.WeaponLeftRoot);
+                }
+                else
+                {
+                    var weaponGo = Instantiate(weaponPrefab, playerConfig.WeaponRightRoot);
+                }
+            }
+
             var entity = this.World.CreateEntity();
         
             entity.SetComponent(new TransformComponent

@@ -34,7 +34,7 @@ namespace Scripts
 
         public void SetVisible(bool state)
         {
-            this.image.enabled = state;
+            this.gameObject.SetActive(state);
         }
     }
 }

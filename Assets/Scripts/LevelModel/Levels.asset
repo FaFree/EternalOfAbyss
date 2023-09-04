@@ -27,3 +27,7 @@ MonoBehaviour:
     address: Assets/Prefabs/Ui/ItemInfoPanel.prefab
   - key: ItemEquipInfo
     address: Assets/Prefabs/Ui/EqupedItemInfoPanel.prefab
+  - key: DEFAULT_WEAPON
+    address: Assets/Addressables/Weapons/Roots/Meele Root.prefab
+  - key: DEFAULT_BOW
+    address: Assets/Addressables/Weapons/Roots/BowRoot.prefab

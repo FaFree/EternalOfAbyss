@@ -67,7 +67,6 @@ namespace ECS.Scripts.Components
                 ref var unitTransform = ref entity.GetComponent<TransformComponent>().transform;
                 ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
                 ref var playerModel = ref playerEntity.GetComponent<PlayerComponent>().UnitPlayerModel;
-                playerTransform.LookAt(unitTransform);
 
                 if (entity.Has<NotAttackMarker>())
                 {
@@ -103,18 +102,29 @@ namespace ECS.Scripts.Components
 
                     ref var healthComponent = ref entity.GetComponent<HealthComponent>();
                     var inventory = WorldModels.Default.Get<Inventory>();
+                    
 
                     if (inventory.CurrentItems[ItemType.Weapon].itemStats.isRangeWeapon)
                     {
+                        var moveDirection = (unitTransform.position - playerTransform.position).normalized;
+
+                        Quaternion rotate = Quaternion.LookRotation(moveDirection);
+
+                        rotate = rotate * Quaternion.Euler(0, 90, 0);
+
+                        playerTransform.rotation = rotate;
+                        
                         arrowRequest.NextFrame(new ArrowRequest
                         {
-                            direction = (unitTransform.position - playerTransform.position).normalized,
+                            direction = moveDirection,
                             spawnPosition = playerTransform.position,
                             damage = playerModel.GetDamage()
                         });
                     }
                     else
                     {
+                        playerTransform.LookAt(unitTransform);
+                        
                         var damage = playerModel.GetDamage();
                         
                         if (healthComponent.health > damage)

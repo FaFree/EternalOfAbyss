@@ -107,6 +107,31 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e1e6ebbdfd1d8344b7dbdd624bf2408
+    m_Address: Assets/Addressables/Weapons/SM_Wep_Hammer_Large_Wood_01.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d03c4353fda446d4f8df56d422578d64
+    m_Address: Assets/Addressables/Weapons/Wooden Bow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1a73d9e29e72e147a50663f2f8ddac7
+    m_Address: Assets/Addressables/Weapons/SM_Wep_Goblin_Gem_Hammer_01.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fbad934c7324845a4a8fd385ab1c9310
+    m_Address: Assets/Addressables/Weapons/Roots/BowRoot.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d146e7a21b3ad46799ceef55a48c70f4
+    m_Address: Assets/Addressables/Weapons/Roots/Meele Root.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: bc78e5816f38b47e78192b2f6716f131, type: 2}
   m_SchemaSet:
