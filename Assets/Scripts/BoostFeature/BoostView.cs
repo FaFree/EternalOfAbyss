@@ -55,7 +55,7 @@ public class BoostView : MonoBehaviour
 
         Time.timeScale = 1f;
 
-        parent.DOMoveY(-1000, 1).OnComplete(() =>
+        parent.DOMoveY(-1000, 0.2f).OnComplete(() =>
         {
             parent.DOKill();
             

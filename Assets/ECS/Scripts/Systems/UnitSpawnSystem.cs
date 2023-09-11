@@ -66,7 +66,7 @@ namespace ECS.Scripts.Components
             
                 var anim = go.GetComponent<Animator>();
             
-                var unit = new Unit(evt.config,0.7f, 1.267f, ref entity);
+                var unit = new Unit(evt.config,0.7f, 1.267f);
 
                 entity.SetComponent(new UnitComponent()
                 {

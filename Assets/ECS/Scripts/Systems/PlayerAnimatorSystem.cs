@@ -1,3 +1,4 @@
+using DefaultNamespace;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Scripts;
@@ -41,7 +42,7 @@ namespace ECS.Scripts.Components
                 if (inventory.CurrentItems[ItemType.Weapon] != default)
                     isRange = inventory.CurrentItems[ItemType.Weapon].itemStats.isRangeWeapon;
                 
-                animator.SetFloat(AttackSpeed, player.UnitPlayerModel.AnimationAttackTime);
+                animator.SetFloat(AttackSpeed, WorldModels.Default.Get<UnitPlayer>().AnimationAttackTime);
                 
                 animator.SetBool(IsRunning, isRunning);
                 animator.SetBool(IsIdle, isIdle);

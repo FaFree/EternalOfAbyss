@@ -1,3 +1,4 @@
+using DefaultNamespace;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Scripts;
@@ -73,6 +74,7 @@ namespace ECS.Scripts.Components
 
                 var isDie = mobEntity.Has<NotAttackMarker>();
                 var isDieAnimation = mobEntity.Has<DieAnimationMarker>();
+                var playerModel = WorldModels.Default.Get<UnitPlayer>();
 
                 if (inventory.CurrentItems[ItemType.Weapon].itemStats.isRangeWeapon && !isDie && !isDieAnimation)
                 {
@@ -81,7 +83,7 @@ namespace ECS.Scripts.Components
                     
                     RaycastHit hit;
 
-                    if (Physics.Raycast(ray, out hit, player.UnitPlayerModel.AttackRange))
+                    if (Physics.Raycast(ray, out hit, playerModel.AttackRange))
                     {
                         if (hit.collider.CompareTag("Unit"))
                         {
@@ -89,7 +91,7 @@ namespace ECS.Scripts.Components
                         }
                     }
                 }
-                else if (player.UnitPlayerModel.CanAttack(sqrDistance) && !isDie && !isDieAnimation)
+                else if (playerModel.CanAttack(sqrDistance) && !isDie && !isDieAnimation)
                 {
                     return mobEntity;
                 }

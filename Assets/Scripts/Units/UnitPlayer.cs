@@ -1,32 +1,29 @@
 using Scripts;
 using Scellecs.Morpeh;
+using Scripts.PlayerUpgradeFeature;
 using UnityEngine;
 
 namespace DefaultNamespace
 {
     public class UnitPlayer : BaseUnit
     {
-        private float critChance;
-        private float critMultipler;
-        
-        public UnitPlayer(UnitConfig config, float firstAttackTime, float attackAnimationTime,
-            float CritChance, float CritMultipler, ref Entity entity) 
-            : base(config, firstAttackTime, attackAnimationTime, ref entity)
+        public UnitPlayer(UnitConfig config, float firstAttackTime, float attackAnimationTime) 
+            : base(config, firstAttackTime, attackAnimationTime)
         {
-            this.critChance = CritChance;
-            this.critMultipler = CritMultipler;
+
         }
 
-        public float GetDamage()
+        public void UpgradeModel(UpgradeType type)
         {
-            float chance = Random.Range(0f, 1f);
+            var upgradeModel = WorldModels.Default.Get<UpgradeModel>();
 
-            if (critChance > chance)
-            {
-                return Damage * critMultipler;
-            }
+            var upgrade = upgradeModel.GetCurrentUpgrade(type);
 
-            return Damage;
+            this.damageWithoutItem += this.damageWithoutItem * (upgrade.DamagePercent / 100);
+            this.healthWithoutItem += this.healthWithoutItem * (upgrade.HealthPercent / 100);
+            this.critWithoutItem += this.critWithoutItem * (upgrade.CritPercent / 100);
+
+            this.ChangeItem();
         }
     }
 }

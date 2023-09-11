@@ -14,7 +14,11 @@ namespace Scripts
         public int coinReward;
         public int xpReward;
 
-        public UnitConfig(string prefab, float speed, int maxHealth, float attackRange, float damage, float attackTime, int coinReward, int xpReward)
+        public float critChance;
+        public float critMultipler;
+
+        public UnitConfig(string prefab, float speed, int maxHealth, float attackRange, float damage, 
+            float attackTime, int coinReward, int xpReward, float critChance, float critMultipler)
         {
             this.prefab = prefab;
             this.speed = speed;
@@ -24,6 +28,8 @@ namespace Scripts
             this.attackTime = attackTime;
             this.coinReward = coinReward;
             this.xpReward = xpReward;
+            this.critChance = critChance;
+            this.critMultipler = critMultipler;
         }
     }
 }

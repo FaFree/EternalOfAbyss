@@ -25,10 +25,7 @@ namespace ECS.Scripts.Components
             {
                 if (this.World.TryGetEntity(evt.entityId, out var entity))
                 {
-                    ref var playerTransform = ref entity.GetComponent<TransformComponent>().transform;
-                    Destroy(playerTransform.gameObject);
-                    this.World.RemoveEntity(entity);
-
+                    Time.timeScale = 0f;
                     playerDestroyedEvent.NextFrame(new PlayerDestroyedEvent());
                 }
             }

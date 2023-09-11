@@ -18,5 +18,7 @@ namespace ECS.Scripts.Components
         public Transform position;
 
         public UnitConfig config;
+
+        public GameObject Level;
     }
 }

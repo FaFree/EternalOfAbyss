@@ -39,6 +39,8 @@ namespace ECS.Scripts.Components
                         zoneComponent.currentUnitCount++;
                         zoneComponent.isSpawned = true;
                     }
+                    
+                    zoneComponent.isSpawned = true;
                 }
             }
         }

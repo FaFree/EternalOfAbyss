@@ -64,6 +64,13 @@ namespace Scripts.InventoryFeature
             }
         }
 
+        public override string ToString()
+        {
+            UpdateTextInfo();
+
+            return textInfo;
+        }
+
         public void Upgrade()
         {
             itemStats.damage += itemStats.damage * itemStats.upgradePercent / 100;

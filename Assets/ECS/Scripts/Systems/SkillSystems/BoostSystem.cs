@@ -1,3 +1,4 @@
+using DefaultNamespace;
 using ECS.Scripts.Events;
 using Scripts;
 using Scellecs.Morpeh;
@@ -37,16 +38,16 @@ namespace ECS.Scripts.Components
 
             foreach (var evt in boostRequest.BatchedChanges)
             {
-                ref var playerModel = ref playerEntity.GetComponent<PlayerComponent>().UnitPlayerModel;
-                ref var boostComponent = ref playerEntity.GetComponent<BoostComponent>();
+                var playerModel = WorldModels.Default.Get<UnitPlayer>();
+                var boostModel = WorldModels.Default.Get<BoostsModel>();
 
                 var boost = boosts.BoostsMap[evt.boostKey];
 
                 if (boost.isReboundBoost || boost.isTripleArrow || boost.isPassingArrow)
                 {
-                    boostComponent.isTripleArrow = boostComponent.isTripleArrow || boost.isTripleArrow;
-                    boostComponent.isReboundArrow = boostComponent.isReboundArrow || boost.isReboundBoost;
-                    boostComponent.isPassingArrow = boostComponent.isPassingArrow || boost.isPassingArrow;
+                    boostModel.isTripleArrow = boostModel.isTripleArrow || boost.isTripleArrow;
+                    boostModel.isReboundArrow = boostModel.isReboundArrow || boost.isReboundBoost;
+                    boostModel.isPassingArrow = boostModel.isPassingArrow || boost.isPassingArrow;
                 }
 
                 playerModel.AddBoost(boosts.BoostsMap[evt.boostKey]);

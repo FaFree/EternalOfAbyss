@@ -1,3 +1,4 @@
+using DefaultNamespace;
 using ECS.Scripts.Events.InventoryEvents;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
@@ -28,10 +29,8 @@ namespace ECS.Scripts.Components.InventorySystems
 
             if (playerEntity == default)
                 return;
-
-            var inventory = WorldModels.Default.Get<Inventory>();
             
-            playerEntity.GetComponent<PlayerComponent>().UnitPlayerModel.ChangeItem(inventory.CurrentItems);
+            WorldModels.Default.Get<UnitPlayer>().ChangeItem();
         }
     }
 }

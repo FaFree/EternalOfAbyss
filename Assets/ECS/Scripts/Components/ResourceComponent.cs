@@ -12,7 +12,5 @@ namespace ECS.Scripts.Components
         public Transform transform;
         
         public int reward;
-
-        public int sequenceId;
     }
 }

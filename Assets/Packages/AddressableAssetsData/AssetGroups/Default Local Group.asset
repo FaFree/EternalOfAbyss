@@ -132,6 +132,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0643c02b055c46b6adafa50bc9efec7
+    m_Address: Assets/Prefabs/Ui/PlayerInfoPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: bc78e5816f38b47e78192b2f6716f131, type: 2}
   m_SchemaSet:

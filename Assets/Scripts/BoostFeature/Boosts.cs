@@ -32,16 +32,28 @@ public struct Boost
     public float damage;
 
     public bool isReboundBoost;
-
     public bool isTripleArrow;
-
     public bool isPassingArrow;
-
     public bool isMultiple;
+    public bool isActive;
     
     public Sprite sprite;
 
     public GameObject boostEffect;
 
     public float effectPlayTime;
+}
+
+public class BoostsModel
+{
+    public bool isTripleArrow;
+    public bool isPassingArrow;
+    public bool isReboundArrow;
+
+    public List<Boost> boosts;
+
+    public BoostsModel()
+    {
+        boosts = new List<Boost>();
+    }
 }

@@ -31,3 +31,5 @@ MonoBehaviour:
     address: Assets/Addressables/Weapons/Roots/Meele Root.prefab
   - key: DEFAULT_BOW
     address: Assets/Addressables/Weapons/Roots/BowRoot.prefab
+  - key: PlayerInfo
+    address: Assets/Prefabs/Ui/PlayerInfoPanel.prefab

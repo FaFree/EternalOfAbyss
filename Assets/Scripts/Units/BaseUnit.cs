@@ -1,23 +1,25 @@
 using System;
 using System.Collections.Generic;
-using ECS.Scripts.Events;
 using Scripts;
-using Scellecs.Morpeh;
 using Scripts.InventoryFeature;
 
 namespace DefaultNamespace
 {
     public abstract class BaseUnit
     {
-        private float healthWithoutItem;
-        private float damageWithoutItem;
-        private float attackRangeWithouItem;
-        private float speedWithoutItem;
+        protected float healthWithoutItem;
+        protected float damageWithoutItem;
+        protected float attackRangeWithouItem;
+        protected float speedWithoutItem;
+        protected float critWithoutItem;
+        protected float critMultiplerWithoutItem;
         
-        private float attackAnimationTime;
-        private float firstAttackTime;
+        protected float attackAnimationTime;
+        protected float firstAttackTime;
+
+        public float CritChance { get; private set; }
+        public float CritMultipler { get; private set; }
         
-        protected Entity entity;
         public float MaxHealth { get; private set; }
 
         public float AttackRange { get; private set; }
@@ -31,13 +33,16 @@ namespace DefaultNamespace
         
         public float AnimationAttackTime { get; private set; }
         
-        public BaseUnit(UnitConfig config, float firstAttackTime, float attackAnimationTime, ref Entity entity)
+        public BaseUnit(UnitConfig config, float firstAttackTime, float attackAnimationTime)
         {
             this.MaxHealth = config.maxHealth;
             this.Damage = config.damage;
             this.AttackRange = config.attackRange;
             this.Speed = config.speed;
             this.AttackTime = config.attackTime;
+            this.CritChance = config.critChance;
+            this.CritMultipler = config.critMultipler;
+            
             this.AnimationAttackTime = attackAnimationTime / this.AttackTime;
             this.FirstAttackTime = firstAttackTime / AnimationAttackTime;
 
@@ -45,11 +50,11 @@ namespace DefaultNamespace
             this.healthWithoutItem = MaxHealth;
             this.speedWithoutItem = Speed;
             this.attackRangeWithouItem = AttackRange;
+            this.critWithoutItem = this.CritChance;
+            this.critMultiplerWithoutItem = this.CritMultipler;
 
             this.attackAnimationTime = attackAnimationTime;
             this.firstAttackTime = firstAttackTime;
-            
-            this.entity = entity;
         }
 
         public virtual bool CanAttack(float range)
@@ -80,12 +85,36 @@ namespace DefaultNamespace
             this.MaxHealth += boost.health;
         }
 
-        public virtual void ChangeItem(Dictionary<ItemType, Item> currentItems)
+        public virtual void AddBoosts(Boost[] boosts)
         {
+            foreach (var boost in boosts)
+            {
+                this.AddBoost(boost);
+            }
+        }
+
+        public virtual float GetDamage()
+        {
+            float chance = UnityEngine.Random.Range(0f, 1f);
+
+            if (this.CritChance > chance)
+            {
+                return this.Damage * this.CritMultipler;
+            }
+
+            return this.Damage;
+        }
+
+        public virtual void ChangeItem()
+        {
+            var currentItems = WorldModels.Default.Get<Inventory>().CurrentItems;
+            
             float damage = 0;
             float speed = 0;
             float health = 0;
             float attackRange = 0;
+            float critChance = 0;
+            float critMultipler = 0;
 
             foreach (var item in currentItems)
             {
@@ -109,6 +138,14 @@ namespace DefaultNamespace
             Speed = speedWithoutItem + speed;
             MaxHealth = healthWithoutItem + health;
             AttackRange = attackRangeWithouItem + attackRange;
+            CritChance = critWithoutItem + critChance;
+            CritMultipler = critMultiplerWithoutItem + critMultipler;
+        }
+
+        public override string ToString()
+        {
+            return $"Health: {this.MaxHealth} \nDamage: {this.Damage} \nSpeed: {this.Speed}\n" +
+                   $"AttackSpeed: {this.AttackTime}\nAttackRange: {this.AttackRange}\n";
         }
     }
 }

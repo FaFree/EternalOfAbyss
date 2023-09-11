@@ -1,18 +1,23 @@
+using ECS.Scripts.Events;
 using Scellecs.Morpeh;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelRestart : MonoBehaviour
 {
-    private string sceneName;
+    [SerializeField] private Transform root;
+    private Event<LevelRestartRequest> restartRequest;
 
     private void Start()
     {
-        this.sceneName = SceneManager.GetActiveScene().name;
+        this.restartRequest = World.Default.GetEvent<LevelRestartRequest>();
+        Time.timeScale = 0f;
     }
 
     public void OnClick()
     {
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        Destroy(this.root.gameObject);
+        restartRequest.NextFrame(new LevelRestartRequest());
+        Time.timeScale = 1f;
     }
 }

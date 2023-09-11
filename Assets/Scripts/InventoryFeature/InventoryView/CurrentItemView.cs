@@ -16,6 +16,11 @@ namespace InventoryFeature.InventoryView
             this.image.sprite = sprite;
         }
 
+        public void SetActive(bool state)
+        {
+            this.image.gameObject.SetActive(state);   
+        }
+
         public void OnClick()
         {
             this.OnClicked?.Invoke();

@@ -1,6 +1,7 @@
 using ECS.Scripts.Events;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
+using Scripts;
 using State_Machine.MobStateMachine;
 using UnityEngine;
 
@@ -37,7 +38,7 @@ namespace ECS.Scripts.Components
                 if (playerEntity == default)
                     return;
                 
-                ref var boostComponent = ref playerEntity.GetComponent<BoostComponent>();
+                var boostModel = WorldModels.Default.Get<BoostsModel>();
 
                 arrowComponent.currentDuration += deltaTime;
 
@@ -58,7 +59,7 @@ namespace ECS.Scripts.Components
                 {
                     if (hit.collider.CompareTag("Walls"))
                     {
-                        if (arrowComponent.collisionCount > 0 && boostComponent.isReboundArrow)
+                        if (arrowComponent.collisionCount > 0 && boostModel.isReboundArrow)
                         {
                             var incomingDirection = arrowComponent.direction;
                             var normal = hit.normal;

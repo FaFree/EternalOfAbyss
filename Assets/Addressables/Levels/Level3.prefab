@@ -125,6 +125,9 @@ MonoBehaviour:
       attackTime: 2
       coinReward: 50
       xpReward: 50
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 2863170452964240630}
 --- !u!1001 &3517227339879074773
 PrefabInstance:
   m_ObjectHideFlags: 0

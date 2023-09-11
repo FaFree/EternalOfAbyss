@@ -78,12 +78,17 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                     
                     if (damage >= healthComponent.health)
                     {
-                        dieRequestEvent.NextFrame(new PlayerDieRequestEvent
+                        if (healthComponent.health > 0)
                         {
-                            entityId = playerEntity.ID
-                        });
-                        
+                            healthComponent.health = 0f;
+                            
+                            dieRequestEvent.NextFrame(new PlayerDieRequestEvent
+                            {
+                                entityId = playerEntity.ID
+                            });
+                        }
                         attackStateMarker.timer = 0f;
+                        
                         unitComponent.stateMachine.SetState<IdleMobState>();
                     }
                     else

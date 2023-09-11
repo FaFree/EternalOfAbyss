@@ -8,6 +8,7 @@ namespace ECS.Scripts.Components
     {
         private Event<PlayerDieRequestEvent> playerDieRequestEvent;
         private Event<PlayerDestroyRequestEvent> playerDestroyRequestEvent;
+        
         public override void OnAwake()
         {
             this.playerDestroyRequestEvent = this.World.GetEvent<PlayerDestroyRequestEvent>();
@@ -21,9 +22,6 @@ namespace ECS.Scripts.Components
 
             foreach (var evt in playerDieRequestEvent.BatchedChanges)
             {
-                //
-                //
-                //
                 playerDestroyRequestEvent.NextFrame(new PlayerDestroyRequestEvent
                 {
                     entityId = evt.entityId

@@ -5,12 +5,13 @@ using Scripts.InventoryFeature;
 using Scripts.LevelModel;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.UI;
 
 namespace InventoryFeature.InventoryView
 {
     public class InventoryView : MonoBehaviour
     {
-        [SerializeField] private Sprite emptySprite;
+        [SerializeField] private Image emptyImage;
         
         [SerializeField] private RectTransform inventoryRoot;
         [SerializeField] private RectTransform canvasRoot;
@@ -165,8 +166,15 @@ namespace InventoryFeature.InventoryView
 
             foreach (var item in inventory.CurrentItems)
             {
-                this.equippedInventoryViews[item.Key]
-                    .UpdateSprite(item.Value == default ? this.emptySprite : item.Value.sprite);
+                if (item.Value == default)
+                {
+                    this.equippedInventoryViews[item.Key].SetActive(false);
+                }
+                else
+                {
+                    this.equippedInventoryViews[item.Key].SetActive(true);
+                    this.equippedInventoryViews[item.Key].UpdateSprite(item.Value.sprite);
+                }
             }
         }
     }

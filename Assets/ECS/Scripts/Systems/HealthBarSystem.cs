@@ -1,5 +1,7 @@
+using DefaultNamespace;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
+using Scripts;
 using UnityEngine;
 
 namespace ECS.Scripts.Components
@@ -22,7 +24,7 @@ namespace ECS.Scripts.Components
                 ref var canvasTransform = ref healthBarComponent.canvas;
                 canvasTransform.rotation = Quaternion.Euler(0, 0,0);
                 
-                ref var playerModel = ref playerEntity.GetComponent<PlayerComponent>().UnitPlayerModel;
+                var playerModel = WorldModels.Default.Get<UnitPlayer>();
                 ref var healthBar = ref playerEntity.GetComponent<HealthBarComponent>().healthBar;
                 ref var playerHealth = ref playerEntity.GetComponent<HealthComponent>().health;
                 healthBar.fillAmount = GetHealthOnPercent(playerHealth, playerModel.MaxHealth);

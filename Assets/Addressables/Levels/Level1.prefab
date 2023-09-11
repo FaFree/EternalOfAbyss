@@ -170,13 +170,16 @@ MonoBehaviour:
     position: {fileID: 6478818766504723737}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 5
-      maxHealth: 5000
+      speed: 3
+      maxHealth: 250
       attackRange: 2
-      damage: 150
+      damage: 50
       attackTime: 2
-      coinReward: 20
-      xpReward: 5
+      coinReward: 200
+      xpReward: 400
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
 --- !u!1001 &276229965782943322
 PrefabInstance:
   m_ObjectHideFlags: 0

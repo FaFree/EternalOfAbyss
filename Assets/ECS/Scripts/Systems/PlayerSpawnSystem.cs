@@ -63,21 +63,16 @@ namespace ECS.Scripts.Components
             
             Animator anim = go.GetComponent<Animator>();
 
-            var config = new UnitConfig("Assets/Addressables/Player.prefab", 
-                15, 2000, 2, 50, 2, 0, 0);
-            
-            UnitPlayer unitPlayer = new UnitPlayer(config, 0.7f,ATTACK_LENGTH, 
-                0.2f, 5f, ref entity);
+            var unitPlayer = WorldModels.Default.Get<UnitPlayer>();
 
             entity.SetComponent(new PlayerComponent
             {
                 speed = 5,
                 stateMachine = stateMachine,
                 animator = anim,
-                UnitPlayerModel = unitPlayer
             });
             
-            unitPlayer.ChangeItem(WorldModels.Default.Get<Inventory>().CurrentItems);
+            unitPlayer.ChangeItem();
             
             entity.SetComponent(new HealthBarComponent
             {
@@ -93,12 +88,6 @@ namespace ECS.Scripts.Components
             entity.SetComponent(new NavMeshAgentComponent
             {
                 agent = go.GetComponent<NavMeshAgent>()
-            });
-            
-            entity.SetComponent(new BoostComponent
-            {
-                isReboundArrow = false,
-                isTripleArrow = false
             });
         }
 
