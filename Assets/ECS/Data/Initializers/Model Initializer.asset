@@ -16,3 +16,4 @@ MonoBehaviour:
   prefabs: {fileID: 11400000, guid: 64d15a0f5eda243a79cf3d5237e809c0, type: 2}
   playerConfig: {fileID: 11400000, guid: e3fa88a92ad744dce83a397fbb4a67f2, type: 2}
   items: {fileID: 11400000, guid: 235794d913be14603a9d23f44d54f7b0, type: 2}
+  upgrades: {fileID: 11400000, guid: b7af74a48d713485bbb4015c87866490, type: 2}

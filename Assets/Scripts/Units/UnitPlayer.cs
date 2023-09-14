@@ -22,6 +22,8 @@ namespace DefaultNamespace
             this.damageWithoutItem += this.damageWithoutItem * (upgrade.DamagePercent / 100);
             this.healthWithoutItem += this.healthWithoutItem * (upgrade.HealthPercent / 100);
             this.critWithoutItem += this.critWithoutItem * (upgrade.CritPercent / 100);
+            
+            upgradeModel.ActivateUpgrade(type);
 
             this.ChangeItem();
         }

@@ -33,3 +33,5 @@ MonoBehaviour:
     address: Assets/Addressables/Weapons/Roots/BowRoot.prefab
   - key: PlayerInfo
     address: Assets/Prefabs/Ui/PlayerInfoPanel.prefab
+  - key: UpgradeIcon
+    address: Assets/Prefabs/Ui/UpgradeIcon.prefab

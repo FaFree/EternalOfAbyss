@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Scripts.PlayerUpgradeFeature
 {
@@ -12,24 +14,29 @@ namespace Scripts.PlayerUpgradeFeature
     public class UpgradeModel
     {
         private const float LINEAR_FACTOR = 0.2f;
-
+        
         private Dictionary<UpgradeType, Upgrade> currentUpgrades;
 
-        public void Initialize()
+        public void Initialize(List<Upgrade> upgrades)
         {
-            currentUpgrades = new Dictionary<UpgradeType, Upgrade>
+            currentUpgrades = new Dictionary<UpgradeType, Upgrade>();
+
+            foreach (var upgrade in upgrades)
             {
-                { UpgradeType.Health, new Upgrade(0, 100, 0)},
-                { UpgradeType.Damage, new Upgrade(100, 0, 0)},
-                { UpgradeType.Crit, new Upgrade(1, 0, 0)}
-            };
+                currentUpgrades.Add(upgrade.upgradeType, upgrade);
+            }
         }
 
         public void ActivateUpgrade(UpgradeType type)
         {
             GetNewUpgrade(type);
         }
-        
+
+        public Dictionary<UpgradeType, Upgrade> GetAllUpgrades()
+        {
+            return currentUpgrades;
+        }
+
         public Upgrade GetCurrentUpgrade(UpgradeType type)
         {
             return currentUpgrades[type];
@@ -38,28 +45,41 @@ namespace Scripts.PlayerUpgradeFeature
         private void GetNewUpgrade(UpgradeType type)
         {
             var upgrade = GetCurrentUpgrade(type);
-
+            
             var damagePercent = upgrade.DamagePercent + upgrade.DamagePercent * LINEAR_FACTOR;
             var healthPercent = upgrade.HealthPercent + upgrade.HealthPercent * LINEAR_FACTOR;
             var critPercent = upgrade.CritPercent + upgrade.CritPercent * LINEAR_FACTOR;
             
-            Upgrade newUpgrade = new Upgrade(damagePercent, healthPercent, critPercent);
+            var price = upgrade.upgradePrice + upgrade.upgradePrice * LINEAR_FACTOR;
 
-            currentUpgrades[type] = newUpgrade;
+            currentUpgrades[type].upgradePrice = price;
+            currentUpgrades[type].CritPercent = critPercent;
+            currentUpgrades[type].HealthPercent = healthPercent;
+            currentUpgrades[type].DamagePercent = damagePercent;
         }
     }
 
-    public struct Upgrade
+    [Serializable]
+    public class Upgrade
     {
         public float DamagePercent;
         public float HealthPercent;
         public float CritPercent;
+        public float upgradePrice;
 
-        public Upgrade (float damagePercent, float healthPercent, float critPercent)
+        public UpgradeType upgradeType;
+
+        public Sprite upgradeSprite;
+
+        public string GetPercentToString()
         {
-            DamagePercent = damagePercent;
-            HealthPercent = healthPercent;
-            CritPercent = critPercent;
+            if (DamagePercent > 0)
+                return DamagePercent.ToString();
+            
+            if (HealthPercent > 0)
+                return HealthPercent.ToString();
+            
+            return CritPercent.ToString();
         }
     }
 }

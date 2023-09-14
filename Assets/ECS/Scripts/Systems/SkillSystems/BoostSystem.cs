@@ -49,6 +49,8 @@ namespace ECS.Scripts.Components
                     boostModel.isReboundArrow = boostModel.isReboundArrow || boost.isReboundBoost;
                     boostModel.isPassingArrow = boostModel.isPassingArrow || boost.isPassingArrow;
                 }
+                
+                boostModel.boosts.Add(boost);
 
                 playerModel.AddBoost(boosts.BoostsMap[evt.boostKey]);
 

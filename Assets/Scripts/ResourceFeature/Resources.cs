@@ -18,9 +18,14 @@ namespace ResourceFeature
             storageService = new JsonFileStorageService();
             
             resourcesMap = new Dictionary<string, Resource>();
+            
             resourcesMap.Add("Coin", new Resource("Coin")); 
             resourcesMap.Add("Exp", new Resource("Exp"));
-            //GetResources();
+            resourcesMap.Add("Diamond", new Resource("Diamond"));
+            
+            GetResources();
+            
+            resourcesMap["Diamond"].SetAmount(500000);
         }
 
         public static Resource GetResource(string resourceName)

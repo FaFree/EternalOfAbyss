@@ -145,7 +145,7 @@ namespace DefaultNamespace
         public override string ToString()
         {
             return $"Health: {this.MaxHealth} \nDamage: {this.Damage} \nSpeed: {this.Speed}\n" +
-                   $"AttackSpeed: {this.AttackTime}\nAttackRange: {this.AttackRange}\n";
+                   $"AttackSpeed: {this.AttackTime}\nAttackRange: {this.AttackRange}\nCrit: {this.CritChance}\n";
         }
     }
 }

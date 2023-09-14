@@ -16,6 +16,7 @@ namespace ECS.Scripts.Initializers
         [FormerlySerializedAs("levels")] [SerializeField] private Prefabs prefabs;
         [SerializeField] private PlayerStatConfig playerConfig;
         [SerializeField] private Items items;
+        [SerializeField] private UpgradesObject upgrades;
         
         private Inventory inventory = new Inventory();
         private BoostsModel boostModel = new BoostsModel();
@@ -30,7 +31,7 @@ namespace ECS.Scripts.Initializers
                 this.boosts.Initialize();
                 this.prefabs.Initialize();
                 this.items.Initialize();
-                this.upgradeModel.Initialize();
+                this.upgradeModel.Initialize(upgrades.upgrades);
                 
                 playerModel = new UnitPlayer(playerConfig.config, 0.7f, 1.267f);
 
