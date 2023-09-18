@@ -3,7 +3,7 @@ using Scellecs.Morpeh.Providers;
 
 namespace ECS.Scripts.Providers
 {
-    public class xUiCoinComponentProvider : MonoProvider<UiCoinComponent>
+    public class UiCoinComponentProvider : MonoProvider<UiCoinComponent>
     {
         
     }
