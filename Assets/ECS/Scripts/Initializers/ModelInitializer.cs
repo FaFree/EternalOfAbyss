@@ -5,6 +5,7 @@ using Scripts.InventoryFeature;
 using Scripts.InventoryFeature.InventoryModel;
 using Scripts.LevelModel;
 using Scripts.PlayerUpgradeFeature;
+using Scripts.StorageService;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -22,18 +23,30 @@ namespace ECS.Scripts.Initializers
         private BoostsModel boostModel = new BoostsModel();
         private UnitPlayer playerModel;
         private UpgradeModel upgradeModel = new UpgradeModel();
-        private LevelModel levelModel = new LevelModel();
-        
+        private LevelsModel levelModel = new LevelsModel();
+
+        private IStorageService storageService;
+
         public override void OnAwake()
         {
+            storageService = new JsonFileStorageService();
+            
             if (WorldModels.Default.isNull())
             {
                 this.boosts.Initialize();
                 this.prefabs.Initialize();
                 this.items.Initialize();
                 this.upgradeModel.Initialize(upgrades.upgrades);
-                
-                playerModel = new UnitPlayer(playerConfig.config, 0.7f, 1.267f);
+
+                try
+                {
+                    var config = storageService.Load<UnitConfig>("PlayerModel");
+                    playerModel = new UnitPlayer(config, 0.7f, 1.267f);
+                }
+                catch
+                {
+                    playerModel = new UnitPlayer(playerConfig.config, 0.7f, 1.267f);
+                }
 
                 WorldModels.Default.Set<Boosts>(boosts);
                 WorldModels.Default.Set<Prefabs>(prefabs);
@@ -42,7 +55,7 @@ namespace ECS.Scripts.Initializers
                 WorldModels.Default.Set<BoostsModel>(boostModel);
                 WorldModels.Default.Set<UpgradeModel>(upgradeModel);
                 WorldModels.Default.Set<UnitPlayer>(playerModel);
-                WorldModels.Default.Set<LevelModel>(levelModel);
+                WorldModels.Default.Set<LevelsModel>(levelModel);
             
                 this.inventory.Initialize();
             }

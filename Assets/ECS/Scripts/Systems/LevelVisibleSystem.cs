@@ -60,7 +60,7 @@ namespace ECS.Scripts.Components
                 Destroy(evt.levelGo.transform.parent.gameObject);
                 Instantiate(newLevel, position, Quaternion.identity);
                 
-                WorldModels.Default.Get<LevelModel>().AddLevel();
+                WorldModels.Default.Get<LevelsModel>().AddLevel();
                 
                 updateRequest.NextFrame(new NavMeshUpdateRequest{});
             }

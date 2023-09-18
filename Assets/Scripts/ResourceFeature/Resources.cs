@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ECS.Scripts.Events.BankEvents;
+using Scellecs.Morpeh;
+using Scripts;
 using Scripts.StorageService;
 
 namespace ResourceFeature
@@ -12,7 +15,7 @@ namespace ResourceFeature
         private static Dictionary<string, Resource> resourcesMap;
 
         private const string KEY = "Resources";
-
+        
         static Resources()
         {
             storageService = new JsonFileStorageService();
@@ -24,8 +27,8 @@ namespace ResourceFeature
             resourcesMap.Add("Diamond", new Resource("Diamond"));
             
             GetResources();
-            
-            resourcesMap["Diamond"].SetAmount(500000);
+            resourcesMap["Exp"].SetAmount(0);
+            resourcesMap["Diamond"].SetAmount(50000);
         }
 
         public static Resource GetResource(string resourceName)
@@ -83,20 +86,28 @@ namespace ResourceFeature
         public string ResourceType { get; private set; }
         
         public double ResourceCount { get; private set; }
-
+        
+        private Event<OnResourceChanged> onResourceChanged;
+        
         public Resource(string resourceType)
         {
             this.ResourceType = resourceType;
+
+            onResourceChanged = World.Default.GetEvent<OnResourceChanged>();
         }
         
         public void AddResource(double resourceCount)
         {
             this.ResourceCount += resourceCount;
+            
+            onResourceChanged.NextFrame(new OnResourceChanged());
         }
         
         public void SetAmount(double amount)
         {
             this.ResourceCount = amount;
+            
+            onResourceChanged.NextFrame(new OnResourceChanged());
         }
 
         public bool IsEnough(double resourceCount)
@@ -113,7 +124,16 @@ namespace ResourceFeature
                 
             this.ResourceCount -= resourceCount;
             
+            onResourceChanged.NextFrame(new OnResourceChanged());
+
             return true;
+        }
+
+        public override string ToString()
+        {
+            var resource = (int)ResourceCount;
+            
+            return resource.ToString();
         }
     }
 

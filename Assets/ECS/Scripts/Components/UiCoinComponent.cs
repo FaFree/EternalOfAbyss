@@ -9,6 +9,7 @@ namespace ECS.Scripts.Components
     [Serializable]
     public struct UiCoinComponent : IComponent
     {
-        public TextMeshProUGUI text;
+        public TextMeshProUGUI coinText;
+        public TextMeshProUGUI diamondText;
     }
 }

@@ -65,10 +65,7 @@ namespace ECS.Scripts.Components
 
                     res.AddResource(unitEntity.GetComponent<UnitComponent>().xpReward);
                     
-                    onResourceChanged.NextFrame(new OnResourceChanged
-                    {
-                        ResourceName = res.ResourceType
-                    });
+                    onResourceChanged.NextFrame(new OnResourceChanged());
                 }
                     
                 else

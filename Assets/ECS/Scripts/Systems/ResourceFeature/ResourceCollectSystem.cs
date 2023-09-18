@@ -56,10 +56,7 @@ namespace ECS.Scripts
                         
                         Resources.SaveResources();
                         
-                        OnResourceChanged.NextFrame(new OnResourceChanged
-                        {
-                            ResourceName = resource.ResourceType
-                        });
+                        OnResourceChanged.NextFrame(new OnResourceChanged());
 
                         resourceTransform.DOKill();
                         

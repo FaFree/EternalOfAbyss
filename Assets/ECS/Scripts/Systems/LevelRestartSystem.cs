@@ -71,7 +71,7 @@ namespace ECS.Scripts.Components
             var levels = WorldModels.Default.Get<Prefabs>().prefabMap;
             
             var newLevel = Addressables.LoadAssetAsync<GameObject>
-                (levels[$"Level{WorldModels.Default.Get<LevelModel>().GetCurrentLevel()}"]).WaitForCompletion();
+                (levels[$"Level{WorldModels.Default.Get<LevelsModel>().GetCurrentLevel()}"]).WaitForCompletion();
 
             var go = Instantiate(newLevel, position, Quaternion.identity);
 

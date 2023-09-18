@@ -19,6 +19,8 @@ namespace ECS.Scripts
             this.uiFilter = this.World.Filter.With<UiCoinComponent>();
             
             this.onResourceChanged = this.World.GetEvent<OnResourceChanged>();
+            
+            this.onResourceChanged.NextFrame(new OnResourceChanged());
         }
 
         public override void OnUpdate(float deltaTime)
@@ -28,17 +30,17 @@ namespace ECS.Scripts
 
             foreach (var coinEntity in uiFilter)
             {
-                foreach (var evt in onResourceChanged.BatchedChanges)
-                {
-                    if (evt.ResourceName == "Coin")
-                    {
-                        ref var text = ref coinEntity.GetComponent<UiCoinComponent>().text;
+                ref var text = ref coinEntity.GetComponent<UiCoinComponent>().coinText;
 
-                        var resource = Resources.GetResource(evt.ResourceName);
+                var resourceCoin = Resources.GetResource("Coin");
 
-                        text.text = resource.ResourceCount.ToString();
-                    }
-                }
+                text.text = resourceCoin.ToString();
+
+                ref var textInfo = ref coinEntity.GetComponent<UiCoinComponent>().diamondText;
+                
+                var resourceDiamond = Resources.GetResource("Diamond");
+
+                textInfo.text = resourceDiamond.ToString();
             }
         }
     }

@@ -74,12 +74,22 @@ namespace Scripts.PlayerUpgradeFeature
         public string GetPercentToString()
         {
             if (DamagePercent > 0)
-                return DamagePercent.ToString();
-            
+            {
+                var damage = (int)DamagePercent;
+
+                return damage.ToString() + "%";
+            }
+
             if (HealthPercent > 0)
-                return HealthPercent.ToString();
-            
-            return CritPercent.ToString();
+            {
+                var health = (int)HealthPercent;
+
+                return health.ToString() + "%";
+            }
+
+            var crit = (int)CritPercent;
+
+            return crit.ToString() + "%";
         }
     }
 }

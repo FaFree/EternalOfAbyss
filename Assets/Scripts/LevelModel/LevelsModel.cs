@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Scripts.LevelModel
+namespace Scripts
 {
-    public class LevelModel
+    public class LevelsModel
     {
         private int currentLevel = 1;
         
