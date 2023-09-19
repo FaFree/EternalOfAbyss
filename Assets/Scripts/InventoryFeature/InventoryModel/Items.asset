@@ -28,6 +28,7 @@ MonoBehaviour:
       upgradePercent: 20
       maxLevel: 4
       isRangeWeapon: 0
+      rare: 0
     isEquip: 0
     sprite: {fileID: 21300000, guid: c3be05f5440ab3642967e47c0bea416f, type: 3}
   - itemId: d080cfbd-2528-4319-8991-77b002957bd1
@@ -45,6 +46,7 @@ MonoBehaviour:
       upgradePercent: 20
       maxLevel: 5
       isRangeWeapon: 1
+      rare: 3
     isEquip: 1
     sprite: {fileID: 21300000, guid: cb19e9b3506e2854e8e22f02c8996e63, type: 3}
   - itemId: 50c25047-8933-4eee-bc50-0a73a9932487
@@ -62,6 +64,7 @@ MonoBehaviour:
       upgradePercent: 20
       maxLevel: 5
       isRangeWeapon: 0
+      rare: 2
     isEquip: 1
     sprite: {fileID: 21300000, guid: cd1d226a0093eb84691d59f5697e74fb, type: 3}
   - itemId: da454c0f-3a90-4fcf-b973-53aac513ea89
@@ -79,6 +82,7 @@ MonoBehaviour:
       upgradePercent: 20
       maxLevel: 10
       isRangeWeapon: 0
+      rare: 1
     isEquip: 1
     sprite: {fileID: 21300000, guid: 9c510e7451d947a4da50febbf14557b4, type: 3}
   - itemId: 36f014f0-7153-42e6-bfc2-db2db926a89a
@@ -96,6 +100,7 @@ MonoBehaviour:
       upgradePercent: 20
       maxLevel: 10
       isRangeWeapon: 0
+      rare: 0
     isEquip: 1
     sprite: {fileID: 21300000, guid: aac17542da4f00c419f924475ecb69c9, type: 3}
   - itemId: 823d24da-ea0a-42c1-a9a5-db2a788ed86e
@@ -113,6 +118,7 @@ MonoBehaviour:
       upgradePercent: 20
       maxLevel: 5
       isRangeWeapon: 0
+      rare: 3
     isEquip: 1
     sprite: {fileID: 21300000, guid: 164491c0007fd0d46a69050892d997f9, type: 3}
   - itemId: 80fde313-c00e-42bf-bcef-0e1eaf61fb93
@@ -130,5 +136,6 @@ MonoBehaviour:
       upgradePercent: 20
       maxLevel: 5
       isRangeWeapon: 0
+      rare: 2
     isEquip: 1
     sprite: {fileID: 21300000, guid: 334b7085edbca194d91ceafd85fa49f5, type: 3}

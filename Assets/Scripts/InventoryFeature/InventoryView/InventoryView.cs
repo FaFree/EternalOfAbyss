@@ -121,7 +121,7 @@ namespace InventoryFeature.InventoryView
             
             itemInfoView.Initialize(item.sprite, item.key, item.textInfo);
 
-            itemInfoView.onEquipClick += (() =>
+            itemInfoView.onButtonClick += (() =>
             {
                 this.EquipItem(item);
                 itemInfoView.Reset();

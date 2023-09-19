@@ -257,7 +257,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1932096385400309967}
         m_TargetAssemblyTypeName: InventoryFeature.InventoryView.ItemInfoView, Assembly-CSharp
-        m_MethodName: OnEquipClick
+        m_MethodName: OnButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

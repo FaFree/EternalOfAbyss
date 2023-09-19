@@ -35,3 +35,5 @@ MonoBehaviour:
     address: Assets/Prefabs/Ui/PlayerInfoPanel.prefab
   - key: UpgradeIcon
     address: Assets/Prefabs/Ui/UpgradeIcon.prefab
+  - key: ItemCollectInfo
+    address: Assets/Prefabs/Ui/ItemCollectInfo.prefab

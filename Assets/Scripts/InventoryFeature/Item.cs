@@ -5,6 +5,14 @@ using UnityEngine;
 namespace Scripts.InventoryFeature
 
 {
+    public enum RareType
+    {
+        Default,
+        Rare,
+        SuperRare,
+        Legendary
+    }
+    
     [Serializable]
     public class Item : ICloneable
     {
@@ -28,13 +36,18 @@ namespace Scripts.InventoryFeature
 
         private Dictionary<StatType, Func<float>> statsMap;
 
-        public Item(string key, ItemType itemType, ItemStats itemStats)
+        public Item(string key, float upgradeCost, ItemType itemType, ItemStats itemStats, Sprite sprite)
         {
             this.itemId = Guid.NewGuid().ToString();
             this.key = key;
             this.itemType = itemType;
             this.itemStats = itemStats;
             this.isEquip = false;
+            this.currentItemLevel = 1;
+            this.sprite = sprite;
+            this.upgradeCost = upgradeCost;
+            
+            this.Initialize();
         }
 
         public void Initialize()
@@ -108,6 +121,8 @@ namespace Scripts.InventoryFeature
         public int maxLevel;
         
         public bool isRangeWeapon;
+
+        public RareType rare;
     }
 
     public enum StatType
