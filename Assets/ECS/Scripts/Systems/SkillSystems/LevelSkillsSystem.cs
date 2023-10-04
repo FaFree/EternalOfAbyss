@@ -18,6 +18,9 @@ namespace ECS.Scripts.Components
         public override void OnAwake()
         {
             this.onLevelChanged = this.World.GetEvent<OnLevelChanged>();
+            
+            if (prefab.IsUnityNull())
+                prefab = Addressables.LoadAssetAsync<GameObject>(KEY).WaitForCompletion();
         }
 
         public override void OnUpdate(float deltaTime)
@@ -27,18 +30,10 @@ namespace ECS.Scripts.Components
 
             foreach (var evt in onLevelChanged.BatchedChanges)
             {
-                Spawn();
+                Time.timeScale = 0f;
+
+                Instantiate(prefab, Vector3.zero, Quaternion.identity);
             }
-        }
-
-        private void Spawn()
-        {
-            if (prefab.IsUnityNull())
-                prefab = Addressables.LoadAssetAsync<GameObject>(KEY).WaitForCompletion();
-
-            Time.timeScale = 0f;
-
-            var go = Instantiate(prefab, Vector3.zero, Quaternion.identity);
         }
     }
 }

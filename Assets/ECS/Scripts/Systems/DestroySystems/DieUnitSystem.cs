@@ -37,12 +37,12 @@ namespace ECS.Scripts.Components
                 {
                     if (this.World.TryGetEntity(evt.entityId, out var unit))
                     {
-                        ref var healthBar = ref unit.GetComponent<HealthBarComponent>().healthBar;
+                        ref var healthBar = ref unit.GetComponent<HealthBarComponent>().HealthBarSlider;
                         ref var unitAgent = ref unit.GetComponent<NavMeshAgentComponent>().agent;
 
                         unitAgent.isStopped = true;
                         
-                        healthBar.fillAmount = 0;
+                        healthBar.value = 0;
                         unit.GetComponent<HealthComponent>().health = 0;
                         
                         unit.GetComponent<UnitComponent>().stateMachine.SetState<DieMobState>();

@@ -19,16 +19,18 @@ namespace ECS.Scripts
 
         public override void OnUpdate(float deltaTime)
         {
-            if (!LevelManager.isView)
+            if (!LevelManager.isShowing)
             {
-                if (LevelManager.TryAddLevel())
+                if (LevelManager.IsEnough())
                 {
+                    LevelManager.AddLevel();
+                    
                     onLevelChanged.NextFrame(new OnLevelChanged
                     {
                         CurrentLevel = LevelManager.CurrentLevel
                     });
 
-                    LevelManager.isView = true;
+                    LevelManager.isShowing = true;
                 }
             }
         }

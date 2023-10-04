@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using ECS.Scripts.Events.BankEvents;
 using Scellecs.Morpeh;
-using Scripts;
 using Scripts.StorageService;
 
 namespace ResourceFeature

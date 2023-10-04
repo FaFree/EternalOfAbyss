@@ -1142,7 +1142,7 @@ PrefabInstance:
     - target: {fileID: 656624218031085966, guid: 66db0b779ea514cfcbb25aee8377df90,
         type: 3}
       propertyPath: updateSystems.Array.size
-      value: 43
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 656624218031085966, guid: 66db0b779ea514cfcbb25aee8377df90,
         type: 3}
@@ -1404,6 +1404,24 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 656624218031085966, guid: 66db0b779ea514cfcbb25aee8377df90,
         type: 3}
+      propertyPath: updateSystems.Array.data[43].system
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e5df160b3b8c46fda9f87cb14b22f2a,
+        type: 2}
+    - target: {fileID: 656624218031085966, guid: 66db0b779ea514cfcbb25aee8377df90,
+        type: 3}
+      propertyPath: updateSystems.Array.data[44].system
+      value: 
+      objectReference: {fileID: 11400000, guid: c77639be29e114070995b711ed6503b1,
+        type: 2}
+    - target: {fileID: 656624218031085966, guid: 66db0b779ea514cfcbb25aee8377df90,
+        type: 3}
+      propertyPath: updateSystems.Array.data[45].system
+      value: 
+      objectReference: {fileID: 11400000, guid: 76aaa69dc6f01405eac3de3f8c6e7cbc,
+        type: 2}
+    - target: {fileID: 656624218031085966, guid: 66db0b779ea514cfcbb25aee8377df90,
+        type: 3}
       propertyPath: updateSystems.Array.data[38].enabled
       value: 1
       objectReference: {fileID: 0}
@@ -1425,6 +1443,21 @@ PrefabInstance:
     - target: {fileID: 656624218031085966, guid: 66db0b779ea514cfcbb25aee8377df90,
         type: 3}
       propertyPath: updateSystems.Array.data[42].enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 656624218031085966, guid: 66db0b779ea514cfcbb25aee8377df90,
+        type: 3}
+      propertyPath: updateSystems.Array.data[43].enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 656624218031085966, guid: 66db0b779ea514cfcbb25aee8377df90,
+        type: 3}
+      propertyPath: updateSystems.Array.data[44].enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 656624218031085966, guid: 66db0b779ea514cfcbb25aee8377df90,
+        type: 3}
+      propertyPath: updateSystems.Array.data[45].enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8554927741500202443, guid: 66db0b779ea514cfcbb25aee8377df90,
@@ -1503,7 +1536,17 @@ PrefabInstance:
     - target: {fileID: 3707241724817560051, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.config.damage
-      value: 50000
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 3707241724817560051, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: serializedData.config.xpReward
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3707241724817560051, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: serializedData.config.coinReward
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7704809690384017569, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}

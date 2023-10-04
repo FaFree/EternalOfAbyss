@@ -74,15 +74,25 @@ namespace DefaultNamespace
                 this.MaxHealth += health;
         }
 
-        public virtual void Heal(float health)
-        {
-            
-        }
-
         public virtual void AddBoost(Boost boost)
         {
-            this.Damage += boost.damage;
-            this.MaxHealth += boost.health;
+            this.damageWithoutItem += boost.damage;
+            this.healthWithoutItem += boost.health;
+            
+            this.ChangeItems();
+        }
+
+        public virtual void RemoveAllBoosts()
+        {
+            var boostModel = WorldModels.Default.Get<BoostsModel>();
+
+            foreach (var boost in boostModel.boosts)
+            {
+                this.damageWithoutItem -= boost.damage;
+                this.healthWithoutItem -= boost.health;
+            }
+
+            boostModel.Clear();
         }
 
         public virtual void AddBoosts(Boost[] boosts)
@@ -105,7 +115,7 @@ namespace DefaultNamespace
             return this.Damage;
         }
 
-        public virtual void ChangeItem()
+        public virtual void ChangeItems()
         {
             var currentItems = WorldModels.Default.Get<Inventory>().CurrentItems;
             

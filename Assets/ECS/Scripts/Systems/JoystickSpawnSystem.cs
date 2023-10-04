@@ -16,10 +16,12 @@ namespace ECS.Scripts.Components
             this.filter = this.World.Filter.With<PlayerComponent>();
             
             var canvasObject = new GameObject("Canvas");
-            canvasObject.AddComponent<Canvas>();
+            var canvasComponent = canvasObject.AddComponent<Canvas>();
             canvasObject.AddComponent<CanvasScaler>();
             canvasObject.AddComponent<GraphicRaycaster>();
 
+            canvasComponent.sortingOrder = -1;
+            
             canvas = canvasObject.GetComponent<Transform>();
 
             canvasObject.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;

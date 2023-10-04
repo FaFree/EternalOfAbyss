@@ -61,11 +61,15 @@ public class BoostView : MonoBehaviour
             
             if (!Boost.isMultiple)
             {
-                boosts.BoostsMap.Remove(Boost.key);
+                var tempBoost = this.Boost;
+                
+                tempBoost.isActive = true;
+                
+                boosts.BoostsMap[Boost.key] = tempBoost;
             }
             
             Destroy(parent.parent.gameObject);
-            LevelManager.isView = false;
+            LevelManager.isShowing = false;
         });
     }
 }

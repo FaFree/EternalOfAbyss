@@ -13,10 +13,9 @@ namespace ECS.Scripts.Components
     {   
         private Filter playerFilter;
         
-        private Event<DieRequestEvent> dieRequestEvent;
-        private Event<TextViewRequest> textRequest;
-        private Event<ArrowRequest> arrowRequest;
-        
+        private Event<RangeAttackRequest> rangeAttackRequest;
+        private Event<MeleeAttackRequest> meleeAttackRequest;
+
         private float timer;
         
         public override void OnAwake()
@@ -25,10 +24,9 @@ namespace ECS.Scripts.Components
                 .With<PlayerComponent>()
                 .With<AttackStateMarker>()
                 .With<TransformComponent>();
-        
-            this.dieRequestEvent = this.World.GetEvent<DieRequestEvent>();
-            this.textRequest = this.World.GetEvent<TextViewRequest>();
-            this.arrowRequest = this.World.GetEvent<ArrowRequest>();
+            
+            this.rangeAttackRequest = this.World.GetEvent<RangeAttackRequest>();
+            this.meleeAttackRequest = this.World.GetEvent<MeleeAttackRequest>();
         }
         
         public override void OnUpdate(float deltaTime)
@@ -68,18 +66,7 @@ namespace ECS.Scripts.Components
                 ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
                 var playerModel = WorldModels.Default.Get<UnitPlayer>();
 
-                if (entity.Has<NotAttackMarker>())
-                {
-                    this.timer = 0f;
-                    
-                    stateMachine.SetState<IdleState>();
-
-                    playerEntity.RemoveComponent<TargetComponent>();
-                    
-                    continue;
-                }
-                
-                if (!this.CanAttackUnit(playerTransform, unitTransform, playerModel))
+                if (entity.Has<NotAttackMarker>() || !this.CanAttackUnit(playerTransform, unitTransform, playerModel))
                 {
                     this.timer = 0f;
                     
@@ -100,63 +87,21 @@ namespace ECS.Scripts.Components
                     
                     this.timer = 0f;
 
-                    ref var healthComponent = ref entity.GetComponent<HealthComponent>();
                     var inventory = WorldModels.Default.Get<Inventory>();
-                    
 
                     if (inventory.CurrentItems[ItemType.Weapon].itemStats.isRangeWeapon)
                     {
-                        var moveDirection = (unitTransform.position - playerTransform.position).normalized;
-
-                        Quaternion rotate = Quaternion.LookRotation(moveDirection);
-
-                        rotate = rotate * Quaternion.Euler(0, 90, 0);
-
-                        playerTransform.rotation = rotate;
-                        
-                        arrowRequest.NextFrame(new ArrowRequest
+                        this.rangeAttackRequest.NextFrame(new RangeAttackRequest
                         {
-                            direction = moveDirection,
-                            spawnPosition = playerTransform.position,
-                            damage = playerModel.GetDamage()
+                            entityId = entityId
                         });
                     }
                     else
                     {
-                        playerTransform.LookAt(unitTransform);
-                        
-                        var damage = playerModel.GetDamage();
-                        
-                        if (healthComponent.health > damage)
+                        this.meleeAttackRequest.NextFrame(new MeleeAttackRequest
                         {
-                            healthComponent.health -= damage;
-                        
-                            textRequest.NextFrame(new TextViewRequest()
-                            {
-                                position = unitTransform.position,
-                                text = "-" + damage
-                            });
-                        }
-                        else
-                        {
-                            ref var zone = ref entity.GetComponent<UnitComponent>().zone;
-                            zone.GetComponent<ZoneComponent>().currentUnitCount--;
-                        
-                            entity.AddComponent<NotAttackMarker>();
-                        
-                            textRequest.NextFrame(new TextViewRequest()
-                            {
-                                position = unitTransform.position,
-                                text = "-" + playerModel.Damage
-                            });
-                        
-                            dieRequestEvent.NextFrame(new DieRequestEvent
-                            {
-                                entityId = entity.ID
-                            });
-                        
-                            stateMachine.SetState<IdleState>();
-                        }
+                            entityId = entityId
+                        });
                     }
                 }
             }
@@ -165,6 +110,7 @@ namespace ECS.Scripts.Components
         private bool CanAttackUnit(Transform playerTransform, Transform unitTransform, UnitPlayer unitPlayerModel)
         {
             var inventory = WorldModels.Default.Get<Inventory>();
+            
             var sqrDistance = Vector3.SqrMagnitude(playerTransform.position
                                                    - unitTransform.position);
 

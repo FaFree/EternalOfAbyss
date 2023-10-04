@@ -1,4 +1,6 @@
 using DefaultNamespace;
+using DG.Tweening;
+using ECS.Scripts.Events;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Scripts;
@@ -8,38 +10,44 @@ namespace ECS.Scripts.Components
 {
     public class HealthBarSystem : UpdateSystem
     {
-        private Filter playerFilter;
-        private Filter unitFilter;
+        private Filter entityFilter;
+
+        private Quaternion angle = Quaternion.Euler(40, 0, 0);
+
+        private const float ANIMATION_DURATION = 0.2f;
+
+        private Event<DamagedEvent> damagedEvent;
+
         public override void OnAwake()
         {
-            this.playerFilter = this.World.Filter.With<PlayerComponent>();
-            this.unitFilter = this.World.Filter.With<UnitComponent>();
+            this.entityFilter = this.World.Filter
+                .With<HealthComponent>()
+                .With<HealthBarComponent>();
+
+            this.damagedEvent = this.World.GetEvent<DamagedEvent>();
         }
 
         public override void OnUpdate(float deltaTime)
         {
-            foreach (var playerEntity in playerFilter)
+            foreach (var entity in this.entityFilter)
             {
-                ref var healthBarComponent = ref playerEntity.GetComponent<HealthBarComponent>();
-                ref var canvasTransform = ref healthBarComponent.canvas;
-                canvasTransform.rotation = Quaternion.Euler(0, 0,0);
+                ref var healthBarComponent = ref entity.GetComponent<HealthBarComponent>();
+                ref var canvasTransform = ref healthBarComponent.CanvasTransform;
                 
-                var playerModel = WorldModels.Default.Get<UnitPlayer>();
-                ref var healthBar = ref playerEntity.GetComponent<HealthBarComponent>().healthBar;
-                ref var playerHealth = ref playerEntity.GetComponent<HealthComponent>().health;
-                healthBar.fillAmount = GetHealthOnPercent(playerHealth, playerModel.MaxHealth);
-            }
+                canvasTransform.rotation = angle;
+                
+                ref var healthBar = ref healthBarComponent.HealthBarSlider;
+                ref var health = ref entity.GetComponent<HealthComponent>().health;
+                ref var maxHealth = ref entity.GetComponent<HealthComponent>().MaxHealth;
 
-            foreach (var unitEntity in unitFilter)
-            {
-                ref var healthBarComponent = ref unitEntity.GetComponent<HealthBarComponent>();
-                ref var canvasTransform = ref healthBarComponent.canvas;
-                canvasTransform.rotation = Quaternion.Euler(0, 0,0);
+                if (this.damagedEvent.IsPublished)
+                {
+                    healthBar.DOKill();
                 
-                ref var unitModel = ref unitEntity.GetComponent<UnitComponent>().unit;
-                ref var healthBar = ref unitEntity.GetComponent<HealthBarComponent>().healthBar;
-                ref var unitHealth = ref unitEntity.GetComponent<HealthComponent>().health;
-                healthBar.fillAmount = GetHealthOnPercent(unitHealth, unitModel.MaxHealth);
+                    healthBar
+                        .DOValue(GetHealthOnPercent(health, maxHealth), ANIMATION_DURATION)
+                        .SetAutoKill(true);
+                }
             }
         }
 

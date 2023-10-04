@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using DG.Tweening;
 using ECS.Scripts.Events;
+using ECS.Scripts.Providers;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Scripts;
@@ -35,8 +36,6 @@ namespace ECS.Scripts.Components
             if (!arrowRequest.IsPublished)
                 return;
 
-            var playerEntity = playerFilter.FirstOrDefault();
-
             var boostModel = WorldModels.Default.Get<BoostsModel>();
             
             foreach (var evt in arrowRequest.BatchedChanges)
@@ -55,27 +54,11 @@ namespace ECS.Scripts.Components
             ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
 
             var go = Instantiate(arrowPrefab, spawnPosition,
-                Quaternion.Euler(0, playerTransform.rotation.eulerAngles.y, 0));
+                Quaternion.Euler(0, playerTransform.rotation.eulerAngles.y + 90, 0));
+
+            var entity = go.GetComponent<ArrowProvider>().Entity;
             
-            var entity = this.World.CreateEntity();
-            
-            entity.SetComponent(new ArrowComponent
-            {
-                damage = damage,
-                speed = 10,
-                direction = direction.normalized,
-                isRebound = isRebound,
-                collisionCount = 4,
-                maxDuration = 10,
-                currentDuration = 0,
-                passingCount = 1,
-                isPassing = isPassing
-            });
-            
-            entity.SetComponent(new TransformComponent
-            {
-                transform = go.transform
-            });
+            this.SpawnEntity(entity, damage, 4, 10, direction.normalized, isRebound, go.transform, isPassing);
 
             if (isTripleArrow)
             {
@@ -91,23 +74,21 @@ namespace ECS.Scripts.Components
                 var go1 = Instantiate(arrowPrefab, spawnPosition, rotation1);
                 var go2 = Instantiate(arrowPrefab, spawnPosition, rotation2);
 
-                var entity1 = this.World.CreateEntity();
-                var entity2 = this.World.CreateEntity();
-
+                var entity1 = go1.GetComponent<ArrowProvider>().Entity;
+                var entity2 = go2.GetComponent<ArrowProvider>().Entity;
+                
                 Vector3 direction1 = new Vector3((float) Math.Cos(angle1), 0, (float) Math.Sin(angle1));
                 Vector3 direction2 = new Vector3((float) Math.Cos(angle2), 0, (float) Math.Sin(angle2));
 
-                SpawnEntity(damage, 3, 10, direction1.normalized, isRebound, go1.transform, isPassing);
-                SpawnEntity(damage, 3, 10, direction2.normalized, isRebound, go2.transform, isPassing);
+                SpawnEntity(entity1, damage, 3, 10, direction1.normalized, isRebound, go1.transform, isPassing);
+                SpawnEntity(entity2, damage, 3, 10, direction2.normalized, isRebound, go2.transform, isPassing);
 
             }
         }
 
-        private void SpawnEntity(float damage, int collisionCount, float speed, 
+        private void SpawnEntity(Entity entity, float damage, int collisionCount, float speed, 
             Vector3 direction, bool isRebound, Transform transform, bool isPassing)
         {
-            var entity = this.World.CreateEntity();
-            
             entity.SetComponent(new ArrowComponent
             {
                 collisionCount = collisionCount,

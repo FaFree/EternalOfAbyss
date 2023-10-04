@@ -10,6 +10,7 @@ public class UpgradeIconView : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textPercent;
     [SerializeField] private TextMeshProUGUI textName;
+    [SerializeField] private TextMeshProUGUI textButton;
     [SerializeField] private Image spriteRoot;
 
     public Upgrade currentUpgrade;
@@ -28,6 +29,8 @@ public class UpgradeIconView : MonoBehaviour
         this.textPercent.text = upgrade.GetPercentToString();
 
         this.textName.text = upgrade.upgradeType.ToString();
+
+        this.textButton.text = "Buy " + (int)upgrade.upgradePrice;
 
         this.spriteRoot.sprite = upgrade.upgradeSprite;
     }

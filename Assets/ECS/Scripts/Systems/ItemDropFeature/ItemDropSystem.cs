@@ -12,7 +12,7 @@ namespace ECS.Scripts.Components.ItemDropFeature
 {
     public class ItemDropSystem : UpdateSystem
     {
-        private const int DROP_CHANCE = 50;
+        private const int DROP_CHANCE = 5;
         
         private Event<DestroyedUnitEvent> destroyedEvent;
         private Event<ItemDropRequest> dropRequest;

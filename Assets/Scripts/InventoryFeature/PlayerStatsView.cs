@@ -45,7 +45,7 @@ namespace Scripts.InventoryFeature
 
             this.rect.anchoredPosition = new Vector2(0, 0);
             
-            this.playerModel.ChangeItem();
+            this.playerModel.ChangeItems();
 
             textMesh.text = this.playerModel.ToString();
         }

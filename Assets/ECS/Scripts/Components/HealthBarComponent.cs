@@ -6,7 +6,7 @@ namespace ECS.Scripts.Components
 {
     public struct HealthBarComponent : IComponent
     {
-        public Image healthBar;
-        public Transform canvas;
+        public Slider HealthBarSlider;
+        public Transform CanvasTransform;
     }
 }

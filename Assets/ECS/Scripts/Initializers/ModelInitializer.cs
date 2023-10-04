@@ -38,15 +38,17 @@ namespace ECS.Scripts.Initializers
                 this.items.Initialize();
                 this.upgradeModel.Initialize(upgrades.upgrades);
 
-                try
-                {
-                    var config = storageService.Load<UnitConfig>("PlayerModel");
-                    playerModel = new UnitPlayer(config, 0.7f, 1.267f);
-                }
-                catch
-                {
-                    playerModel = new UnitPlayer(playerConfig.config, 0.7f, 1.267f);
-                }
+              //  try
+              //  {
+              //      var config = storageService.Load<UnitConfig>("PlayerModel");
+              //      playerModel = new UnitPlayer(config, 0.7f, 1.267f);
+              //  }
+              //  catch
+              //  {
+              //      playerModel = new UnitPlayer(playerConfig.config, 0.7f, 1.267f);
+              //  }
+                
+                playerModel = new UnitPlayer(playerConfig.config, 0.7f, 1.267f);
 
                 WorldModels.Default.Set<Boosts>(boosts);
                 WorldModels.Default.Set<Prefabs>(prefabs);

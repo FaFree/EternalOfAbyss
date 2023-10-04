@@ -16,6 +16,8 @@ namespace ECS.Scripts.Components
         private Filter unitFilter;
         private Filter zoneFilter;
         private Filter levelFilter;
+
+        private Filter playerFilter;
         
         private Event<LevelEndEvent> levelEndEvent;
         private Event<NavMeshUpdateRequest> updateRequest;
@@ -25,6 +27,7 @@ namespace ECS.Scripts.Components
         {
             this.unitFilter = this.World.Filter.With<UnitComponent>();
             this.levelFilter = this.World.Filter.With<LevelEndComponent>();
+            this.playerFilter = this.World.Filter.With<PlayerComponent>();
             
             this.levelEndEvent = this.World.GetEvent<LevelEndEvent>();
             this.updateRequest = this.World.GetEvent<NavMeshUpdateRequest>();
@@ -58,11 +61,20 @@ namespace ECS.Scripts.Components
                     levelEndTransformPosition.z);
                 
                 Destroy(evt.levelGo.transform.parent.gameObject);
-                Instantiate(newLevel, position, Quaternion.identity);
+                var go = Instantiate(newLevel, position, Quaternion.identity);
+
+                var playerEntity = playerFilter.FirstOrDefault();
+
+                if (playerEntity == default)
+                    return;
+
+                ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
+
+                playerTransform.position = go.GetComponent<SpawnPositionMonoConfig>().spawnPosition.position;
                 
                 WorldModels.Default.Get<LevelsModel>().AddLevel();
                 
-                updateRequest.NextFrame(new NavMeshUpdateRequest{});
+                updateRequest.NextFrame(new NavMeshUpdateRequest());
             }
         }
     }

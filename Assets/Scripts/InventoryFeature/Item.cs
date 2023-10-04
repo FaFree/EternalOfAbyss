@@ -72,9 +72,31 @@ namespace Scripts.InventoryFeature
             {
                 if (kvp.Value() > 0)
                 {
-                    textInfo += $"{kvp.Key.ToString()}: {(int) kvp.Value()} \n";
+                    textInfo += $"{kvp.Key.ToString()}: {(int) kvp.Value()}";
+
+                    if (this.currentItemLevel != this.itemStats.maxLevel)
+                    {
+                        if (kvp.Key == StatType.Damage)
+                            textInfo += $" -> {(int)(itemStats.damage + itemStats.damage * itemStats.upgradePercent / 100)} \n";
+                        
+                        else if (kvp.Key == StatType.Health)
+                            textInfo += $" -> {(int)(itemStats.health + itemStats.health * itemStats.upgradePercent / 100)} \n";
+                        
+                        else if (kvp.Key == StatType.Speed)
+                            textInfo += $" -> {(int)(itemStats.speed + itemStats.speed * itemStats.upgradePercent / 100)} \n";
+                        
+                        else
+                            textInfo += "\n";
+                        
+                    }
+                    else
+                    {
+                        textInfo += "\n";
+                    }
                 }
             }
+
+            textInfo += $"CurrentLevel: {this.currentItemLevel} \nMaxLevel: {this.itemStats.maxLevel}";
         }
 
         public override string ToString()
@@ -92,9 +114,9 @@ namespace Scripts.InventoryFeature
             
             upgradeCost += upgradeCost * itemStats.upgradePercent / 100;
 
-            UpdateTextInfo();
-            
             this.currentItemLevel++;
+
+            UpdateTextInfo();
         }
 
         public object Clone()

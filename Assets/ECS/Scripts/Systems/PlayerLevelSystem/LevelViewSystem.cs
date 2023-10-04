@@ -1,9 +1,10 @@
+using DG.Tweening;
 using ECS.Scripts.Components;
 using ECS.Scripts.Events;
+using ECS.Scripts.Events.BankEvents;
 using Scripts.LevelFeature;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
-using UnityEngine;
 using Resources = ResourceFeature.Resources;
 
 namespace ECS.Scripts
@@ -15,12 +16,15 @@ namespace ECS.Scripts
         private Filter levelViewFilter;
 
         private Event<OnLevelChanged> onLevelChanged;
+        
+        private Event<OnResourceChanged> onResourceChanged;
 
         public override void OnAwake()
         {
             this.levelViewFilter = this.World.Filter.With<LevelViewComponent>();
 
             this.onLevelChanged = this.World.GetEvent<OnLevelChanged>();
+            this.onResourceChanged = this.World.GetEvent<OnResourceChanged>();
         }
 
         public override void OnUpdate(float deltaTime)
@@ -28,14 +32,18 @@ namespace ECS.Scripts
             foreach (var levelEntity in levelViewFilter)
             {
                 ref var levelViewComponent = ref levelEntity.GetComponent<LevelViewComponent>();
+                
                 var image = levelViewComponent.image;
                 var text = levelViewComponent.text;
-                
-                var res = Resources.GetResource(exp);
 
-                image.fillAmount = (float) (res.ResourceCount / LevelManager.GetRequiredXp());
+                if (this.onResourceChanged.IsPublished)
+                {
+                    var res = Resources.GetResource(exp);
                 
-                if (onLevelChanged.IsPublished)
+                    image.DOFillAmount((float)(res.ResourceCount / LevelManager.GetRequiredXp()), 2);
+                }
+                
+                if (this.onLevelChanged.IsPublished)
                     text.text = $"LV. {LevelManager.CurrentLevel}";
             }
         }

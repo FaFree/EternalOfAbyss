@@ -12,6 +12,8 @@ namespace InventoryFeature.InventoryView
         [SerializeField] private TextMeshProUGUI upgradeCost;
         [SerializeField] private Image itemIcon;
         [SerializeField] private RectTransform rect;
+
+        [SerializeField] public Button upgradeButton;
         
         public Action onUpgradeClick;
         public Action onUnequipClick;
@@ -25,7 +27,10 @@ namespace InventoryFeature.InventoryView
             this.itemKey = item.key;
 
             this.textInfo.text = item.textInfo;
-            this.upgradeCost.text = item.upgradeCost.ToString();
+
+            int cost = (int) item.upgradeCost;
+            
+            this.upgradeCost.text = cost.ToString();
 
             this.itemIcon.sprite = item.sprite;
 
@@ -51,6 +56,7 @@ namespace InventoryFeature.InventoryView
             onUpgradeClick = null;
             onUnequipClick = null;
             
+            this.upgradeButton.interactable = true;
             this.transform.gameObject.SetActive(false);
         }
     }

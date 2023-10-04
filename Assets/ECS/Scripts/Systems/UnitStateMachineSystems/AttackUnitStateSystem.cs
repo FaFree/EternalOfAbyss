@@ -14,7 +14,7 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
         private float timer;
 
         private Event<PlayerDieRequestEvent> dieRequestEvent;
-        private Event<TextViewRequest> textRequest;
+        private Event<DamagedEvent> damagedEvent;
 
         public override void OnAwake()
         {
@@ -27,7 +27,7 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                 .With<AttackUnitStateMarker>();
 
             this.dieRequestEvent = this.World.GetEvent<PlayerDieRequestEvent>();
-            this.textRequest = this.World.GetEvent<TextViewRequest>();
+            this.damagedEvent = this.World.GetEvent<DamagedEvent>();
         }
 
         public override void OnUpdate(float deltaTime)
@@ -87,6 +87,7 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                                 entityId = playerEntity.ID
                             });
                         }
+                        
                         attackStateMarker.timer = 0f;
                         
                         unitComponent.stateMachine.SetState<IdleMobState>();
@@ -95,10 +96,10 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                     {
                          healthComponent.health -= damage;
                          
-                         textRequest.NextFrame(new TextViewRequest()
+                         damagedEvent.NextFrame(new DamagedEvent()
                          {
-                             text = "-" + unitModel.Damage,
-                             position = playerTransform.position
+                             EntityId = playerEntity.ID,
+                             Damage =  damage
                          });
                     }
                 }

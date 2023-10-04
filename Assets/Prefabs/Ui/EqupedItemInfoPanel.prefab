@@ -778,7 +778,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 159.83972}
-  m_SizeDelta: {x: 450, y: 200}
+  m_SizeDelta: {x: 450, y: 490.16}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &1976617613042949904
 CanvasRenderer:
@@ -1143,8 +1143,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 540, y: 0}
-  m_SizeDelta: {x: 500, y: 700}
+  m_AnchoredPosition: {x: 540, y: -128.81104}
+  m_SizeDelta: {x: 500, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2343800753410437244
 CanvasRenderer:
@@ -1200,6 +1200,7 @@ MonoBehaviour:
   upgradeCost: {fileID: 4819510154405444159}
   itemIcon: {fileID: 6735613900612367469}
   rect: {fileID: 1250372918628502338}
+  upgradeButton: {fileID: 9053584678274753507}
 --- !u!1 &8613414299338206692
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ namespace Scripts.PlayerUpgradeFeature
 
             foreach (var upgrade in upgrades)
             {
-                currentUpgrades.Add(upgrade.upgradeType, upgrade);
+                currentUpgrades.Add(upgrade.upgradeType, (Upgrade) upgrade.Clone());
             }
         }
 
@@ -60,36 +60,41 @@ namespace Scripts.PlayerUpgradeFeature
     }
 
     [Serializable]
-    public class Upgrade
+    public class Upgrade : ICloneable
     {
-        public float DamagePercent;
-        public float HealthPercent;
-        public float CritPercent;
-        public float upgradePrice;
+    public float DamagePercent;
+    public float HealthPercent;
+    public float CritPercent;
+    public float upgradePrice;
 
-        public UpgradeType upgradeType;
+    public UpgradeType upgradeType;
 
-        public Sprite upgradeSprite;
+    public Sprite upgradeSprite;
 
-        public string GetPercentToString()
+    public string GetPercentToString()
+    {
+        if (DamagePercent > 0)
         {
-            if (DamagePercent > 0)
-            {
-                var damage = (int)DamagePercent;
+            var damage = (int)DamagePercent;
 
-                return damage.ToString() + "%";
-            }
-
-            if (HealthPercent > 0)
-            {
-                var health = (int)HealthPercent;
-
-                return health.ToString() + "%";
-            }
-
-            var crit = (int)CritPercent;
-
-            return crit.ToString() + "%";
+            return damage.ToString() + "%";
         }
+
+        if (HealthPercent > 0)
+        {
+            var health = (int)HealthPercent;
+
+            return health.ToString() + "%";
+        }
+
+        var crit = (int)CritPercent;
+
+        return crit.ToString() + "%";
+    }
+
+    public object Clone()
+    {
+        return this.MemberwiseClone();
+    }
     }
 }

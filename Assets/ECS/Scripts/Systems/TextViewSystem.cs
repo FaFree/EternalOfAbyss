@@ -11,25 +11,53 @@ namespace ECS.Scripts.Components
 {
     public class TextViewSystem : UpdateSystem
     {
-        private Event<TextViewRequest> textRequest;
-        
         private const string DAMAGE_PREFAB = "Assets/Addressables/DamageText.prefab";
 
+        private Event<DamagedEvent> damagedEvent;
+        private Event<BoostSpawnedEvent> boostSpawnedEvent;
+        
         private GameObject prefab;
 
         public override void OnAwake()
         {
-            this.textRequest = this.World.GetEvent<TextViewRequest>();
+            this.damagedEvent = this.World.GetEvent<DamagedEvent>();
+            this.boostSpawnedEvent = this.World.GetEvent<BoostSpawnedEvent>();
         }
 
         public override void OnUpdate(float deltaTime)
         {
-            if (textRequest.IsPublished)
+            if (this.damagedEvent.IsPublished)
             {
-                foreach (var evt in textRequest.BatchedChanges)
+                foreach (var evt in this.damagedEvent.BatchedChanges)
                 {
-                    SpawnText(evt.text, evt.position + new Vector3(0, 2, 0));
+                    if (!this.World.TryGetEntity(evt.EntityId, out var entity))
+                    {
+                        continue;
+                    }
+                    
+                    var text = "-" + evt.Damage.ToString();
+                    
+                    var position = entity.GetComponent<TransformComponent>().transform.position;
+                    
+                    this.SpawnText(text, position + new Vector3(0, 2, 0));
                 }
+            }
+
+            if (this.boostSpawnedEvent.IsPublished)
+            {
+                foreach (var evt in this.boostSpawnedEvent.BatchedChanges)
+                {
+                    if (!this.World.TryGetEntity(evt.EntityId, out var entity))
+                    {
+                        continue;
+                    }
+
+                    var text = "Boost Added!";
+
+                    var position = entity.GetComponent<TransformComponent>().transform.position;
+                    
+                    this.SpawnText(text, position + new Vector3(0, 2, 0));
+                }   
             }
         }
 

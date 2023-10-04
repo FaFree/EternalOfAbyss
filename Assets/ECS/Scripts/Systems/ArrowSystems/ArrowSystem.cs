@@ -14,7 +14,8 @@ namespace ECS.Scripts.Components
         private Filter playerFilter;
 
         private Event<DieRequestEvent> dieRequest;
-        private Event<TextViewRequest> textRequest;
+        private Event<DamageRequest> damageRequest;
+        private Event<OnArrowCollisionEnter> onArrowCollisionEnter;
 
         public override void OnAwake()
         {
@@ -23,22 +24,22 @@ namespace ECS.Scripts.Components
             this.playerFilter = this.World.Filter.With<PlayerComponent>();
 
             this.dieRequest = this.World.GetEvent<DieRequestEvent>();
-            this.textRequest = this.World.GetEvent<TextViewRequest>();
+            this.damageRequest = this.World.GetEvent<DamageRequest>();
+            this.onArrowCollisionEnter = this.World.GetEvent<OnArrowCollisionEnter>();
+
         }
 
         public override void OnUpdate(float deltaTime)
         {
+            var playerEntity = playerFilter.FirstOrDefault();
+
+            if (playerEntity == default)
+                return;
+
             foreach (var arrowEntity in arrowFilter)
             {
                 ref var arrowComponent = ref arrowEntity.GetComponent<ArrowComponent>();
                 ref var arrowTransform = ref arrowEntity.GetComponent<TransformComponent>().transform;
-                
-                var playerEntity = playerFilter.FirstOrDefault();
-
-                if (playerEntity == default)
-                    return;
-                
-                var boostModel = WorldModels.Default.Get<BoostsModel>();
 
                 arrowComponent.currentDuration += deltaTime;
 
@@ -46,125 +47,70 @@ namespace ECS.Scripts.Components
                 {
                     Destroy(arrowTransform.gameObject);
                     this.World.RemoveEntity(arrowEntity);
-                    return;
+                    continue;
                 }
-                
 
                 arrowTransform.position += arrowComponent.direction * (deltaTime * arrowComponent.speed);
-                
-                Ray ray = new Ray(arrowTransform.position, arrowComponent.direction.normalized);
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit, 1))
-                {
-                    if (hit.collider.CompareTag("Walls"))
-                    {
-                        if (arrowComponent.collisionCount > 0 && boostModel.isReboundArrow)
-                        {
-                            var incomingDirection = arrowComponent.direction;
-                            var normal = hit.normal;
-                            
-                            var newDirection = Vector3.Reflect(incomingDirection, normal);
-                            
-                            arrowComponent.direction = new Vector3(newDirection.x, 0, newDirection.z).normalized;
-
-                            Quaternion rotation = Quaternion.LookRotation(arrowComponent.direction);
-
-                            arrowTransform.rotation = rotation;
-                            arrowComponent.collisionCount--;
-                        }
-                        else
-                        {
-                            Destroy(arrowTransform.gameObject);
-                            this.World.RemoveEntity(arrowEntity);
-                            return;
-                        }
-                    }
-                }
 
                 foreach (var unitEntity in unitFilter)
                 {
                     ref var unitTransform = ref unitEntity.GetComponent<TransformComponent>().transform;
-                    ref var healthComponent = ref unitEntity.GetComponent<HealthComponent>();
 
                     var sqrDirection = Vector3.SqrMagnitude(arrowTransform.position - unitTransform.position);
 
                     if (sqrDirection <= 1)
                     {
-                        if (healthComponent.health < arrowComponent.damage)
+                        if (!unitEntity.Has<NotAttackMarker>())
                         {
-                            if (healthComponent.health != 0)
+                            this.damageRequest.NextFrame(new DamageRequest
                             {
-                                ref var zone = ref unitEntity.GetComponent<UnitComponent>().zone;
-                                ref var zoneComponent = ref zone.GetComponent<ZoneComponent>();
-                                zoneComponent.currentUnitCount--;
-                                
-                                dieRequest.NextFrame(new DieRequestEvent
-                                {
-                                    entityId = unitEntity.ID
-                                });
-
-                                healthComponent.health = 0;
-                            
-                                textRequest.NextFrame(new TextViewRequest
-                                {
-                                    position = unitTransform.position,
-                                    text = "-" + arrowComponent.damage
-                                });
-                                
-                                if (!unitEntity.Has<NotAttackMarker>())
-                                {
-                                    if (arrowComponent.isPassing == false || arrowComponent.passingCount == 0)
-                                    {
-                                        Destroy(arrowTransform.gameObject);
-                                        this.World.RemoveEntity(arrowEntity);
-                                        unitEntity.AddComponent<NotAttackMarker>();
-                                        return;
-                                    }
-                                    else
-                                    {
-                                        arrowComponent.passingCount--;
-                                        unitEntity.AddComponent<NotAttackMarker>();
-                                        return;
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            healthComponent.health -= arrowComponent.damage;
-
-                            ref var unitComponent = ref unitEntity.GetComponent<UnitComponent>();
-
-                            ref var stateMachine = ref unitComponent.stateMachine;
-                            ref var navMesh = ref unitEntity.GetComponent<NavMeshAgentComponent>().agent;
-                            
-                            unitComponent.DirectionPosition = Vector3.zero;
-                            
-                            navMesh.isStopped = true;
-                            
-                            stateMachine.SetState<AttackMobState>();
-                            
-                            textRequest.NextFrame(new TextViewRequest
-                            {
-                                position = unitTransform.position,
-                                text = "-" + arrowComponent.damage
+                                Damage = arrowComponent.damage,
+                                EntityId = unitEntity.ID
                             });
-                            
-                            if (arrowComponent.isPassing == false || arrowComponent.passingCount == 0)
+
+                            if (arrowComponent.isPassing == true && arrowComponent.passingCount == 0)
                             {
                                 Destroy(arrowTransform.gameObject);
                                 this.World.RemoveEntity(arrowEntity);
-                                return;
+                                break;
                             }
-                            else
+
+                            else if (arrowComponent.isPassing == true && arrowComponent.passingCount != 0)
                             {
                                 arrowComponent.passingCount--;
-                                arrowTransform.position += arrowComponent.direction.normalized;
+                                arrowTransform.position += arrowComponent.direction;
+                            }
+
+                            else
+                            {
+                                Destroy(arrowTransform.gameObject);
+                                this.World.RemoveEntity(arrowEntity);
+                                break;
                             }
                         }
                     }
                 }
+            }
+
+            this.CheckCollision();
+        }
+
+        private void CheckCollision()
+        {
+            if (!this.onArrowCollisionEnter.IsPublished)
+            {
+                return;
+            }
+
+            var boostModel = WorldModels.Default.Get<BoostsModel>();
+
+            foreach (var evt in this.onArrowCollisionEnter.BatchedChanges)
+            {
+                if (!this.World.TryGetEntity(evt.entityId, out var arrowEntity))
+                {
+                    continue;
+                }
+
             }
         }
     }

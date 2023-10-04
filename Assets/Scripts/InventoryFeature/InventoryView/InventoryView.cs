@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using ResourceFeature;
 using Scripts;
 using Scripts.InventoryFeature;
 using Scripts.LevelModel;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
+using Resources = ResourceFeature.Resources;
 
 namespace InventoryFeature.InventoryView
 {
@@ -92,8 +94,18 @@ namespace InventoryFeature.InventoryView
         private void Upgrade(Item item)
         {
             inventory.TryUpgradeItem(item.itemId);
-            
-            var position = itemInfoEquipedView.transform.position;
+
+            var res = Resources.GetResource("Coin");
+
+            if (!res.IsEnough(item.upgradeCost))
+            {
+                itemInfoEquipedView.upgradeButton.interactable = false;
+            }
+
+            if (item.currentItemLevel == item.itemStats.maxLevel)
+            {
+                itemInfoEquipedView.upgradeButton.interactable = false;
+            }
             
             itemInfoEquipedView.Initialize(item);
         }
@@ -121,11 +133,11 @@ namespace InventoryFeature.InventoryView
             
             itemInfoView.Initialize(item.sprite, item.key, item.textInfo);
 
-            itemInfoView.onButtonClick += (() =>
+            itemInfoView.onButtonClick += () =>
             {
                 this.EquipItem(item);
                 itemInfoView.Reset();
-            });
+            };
         }
 
         private void UpdateInventory()

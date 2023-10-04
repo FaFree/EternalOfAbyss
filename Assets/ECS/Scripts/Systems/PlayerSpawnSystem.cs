@@ -72,17 +72,18 @@ namespace ECS.Scripts.Components
                 animator = anim,
             });
             
-            unitPlayer.ChangeItem();
+            unitPlayer.ChangeItems();
             
             entity.SetComponent(new HealthBarComponent
             {
-                healthBar = go.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>(),
-                canvas = go.transform.GetChild(0)
+                HealthBarSlider = playerConfig.HealthBarSlider,
+                CanvasTransform = playerConfig.CanvasHealthTransform
             });
             
             entity.SetComponent(new HealthComponent
             {
-                health = unitPlayer.MaxHealth
+                health = unitPlayer.MaxHealth,
+                MaxHealth = unitPlayer.MaxHealth
             });
 
             entity.SetComponent(new NavMeshAgentComponent

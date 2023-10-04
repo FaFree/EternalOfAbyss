@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: Upgrades Object
   m_EditorClassIdentifier: 
   upgrades:
-  - DamagePercent: 92.44211
+  - DamagePercent: 2
     HealthPercent: 0
     CritPercent: 0
-    upgradePrice: 1848.8425
+    upgradePrice: 100
     upgradeType: 1
     upgradeSprite: {fileID: 21300000, guid: b11f9c52da2945740b5078d84177a9ab, type: 3}
   - DamagePercent: 0
-    HealthPercent: 191.68796
+    HealthPercent: 2
     CritPercent: 0
-    upgradePrice: 3833.7598
+    upgradePrice: 100
     upgradeType: 0
     upgradeSprite: {fileID: 21300000, guid: c46d83f2b73aaa141bd5015819342d81, type: 3}
   - DamagePercent: 0
     HealthPercent: 0
-    CritPercent: 397.4841
-    upgradePrice: 7949.6846
+    CritPercent: 2
+    upgradePrice: 100
     upgradeType: 2
     upgradeSprite: {fileID: 21300000, guid: 0ad2337320c1b5841ba3ceb24de6e91a, type: 3}

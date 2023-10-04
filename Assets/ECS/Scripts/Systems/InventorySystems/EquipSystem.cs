@@ -30,7 +30,7 @@ namespace ECS.Scripts.Components.InventorySystems
             if (playerEntity == default)
                 return;
             
-            WorldModels.Default.Get<UnitPlayer>().ChangeItem();
+            WorldModels.Default.Get<UnitPlayer>().ChangeItems();
         }
     }
 }

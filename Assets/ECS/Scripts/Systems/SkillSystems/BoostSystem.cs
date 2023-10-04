@@ -14,43 +14,38 @@ namespace ECS.Scripts.Components
         private Filter playerFitler;
 
         private Event<BoostRequest> boostRequest;
-        private Event<TextViewRequest> textRequest;
+        private Event<BoostSpawnedEvent> boostSpawnedEvent;
+
 
         public override void OnAwake()
         {
-            boosts = WorldModels.Default.Get<Boosts>();
+            this.boosts = WorldModels.Default.Get<Boosts>();
 
-            playerFitler = this.World.Filter.With<PlayerComponent>();
+            this.playerFitler = this.World.Filter.With<PlayerComponent>();
 
-            boostRequest = this.World.GetEvent<BoostRequest>();
-            textRequest = this.World.GetEvent<TextViewRequest>();
+            this.boostRequest = this.World.GetEvent<BoostRequest>();
+            this.boostSpawnedEvent = this.World.GetEvent<BoostSpawnedEvent>();
         }
 
         public override void OnUpdate(float deltaTime)
         {
-            if (!boostRequest.IsPublished)
+            if (!this.boostRequest.IsPublished)
                 return;
 
-            var playerEntity = playerFitler.FirstOrDefault();
+            var playerEntity = this.playerFitler.FirstOrDefault();
 
             if (playerEntity == default)
                 return;
 
-            foreach (var evt in boostRequest.BatchedChanges)
+            foreach (var evt in this.boostRequest.BatchedChanges)
             {
                 var playerModel = WorldModels.Default.Get<UnitPlayer>();
+                
                 var boostModel = WorldModels.Default.Get<BoostsModel>();
 
                 var boost = boosts.BoostsMap[evt.boostKey];
-
-                if (boost.isReboundBoost || boost.isTripleArrow || boost.isPassingArrow)
-                {
-                    boostModel.isTripleArrow = boostModel.isTripleArrow || boost.isTripleArrow;
-                    boostModel.isReboundArrow = boostModel.isReboundArrow || boost.isReboundBoost;
-                    boostModel.isPassingArrow = boostModel.isPassingArrow || boost.isPassingArrow;
-                }
                 
-                boostModel.boosts.Add(boost);
+                boostModel.AddBoost(boost);
 
                 playerModel.AddBoost(boosts.BoostsMap[evt.boostKey]);
 
@@ -60,12 +55,6 @@ namespace ECS.Scripts.Components
 
                 var spawnPosition = playerPosition + Vector3.up * 0.5f;
                 
-                textRequest.NextFrame(new TextViewRequest
-                {
-                    text = "Boost Added!",
-                    position = playerEntity.GetComponent<TransformComponent>().transform.position
-                });
-
                 var go = Instantiate(boost.boostEffect, spawnPosition,
                     Quaternion.identity);
 
@@ -76,6 +65,12 @@ namespace ECS.Scripts.Components
                     playTime = boost.effectPlayTime,
                     effectObject = go,
                     currentTime = 0f
+                });
+                
+                this.boostSpawnedEvent.NextFrame(new BoostSpawnedEvent
+                {
+                    EntityId = playerEntity.ID,
+                    Boost = boost
                 });
             }
         }

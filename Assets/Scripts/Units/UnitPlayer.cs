@@ -31,7 +31,7 @@ namespace DefaultNamespace
             
             upgradeModel.ActivateUpgrade(type);
 
-            this.ChangeItem();
+            this.ChangeItems();
 
             UnitConfig config = new UnitConfig("", this.speedWithoutItem, (int)this.healthWithoutItem,
                 this.attackRangeWithouItem, this.damageWithoutItem, this.AttackTime, 0, 0, this.critWithoutItem,

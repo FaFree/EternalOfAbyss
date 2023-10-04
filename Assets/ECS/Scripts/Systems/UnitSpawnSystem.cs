@@ -41,6 +41,8 @@ namespace ECS.Scripts.Components
                 var prefab = Addressables.LoadAssetAsync<GameObject>(evt.config.prefab).WaitForCompletion();
 
                 var go = Object.Instantiate(prefab, pos, Quaternion.identity);
+
+                var unitPrefabConfig = go.GetComponent<UnitPrefabConfig>();
         
                 var entity = World.Default.CreateEntity();
         
@@ -51,8 +53,8 @@ namespace ECS.Scripts.Components
             
                 entity.SetComponent(new HealthBarComponent
                 {
-                    healthBar = go.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>(),
-                    canvas = go.transform.GetChild(0)
+                    HealthBarSlider = unitPrefabConfig.HealthBarSlider,
+                    CanvasTransform = unitPrefabConfig.CanvasHealthTransform
                 });
 
                 var stateMachine = new StateMachine();
@@ -82,7 +84,8 @@ namespace ECS.Scripts.Components
                 
                 entity.SetComponent(new HealthComponent
                 {
-                    health = unit.MaxHealth
+                    health = unit.MaxHealth,
+                    MaxHealth = unit.MaxHealth
                 });
                 
                 entity.SetComponent(new NavMeshAgentComponent

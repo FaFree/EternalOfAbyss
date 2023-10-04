@@ -12,7 +12,7 @@ namespace Scripts.LevelFeature
         private const double linearFactor = 5.0;
         private const double baseNeedXp = 10.0;
         
-        public static bool isView = false;
+        public static bool isShowing = false;
         
         private static IStorageService storageService;
         
@@ -45,17 +45,17 @@ namespace Scripts.LevelFeature
            // }
         }
 
-        public static bool TryAddLevel()
+        public static bool IsEnough()
         {
-            if (CurrentXp > GetRequiredXp())
+            if (CurrentLevel == maxLevel)
             {
-                return AddLevel();
+                return false;
             }
-
-            return false;
+            
+            return CurrentXp > GetRequiredXp();
         }
 
-        private static bool AddLevel()
+        public static bool AddLevel()
         {
             if (CurrentLevel < maxLevel)
             {
