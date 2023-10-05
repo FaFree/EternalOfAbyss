@@ -60,7 +60,7 @@ namespace ECS.Scripts
 
                         resourceTransform.DOKill();
                         
-                        Destroy(resourceTransform.gameObject);
+                        resourceTransform.gameObject.SetActive(false);
                         this.World.RemoveEntity(resourceEntity);
                     }
                 }

@@ -7,6 +7,7 @@ using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Scripts;
 using Scripts.LevelModel;
+using Scripts.PullObjectFeature;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -20,8 +21,11 @@ namespace ECS.Scripts.Components
         
         private GameObject arrowPrefab;
 
+        private PullObject arrowPull;
+
         public override void OnAwake()
         {
+
             this.playerFilter = this.World.Filter.With<PlayerComponent>();
             
             this.arrowRequest = this.World.GetEvent<ArrowRequest>();
@@ -29,6 +33,10 @@ namespace ECS.Scripts.Components
             var arrowAddress = WorldModels.Default.Get<Prefabs>().prefabMap["Arrow"];
 
             this.arrowPrefab = Addressables.LoadAssetAsync<GameObject>(arrowAddress).WaitForCompletion();
+            
+            GameObject arrowRoot = new GameObject("ArrowRoot");
+
+            this.arrowPull = new PullObject(arrowPrefab, arrowRoot.transform, 5);
         }
 
         public override void OnUpdate(float deltaTime)
@@ -53,8 +61,17 @@ namespace ECS.Scripts.Components
             var playerEntity = playerFilter.FirstOrDefault();
             ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
 
-            var go = Instantiate(arrowPrefab, spawnPosition,
-                Quaternion.Euler(0, playerTransform.rotation.eulerAngles.y + 90, 0));
+            var go = this.arrowPull.GetFreeElement();
+
+            var trail = go.GetComponent<ArrowConfig>().trailObject;
+            
+            trail.SetActive(false);
+            
+            go.transform.position = spawnPosition;
+            
+            trail.SetActive(true);
+
+            go.transform.rotation = Quaternion.Euler(0, playerTransform.rotation.eulerAngles.y + 90, 0);
 
             var entity = go.GetComponent<ArrowProvider>().Entity;
             
@@ -71,8 +88,23 @@ namespace ECS.Scripts.Components
                 Quaternion rotation1 = Quaternion.Euler(0, (float)angle1, 0);
                 Quaternion rotation2 = Quaternion.Euler(0, (float)angle2, 0);
 
-                var go1 = Instantiate(arrowPrefab, spawnPosition, rotation1);
-                var go2 = Instantiate(arrowPrefab, spawnPosition, rotation2);
+                var go1 = this.arrowPull.GetFreeElement();
+
+                var trail1 = go1.GetComponent<ArrowConfig>().trailObject;
+                
+                trail1.SetActive(false);
+                go1.transform.position = spawnPosition;
+                trail1.SetActive(true);
+                go1.transform.rotation = rotation1;
+
+                var go2 = this.arrowPull.GetFreeElement();
+
+                var trail2 = go2.GetComponent<ArrowConfig>().trailObject;
+                trail2.SetActive(false);
+                go2.transform.position = spawnPosition;
+                trail2.SetActive(true);
+
+                go2.transform.rotation = rotation2;
 
                 var entity1 = go1.GetComponent<ArrowProvider>().Entity;
                 var entity2 = go2.GetComponent<ArrowProvider>().Entity;

@@ -59,7 +59,7 @@ namespace ECS.Scripts.Providers
                 }
                 else
                 {
-                    Destroy(arrowTransform.gameObject);
+                    arrowTransform.gameObject.SetActive(false);
                     World.Default.RemoveEntity(arrowEntity);
                 }
             }

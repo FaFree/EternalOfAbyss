@@ -4,9 +4,11 @@ using ECS.Scripts.Components;
 using ECS.Scripts.Events;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
+using Scripts.PullObjectFeature;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 namespace ECS.Scripts
@@ -20,6 +22,8 @@ namespace ECS.Scripts
         private const string COIN_PREFAB = "Assets/Addressables/coin.prefab";
 
         private Filter unitDieFilter;
+
+        private PullObject coinPullObject;
         
         private Event<DieRequestEvent> dieRequest;
         private float radius = 1f;
@@ -29,6 +33,12 @@ namespace ECS.Scripts
             this.dieRequest = this.World.GetEvent<DieRequestEvent>();
 
             this.unitDieFilter = this.World.Filter.With<DieAnimationMarker>();
+            
+            var prefabGo = Addressables.LoadAssetAsync<GameObject>(COIN_PREFAB).WaitForCompletion();
+
+            GameObject coinRoot = new GameObject("CoinRoot");
+
+            this.coinPullObject = new PullObject(prefabGo, coinRoot.transform, 20);
         }
 
         public override void OnUpdate(float deltaTime)
@@ -77,9 +87,9 @@ namespace ECS.Scripts
 
         private void SpawnResource(Vector3 unitPosition, int reward, string prefab, string resourceType, float scaleMax)
         {
-            var prefabGo = Addressables.LoadAssetAsync<GameObject>(prefab).WaitForCompletion();
-            
-            var go = Instantiate(prefabGo, unitPosition, Quaternion.identity);
+            var go = this.coinPullObject.GetFreeElement();
+
+            go.transform.position = unitPosition;
             
             go.transform.DOJump(Random.insideUnitSphere * radius + unitPosition + Vector3.up, 3, 1, 0.5f, false);
 

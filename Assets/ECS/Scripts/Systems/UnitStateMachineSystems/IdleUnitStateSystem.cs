@@ -70,7 +70,7 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                         }
                     }
                     
-                    if (!unitAgent.hasPath)
+                    if (!unitAgent.hasPath && unitAgent.isOnNavMesh)
                     {
                         unitAgent.SetDestination(unitComponent.DirectionPosition);
                     }

@@ -45,7 +45,7 @@ namespace ECS.Scripts.Components
 
                 if (arrowComponent.currentDuration > arrowComponent.maxDuration)
                 {
-                    Destroy(arrowTransform.gameObject);
+                    arrowTransform.gameObject.SetActive(false);
                     this.World.RemoveEntity(arrowEntity);
                     continue;
                 }
@@ -70,7 +70,7 @@ namespace ECS.Scripts.Components
 
                             if (arrowComponent.isPassing == true && arrowComponent.passingCount == 0)
                             {
-                                Destroy(arrowTransform.gameObject);
+                                arrowTransform.gameObject.SetActive(false);
                                 this.World.RemoveEntity(arrowEntity);
                                 break;
                             }
@@ -83,7 +83,7 @@ namespace ECS.Scripts.Components
 
                             else
                             {
-                                Destroy(arrowTransform.gameObject);
+                                arrowTransform.gameObject.SetActive(false);
                                 this.World.RemoveEntity(arrowEntity);
                                 break;
                             }
