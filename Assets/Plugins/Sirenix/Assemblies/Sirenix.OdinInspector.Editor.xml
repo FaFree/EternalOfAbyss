@@ -6802,6 +6802,16 @@
             The value is stored in the PersistentContextCache, which has a customizable max cache size.
             </summary>
         </member>
+        <member name="T:Sirenix.OdinInspector.Editor.OdinEditor">
+            <summary>
+            Not yet documented.
+            </summary>
+        </member>
+        <member name="P:Sirenix.OdinInspector.Editor.OdinEditor.Tree">
+            <summary>
+            Not yet documented.
+            </summary>
+        </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinEditor.DrawDefaultInspector">
             <summary>
             Draws the default Odin inspector.
@@ -10457,11 +10467,6 @@
             This enables locating of all relevant validator types very quickly.
             </summary>
             <seealso cref="!:RegisterValidationRuleAttribute"/>
-        </member>
-        <member name="T:Sirenix.OdinInspector.Editor.Validation.ValidationSetup">
-            <summary>
-            Use <see cref="M:Sirenix.OdinInspector.Editor.Validation.Validator.InitializeResult(Sirenix.OdinInspector.Editor.Validation.ValidationResult@)"/> to initialize an empty <see cref="T:Sirenix.OdinInspector.Editor.Validation.ValidationResult"/>. 
-            </summary>
         </member>
         <member name="T:Sirenix.OdinInspector.Editor.ValueResolvers.RegisterDefaultValueResolverCreatorAttribute">
             <summary>
