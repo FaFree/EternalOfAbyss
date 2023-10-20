@@ -62,7 +62,6 @@ namespace ECS.Scripts.Components
                 stateMachine.AddState(new IdleMobState(stateMachine, ref entity));
                 stateMachine.AddState(new RunMobState(stateMachine, ref entity));
                 stateMachine.AddState(new AttackMobState(stateMachine, ref entity));
-                stateMachine.AddState(new ComeBackMobState(stateMachine, ref entity));
                 stateMachine.AddState(new DieMobState(stateMachine, ref entity));
                 stateMachine.SetState<IdleMobState>();
             

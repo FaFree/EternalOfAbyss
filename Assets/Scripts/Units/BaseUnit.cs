@@ -57,11 +57,6 @@ namespace DefaultNamespace
             this.firstAttackTime = firstAttackTime;
         }
 
-        public virtual bool CanAttack(float range)
-        {
-            return Math.Pow(this.AttackRange, 2) >= range;
-        }
-
         public virtual void AddDamage(float damage)
         {
             if (damage > 0)

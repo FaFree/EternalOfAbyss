@@ -8,31 +8,31 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
 {
     public class AttackUnitStateSystem : UpdateSystem
     {
-        private Filter playerFilter;
+        private Filter baseFilter;
         private Filter unitFilter;
         
         private float timer;
 
-        private Event<PlayerDieRequestEvent> dieRequestEvent;
+        private Event<BaseDieRequestEvent> dieRequestEvent;
         private Event<DamagedEvent> damagedEvent;
 
         public override void OnAwake()
         {
-            this.playerFilter = this.World.Filter
-                .With<PlayerComponent>()
-                .With<TransformComponent>();
+            this.baseFilter = this.World.Filter
+                .With<BaseComponent>()
+                .With<HealthComponent>();
 
             this.unitFilter = this.World.Filter
                 .With<UnitComponent>()
                 .With<AttackUnitStateMarker>();
 
-            this.dieRequestEvent = this.World.GetEvent<PlayerDieRequestEvent>();
+            this.dieRequestEvent = this.World.GetEvent<BaseDieRequestEvent>();
             this.damagedEvent = this.World.GetEvent<DamagedEvent>();
         }
 
         public override void OnUpdate(float deltaTime)
         {
-            foreach (var unitEntity in unitFilter)
+            foreach (var unitEntity in this.unitFilter)
             {
                 ref var attackStateMarker = ref unitEntity.GetComponent<AttackUnitStateMarker>();
                 
@@ -43,28 +43,15 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                 ref var unitModel = ref unitComponent.unit;
                 ref var stateMachine = ref unitComponent.stateMachine;
                 
-                var playerEntity = this.playerFilter.FirstOrDefault();
+                var baseEntity = this.baseFilter.FirstOrDefault();
 
-                if (playerEntity == default)
+                if (baseEntity == default)
                 {
                     attackStateMarker.timer = 0f;
-                    unitComponent.stateMachine.SetState<IdleMobState>();
                     return;
                 }
                 
-                ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
-
-                var sqrDistance = Vector3.SqrMagnitude(playerTransform.transform.position 
-                                                       - unitTransform.transform.position);
-                
-                unitTransform.LookAt(playerTransform);
-
-                if (!unitModel.CanAttack(sqrDistance))
-                {
-                    attackStateMarker.timer = 0f;
-                    stateMachine.SetState<RunMobState>();
-                    continue;
-                }
+                ref var baseTransform = ref baseEntity.GetComponent<BaseComponent>().position;
 
                 var attackTime = attackStateMarker.isFirstAttack ? unitModel.FirstAttackTime : unitModel.AttackTime;
                 
@@ -73,32 +60,31 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                     attackStateMarker.timer = 0f;
                     attackStateMarker.isFirstAttack = false;
 
-                    ref var healthComponent = ref playerEntity.GetComponent<HealthComponent>();
+                    ref var baseHealth = ref baseEntity.GetComponent<HealthComponent>().health;
+                    
                     var damage = unitModel.Damage; 
                     
-                    if (damage >= healthComponent.health)
+                    if (damage >= baseHealth)
                     {
-                        if (healthComponent.health > 0)
+                        if (baseHealth > 0)
                         {
-                            healthComponent.health = 0f;
+                            baseHealth = 0;
                             
-                            dieRequestEvent.NextFrame(new PlayerDieRequestEvent
+                            dieRequestEvent.NextFrame(new BaseDieRequestEvent
                             {
-                                entityId = playerEntity.ID
+                                entityId = baseEntity.ID
                             });
                         }
                         
                         attackStateMarker.timer = 0f;
-                        
-                        unitComponent.stateMachine.SetState<IdleMobState>();
                     }
                     else
                     {
-                         healthComponent.health -= damage;
+                        baseHealth -= (int) damage;
                          
                          damagedEvent.NextFrame(new DamagedEvent()
                          {
-                             EntityId = playerEntity.ID,
+                             EntityId = baseEntity.ID,
                              Damage =  damage
                          });
                     }

@@ -14,7 +14,6 @@ namespace ECS.Scripts
         private Filter resourceFilter;
         private Filter playerFilter;
 
-        private float collectDistance = 3f;
         private float speed = 6f;
 
         private Event<OnResourceChanged> OnResourceChanged;
@@ -41,28 +40,25 @@ namespace ECS.Scripts
                 ref var resourceTransform = ref resourceComponent.transform;
 
                 var direction = playerTransform.position - resourceTransform.position;
-                
+
                 var sqrDistance = Vector3.SqrMagnitude(direction);
-                
-                if (sqrDistance < Math.Pow(collectDistance, 2))
+
+                resourceTransform.position += direction * (deltaTime * speed);
+
+                if (sqrDistance < 0.7f)
                 {
-                    resourceTransform.position += direction * (deltaTime * speed);
+                    var resource = Resources.GetResource(resourceComponent.resourceType);
 
-                    if (sqrDistance < 0.7f)
-                    {
-                        var resource = Resources.GetResource(resourceComponent.resourceType);
-                        
-                        resource.AddResource(resourceComponent.reward);
-                        
-                        Resources.SaveResources();
-                        
-                        OnResourceChanged.NextFrame(new OnResourceChanged());
+                    resource.AddResource(resourceComponent.reward);
 
-                        resourceTransform.DOKill();
-                        
-                        resourceTransform.gameObject.SetActive(false);
-                        this.World.RemoveEntity(resourceEntity);
-                    }
+                    Resources.SaveResources();
+
+                    OnResourceChanged.NextFrame(new OnResourceChanged());
+
+                    resourceTransform.DOKill();
+
+                    resourceTransform.gameObject.SetActive(false);
+                    this.World.RemoveEntity(resourceEntity);
                 }
             }
         }

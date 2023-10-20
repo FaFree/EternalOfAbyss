@@ -9,15 +9,14 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
 {
     public class RunUnitStateSystem : UpdateSystem
     {
-        private Filter playerFilter;
-        private Filter mobFilter;
+        private Filter baseFilter;
+        private Filter unitFilter;
         public override void OnAwake()
         {
-            this.playerFilter = this.World.Filter
-                .With<PlayerComponent>()
-                .With<TransformComponent>();
-
-            this.mobFilter = this.World.Filter
+            this.baseFilter = this.World.Filter
+                .With<BaseComponent>();
+            
+            this.unitFilter = this.World.Filter
                 .With<RunUnitStateMarker>()
                 .With<UnitComponent>()
                 .With<TransformComponent>();
@@ -25,11 +24,11 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
 
         public override void OnUpdate(float deltaTime)
         {
-            foreach (var playerEntity in playerFilter)
+            foreach (var baseEntity in this.baseFilter)
             {
-                ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
+                ref var baseTransform = ref baseEntity.GetComponent<BaseComponent>().position;
 
-                foreach (var unitEntity in mobFilter)
+                foreach (var unitEntity in unitFilter)
                 {
                     ref var unitTransform = ref unitEntity.GetComponent<TransformComponent>().transform;
                     ref var unitComponent = ref unitEntity.GetComponent<UnitComponent>();
@@ -37,30 +36,21 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                     ref var stateMachine = ref unitComponent.stateMachine;
                     ref var unitAgent = ref unitEntity.GetComponent<NavMeshAgentComponent>().agent;
 
-                    var sqrDistance = Vector3.SqrMagnitude(playerTransform.transform.position
-                                                           - unitTransform.transform.position);
-
-                    var sqrDistanceToSpawn = Vector3.SqrMagnitude(unitTransform.position
-                                                                  - unitComponent.spawnPosition);
-
                     unitAgent.speed = unitModel.Speed;
                     
-                    if (unitModel.CanAttack(sqrDistance))
+                    if (unitTransform.position.z - baseTransform.localPosition.z <= 1)
                     {
                         unitAgent.isStopped = true;
                         stateMachine.SetState<AttackMobState>();
                         continue;
                     }
-                    
-                    var direction = playerTransform.position - unitTransform.position;
-                    direction.y = 0f;
 
-                    if (direction.sqrMagnitude > 0.01f)
-                    {
-                        unitAgent.SetDestination(playerTransform.position);
-                        unitAgent.isStopped = false;
-                        unitTransform.rotation = Quaternion.LookRotation(unitAgent.velocity.normalized);
-                    }
+                    var direction = new Vector3(0, 0, -1);
+                    
+                    unitAgent.nextPosition += (direction * deltaTime);
+                    unitAgent.isStopped = false;
+                    
+                    unitTransform.rotation = Quaternion.LookRotation(direction);
                 }
             }
         }

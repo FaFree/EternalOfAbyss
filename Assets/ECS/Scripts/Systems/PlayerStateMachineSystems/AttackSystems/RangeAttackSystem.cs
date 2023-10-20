@@ -30,23 +30,14 @@ namespace ECS.Scripts.Components.AttackSystems
             var playerEntity = playerFilter.FirstOrDefault();
             
             ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
+            
             ref var stateMachine = ref playerEntity.GetComponent<PlayerComponent>().stateMachine;
             
             var playerModel = WorldModels.Default.Get<UnitPlayer>();
             
             foreach (var evt in this.rangeAttackRequest.BatchedChanges)
             {
-                if (!this.World.TryGetEntity(evt.entityId, out var entity))
-                {
-                    stateMachine.SetState<IdleState>();
-                    continue;
-                }
-
-                ref var unitTransform = ref entity.GetComponent<TransformComponent>().transform;
-
-                var moveDirection = (unitTransform.position - playerTransform.position).normalized;
-
-                Quaternion rotate = Quaternion.LookRotation(moveDirection);
+                Quaternion rotate = Quaternion.LookRotation(new Vector3(0, 0, 1));
 
                 rotate = rotate * Quaternion.Euler(0, 90, 0);
 
@@ -54,7 +45,7 @@ namespace ECS.Scripts.Components.AttackSystems
                         
                 arrowRequest.NextFrame(new ArrowRequest
                 {
-                    direction = moveDirection,
+                    direction = new Vector3(0, 0, 1),
                     spawnPosition = playerTransform.position,
                     damage = playerModel.GetDamage()
                 });

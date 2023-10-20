@@ -26,7 +26,7 @@ namespace ECS.Scripts.Components
             });
 
             camera = go.GetComponent<Transform>();
-            camera.rotation = Quaternion.Euler(40, 0,0);
+            camera.rotation = Quaternion.Euler(30, 0,0);
         }
 
         public override void OnUpdate(float deltaTime)

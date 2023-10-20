@@ -59,7 +59,7 @@ namespace ECS.Scripts.Components
             foreach (var entity in coinFilter)
             {
                 entity.GetComponent<ResourceComponent>().transform.DOKill();
-                Destroy(entity.GetComponent<ResourceComponent>().transform.gameObject);
+                entity.GetComponent<ResourceComponent>().transform.gameObject.SetActive(false);
                 this.World.RemoveEntity(entity);
             }
             

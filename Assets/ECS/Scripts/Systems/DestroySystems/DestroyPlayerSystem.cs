@@ -26,6 +26,7 @@ namespace ECS.Scripts.Components
                 if (this.World.TryGetEntity(evt.entityId, out var entity))
                 {
                     Time.timeScale = 0f;
+                    this.World.RemoveEntity(entity);
                     playerDestroyedEvent.NextFrame(new PlayerDestroyedEvent());
                 }
             }

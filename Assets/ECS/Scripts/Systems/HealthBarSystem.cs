@@ -12,7 +12,7 @@ namespace ECS.Scripts.Components
     {
         private Filter entityFilter;
 
-        private Quaternion angle = Quaternion.Euler(40, 0, 0);
+        private Quaternion angle = Quaternion.Euler(30, 0, 0);
 
         private const float ANIMATION_DURATION = 0.2f;
 
@@ -47,6 +47,13 @@ namespace ECS.Scripts.Components
                     healthBar
                         .DOValue(GetHealthOnPercent(health, maxHealth), ANIMATION_DURATION)
                         .SetAutoKill(true);
+
+                    if (entity.Has<BaseComponent>())
+                    {
+                        ref var baseComponent = ref entity.GetComponent<BaseComponent>();
+
+                        baseComponent.healthView.text = $"{health}/{maxHealth}";
+                    }
                 }
             }
         }

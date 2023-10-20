@@ -58,18 +58,6 @@ namespace ECS.Scripts.Components.AttackSystems
                 {
                     healthComponent.health -= evt.Damage;
 
-                    ref var unitComponent = ref entity.GetComponent<UnitComponent>();
-
-                    ref var stateMachine = ref unitComponent.stateMachine;
-                    
-                    ref var navMesh = ref entity.GetComponent<NavMeshAgentComponent>().agent;
-
-                    unitComponent.DirectionPosition = Vector3.zero;
-
-                    navMesh.isStopped = true;
-
-                    stateMachine.SetState<AttackMobState>();
-
                     damagedEvent.NextFrame(new DamagedEvent
                     {
                         EntityId = entity.ID,

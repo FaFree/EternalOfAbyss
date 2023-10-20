@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ECS.Scripts.Components;
 using Scripts;
-using Sirenix.OdinInspector;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 

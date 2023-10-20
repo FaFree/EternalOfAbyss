@@ -6,13 +6,13 @@ namespace ECS.Scripts.Components
 {
     public class DiePlayerSystem : UpdateSystem
     {
-        private Event<PlayerDieRequestEvent> playerDieRequestEvent;
+        private Event<BaseDieRequestEvent> playerDieRequestEvent;
         private Event<PlayerDestroyRequestEvent> playerDestroyRequestEvent;
         
         public override void OnAwake()
         {
             this.playerDestroyRequestEvent = this.World.GetEvent<PlayerDestroyRequestEvent>();
-            this.playerDieRequestEvent = this.World.GetEvent<PlayerDieRequestEvent>();
+            this.playerDieRequestEvent = this.World.GetEvent<BaseDieRequestEvent>();
         }
 
         public override void OnUpdate(float deltaTime)
