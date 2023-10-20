@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 [Serializable]
-public class Boosts : SerializedScriptableObject
+public class Boosts : ScriptableObject
 {
     [SerializeField] private List<Boost> boosts;
 
