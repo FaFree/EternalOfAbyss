@@ -77,7 +77,6 @@ namespace ECS.Scripts.Components
                     animator = anim,
                     unit = unit,
                     dieTime = 0f,
-                    xpReward = evt.config.xpReward
                 });
                 
                 entity.SetComponent(new HealthComponent

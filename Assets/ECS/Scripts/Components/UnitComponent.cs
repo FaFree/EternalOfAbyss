@@ -9,9 +9,7 @@ namespace ECS.Scripts.Components
         public Entity zone;
 
         public int coinReward;
-
-        public int xpReward;
-
+        
         public float dieTime;
         
         public BaseUnit unit;

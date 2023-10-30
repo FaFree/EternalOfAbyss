@@ -12,7 +12,6 @@ namespace Scripts
         public float damage;
         public float attackTime;
         public int coinReward;
-        public int xpReward;
 
         public float critChance;
         public float critMultipler;
@@ -27,7 +26,6 @@ namespace Scripts
             this.damage = damage;
             this.attackTime = attackTime;
             this.coinReward = coinReward;
-            this.xpReward = xpReward;
             this.critChance = critChance;
             this.critMultipler = critMultipler;
         }

@@ -2,7 +2,6 @@ using DG.Tweening;
 using ECS.Scripts.Events;
 using Scripts;
 using Scellecs.Morpeh;
-using Scripts.LevelFeature;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -51,25 +50,6 @@ public class BoostView : MonoBehaviour
         
         button.interactable = false;
         
-        parent = this.gameObject.transform.parent;
-
-        Time.timeScale = 1f;
-
-        parent.DOMoveY(-1000, 0.2f).OnComplete(() =>
-        {
-            parent.DOKill();
-            
-            if (!Boost.isMultiple)
-            {
-                var tempBoost = this.Boost;
-                
-                tempBoost.isActive = true;
-                
-                boosts.BoostsMap[Boost.key] = tempBoost;
-            }
-            
-            Destroy(parent.parent.gameObject);
-            LevelManager.isShowing = false;
-        });
+        
     }
 }

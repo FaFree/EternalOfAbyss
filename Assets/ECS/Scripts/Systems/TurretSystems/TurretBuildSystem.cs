@@ -1,19 +1,29 @@
+using DG.Tweening;
 using ResourceFeature;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using Resources = ResourceFeature.Resources;
 
 namespace ECS.Scripts.Components
 {
     public class TurretBuildSystem : UpdateSystem
     {
-        private const float MINIMAL_DISTANCE = 5F;
+        private const float MINIMAL_DISTANCE = 2f;
 
         private Resource coins;
         
         private Filter turretFilter;
         private Filter playerFilter;
+
+        private Slider progressBar;
+        private GameObject progressBarObj;
+        
+        private float currentProgress;
+
+        private bool isBuilding;
         
         public override void OnAwake()
         {
@@ -24,7 +34,9 @@ namespace ECS.Scripts.Components
                 With<PlayerComponent>().
                 With<TransformComponent>();
 
-            coins = Resources.GetResource("Coin");
+            this.coins = Resources.GetResource("Coin");
+
+            this.isBuilding = false;
         }
 
         public override void OnUpdate(float deltaTime)
@@ -43,23 +55,76 @@ namespace ECS.Scripts.Components
 
                 var distance = Vector3.SqrMagnitude(playerTransform.position - turretTransform.position);
 
-                if (distance < MINIMAL_DISTANCE)
+                if (distance < MINIMAL_DISTANCE && !this.isBuilding)
                 {
-                    if (coins.IsEnough(turretComponent.config.cost) && !turretEntity.Has<ActiveMarker>())
-                    {
-                        turretEntity.AddComponent<ActiveMarker>();
-                        
-                        turretComponent.config.turretObject.SetActive(true);
+                    this.isBuilding = true;
 
-                        coins.TakeResource(turretComponent.config.cost);
+                    if (turretEntity.Has<ProgressMarker>())
+                    {
+                        ref var progressMarker = ref turretEntity.GetComponent<ProgressMarker>();
+
+                        progressMarker.progress += deltaTime;
+                        
+                        this.progressBar = turretComponent.config.progressBar;
+                        this.progressBarObj = turretComponent.config.progressBarObj;
+                        
+                        this.progressBarObj.SetActive(true);
+
+                        if (progressMarker.progress >= turretComponent.config.buildTime)
+                        {
+                            turretEntity.RemoveComponent<ProgressMarker>();
+                            
+                            turretEntity.AddComponent<ActiveMarker>();
+                        
+                            turretComponent.config.turretObject.SetActive(true);
+
+                            coins.TakeResource(turretComponent.config.cost);
+                            
+                            turretComponent.config.progressBarObj.SetActive(false);
+
+                            this.progressBarObj.SetActive(false);
+                        }
+                        
+                        this.currentProgress = progressMarker.progress / turretComponent.config.buildTime;
+
+                        this.progressBar.DOKill();
+                            
+                        this.progressBar.DOValue(this.currentProgress, 0.1f);
                     }
                     
-                    else if (coins.IsEnough(turretComponent.config.upgradeCost) && turretEntity.Has<ActiveMarker>())
+                    if (!turretEntity.Has<ProgressMarker>())
                     {
-                        turretComponent.config.Upgrade();
+                        if (this.coins.IsEnough(turretComponent.config.cost) && !turretEntity.Has<ActiveMarker>())
+                        {
+                            turretEntity.AddComponent<ProgressMarker>();
+
+                            ref var progressMarker = ref turretEntity.GetComponent<ProgressMarker>();
+
+                            this.progressBar = turretComponent.config.progressBar;
+                            this.progressBarObj = turretComponent.config.progressBarObj;
+                            
+                            this.progressBarObj.SetActive(true);
+
+                            progressMarker.progress += deltaTime;
+                            
+                            this.currentProgress = progressMarker.progress / turretComponent.config.buildTime;
+
+                            this.progressBar.DOKill();
+                            
+                            this.progressBar.DOValue(this.currentProgress, 0.1f);
+                        }
                     }
                 }
             }
+
+            if (!this.isBuilding && !this.progressBarObj.IsUnityNull())
+            {
+                this.currentProgress = 0;
+                this.progressBar.value = 0;
+                this.progressBarObj.SetActive(false);
+            }
+
+            this.isBuilding = false;
         }
     }
 }

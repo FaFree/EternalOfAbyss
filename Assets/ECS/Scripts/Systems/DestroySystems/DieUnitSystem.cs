@@ -60,12 +60,6 @@ namespace ECS.Scripts.Components
                     {
                         entityId = unitEntity.ID
                     });
-
-                    var res = Resources.GetResource("Exp");
-
-                    res.AddResource(unitEntity.GetComponent<UnitComponent>().xpReward);
-                    
-                    onResourceChanged.NextFrame(new OnResourceChanged());
                 }
                     
                 else
