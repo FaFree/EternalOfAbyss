@@ -1,4 +1,5 @@
 using Scellecs.Morpeh;
+using UnityEngine;
 
 namespace ECS.Scripts.Events
 {
@@ -6,5 +7,8 @@ namespace ECS.Scripts.Events
     {
         public EntityId EntityId;
         public float Damage;
+
+        public bool isBaseDamage;
+        public Vector3 hitPosition;
     }
 }

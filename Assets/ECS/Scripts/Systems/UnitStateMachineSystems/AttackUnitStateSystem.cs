@@ -85,7 +85,9 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                          damagedEvent.NextFrame(new DamagedEvent()
                          {
                              EntityId = baseEntity.ID,
-                             Damage =  damage
+                             Damage =  damage,
+                             isBaseDamage = true,
+                             hitPosition = unitTransform.position
                          });
                     }
                 }

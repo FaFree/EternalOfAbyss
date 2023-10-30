@@ -15,8 +15,6 @@ namespace ECS.Scripts.Components
 {
     public class ArrowSpawnSystem : UpdateSystem
     {
-        private Filter playerFilter;
-        
         private Event<ArrowRequest> arrowRequest;
         
         private GameObject arrowPrefab;
@@ -25,9 +23,6 @@ namespace ECS.Scripts.Components
 
         public override void OnAwake()
         {
-
-            this.playerFilter = this.World.Filter.With<PlayerComponent>();
-            
             this.arrowRequest = this.World.GetEvent<ArrowRequest>();
 
             var arrowAddress = WorldModels.Default.Get<Prefabs>().prefabMap["Arrow"];
@@ -51,16 +46,13 @@ namespace ECS.Scripts.Components
                 var spawnPosition = new Vector3(evt.spawnPosition.x, 0, evt.spawnPosition.z);
                 
                 SpawnArrow(spawnPosition, evt.direction.normalized, evt.damage, 
-                    boostModel.isTripleArrow, boostModel.isReboundArrow, boostModel.isPassingArrow);
+                    boostModel.isTripleArrow, boostModel.isReboundArrow, boostModel.isPassingArrow, evt.isPlayer);
             }
         }
 
         private void SpawnArrow(Vector3 spawnPosition, Vector3 direction, float damage, 
-            bool isTripleArrow, bool isRebound, bool isPassing)
+            bool isTripleArrow, bool isRebound, bool isPassing, bool isPlayer)
         {
-            var playerEntity = playerFilter.FirstOrDefault();
-            ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
-
             var go = this.arrowPull.GetFreeElement();
 
             var trail = go.GetComponent<ArrowConfig>().trailObject;
@@ -71,22 +63,25 @@ namespace ECS.Scripts.Components
             
             trail.SetActive(true);
 
-            go.transform.rotation = Quaternion.Euler(0, playerTransform.rotation.eulerAngles.y + 90, 0);
+            go.transform.rotation = Quaternion.LookRotation(direction);
 
             var entity = go.GetComponent<ArrowProvider>().Entity;
             
-            this.SpawnEntity(entity, damage, 4, 10, direction.normalized, isRebound, go.transform, isPassing);
+            this.SetComponents(entity, damage, 4, 10, direction.normalized, isRebound, go.transform, isPassing, isPlayer);
 
-            if (isTripleArrow)
+            if (isTripleArrow && isPlayer)
             {
                 double angleFirstArrow = Math.Atan2(direction.z, direction.x);
 
-                double angleOffSet = 30f;
-                double angle1 = angleFirstArrow + angleOffSet;
-                double angle2 = angleFirstArrow - angleOffSet;
+                double angleOffSet = 15.0; 
+                double angle1 = angleFirstArrow + Math.PI * angleOffSet / 180.0;
+                double angle2 = angleFirstArrow - Math.PI * angleOffSet / 180.0;
+                
+                Vector3 direction1 = new Vector3((float) Math.Cos(angle1), 0, (float) Math.Sin(angle1));
+                Vector3 direction2 = new Vector3((float) Math.Cos(angle2), 0, (float) Math.Sin(angle2));
 
-                Quaternion rotation1 = Quaternion.Euler(0, (float)angle1, 0);
-                Quaternion rotation2 = Quaternion.Euler(0, (float)angle2, 0);
+                Quaternion rotation1 = Quaternion.LookRotation(direction1);
+                Quaternion rotation2 = Quaternion.LookRotation(direction2);
 
                 var go1 = this.arrowPull.GetFreeElement();
 
@@ -108,31 +103,47 @@ namespace ECS.Scripts.Components
 
                 var entity1 = go1.GetComponent<ArrowProvider>().Entity;
                 var entity2 = go2.GetComponent<ArrowProvider>().Entity;
-                
-                Vector3 direction1 = new Vector3((float) Math.Cos(angle1), 0, (float) Math.Sin(angle1));
-                Vector3 direction2 = new Vector3((float) Math.Cos(angle2), 0, (float) Math.Sin(angle2));
 
-                SpawnEntity(entity1, damage, 3, 10, direction1.normalized, isRebound, go1.transform, isPassing);
-                SpawnEntity(entity2, damage, 3, 10, direction2.normalized, isRebound, go2.transform, isPassing);
+                SetComponents(entity1, damage, 3, 10, direction1.normalized, isRebound, go1.transform, isPassing, isPlayer);
+                SetComponents(entity2, damage, 3, 10, direction2.normalized, isRebound, go2.transform, isPassing, isPlayer);
 
             }
         }
 
-        private void SpawnEntity(Entity entity, float damage, int collisionCount, float speed, 
-            Vector3 direction, bool isRebound, Transform transform, bool isPassing)
+        private void SetComponents(Entity entity, float damage, int collisionCount, float speed, 
+            Vector3 direction, bool isRebound, Transform transform, bool isPassing, bool isPlayer)
         {
-            entity.SetComponent(new ArrowComponent
+            if (isPlayer)
             {
-                collisionCount = collisionCount,
-                damage = damage,
-                speed = speed,
-                direction = direction,
-                isRebound = isRebound,
-                maxDuration = 10,
-                currentDuration = 0,
-                isPassing = isPassing,
-                passingCount = 1
-            });
+                entity.SetComponent(new ArrowComponent
+                {
+                    collisionCount = collisionCount,
+                    damage = damage,
+                    speed = speed,
+                    direction = direction,
+                    isRebound = isRebound,
+                    maxDuration = 10,
+                    currentDuration = 0,
+                    isPassing = isPassing,
+                    passingCount = 1,
+                });
+            }
+            else
+            {
+                entity.SetComponent(new ArrowComponent
+                {
+                    collisionCount = collisionCount,
+                    damage = damage,
+                    speed = speed,
+                    direction = direction,
+                    isRebound = false,
+                    maxDuration = 10,
+                    currentDuration = 0,
+                    isPassing = false,
+                    passingCount = 1
+                });
+            }
+            
             
             entity.SetComponent(new TransformComponent
             {

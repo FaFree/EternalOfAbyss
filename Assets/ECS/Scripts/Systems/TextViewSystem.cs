@@ -34,10 +34,10 @@ namespace ECS.Scripts.Components
                     {
                         continue;
                     }
-                    
-                    var text = "-" + evt.Damage.ToString();
-                    
-                    var position = entity.GetComponent<TransformComponent>().transform.position;
+
+                    var position = evt.isBaseDamage ? evt.hitPosition : entity.GetComponent<TransformComponent>().transform.position;
+
+                    var text = "-" + evt.Damage;
                     
                     this.SpawnText(text, position + new Vector3(0, 2, 0));
                 }

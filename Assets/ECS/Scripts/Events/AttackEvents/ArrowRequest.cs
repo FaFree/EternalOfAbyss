@@ -7,6 +7,9 @@ namespace ECS.Scripts.Events
     {
         public Vector3 spawnPosition;
         public Vector3 direction;
+        
         public float damage;
+
+        public bool isPlayer;
     }
 }

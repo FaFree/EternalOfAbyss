@@ -31,8 +31,6 @@ namespace ECS.Scripts.Components.AttackSystems
             
             ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
             
-            ref var stateMachine = ref playerEntity.GetComponent<PlayerComponent>().stateMachine;
-            
             var playerModel = WorldModels.Default.Get<UnitPlayer>();
             
             foreach (var evt in this.rangeAttackRequest.BatchedChanges)
@@ -47,7 +45,8 @@ namespace ECS.Scripts.Components.AttackSystems
                 {
                     direction = new Vector3(0, 0, 1),
                     spawnPosition = playerTransform.position,
-                    damage = playerModel.GetDamage()
+                    damage = playerModel.GetDamage(),
+                    isPlayer = true
                 });
             }
         }

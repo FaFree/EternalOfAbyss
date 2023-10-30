@@ -35,7 +35,7 @@ namespace ECS.Scripts.Components.AttackSystems
 
                 if (healthComponent.health < evt.Damage)
                 {
-                    if (healthComponent.health != 0)
+                    if (!entity.Has<NotAttackMarker>())
                     {
                         dieRequest.NextFrame(new DieRequestEvent
                         {

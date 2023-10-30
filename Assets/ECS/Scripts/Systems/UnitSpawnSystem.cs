@@ -72,7 +72,6 @@ namespace ECS.Scripts.Components
                 entity.SetComponent(new UnitComponent()
                 {
                     coinReward = evt.config.coinReward,
-                    spawnPosition = pos,
                     zone = evt.zone,
                     stateMachine = stateMachine,
                     animator = anim,

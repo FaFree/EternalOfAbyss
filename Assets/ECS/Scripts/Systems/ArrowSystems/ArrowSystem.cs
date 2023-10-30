@@ -11,9 +11,7 @@ namespace ECS.Scripts.Components
     {
         private Filter unitFilter;
         private Filter arrowFilter;
-        private Filter playerFilter;
 
-        private Event<DieRequestEvent> dieRequest;
         private Event<DamageRequest> damageRequest;
         private Event<OnArrowCollisionEnter> onArrowCollisionEnter;
 
@@ -21,9 +19,7 @@ namespace ECS.Scripts.Components
         {
             this.arrowFilter = this.World.Filter.With<ArrowComponent>();
             this.unitFilter = this.World.Filter.With<UnitComponent>();
-            this.playerFilter = this.World.Filter.With<PlayerComponent>();
 
-            this.dieRequest = this.World.GetEvent<DieRequestEvent>();
             this.damageRequest = this.World.GetEvent<DamageRequest>();
             this.onArrowCollisionEnter = this.World.GetEvent<OnArrowCollisionEnter>();
 
@@ -31,11 +27,6 @@ namespace ECS.Scripts.Components
 
         public override void OnUpdate(float deltaTime)
         {
-            var playerEntity = playerFilter.FirstOrDefault();
-
-            if (playerEntity == default)
-                return;
-
             foreach (var arrowEntity in arrowFilter)
             {
                 ref var arrowComponent = ref arrowEntity.GetComponent<ArrowComponent>();

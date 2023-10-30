@@ -13,10 +13,6 @@ namespace ECS.Scripts.Components
         public int xpReward;
 
         public float dieTime;
-
-        public Vector3 DirectionPosition;
-        
-        public Vector3 spawnPosition;
         
         public BaseUnit unit;
         
