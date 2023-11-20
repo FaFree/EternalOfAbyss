@@ -18,10 +18,10 @@ namespace Scripts.UpgradeView
 
         private UpgradeModel upgradeModel;
 
-        private UnitPlayer playerModel;
+        private Player playerModel;
         private void Start()
         {
-            this.playerModel = WorldModels.Default.Get<UnitPlayer>();
+            this.playerModel = WorldModels.Default.Get<Player>();
             
             upgrades = new List<UpgradeIconView>();
             

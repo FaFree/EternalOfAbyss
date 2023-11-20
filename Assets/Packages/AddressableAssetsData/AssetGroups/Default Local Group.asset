@@ -39,20 +39,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - prefabs
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cd5c7534bc9b84aeda05780df84afa01
-    m_Address: Assets/Addressables/Levels/Level2.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - prefabs
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8918266be79f449fd820c9d49b0c0c8d
     m_Address: Assets/Addressables/Levels/Level1.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - prefabs
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d1985b6b795ca48c7b77e02ae281c0e3
-    m_Address: Assets/Addressables/Levels/Level3.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - prefabs
@@ -144,6 +132,21 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 32268d3f2deba47639da10c4feb60221
     m_Address: Assets/Prefabs/Ui/ItemCollectInfo.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33a972aee16534a55a679d2453df6889
+    m_Address: Assets/Addressables/Units/Tortoise_Boss_Anims.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10f9cee6cfdd7df43a5d805acd44763f
+    m_Address: Assets/Addressables/Units/Character_Rock_Golem.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bd574c802cf74ac5994c3f4e3723b35
+    m_Address: Assets/Addressables/ui/WaveEndMenu.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

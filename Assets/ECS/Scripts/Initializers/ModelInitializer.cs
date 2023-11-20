@@ -1,4 +1,7 @@
+using System;
 using DefaultNamespace;
+using ECS.Scripts.Events;
+using Scellecs.Morpeh;
 using Scripts;
 using Scellecs.Morpeh.Systems;
 using Scripts.InventoryFeature;
@@ -11,6 +14,7 @@ using UnityEngine.Serialization;
 
 namespace ECS.Scripts.Initializers
 {
+    [Serializable]
     public class ModelInitializer : Initializer
     {
         [SerializeField] private Boosts boosts;
@@ -19,9 +23,12 @@ namespace ECS.Scripts.Initializers
         [SerializeField] private Items items;
         [SerializeField] private UpgradesObject upgrades;
         
+
+        private Event<EndLoadEvent> endLoaded;
+
         private Inventory inventory = new Inventory();
         private BoostsModel boostModel = new BoostsModel();
-        private UnitPlayer playerModel;
+        private Player playerModel;
         private UpgradeModel upgradeModel = new UpgradeModel();
         private LevelsModel levelModel = new LevelsModel();
 
@@ -29,7 +36,9 @@ namespace ECS.Scripts.Initializers
 
         public override void OnAwake()
         {
-            storageService = new JsonFileStorageService();
+            this.endLoaded = this.World.GetEvent<EndLoadEvent>();
+            
+            this.storageService = new JsonFileStorageService();
             
             if (WorldModels.Default.isNull())
             {
@@ -48,7 +57,7 @@ namespace ECS.Scripts.Initializers
               //      playerModel = new UnitPlayer(playerConfig.config, 0.7f, 1.267f);
               //  }
                 
-                playerModel = new UnitPlayer(playerConfig.config, 0.7f, 1.267f);
+                this.playerModel = new Player(playerConfig.config, 0.7f, 1.267f);
 
                 WorldModels.Default.Set<Boosts>(boosts);
                 WorldModels.Default.Set<Prefabs>(prefabs);
@@ -56,10 +65,12 @@ namespace ECS.Scripts.Initializers
                 WorldModels.Default.Set<Inventory>(inventory);
                 WorldModels.Default.Set<BoostsModel>(boostModel);
                 WorldModels.Default.Set<UpgradeModel>(upgradeModel);
-                WorldModels.Default.Set<UnitPlayer>(playerModel);
+                WorldModels.Default.Set<Player>(playerModel);
                 WorldModels.Default.Set<LevelsModel>(levelModel);
             
                 this.inventory.Initialize();
+                
+                this.endLoaded.NextFrame(new EndLoadEvent());
             }
         }
     }

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using ECS.Scripts.Events;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
@@ -54,8 +55,18 @@ namespace ECS.Scripts.Components
                         damage = turretComponent.config.damage,
                         direction = direction,
                         spawnPosition = turretTransform.position,
-                        isPlayer = false
+                        isPlayer = false,
+                        isAutoArrow = true,
+                        entityId = unitEntity.ID
                     });
+
+                    Quaternion toRotation = Quaternion.LookRotation(direction);
+
+                    Quaternion fromRotation = turretComponent.config.turretObject.transform.rotation;
+                    
+                    Quaternion rotationDifference = toRotation * Quaternion.Inverse(fromRotation);
+                    
+                    turretComponent.config.turretObject.transform.DORotateQuaternion(fromRotation * rotationDifference, 1f);
                 }
             }
         }

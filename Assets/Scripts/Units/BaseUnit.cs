@@ -68,36 +68,7 @@ namespace DefaultNamespace
             if (health > 0)
                 this.MaxHealth += health;
         }
-
-        public virtual void AddBoost(Boost boost)
-        {
-            this.damageWithoutItem += boost.damage;
-            this.healthWithoutItem += boost.health;
-            
-            this.ChangeItems();
-        }
-
-        public virtual void RemoveAllBoosts()
-        {
-            var boostModel = WorldModels.Default.Get<BoostsModel>();
-
-            foreach (var boost in boostModel.boosts)
-            {
-                this.damageWithoutItem -= boost.damage;
-                this.healthWithoutItem -= boost.health;
-            }
-
-            boostModel.Clear();
-        }
-
-        public virtual void AddBoosts(Boost[] boosts)
-        {
-            foreach (var boost in boosts)
-            {
-                this.AddBoost(boost);
-            }
-        }
-
+        
         public virtual float GetDamage()
         {
             float chance = UnityEngine.Random.Range(0f, 1f);

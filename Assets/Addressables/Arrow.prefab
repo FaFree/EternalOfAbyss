@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4668755794025904}
   - component: {fileID: 33752806222745534}
   - component: {fileID: 23776686286094756}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: arrowhead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4115648698905132}
   - component: {fileID: 33521083997809630}
   - component: {fileID: 23773141280257056}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Arrow_stick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 129670441088247183}
   - component: {fileID: 4383583797251498206}
   - component: {fileID: 2844572837378105632}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,9 +257,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4534147065827568}
     m_Modifications:
+    - target: {fileID: 108134, guid: 8044ac9735b9a6e4dbb4a2f0077df40f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 125542, guid: 8044ac9735b9a6e4dbb4a2f0077df40f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 169180, guid: 8044ac9735b9a6e4dbb4a2f0077df40f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 180868, guid: 8044ac9735b9a6e4dbb4a2f0077df40f, type: 3}
       propertyPath: m_Name
       value: LightningFloorPurpleTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 180868, guid: 8044ac9735b9a6e4dbb4a2f0077df40f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 455442, guid: 8044ac9735b9a6e4dbb4a2f0077df40f, type: 3}
       propertyPath: m_LocalScale.x

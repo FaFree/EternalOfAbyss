@@ -2,9 +2,10 @@
   <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="ArrowConfig" preserve="all" />
     <type fullname="BoostView" preserve="all" />
-    <type fullname="DG.Tweening.DOTweenAnimation" preserve="all" />
     <type fullname="ECS.Scripts.Providers.ArrowProvider" preserve="all" />
-    <type fullname="ECS.Scripts.Providers.LevelEndComponentProvider" preserve="all" />
+    <type fullname="ECS.Scripts.Providers.BarrierProvider" preserve="all" />
+    <type fullname="ECS.Scripts.Providers.BaseProvider" preserve="all" />
+    <type fullname="ECS.Scripts.Providers.TurretProvider" preserve="all" />
     <type fullname="FloatingJoystick" preserve="all" />
     <type fullname="InventoryFeature.InventoryView.ItemInfoEquipedView" preserve="all" />
     <type fullname="InventoryFeature.InventoryView.ItemInfoView" preserve="all" />
@@ -13,15 +14,18 @@
     <type fullname="Scripts.ItemView" preserve="all" />
     <type fullname="Scripts.PlayerConfig" preserve="all" />
     <type fullname="Scripts.PlayerInfoPanelConfig" preserve="all" />
-    <type fullname="Scripts.SpawnPositionMonoConfig" preserve="all" />
+    <type fullname="Scripts.TurretManager" preserve="all" />
     <type fullname="Scripts.UnitPrefabConfig" preserve="all" />
-    <type fullname="SkillSpawner" preserve="all" />
     <type fullname="TextConfig" preserve="all" />
     <type fullname="UpgradeIconView" preserve="all" />
     <type fullname="ZoneProvider" preserve="all" />
-    <type fullname="ECS.Scripts.Components.LevelEndComponent" preserve="nothing" serialized="true" />
+    <type fullname="ECS.Scripts.Components.BarrierComponent" preserve="nothing" serialized="true" />
+    <type fullname="ECS.Scripts.Components.BaseComponent" preserve="nothing" serialized="true" />
+    <type fullname="ECS.Scripts.Components.TurretComponent" preserve="nothing" serialized="true" />
     <type fullname="ECS.Scripts.Components.ZoneComponent" preserve="nothing" serialized="true" />
+    <type fullname="Scripts.BarrierConfig" preserve="nothing" serialized="true" />
     <type fullname="Scripts.PlayerUpgradeFeature.Upgrade" preserve="nothing" serialized="true" />
+    <type fullname="Scripts.TurretConfig" preserve="nothing" serialized="true" />
     <type fullname="Scripts.UnitConfig" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
@@ -62,6 +66,7 @@
     <type fullname="UnityEngine.Mesh" preserve="all" />
     <type fullname="UnityEngine.MeshFilter" preserve="all" />
     <type fullname="UnityEngine.MeshRenderer" preserve="all" />
+    <type fullname="UnityEngine.MonoBehaviour" preserve="all" />
     <type fullname="UnityEngine.Object" preserve="all" />
     <type fullname="UnityEngine.RectTransform" preserve="all" />
     <type fullname="UnityEngine.Shader" preserve="all" />
@@ -73,7 +78,6 @@
     <type fullname="UnityEngine.Events.ArgumentCache" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.PersistentListenerMode" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.Events.UnityEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.RectOffset" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">

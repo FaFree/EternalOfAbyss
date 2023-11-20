@@ -35,12 +35,6 @@ namespace ECS.Scripts
                 var resourceCoin = Resources.GetResource("Coin");
 
                 text.text = resourceCoin.ToString();
-
-                ref var textInfo = ref coinEntity.GetComponent<UiCoinComponent>().diamondText;
-                
-                var resourceDiamond = Resources.GetResource("Diamond");
-
-                textInfo.text = resourceDiamond.ToString();
             }
         }
     }

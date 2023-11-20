@@ -11,5 +11,8 @@ namespace ECS.Scripts.Events
         public float damage;
 
         public bool isPlayer;
+        public bool isAutoArrow;
+        
+        public EntityId entityId;
     }
 }

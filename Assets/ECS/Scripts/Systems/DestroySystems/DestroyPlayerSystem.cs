@@ -1,6 +1,7 @@
 using ECS.Scripts.Events;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
+using Scripts;
 using UnityEngine;
 
 namespace ECS.Scripts.Components
@@ -26,6 +27,10 @@ namespace ECS.Scripts.Components
                 if (this.World.TryGetEntity(evt.entityId, out var entity))
                 {
                     Time.timeScale = 0f;
+                    
+                    var boostModel = WorldModels.Default.Get<BoostsModel>();
+                    boostModel.Clear();
+                    
                     this.World.RemoveEntity(entity);
                     playerDestroyedEvent.NextFrame(new PlayerDestroyedEvent());
                 }

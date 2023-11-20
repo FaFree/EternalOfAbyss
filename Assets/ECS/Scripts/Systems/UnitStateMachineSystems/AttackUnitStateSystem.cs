@@ -8,26 +8,25 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
 {
     public class AttackUnitStateSystem : UpdateSystem
     {
-        private Filter baseFilter;
         private Filter unitFilter;
         
         private float timer;
 
-        private Event<BaseDieRequestEvent> dieRequestEvent;
+        private Event<BaseDieRequestEvent> baseDieRequestEvent;
+        private Event<DestroyBarrierRequest> destroyRequestEvent;
         private Event<DamagedEvent> damagedEvent;
+        private Event<NavMeshUpdateRequest> meshUpdateRequest;
 
         public override void OnAwake()
         {
-            this.baseFilter = this.World.Filter
-                .With<BaseComponent>()
-                .With<HealthComponent>();
-
             this.unitFilter = this.World.Filter
                 .With<UnitComponent>()
                 .With<AttackUnitStateMarker>();
 
-            this.dieRequestEvent = this.World.GetEvent<BaseDieRequestEvent>();
+            this.baseDieRequestEvent = this.World.GetEvent<BaseDieRequestEvent>();
             this.damagedEvent = this.World.GetEvent<DamagedEvent>();
+            this.destroyRequestEvent = this.World.GetEvent<DestroyBarrierRequest>();
+            this.meshUpdateRequest = this.World.GetEvent<NavMeshUpdateRequest>();
         }
 
         public override void OnUpdate(float deltaTime)
@@ -42,16 +41,17 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                 ref var unitComponent = ref unitEntity.GetComponent<UnitComponent>();
                 ref var unitModel = ref unitComponent.unit;
                 ref var stateMachine = ref unitComponent.stateMachine;
-                
-                var baseEntity = this.baseFilter.FirstOrDefault();
 
-                if (baseEntity == default)
+                var attackedEntityId = unitEntity.GetComponent<TargetMarker>().entityId;
+
+                if (!this.World.TryGetEntity(attackedEntityId, out var attackedEntity))
                 {
+                    unitEntity.RemoveComponent<TargetMarker>();
+                    stateMachine.SetState<RunMobState>();
                     attackStateMarker.timer = 0f;
-                    return;
+                    attackStateMarker.isFirstAttack = true;
+                    continue;
                 }
-                
-                ref var baseTransform = ref baseEntity.GetComponent<BaseComponent>().position;
 
                 var attackTime = attackStateMarker.isFirstAttack ? unitModel.FirstAttackTime : unitModel.AttackTime;
                 
@@ -60,31 +60,50 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                     attackStateMarker.timer = 0f;
                     attackStateMarker.isFirstAttack = false;
 
-                    ref var baseHealth = ref baseEntity.GetComponent<HealthComponent>().health;
+                    ref var health = ref attackedEntity.GetComponent<HealthComponent>().health;
                     
                     var damage = unitModel.Damage; 
                     
-                    if (damage >= baseHealth)
+                    if (damage >= health)
                     {
-                        if (baseHealth > 0)
+                        if (!attackedEntity.Has<NotAttackMarker>())
                         {
-                            baseHealth = 0;
-                            
-                            dieRequestEvent.NextFrame(new BaseDieRequestEvent
+                            health = 0;
+
+                            if (attackedEntity.Has<BaseComponent>())
                             {
-                                entityId = baseEntity.ID
-                            });
+                                baseDieRequestEvent.NextFrame(new BaseDieRequestEvent
+                                {
+                                    entityId = attackedEntityId
+                                });
+                            }
+                            else
+                            {
+                                destroyRequestEvent.NextFrame(new DestroyBarrierRequest()
+                                {
+                                    entityId = attackedEntityId
+                                });
+                                
+                                unitEntity.RemoveComponent<TargetMarker>();
+                                stateMachine.SetState<RunMobState>();
+                                attackStateMarker.timer = 0f;
+                                attackStateMarker.isFirstAttack = true;
+                                
+                                this.meshUpdateRequest.NextFrame(new NavMeshUpdateRequest());
+                                
+                                continue;
+                            }
                         }
                         
                         attackStateMarker.timer = 0f;
                     }
                     else
                     {
-                        baseHealth -= (int) damage;
+                        health -= damage;
                          
                          damagedEvent.NextFrame(new DamagedEvent()
                          {
-                             EntityId = baseEntity.ID,
+                             EntityId = attackedEntityId,
                              Damage =  damage,
                              isBaseDamage = true,
                              hitPosition = unitTransform.position

@@ -47,7 +47,7 @@ namespace ECS.Scripts.Components
 
                 ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
 
-                var playerModel = WorldModels.Default.Get<UnitPlayer>();
+                var playerModel = WorldModels.Default.Get<Player>();
 
                 ref var attackStateMarker = ref playerEntity.GetComponent<AttackStateMarker>();
 

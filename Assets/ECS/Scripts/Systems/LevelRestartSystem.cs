@@ -77,7 +77,7 @@ namespace ECS.Scripts.Components
 
             playerEntity.GetComponent<TransformComponent>().transform.position = go.transform.position;
 
-            playerEntity.GetComponent<HealthComponent>().health = WorldModels.Default.Get<UnitPlayer>().MaxHealth;
+            playerEntity.GetComponent<HealthComponent>().health = WorldModels.Default.Get<Player>().MaxHealth;
         }
     }
 }

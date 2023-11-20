@@ -9,6 +9,8 @@ namespace ECS.Scripts.Components
 {
     public class ArrowSystem : UpdateSystem
     {
+        private const int HIT_DISTANCE = 2;
+        
         private Filter unitFilter;
         private Filter arrowFilter;
 
@@ -41,7 +43,27 @@ namespace ECS.Scripts.Components
                     continue;
                 }
 
-                arrowTransform.position += arrowComponent.direction * (deltaTime * arrowComponent.speed);
+                if (arrowEntity.Has<AutoArrowMarker>())
+                {
+                    ref var arrowMarker = ref arrowEntity.GetComponent<AutoArrowMarker>();
+
+                    if (this.World.TryGetEntity(arrowMarker.entityId, out var unitEntity) && !unitEntity.Has<NotAttackMarker>())
+                    {
+                        ref var unitTransform = ref unitEntity.GetComponent<TransformComponent>().transform;
+
+                        var direction = unitTransform.position - arrowTransform.position;
+
+                        arrowTransform.position += direction.normalized * (deltaTime * arrowComponent.speed);
+                    }
+                    else
+                    {
+                        arrowTransform.position += arrowTransform.forward * (deltaTime * arrowComponent.speed);
+                    }
+                }
+                else
+                {
+                    arrowTransform.position += arrowComponent.direction * (deltaTime * arrowComponent.speed);
+                }
 
                 foreach (var unitEntity in unitFilter)
                 {
@@ -49,7 +71,7 @@ namespace ECS.Scripts.Components
 
                     var sqrDirection = Vector3.SqrMagnitude(arrowTransform.position - unitTransform.position);
 
-                    if (sqrDirection <= 1)
+                    if (sqrDirection <= HIT_DISTANCE)
                     {
                         if (!unitEntity.Has<NotAttackMarker>())
                         {

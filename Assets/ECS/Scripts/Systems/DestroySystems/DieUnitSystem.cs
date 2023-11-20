@@ -17,13 +17,11 @@ namespace ECS.Scripts.Components
 
         private Event<DieRequestEvent> dieRequestEvent;
         private Event<DestroyUnitRequestEvent> destroyUnitRequestEvent;
-        private Event<OnResourceChanged> onResourceChanged;
 
         public override void OnAwake()
         {
             this.dieRequestEvent = this.World.GetEvent<DieRequestEvent>();
             this.destroyUnitRequestEvent = this.World.GetEvent<DestroyUnitRequestEvent>();
-            this.onResourceChanged = this.World.GetEvent<OnResourceChanged>();
 
             this.unitDieFilter = this.World.Filter.With<DieStateMarker>();
 
@@ -38,10 +36,13 @@ namespace ECS.Scripts.Components
                     if (this.World.TryGetEntity(evt.entityId, out var unit))
                     {
                         ref var healthBar = ref unit.GetComponent<HealthBarComponent>().HealthBarSlider;
-                        ref var unitAgent = ref unit.GetComponent<NavMeshAgentComponent>().agent;
 
-                        unitAgent.isStopped = true;
-                        
+                        if (unit.Has<NavMeshAgentComponent>())
+                        {
+                            ref var unitAgent = ref unit.GetComponent<NavMeshAgentComponent>().agent;
+                            unitAgent.isStopped = true;
+                        }
+
                         healthBar.value = 0;
                         unit.GetComponent<HealthComponent>().health = 0;
                         

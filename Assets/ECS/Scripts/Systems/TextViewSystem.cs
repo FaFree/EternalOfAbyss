@@ -14,14 +14,12 @@ namespace ECS.Scripts.Components
         private const string DAMAGE_PREFAB = "Assets/Addressables/DamageText.prefab";
 
         private Event<DamagedEvent> damagedEvent;
-        private Event<BoostSpawnedEvent> boostSpawnedEvent;
         
         private GameObject prefab;
 
         public override void OnAwake()
         {
             this.damagedEvent = this.World.GetEvent<DamagedEvent>();
-            this.boostSpawnedEvent = this.World.GetEvent<BoostSpawnedEvent>();
         }
 
         public override void OnUpdate(float deltaTime)
@@ -41,23 +39,6 @@ namespace ECS.Scripts.Components
                     
                     this.SpawnText(text, position + new Vector3(0, 2, 0));
                 }
-            }
-
-            if (this.boostSpawnedEvent.IsPublished)
-            {
-                foreach (var evt in this.boostSpawnedEvent.BatchedChanges)
-                {
-                    if (!this.World.TryGetEntity(evt.EntityId, out var entity))
-                    {
-                        continue;
-                    }
-
-                    var text = "Boost Added!";
-
-                    var position = entity.GetComponent<TransformComponent>().transform.position;
-                    
-                    this.SpawnText(text, position + new Vector3(0, 2, 0));
-                }   
             }
         }
 

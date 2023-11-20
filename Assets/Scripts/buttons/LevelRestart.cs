@@ -20,4 +20,9 @@ public class LevelRestart : MonoBehaviour
         restartRequest.NextFrame(new LevelRestartRequest());
         Time.timeScale = 1f;
     }
+
+    public void OnMenuClick()
+    {
+        SceneManager.LoadSceneAsync("MenuScene");
+    }
 }

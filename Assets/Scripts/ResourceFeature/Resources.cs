@@ -22,11 +22,10 @@ namespace ResourceFeature
             resourcesMap = new Dictionary<string, Resource>();
             
             resourcesMap.Add("Coin", new Resource("Coin")); 
-            resourcesMap.Add("Exp", new Resource("Exp"));
             resourcesMap.Add("Diamond", new Resource("Diamond"));
             
             GetResources();
-            resourcesMap["Exp"].SetAmount(0);
+            resourcesMap["Coin"].SetAmount(50000);
             resourcesMap["Diamond"].SetAmount(50000);
         }
 

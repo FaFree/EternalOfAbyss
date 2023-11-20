@@ -12,7 +12,7 @@ namespace Scripts.InventoryFeature
         private RectTransform rect;
         private TextMeshProUGUI textMesh;
 
-        private UnitPlayer playerModel;
+        private Player playerModel;
 
         private GameObject infoPanel;
 
@@ -26,14 +26,14 @@ namespace Scripts.InventoryFeature
             
             this.infoPanel.SetActive(false);
             
-            this.infoPanel.transform.SetParent(this.gameObject.transform);
+            this.infoPanel.transform.SetParent(this.gameObject.transform.parent);
 
             var infoConfig = infoPanel.GetComponent<PlayerInfoPanelConfig>();
 
             this.rect = infoConfig.rect;
             this.textMesh = infoConfig.text;
 
-            var model = WorldModels.Default.Get<UnitPlayer>();
+            var model = WorldModels.Default.Get<Player>();
             
             this.playerModel = model;
         }

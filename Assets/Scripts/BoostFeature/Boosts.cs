@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Scripts;
+using Scripts.BoostFeature;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [Serializable]
 public class Boosts : ScriptableObject
@@ -52,24 +52,21 @@ public struct Boost : ICloneable
     public string skillName;
     public string skillInfo;
 
-    public float heal;
+    public Categories category;
 
-    public float health;
-    
-    public float damage;
-
-    [FormerlySerializedAs("isReboundBoost")] public bool isReboundArrow;
+    public bool isReboundArrow;
     public bool isTripleArrow;
     public bool isPassingArrow;
-    public bool isMultiple;
+
+    public int turretNumber;
+    public int barrierNumber;
+
+    public float price;
+
     public bool isActive;
     
     public Sprite sprite;
 
-    public GameObject boostEffect;
-
-    public float effectPlayTime;
-    
     public object Clone()
     {
         return this.MemberwiseClone();
@@ -92,10 +89,6 @@ public class BoostsModel
         isReboundArrow = false;
         
         boosts.Clear();
-
-        var boostsMap = WorldModels.Default.Get<Boosts>();
-
-        boostsMap.Clear();
     }
 
     public void AddBoost(Boost boost)

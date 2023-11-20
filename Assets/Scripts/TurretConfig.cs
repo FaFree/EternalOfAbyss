@@ -9,10 +9,8 @@ namespace Scripts
     {
         public float damage;
         public float attackSpeed;
-        public float cost;
 
-        public float maxLevel;
-        public float upgradeCost;
+        public Transform turretTransform;
 
         public float buildTime;
 
@@ -20,10 +18,5 @@ namespace Scripts
 
         public Slider progressBar;
         public GameObject progressBarObj;
-
-        public void Upgrade()
-        {
-            
-        }
     }
 }

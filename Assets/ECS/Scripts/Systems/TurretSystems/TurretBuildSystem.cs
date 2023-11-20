@@ -12,14 +12,14 @@ namespace ECS.Scripts.Components
     public class TurretBuildSystem : UpdateSystem
     {
         private const float MINIMAL_DISTANCE = 2f;
-
-        private Resource coins;
         
         private Filter turretFilter;
         private Filter playerFilter;
 
         private Slider progressBar;
         private GameObject progressBarObj;
+
+        private Entity currentEntity;
         
         private float currentProgress;
 
@@ -33,9 +33,7 @@ namespace ECS.Scripts.Components
             this.playerFilter = this.World.Filter.
                 With<PlayerComponent>().
                 With<TransformComponent>();
-
-            this.coins = Resources.GetResource("Coin");
-
+            
             this.isBuilding = false;
         }
 
@@ -67,6 +65,7 @@ namespace ECS.Scripts.Components
                         
                         this.progressBar = turretComponent.config.progressBar;
                         this.progressBarObj = turretComponent.config.progressBarObj;
+                        this.currentEntity = turretEntity;
                         
                         this.progressBarObj.SetActive(true);
 
@@ -78,8 +77,6 @@ namespace ECS.Scripts.Components
                         
                             turretComponent.config.turretObject.SetActive(true);
 
-                            coins.TakeResource(turretComponent.config.cost);
-                            
                             turretComponent.config.progressBarObj.SetActive(false);
 
                             this.progressBarObj.SetActive(false);
@@ -94,7 +91,7 @@ namespace ECS.Scripts.Components
                     
                     if (!turretEntity.Has<ProgressMarker>())
                     {
-                        if (this.coins.IsEnough(turretComponent.config.cost) && !turretEntity.Has<ActiveMarker>())
+                        if (!turretEntity.Has<ActiveMarker>())
                         {
                             turretEntity.AddComponent<ProgressMarker>();
 
@@ -102,6 +99,7 @@ namespace ECS.Scripts.Components
 
                             this.progressBar = turretComponent.config.progressBar;
                             this.progressBarObj = turretComponent.config.progressBarObj;
+                            this.currentEntity = turretEntity;
                             
                             this.progressBarObj.SetActive(true);
 
@@ -122,6 +120,7 @@ namespace ECS.Scripts.Components
                 this.currentProgress = 0;
                 this.progressBar.value = 0;
                 this.progressBarObj.SetActive(false);
+                this.currentEntity.RemoveComponent<ProgressMarker>();
             }
 
             this.isBuilding = false;

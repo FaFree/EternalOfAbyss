@@ -46,12 +46,13 @@ namespace ECS.Scripts.Components
                 var spawnPosition = new Vector3(evt.spawnPosition.x, 0, evt.spawnPosition.z);
                 
                 SpawnArrow(spawnPosition, evt.direction.normalized, evt.damage, 
-                    boostModel.isTripleArrow, boostModel.isReboundArrow, boostModel.isPassingArrow, evt.isPlayer);
+                    boostModel.isTripleArrow, boostModel.isReboundArrow, 
+                    boostModel.isPassingArrow, evt.isPlayer, evt.isAutoArrow, evt.entityId);
             }
         }
 
         private void SpawnArrow(Vector3 spawnPosition, Vector3 direction, float damage, 
-            bool isTripleArrow, bool isRebound, bool isPassing, bool isPlayer)
+            bool isTripleArrow, bool isRebound, bool isPassing, bool isPlayer, bool isAutoArrow, EntityId entityId)
         {
             var go = this.arrowPull.GetFreeElement();
 
@@ -68,6 +69,14 @@ namespace ECS.Scripts.Components
             var entity = go.GetComponent<ArrowProvider>().Entity;
             
             this.SetComponents(entity, damage, 4, 10, direction.normalized, isRebound, go.transform, isPassing, isPlayer);
+
+            if (isAutoArrow)
+            {
+                entity.SetComponent(new AutoArrowMarker
+                {
+                    entityId = entityId
+                });
+            }
 
             if (isTripleArrow && isPlayer)
             {

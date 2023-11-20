@@ -1,4 +1,5 @@
 using System;
+using CoinScaleSystem;
 using DG.Tweening;
 using ECS.Scripts.Components;
 using ECS.Scripts.Events;
@@ -64,7 +65,7 @@ namespace ECS.Scripts
 
                     var spawnPosition = unitTransform.position + unitTransform.forward * 2;
 
-                    var coinReward = unitComponent.coinReward;
+                    var coinReward = unitComponent.coinReward * RewardCoinScaler.scaleFactor;
                     
                     var coinCount = Math.Min(coinReward, MAX_COUNT);
                     
@@ -72,7 +73,7 @@ namespace ECS.Scripts
                     
                     for (int i = 0; i < coinCount; i++)
                     {
-                        SpawnResource(spawnPosition, coinPrice, COIN_PREFAB, "Coin", 0.15f);
+                        SpawnResource(spawnPosition, (int) coinPrice, COIN_PREFAB, "Coin", 0.15f);
                     }
 
                     unit.RemoveComponent<DieAnimationMarker>();

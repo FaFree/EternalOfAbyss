@@ -10,6 +10,5 @@ namespace ECS.Scripts.Components
     public struct UiCoinComponent : IComponent
     {
         public TextMeshProUGUI coinText;
-        public TextMeshProUGUI diamondText;
     }
 }

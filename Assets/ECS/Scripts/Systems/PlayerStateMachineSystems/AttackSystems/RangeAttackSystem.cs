@@ -31,7 +31,7 @@ namespace ECS.Scripts.Components.AttackSystems
             
             ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
             
-            var playerModel = WorldModels.Default.Get<UnitPlayer>();
+            var playerModel = WorldModels.Default.Get<Player>();
             
             foreach (var evt in this.rangeAttackRequest.BatchedChanges)
             {

@@ -63,7 +63,7 @@ namespace ECS.Scripts.Components
             
             Animator anim = go.GetComponent<Animator>();
 
-            var unitPlayer = WorldModels.Default.Get<UnitPlayer>();
+            var unitPlayer = WorldModels.Default.Get<Player>();
 
             entity.SetComponent(new PlayerComponent
             {
@@ -73,18 +73,6 @@ namespace ECS.Scripts.Components
             });
             
             unitPlayer.ChangeItems();
-            
-            entity.SetComponent(new HealthBarComponent
-            {
-                HealthBarSlider = playerConfig.HealthBarSlider,
-                CanvasTransform = playerConfig.CanvasHealthTransform
-            });
-            
-            entity.SetComponent(new HealthComponent
-            {
-                health = unitPlayer.MaxHealth,
-                MaxHealth = unitPlayer.MaxHealth
-            });
 
             entity.SetComponent(new NavMeshAgentComponent
             {
