@@ -27,7 +27,6 @@ namespace ECS.Scripts.Initializers
         private Event<EndLoadEvent> endLoaded;
 
         private Inventory inventory = new Inventory();
-        private BoostsModel boostModel = new BoostsModel();
         private Player playerModel;
         private UpgradeModel upgradeModel = new UpgradeModel();
         private LevelsModel levelModel = new LevelsModel();
@@ -63,10 +62,13 @@ namespace ECS.Scripts.Initializers
                 WorldModels.Default.Set<Prefabs>(prefabs);
                 WorldModels.Default.Set<Items>(items);
                 WorldModels.Default.Set<Inventory>(inventory);
-                WorldModels.Default.Set<BoostsModel>(boostModel);
                 WorldModels.Default.Set<UpgradeModel>(upgradeModel);
                 WorldModels.Default.Set<Player>(playerModel);
                 WorldModels.Default.Set<LevelsModel>(levelModel);
+        
+                BoostsModel boostModel = new BoostsModel();
+                WorldModels.Default.Set<BoostsModel>(boostModel);
+                
             
                 this.inventory.Initialize();
                 

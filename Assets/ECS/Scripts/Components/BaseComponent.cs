@@ -10,6 +10,8 @@ namespace ECS.Scripts.Components
     public struct BaseComponent : IComponent
     {
         public Transform position;
+
+        public float regeneration;
         
         public int currentHealth;
 

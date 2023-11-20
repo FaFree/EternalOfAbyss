@@ -1,5 +1,7 @@
+using CoinScaleSystem;
 using ECS.Scripts.Events;
 using Scellecs.Morpeh;
+using Scripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

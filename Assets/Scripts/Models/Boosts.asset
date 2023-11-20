@@ -13,147 +13,198 @@ MonoBehaviour:
   m_Name: Boosts
   m_EditorClassIdentifier: 
   boosts:
-  - key: TripleArrow
+  - damage: 0
+    health: 0
+    regeneration: 0
+    key: TripleArrow
     skillName: Triple Arrow
     skillInfo: Added 2 arrows in shot
     category: 1
     isReboundArrow: 0
     isTripleArrow: 1
     isPassingArrow: 0
-    turretNumber: 0
-    barrierNumber: 0
     price: 600
-    isActive: 0
+    isActive: 1
     sprite: {fileID: 21300000, guid: b123bdad4f47a734c80135e456f2d162, type: 3}
-  - key: ReboundArrow
+  - damage: 0
+    health: 0
+    regeneration: 0
+    key: ReboundArrow
     skillName: Rebound Arrow
     skillInfo: Arrows Rebound
     category: 1
     isReboundArrow: 1
     isTripleArrow: 0
     isPassingArrow: 0
-    turretNumber: 0
-    barrierNumber: 0
     price: 800
-    isActive: 0
+    isActive: 1
     sprite: {fileID: 21300000, guid: 530bcabb1501d8148a19a77465ecac03, type: 3}
-  - key: PassingArrow
+  - damage: 0
+    health: 0
+    regeneration: 0
+    key: PassingArrow
     skillName: Passing Arrow
     skillInfo: Arrow Passing
     category: 1
     isReboundArrow: 0
     isTripleArrow: 0
     isPassingArrow: 1
-    turretNumber: 0
-    barrierNumber: 0
     price: 1000
-    isActive: 0
+    isActive: 1
     sprite: {fileID: 21300000, guid: 8d95bcf261f259f4786a397bc66e3705, type: 3}
-  - key: TURRET1
+  - damage: 0
+    health: 0
+    regeneration: 0
+    key: TURRET1
     skillName: Auto Turret
     skillInfo: Activate auto turret on the level
     category: 4
     isReboundArrow: 0
     isTripleArrow: 0
     isPassingArrow: 0
-    turretNumber: 1
-    barrierNumber: 0
     price: 30000
     isActive: 0
     sprite: {fileID: 21300000, guid: 1b11533f86e0a4e90983b1c91374a97b, type: 3}
-  - key: TURRET2
+  - damage: 0
+    health: 0
+    regeneration: 0
+    key: TURRET2
     skillName: Auto Turret
     skillInfo: Activate auto turret on the level
     category: 4
     isReboundArrow: 0
     isTripleArrow: 0
     isPassingArrow: 0
-    turretNumber: 2
-    barrierNumber: 0
     price: 30000
     isActive: 0
     sprite: {fileID: 21300000, guid: 1b11533f86e0a4e90983b1c91374a97b, type: 3}
-  - key: TURRET3
+  - damage: 0
+    health: 0
+    regeneration: 0
+    key: TURRET3
     skillName: Auto Turret
     skillInfo: Activate auto turret on the level
     category: 4
     isReboundArrow: 0
     isTripleArrow: 0
     isPassingArrow: 0
-    turretNumber: 3
-    barrierNumber: 0
     price: 150000
     isActive: 0
     sprite: {fileID: 21300000, guid: 1b11533f86e0a4e90983b1c91374a97b, type: 3}
-  - key: BARRIER1
+  - damage: 0
+    health: 0
+    regeneration: 0
+    key: BARRIER1
     skillName: Barrier
     skillInfo: Barrier for stoping zombie
     category: 2
     isReboundArrow: 0
     isTripleArrow: 0
     isPassingArrow: 0
-    turretNumber: 0
-    barrierNumber: 1
     price: 500
     isActive: 0
     sprite: {fileID: 21300000, guid: 2eebd6df90ee44f888b7cb640d762af0, type: 3}
-  - key: BARRIER2
+  - damage: 0
+    health: 0
+    regeneration: 0
+    key: BARRIER2
     skillName: Barrier
     skillInfo: Barrier for stoping zombie
     category: 2
     isReboundArrow: 0
     isTripleArrow: 0
     isPassingArrow: 0
-    turretNumber: 0
-    barrierNumber: 2
     price: 1000
     isActive: 0
     sprite: {fileID: 21300000, guid: 2eebd6df90ee44f888b7cb640d762af0, type: 3}
-  - key: BARRIER3
+  - damage: 0
+    health: 0
+    regeneration: 0
+    key: BARRIER3
     skillName: Barrier
     skillInfo: Barrier for stoping zombie
     category: 2
     isReboundArrow: 0
     isTripleArrow: 0
     isPassingArrow: 0
-    turretNumber: 0
-    barrierNumber: 3
     price: 1500
     isActive: 0
     sprite: {fileID: 21300000, guid: 2eebd6df90ee44f888b7cb640d762af0, type: 3}
-  - key: BARRIER4
+  - damage: 0
+    health: 0
+    regeneration: 0
+    key: BARRIER4
     skillName: Barrier
     skillInfo: Barrier for stoping zombie
     category: 2
     isReboundArrow: 0
     isTripleArrow: 0
     isPassingArrow: 0
-    turretNumber: 0
-    barrierNumber: 4
     price: 2000
     isActive: 0
     sprite: {fileID: 21300000, guid: 2eebd6df90ee44f888b7cb640d762af0, type: 3}
-  - key: BARRIER5
+  - damage: 0
+    health: 0
+    regeneration: 0
+    key: BARRIER5
     skillName: Barrier
     skillInfo: Barrier for stoping zombie
     category: 2
     isReboundArrow: 0
     isTripleArrow: 0
     isPassingArrow: 0
-    turretNumber: 0
-    barrierNumber: 5
     price: 3000
     isActive: 0
     sprite: {fileID: 21300000, guid: 2eebd6df90ee44f888b7cb640d762af0, type: 3}
-  - key: BARRIER6
+  - damage: 0
+    health: 0
+    regeneration: 0
+    key: BARRIER6
     skillName: Barrier
     skillInfo: Barrier for stoping zombie
     category: 2
     isReboundArrow: 0
     isTripleArrow: 0
     isPassingArrow: 0
-    turretNumber: 0
-    barrierNumber: 6
     price: 3500
     isActive: 0
     sprite: {fileID: 21300000, guid: 2eebd6df90ee44f888b7cb640d762af0, type: 3}
+  - damage: 0
+    health: 500
+    regeneration: 0
+    key: BASE_HEALTH_500
+    skillName: Base Health
+    skillInfo: Added 500 health
+    category: 3
+    isReboundArrow: 0
+    isTripleArrow: 0
+    isPassingArrow: 0
+    price: 200
+    isActive: 0
+    sprite: {fileID: 21300000, guid: dbb56c756e0d94e8ca8eb4faab84284e, type: 3}
+  - damage: 0
+    health: 1000
+    regeneration: 0
+    key: BASE_HEALTH_1000
+    skillName: Base Health
+    skillInfo: Added 1000 health
+    category: 3
+    isReboundArrow: 0
+    isTripleArrow: 0
+    isPassingArrow: 0
+    price: 500
+    isActive: 0
+    sprite: {fileID: 21300000, guid: dbb56c756e0d94e8ca8eb4faab84284e, type: 3}
+  - damage: 0
+    health: 2000
+    regeneration: 0
+    key: BASE_HEALTH_2000
+    skillName: Base Health
+    skillInfo: Added 2000 health
+    category: 3
+    isReboundArrow: 0
+    isTripleArrow: 0
+    isPassingArrow: 0
+    price: 1000
+    isActive: 0
+    sprite: {fileID: 21300000, guid: dbb56c756e0d94e8ca8eb4faab84284e, type: 3}

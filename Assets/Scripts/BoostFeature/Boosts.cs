@@ -14,10 +14,10 @@ public class Boosts : ScriptableObject
 
     public void Initialize()
     {
-        this.BoostsMap = this.boosts.ToDictionary(x => x.key, x => (Boost) x.Clone());
+        this.BoostsMap = this.boosts.ToDictionary(x => x.key, x => x);
     }
 
-    public Dictionary<string, Boost> GetAvaliableBoosts()
+    public Dictionary<string, Boost> GetAvailableBoosts()
     {
         var tempBoosts = new Dictionary<string, Boost>();
 
@@ -36,17 +36,18 @@ public class Boosts : ScriptableObject
     {
         foreach (var boostKvp in BoostsMap)
         {
-            var tempValue = boostKvp.Value;
-            tempValue.isActive = false;
-            
-            BoostsMap[boostKvp.Key] = tempValue;
+            boostKvp.Value.Deactivate();
         }
     }
 }
 
 [Serializable]
-public struct Boost : ICloneable
+public class Boost
 {
+    public float damage;
+    public float health;
+    public float regeneration;
+    
     public string key;
 
     public string skillName;
@@ -58,18 +59,20 @@ public struct Boost : ICloneable
     public bool isTripleArrow;
     public bool isPassingArrow;
 
-    public int turretNumber;
-    public int barrierNumber;
-
     public float price;
 
     public bool isActive;
     
     public Sprite sprite;
 
-    public object Clone()
+    public void Deactivate()
     {
-        return this.MemberwiseClone();
+        this.isActive = false;
+    }
+
+    public void Activate()
+    {
+        this.isActive = true;
     }
 }
 
@@ -89,6 +92,8 @@ public class BoostsModel
         isReboundArrow = false;
         
         boosts.Clear();
+        
+        WorldModels.Default.Get<Boosts>().Clear();
     }
 
     public void AddBoost(Boost boost)
@@ -106,5 +111,11 @@ public class BoostsModel
     public BoostsModel()
     {
         boosts = new List<Boost>();
+
+        foreach (var kvp in WorldModels.Default.Get<Boosts>().BoostsMap)
+        {
+            if (kvp.Value.isActive)
+                this.AddBoost(kvp.Value);
+        }
     }
 }

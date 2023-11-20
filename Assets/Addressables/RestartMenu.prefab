@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8125618444866405762}
   - component: {fileID: 7411540946261337275}
   m_Layer: 5
-  m_Name: CollectButton
+  m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

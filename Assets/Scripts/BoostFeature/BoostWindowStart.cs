@@ -6,14 +6,12 @@ using UnityEngine.AddressableAssets;
 
 namespace Scripts.BoostFeature
 {
-    public class SkillWindowStart : MonoBehaviour
+    public class BoostWindowStart : MonoBehaviour
     {
         [SerializeField] private RectTransform skillRoot;
         [SerializeField] private ButtonManager buttonManager;
 
         private List<BoostView> boostViews;
-
-        private Boosts boosts;
         
         private GameObject skillObj;
         
@@ -22,14 +20,12 @@ namespace Scripts.BoostFeature
             this.buttonManager.onCategoryChanged += UpdateCategory;
             
             this.boostViews = new List<BoostView>();
-            
-            this.boosts = WorldModels.Default.Get<Boosts>();
 
             var key = WorldModels.Default.Get<Prefabs>().prefabMap["SkillIcon"];
 
             this.skillObj = Addressables.LoadAssetAsync<GameObject>(key).WaitForCompletion();
 
-            foreach (var kvp in boosts.BoostsMap)
+            foreach (var kvp in WorldModels.Default.Get<Boosts>().BoostsMap)
             {
                 var obj = Instantiate(skillObj, skillRoot);
 

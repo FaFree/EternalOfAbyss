@@ -14,11 +14,13 @@ namespace Scripts
         {
             this.boostModel = WorldModels.Default.Get<BoostsModel>();
 
+            int index = 0;
+
             foreach (var boost in this.boostModel.boosts)
             {
                 if (boost.category == Categories.Turrets)
                 {
-                    Turrets[boost.turretNumber - 1].SetActive(true);
+                    Turrets[index++].SetActive(true);
                 }
             }
         }

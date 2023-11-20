@@ -2,6 +2,8 @@ using System;
 using ECS.Scripts.Components;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Providers;
+using Scripts;
+using Scripts.BoostFeature;
 
 namespace ECS.Scripts.Providers
 {
@@ -11,8 +13,17 @@ namespace ECS.Scripts.Providers
         {
             ref var baseComponent = ref this.Entity.GetComponent<BaseComponent>();
             
-            var maxHealth = baseComponent.maxHealth;
-            
+            float maxHealth = baseComponent.maxHealth;
+
+            foreach (var kvp in WorldModels.Default.Get<Boosts>().BoostsMap)
+            {
+                if (kvp.Value.category == Categories.Base)
+                {
+                    maxHealth += kvp.Value.health;
+                    baseComponent.regeneration += kvp.Value.regeneration;
+                }
+            }
+
             this.Entity.SetComponent(new HealthComponent
             {
                 health = maxHealth,

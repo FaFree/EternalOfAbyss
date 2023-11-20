@@ -28,9 +28,7 @@ public class BoostView : MonoBehaviour
 
     private string boostKey;
 
-    private Boosts boosts;
-
-    public Boost Boost => this.boosts.BoostsMap[this.boostKey];
+    public Boost Boost => WorldModels.Default.Get<Boosts>().BoostsMap[this.boostKey];
 
     public Action onClick;
 
@@ -46,6 +44,7 @@ public class BoostView : MonoBehaviour
         if (this.Boost.isActive)
         {
             this.completeRoot.gameObject.SetActive(true);
+            this.button.interactable = false;
         }
 
         if (!this.coins.IsEnough(this.Boost.price) && !this.Boost.isActive)
@@ -62,8 +61,6 @@ public class BoostView : MonoBehaviour
 
     private void Awake()
     {
-        this.boosts = WorldModels.Default.Get<Boosts>();
-
         this.boostRequest = World.Default.GetEvent<BoostRequest>();
 
         this.coins = Resources.GetResource("Coin");
@@ -82,11 +79,7 @@ public class BoostView : MonoBehaviour
 
             this.button.interactable = false;
 
-            var tempBoost = this.Boost;
-
-            tempBoost.isActive = true;
-
-            this.boosts.BoostsMap[this.boostKey] = tempBoost;
+            this.Boost.Activate();
         
             this.completeRoot.gameObject.SetActive(true);
 
