@@ -17,6 +17,7 @@ namespace ECS.Scripts.Components
         private const float ANIMATION_DURATION = 0.2f;
 
         private Event<DamagedEvent> damagedEvent;
+        private Event<RegenerationEvent> regenerationEvent;
 
         public override void OnAwake()
         {
@@ -25,6 +26,7 @@ namespace ECS.Scripts.Components
                 .With<HealthBarComponent>();
 
             this.damagedEvent = this.World.GetEvent<DamagedEvent>();
+            this.regenerationEvent = this.World.GetEvent<RegenerationEvent>();
         }
 
         public override void OnUpdate(float deltaTime)
@@ -51,6 +53,22 @@ namespace ECS.Scripts.Components
                     if (entity.Has<BaseComponent>())
                     {
                         ref var baseComponent = ref entity.GetComponent<BaseComponent>();
+
+                        baseComponent.healthView.text = $"{health}/{maxHealth}";
+                    }
+                }
+
+                if (this.regenerationEvent.IsPublished)
+                {
+                    if (entity.Has<BaseComponent>())
+                    {
+                        ref var baseComponent = ref entity.GetComponent<BaseComponent>();
+                        
+                        healthBar.DOKill();
+                
+                        healthBar
+                            .DOValue(GetHealthOnPercent(health, maxHealth), ANIMATION_DURATION)
+                            .SetAutoKill(true);
 
                         baseComponent.healthView.text = $"{health}/{maxHealth}";
                     }

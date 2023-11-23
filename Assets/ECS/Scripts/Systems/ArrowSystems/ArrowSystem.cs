@@ -81,17 +81,17 @@ namespace ECS.Scripts.Components
                                 EntityId = unitEntity.ID
                             });
 
-                            if (arrowComponent.isPassing == true && arrowComponent.passingCount == 0)
+                            if (arrowComponent.isPassing && arrowComponent.passingCount == 0)
                             {
                                 arrowTransform.gameObject.SetActive(false);
                                 this.World.RemoveEntity(arrowEntity);
                                 break;
                             }
 
-                            else if (arrowComponent.isPassing == true && arrowComponent.passingCount != 0)
+                            else if (arrowComponent.isPassing && arrowComponent.passingCount != 0)
                             {
                                 arrowComponent.passingCount--;
-                                arrowTransform.position += arrowComponent.direction;
+                                arrowTransform.position += arrowComponent.direction.normalized * 2.5f;
                             }
 
                             else

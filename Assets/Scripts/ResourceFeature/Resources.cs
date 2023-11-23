@@ -25,8 +25,8 @@ namespace ResourceFeature
             resourcesMap.Add("Diamond", new Resource("Diamond"));
             
             GetResources();
-            resourcesMap["Coin"].SetAmount(50000);
-            resourcesMap["Diamond"].SetAmount(50000);
+            resourcesMap["Coin"].SetAmount(0);
+            resourcesMap["Diamond"].SetAmount(0);
         }
 
         public static Resource GetResource(string resourceName)

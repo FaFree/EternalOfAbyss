@@ -9,14 +9,10 @@ namespace ECS.Scripts.Components
 {
     public class BoostSystem : UpdateSystem
     {
-        private Boosts boosts;
-        
         private Event<BoostRequest> boostRequest;
 
         public override void OnAwake()
         {
-            this.boosts = WorldModels.Default.Get<Boosts>();
-            
             this.boostRequest = this.World.GetEvent<BoostRequest>();
         }
 
@@ -29,9 +25,7 @@ namespace ECS.Scripts.Components
             {
                 var boostModel = WorldModels.Default.Get<BoostsModel>();
 
-                var boost = boosts.BoostsMap[evt.boostKey];
-                
-                boostModel.AddBoost(boost);
+                boostModel.AddBoost(evt.boost);
             }
         }
     }

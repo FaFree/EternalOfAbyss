@@ -64,8 +64,10 @@ namespace ECS.Scripts.Components
                     zoneComponent.timer = 0f;
                     zoneComponent.currentUnitCount++;
                     zoneComponent.spawnedUnitCount++;
+
+                    slider.DOKill();
                     
-                    slider.DOValue((float)zoneComponent.spawnedUnitCount / (float)zoneComponent.maxUnitCount, 0.2f);
+                    slider.DOValue((float)zoneComponent.spawnedUnitCount / (float)zoneComponent.maxUnitCount, 1f);
                     
                     zoneComponent.isSpawned = zoneComponent.spawnedUnitCount == zoneComponent.maxUnitCount;
                 }

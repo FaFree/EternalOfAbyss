@@ -15,7 +15,7 @@ namespace ECS.Scripts.Providers
             
             float maxHealth = baseComponent.maxHealth;
 
-            foreach (var kvp in WorldModels.Default.Get<Boosts>().BoostsMap)
+            foreach (var kvp in WorldModels.Default.Get<Boosts>().GetAvailableBoosts())
             {
                 if (kvp.Value.category == Categories.Base)
                 {

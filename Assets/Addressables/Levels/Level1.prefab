@@ -1,5 +1,143 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &27551588737487303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4654813261416255521}
+  - component: {fileID: 3567101844818753508}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (38)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4654813261416255521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27551588737487303}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3567101844818753508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27551588737487303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 4654813261416255521}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &185018235549859905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4871231282471191087}
+  - component: {fileID: 7703062993710049967}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (35)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4871231282471191087
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185018235549859905}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7703062993710049967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185018235549859905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 4871231282471191087}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
 --- !u!1 &264562915265513501
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,12 +163,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264562915265513501}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 10, y: 0, z: 50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7704809690384017569}
+  m_Father: {fileID: 2526819915641445830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &501406426362306271
 MonoBehaviour:
@@ -45,9 +183,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
-    allUnitSpawnTime: 18
+    allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 18
+    maxUnitCount: 15
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -57,15 +195,636 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 3620785596023626965}
-    nextWave: {fileID: 2495200020311595457}
+    nextWave: {fileID: 2388335070596156277}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 50
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &365449526116499995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7158517152130690243}
+  - component: {fileID: 3818172686889112010}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (25)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7158517152130690243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365449526116499995}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3818172686889112010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365449526116499995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 7158517152130690243}
+    nextWave: {fileID: 0}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
       speed: 10
-      maxHealth: 500
-      attackRange: 1
-      damage: 50
-      attackTime: 2
-      coinReward: 30
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &420717849203178702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6426093864877160176}
+  - component: {fileID: 950886747430988433}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (33)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6426093864877160176
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420717849203178702}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &950886747430988433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420717849203178702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 6426093864877160176}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &431956455541083562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3062250329414324558}
+  - component: {fileID: 5471625409501217115}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (20)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3062250329414324558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431956455541083562}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5471625409501217115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431956455541083562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 3062250329414324558}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &530820955086654263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6530575017627862626}
+  - component: {fileID: 2404164324824315416}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6530575017627862626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530820955086654263}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2404164324824315416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530820955086654263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 29
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 6530575017627862626}
+    nextWave: {fileID: 7078261552977108882}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 15
+      maxHealth: 135
+      attackRange: 2
+      damage: 35
+      attackTime: 1
+      coinReward: 19
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &696772616550027167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3035891633686320931}
+  - component: {fileID: 8103575528756516196}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (28)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3035891633686320931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696772616550027167}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8103575528756516196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696772616550027167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 3035891633686320931}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &837685564996298904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8179721597906148471}
+  - component: {fileID: 510665827743895759}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (39)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8179721597906148471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837685564996298904}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &510665827743895759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837685564996298904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 8179721597906148471}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &1001102716271357618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9067514998620562116}
+  - component: {fileID: 5804731012361160004}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (40)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &9067514998620562116
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001102716271357618}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5804731012361160004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001102716271357618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 9067514998620562116}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &1123760490799220742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 776352161608244561}
+  - component: {fileID: 3576259537370441683}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &776352161608244561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123760490799220742}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3576259537370441683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123760490799220742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 25
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 776352161608244561}
+    nextWave: {fileID: 5633367670140083213}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 100
+      attackRange: 2
+      damage: 20
+      attackTime: 1
+      coinReward: 10
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &1279533247312812816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8662665376653525759}
+  - component: {fileID: 8708117536255942546}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8662665376653525759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279533247312812816}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8708117536255942546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279533247312812816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 19
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 8662665376653525759}
+    nextWave: {fileID: 4418195533201452418}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 70
+      attackRange: 2
+      damage: 14
+      attackTime: 1
+      coinReward: 7
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -103,13 +862,80 @@ Transform:
   - {fileID: 8221751672976862123}
   - {fileID: 4161624167031903360}
   - {fileID: 1382583996899306141}
-  - {fileID: 3620785596023626965}
-  - {fileID: 5848018500835538362}
-  - {fileID: 7549167012445284454}
   - {fileID: 4207976589540462459}
   - {fileID: 4841979835194264571}
+  - {fileID: 2526819915641445830}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1494063573609102560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1721756985596567268}
+  - component: {fileID: 7431068309174644857}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1721756985596567268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494063573609102560}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7431068309174644857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494063573609102560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 27
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 1721756985596567268}
+    nextWave: {fileID: 5086512667509975706}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 14
+      maxHealth: 110
+      attackRange: 2
+      damage: 30
+      attackTime: 1
+      coinReward: 15
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
 --- !u!1 &1625657976490935071
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +995,7 @@ MonoBehaviour:
   - {fileID: 3475608973535836077}
   - {fileID: 6551103749332123509}
   - {fileID: 4215966376283670271}
---- !u!1 &2495200020311595457
+--- !u!1 &1703502032191964704
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,46 +1003,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5848018500835538362}
-  - component: {fileID: 137557035093464264}
+  - component: {fileID: 4197354456405154949}
+  - component: {fileID: 940620395965137539}
   m_Layer: 0
-  m_Name: UnitSpawnZone (2)
+  m_Name: UnitSpawnZone (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &5848018500835538362
+--- !u!4 &4197354456405154949
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2495200020311595457}
+  m_GameObject: {fileID: 1703502032191964704}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 10, y: 0, z: 50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7704809690384017569}
+  m_Father: {fileID: 2526819915641445830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &137557035093464264
+--- !u!114 &940620395965137539
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2495200020311595457}
+  m_GameObject: {fileID: 1703502032191964704}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
-    allUnitSpawnTime: 18
+    allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 18
+    maxUnitCount: 15
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -225,20 +1051,20 @@ MonoBehaviour:
     waveProgressConfig:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
-    position: {fileID: 5848018500835538362}
-    nextWave: {fileID: 3794469509581913437}
+    position: {fileID: 4197354456405154949}
+    nextWave: {fileID: 0}
     config:
-      prefab: Assets/Addressables/Units/Character_Rock_Golem.prefab
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
       speed: 10
-      maxHealth: 500
-      attackRange: 1
-      damage: 50
-      attackTime: 2
-      coinReward: 30
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
---- !u!1 &3794469509581913437
+--- !u!1 &2178782501895327962
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,8 +1072,77 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7549167012445284454}
-  - component: {fileID: 9219967576065145311}
+  - component: {fileID: 1202005862822207801}
+  - component: {fileID: 5587635925195265071}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1202005862822207801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2178782501895327962}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5587635925195265071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2178782501895327962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 27
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 1202005862822207801}
+    nextWave: {fileID: 1494063573609102560}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 13
+      maxHealth: 110
+      attackRange: 2
+      damage: 28
+      attackTime: 1
+      coinReward: 14
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &2388335070596156277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2474361240983993513}
+  - component: {fileID: 6297273417340233525}
   m_Layer: 0
   m_Name: UnitSpawnZone (1)
   m_TagString: Untagged
@@ -255,55 +1150,758 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &7549167012445284454
+--- !u!4 &2474361240983993513
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3794469509581913437}
+  m_GameObject: {fileID: 2388335070596156277}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: 56.51}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7704809690384017569}
+  m_Father: {fileID: 2526819915641445830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9219967576065145311
+--- !u!114 &6297273417340233525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3794469509581913437}
+  m_GameObject: {fileID: 2388335070596156277}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
-    allUnitSpawnTime: 1
+    allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 1
+    maxUnitCount: 17
     currentUnitCount: 0
-    radius: 1
+    radius: 10
     timer: 0
     isEnded: 0
     isSpawned: 0
     waveProgressConfig:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
-    position: {fileID: 7549167012445284454}
+    position: {fileID: 2474361240983993513}
+    nextWave: {fileID: 1279533247312812816}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 60
+      attackRange: 2
+      damage: 12
+      attackTime: 1
+      coinReward: 6
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &2510938571584205655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1049675327788085531}
+  - component: {fileID: 6150008599902316811}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (23)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1049675327788085531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2510938571584205655}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6150008599902316811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2510938571584205655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 1049675327788085531}
     nextWave: {fileID: 0}
     config:
-      prefab: Assets/Addressables/Units/Tortoise_Boss_Anims.prefab
-      speed: 5
-      maxHealth: 500000
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
       attackRange: 2
-      damage: 600
-      attackTime: 4
-      coinReward: 5000
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &2616981859899871271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8060223958572095198}
+  - component: {fileID: 7723503035376281724}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (49)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8060223958572095198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2616981859899871271}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7723503035376281724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2616981859899871271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 8060223958572095198}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &2710530269487338737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6334920750779628567}
+  - component: {fileID: 3335758673459604723}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (32)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6334920750779628567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2710530269487338737}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3335758673459604723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2710530269487338737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 6334920750779628567}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &2762564319117979127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1492239333432607141}
+  - component: {fileID: 8040383164613912691}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (30)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1492239333432607141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762564319117979127}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8040383164613912691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762564319117979127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 1492239333432607141}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &3694288226784784835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2526819915641445830}
+  m_Layer: 0
+  m_Name: UnitWaves
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2526819915641445830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3694288226784784835}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3620785596023626965}
+  - {fileID: 2474361240983993513}
+  - {fileID: 8662665376653525759}
+  - {fileID: 8884644616024655808}
+  - {fileID: 6286750555321964221}
+  - {fileID: 776352161608244561}
+  - {fileID: 2967277090341955523}
+  - {fileID: 487006162613791899}
+  - {fileID: 5322765661129579725}
+  - {fileID: 1202005862822207801}
+  - {fileID: 1721756985596567268}
+  - {fileID: 3502137122499342074}
+  - {fileID: 6530575017627862626}
+  - {fileID: 2297551882513473425}
+  - {fileID: 2625207256913322956}
+  - {fileID: 8740551770736729923}
+  - {fileID: 1197662704453020051}
+  - {fileID: 8946039034695499177}
+  - {fileID: 4730582725189907289}
+  - {fileID: 2613748563095297154}
+  - {fileID: 3062250329414324558}
+  - {fileID: 3932403314355168490}
+  - {fileID: 2479466328278824609}
+  - {fileID: 1049675327788085531}
+  - {fileID: 312108556023458467}
+  - {fileID: 7158517152130690243}
+  - {fileID: 4981729250882662580}
+  - {fileID: 1520490723692238492}
+  - {fileID: 3035891633686320931}
+  - {fileID: 4194990741051573325}
+  - {fileID: 1492239333432607141}
+  - {fileID: 1881614146479796568}
+  - {fileID: 6334920750779628567}
+  - {fileID: 6426093864877160176}
+  - {fileID: 8501950786892941246}
+  - {fileID: 4871231282471191087}
+  - {fileID: 8757674770815926593}
+  - {fileID: 5700010776554267486}
+  - {fileID: 4654813261416255521}
+  - {fileID: 8179721597906148471}
+  - {fileID: 9067514998620562116}
+  - {fileID: 4197354456405154949}
+  - {fileID: 5862175590762678358}
+  - {fileID: 5770968691942614575}
+  - {fileID: 3325140977323233466}
+  - {fileID: 8615067810397137109}
+  - {fileID: 3098142891262543279}
+  - {fileID: 8785423906647658145}
+  - {fileID: 788388934236206506}
+  - {fileID: 8060223958572095198}
+  - {fileID: 6453934338691443344}
+  m_Father: {fileID: 7704809690384017569}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4331138116404643706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8785423906647658145}
+  - component: {fileID: 1319837298994158560}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (47)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8785423906647658145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331138116404643706}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1319837298994158560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331138116404643706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 8785423906647658145}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &4383292652181917519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1520490723692238492}
+  - component: {fileID: 4977796241218554068}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (27)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1520490723692238492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4383292652181917519}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4977796241218554068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4383292652181917519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 1520490723692238492}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &4404120582790854810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3932403314355168490}
+  - component: {fileID: 18266935680361940}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (21)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3932403314355168490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4404120582790854810}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &18266935680361940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4404120582790854810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 3932403314355168490}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &4409308221802454835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8946039034695499177}
+  - component: {fileID: 3195926660808471522}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (17)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8946039034695499177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4409308221802454835}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3195926660808471522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4409308221802454835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 8946039034695499177}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &4418195533201452418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8884644616024655808}
+  - component: {fileID: 3206162608871696215}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8884644616024655808
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4418195533201452418}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3206162608871696215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4418195533201452418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 21
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 8884644616024655808}
+    nextWave: {fileID: 9112267931169218030}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 80
+      attackRange: 2
+      damage: 16
+      attackTime: 1
+      coinReward: 8
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -338,6 +1936,1593 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7704809690384017569}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5086512667509975706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3502137122499342074}
+  - component: {fileID: 1463012909551362644}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3502137122499342074
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5086512667509975706}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1463012909551362644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5086512667509975706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 27
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 3502137122499342074}
+    nextWave: {fileID: 530820955086654263}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 15
+      maxHealth: 110
+      attackRange: 2
+      damage: 32
+      attackTime: 1
+      coinReward: 16
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &5117816285321294846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3098142891262543279}
+  - component: {fileID: 8610177964186645807}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (46)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3098142891262543279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5117816285321294846}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8610177964186645807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5117816285321294846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 3098142891262543279}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &5148326609140460022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2479466328278824609}
+  - component: {fileID: 8216265444084892620}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (22)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2479466328278824609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5148326609140460022}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8216265444084892620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5148326609140460022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 2479466328278824609}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &5217308744990545657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4730582725189907289}
+  - component: {fileID: 4020952864606115789}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (18)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4730582725189907289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5217308744990545657}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4020952864606115789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5217308744990545657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 4730582725189907289}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &5566856470249641709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 312108556023458467}
+  - component: {fileID: 4303028615266493407}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (24)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &312108556023458467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5566856470249641709}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4303028615266493407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5566856470249641709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 312108556023458467}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &5576627314708624533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2625207256913322956}
+  - component: {fileID: 3915699146904639459}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (14)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2625207256913322956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5576627314708624533}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3915699146904639459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5576627314708624533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 33
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 2625207256913322956}
+    nextWave: {fileID: 7697683663249105620}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 15
+      maxHealth: 185
+      attackRange: 2
+      damage: 41
+      attackTime: 1
+      coinReward: 25
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &5633367670140083213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2967277090341955523}
+  - component: {fileID: 8395482585116670599}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2967277090341955523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5633367670140083213}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8395482585116670599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5633367670140083213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 27
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 2967277090341955523}
+    nextWave: {fileID: 6135857095466456668}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 110
+      attackRange: 2
+      damage: 22
+      attackTime: 1
+      coinReward: 11
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &5687279478262438327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788388934236206506}
+  - component: {fileID: 2702865897658272016}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (48)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &788388934236206506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687279478262438327}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2702865897658272016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687279478262438327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 788388934236206506}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &5728562655472853237
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6453934338691443344}
+  - component: {fileID: 2099304972302852454}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (50)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6453934338691443344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5728562655472853237}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2099304972302852454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5728562655472853237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 6453934338691443344}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &5738697475089236554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1881614146479796568}
+  - component: {fileID: 370277447151455708}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (31)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1881614146479796568
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5738697475089236554}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &370277447151455708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5738697475089236554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 1881614146479796568}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &5999161298669528586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5700010776554267486}
+  - component: {fileID: 2961479751059680955}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (37)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5700010776554267486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5999161298669528586}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2961479751059680955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5999161298669528586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 5700010776554267486}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &6135857095466456668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 487006162613791899}
+  - component: {fileID: 3192240760640117165}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &487006162613791899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6135857095466456668}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3192240760640117165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6135857095466456668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 27
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 487006162613791899}
+    nextWave: {fileID: 7539951311834812926}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 11
+      maxHealth: 110
+      attackRange: 2
+      damage: 24
+      attackTime: 1
+      coinReward: 12
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &6617223855209546229
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8501950786892941246}
+  - component: {fileID: 8461437101429631303}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (34)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8501950786892941246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6617223855209546229}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8461437101429631303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6617223855209546229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 8501950786892941246}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &7078261552977108882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2297551882513473425}
+  - component: {fileID: 1798267443262983157}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (13)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2297551882513473425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078261552977108882}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1798267443262983157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078261552977108882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 31
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 2297551882513473425}
+    nextWave: {fileID: 5576627314708624533}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 15
+      maxHealth: 160
+      attackRange: 2
+      damage: 38
+      attackTime: 1
+      coinReward: 22
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &7134927816651423177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2613748563095297154}
+  - component: {fileID: 785397534813314949}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (19)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2613748563095297154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134927816651423177}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &785397534813314949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134927816651423177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 2613748563095297154}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &7289349787766699915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4194990741051573325}
+  - component: {fileID: 9127818066710314266}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (29)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4194990741051573325
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7289349787766699915}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9127818066710314266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7289349787766699915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 4194990741051573325}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &7357360922425513408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1197662704453020051}
+  - component: {fileID: 7586769321391024956}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (16)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1197662704453020051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7357360922425513408}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7586769321391024956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7357360922425513408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 1197662704453020051}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &7471053196844254990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4981729250882662580}
+  - component: {fileID: 7867780691053021382}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (26)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4981729250882662580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7471053196844254990}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7867780691053021382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7471053196844254990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 4981729250882662580}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &7539951311834812926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5322765661129579725}
+  - component: {fileID: 1502245839114885029}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5322765661129579725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7539951311834812926}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1502245839114885029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7539951311834812926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 27
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 5322765661129579725}
+    nextWave: {fileID: 2178782501895327962}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 12
+      maxHealth: 110
+      attackRange: 2
+      damage: 26
+      attackTime: 1
+      coinReward: 13
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &7572202847747791250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5770968691942614575}
+  - component: {fileID: 5369186836515854320}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (43)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5770968691942614575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7572202847747791250}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5369186836515854320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7572202847747791250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 5770968691942614575}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &7697683663249105620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8740551770736729923}
+  - component: {fileID: 6691415655291697816}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (15)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8740551770736729923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7697683663249105620}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6691415655291697816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7697683663249105620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 35
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 8740551770736729923}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 16
+      maxHealth: 210
+      attackRange: 2
+      damage: 44
+      attackTime: 1
+      coinReward: 28
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &8034240030210207848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8615067810397137109}
+  - component: {fileID: 9160530041518270069}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (45)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8615067810397137109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8034240030210207848}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9160530041518270069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8034240030210207848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 8615067810397137109}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &8035207772184398756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3325140977323233466}
+  - component: {fileID: 350849847931100231}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (44)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3325140977323233466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8035207772184398756}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &350849847931100231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8035207772184398756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 3325140977323233466}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
 --- !u!1 &8884678414272546342
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,6 +3576,213 @@ MonoBehaviour:
   - {fileID: 8860784403676056748}
   - {fileID: 3704392872746637241}
   - {fileID: 8916922225779020155}
+--- !u!1 &8969588229120348486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5862175590762678358}
+  - component: {fileID: 3292928760986605011}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (42)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5862175590762678358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8969588229120348486}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3292928760986605011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8969588229120348486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 5862175590762678358}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &9023544814263878017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8757674770815926593}
+  - component: {fileID: 7053896388499420304}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (36)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8757674770815926593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9023544814263878017}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7053896388499420304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9023544814263878017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 15
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 8757674770815926593}
+    nextWave: {fileID: 0}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 50
+      attackRange: 2
+      damage: 10
+      attackTime: 1
+      coinReward: 5
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
+--- !u!1 &9112267931169218030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6286750555321964221}
+  - component: {fileID: 2120824389258373605}
+  m_Layer: 0
+  m_Name: UnitSpawnZone (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6286750555321964221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9112267931169218030}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2526819915641445830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2120824389258373605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9112267931169218030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73291ec5e144b49f9b49e8e312be1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    allUnitSpawnTime: 10
+    spawnedUnitCount: 0
+    maxUnitCount: 23
+    currentUnitCount: 0
+    radius: 10
+    timer: 0
+    isEnded: 0
+    isSpawned: 0
+    waveProgressConfig:
+      progressBar: {fileID: 0}
+      textNum: {fileID: 0}
+    position: {fileID: 6286750555321964221}
+    nextWave: {fileID: 1123760490799220742}
+    config:
+      prefab: Assets/Addressables/Mob_Skeleton.prefab
+      speed: 10
+      maxHealth: 90
+      attackRange: 2
+      damage: 18
+      attackTime: 1
+      coinReward: 9
+      critChance: 0
+      critMultipler: 0
+    Level: {fileID: 1415399835812190753}
 --- !u!1001 &511585670683320369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1188,6 +4580,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816590548207317298, guid: be0d23b4a010142958f857935a1a5305,
+        type: 3}
+      propertyPath: serializedData.maxHealth
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816590548207317298, guid: be0d23b4a010142958f857935a1a5305,
+        type: 3}
+      propertyPath: serializedData.currentHealth
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7088370040694197758, guid: be0d23b4a010142958f857935a1a5305,
         type: 3}

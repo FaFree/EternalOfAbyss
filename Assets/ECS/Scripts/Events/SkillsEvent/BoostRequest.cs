@@ -4,6 +4,6 @@ namespace ECS.Scripts.Events
 {
     public struct BoostRequest : IEventData
     {
-        public string boostKey;
+        public Boost boost;
     }
 }

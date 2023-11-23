@@ -20,7 +20,7 @@ MonoBehaviour:
     upgradeCost: 50
     itemType: 2
     itemStats:
-      damage: 50
+      damage: 0
       attackRange: 2
       health: 0
       speed: 0
@@ -38,13 +38,13 @@ MonoBehaviour:
     upgradeCost: 50
     itemType: 2
     itemStats:
-      damage: 100
-      attackRange: 5
+      damage: 0
+      attackRange: 0
       health: 0
       speed: 0
       attackSpeed: 1
-      upgradePercent: 20
-      maxLevel: 5
+      upgradePercent: 0
+      maxLevel: 0
       isRangeWeapon: 1
       rare: 3
     isEquip: 1
@@ -58,10 +58,10 @@ MonoBehaviour:
     itemStats:
       damage: 0
       attackRange: 0
-      health: 100
+      health: 0
       speed: 0
       attackSpeed: 0
-      upgradePercent: 20
+      upgradePercent: 0
       maxLevel: 5
       isRangeWeapon: 0
       rare: 2
@@ -74,7 +74,7 @@ MonoBehaviour:
     upgradeCost: 5
     itemType: 4
     itemStats:
-      damage: 5
+      damage: 0
       attackRange: 0
       health: 0
       speed: 0
@@ -92,9 +92,9 @@ MonoBehaviour:
     upgradeCost: 10
     itemType: 3
     itemStats:
-      damage: 5
+      damage: 0
       attackRange: 0
-      health: 10
+      health: 0
       speed: 0
       attackSpeed: 0
       upgradePercent: 20
@@ -111,7 +111,7 @@ MonoBehaviour:
     itemType: 5
     itemStats:
       damage: 0
-      attackRange: 3
+      attackRange: 0
       health: 0
       speed: 0
       attackSpeed: 0
@@ -128,9 +128,9 @@ MonoBehaviour:
     upgradeCost: 60
     itemType: 0
     itemStats:
-      damage: 20
+      damage: 0
       attackRange: 0
-      health: 50
+      health: 0
       speed: 0
       attackSpeed: 0
       upgradePercent: 20

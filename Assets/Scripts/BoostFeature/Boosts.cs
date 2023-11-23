@@ -23,7 +23,7 @@ public class Boosts : ScriptableObject
 
         foreach (var boost in BoostsMap)
         {
-            if (boost.Value.isActive == false)
+            if (boost.Value.isActive)
             {
                 tempBoosts.Add(boost.Key, boost.Value);
             }
@@ -47,6 +47,8 @@ public class Boost
     public float damage;
     public float health;
     public float regeneration;
+
+    public bool isMultiply;
     
     public string key;
 
@@ -64,6 +66,16 @@ public class Boost
     public bool isActive;
     
     public Sprite sprite;
+
+    public void Multiply()
+    {
+        if (!this.isMultiply)
+            return;
+
+        this.damage *= 1.2f;
+        this.health *= 1.2f;
+        this.regeneration *= 1.2f;
+    }
 
     public void Deactivate()
     {

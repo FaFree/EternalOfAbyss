@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a62de768f8c40bda3db67332c5e26d1, type: 3}
-  m_Name: Level System
+  m_Script: {fileID: 11500000, guid: 38be9ab6e006436da11461cfa5ea1b33, type: 3}
+  m_Name: Base Regeneration System
   m_EditorClassIdentifier: 

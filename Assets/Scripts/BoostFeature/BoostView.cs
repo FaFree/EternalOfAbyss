@@ -74,9 +74,9 @@ public class BoostView : MonoBehaviour
         {
             this.boostRequest.NextFrame(new BoostRequest
             {
-                boostKey = this.boostKey,
+                boost = this.Boost,
             });
-
+    
             this.button.interactable = false;
 
             this.Boost.Activate();

@@ -81,11 +81,11 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
 
                     var direction = new Vector3(0, 0, -1);
                     
-                    unitAgent.nextPosition += (direction * deltaTime);
+                    unitAgent.nextPosition += (direction * (deltaTime * unitModel.Speed));
                     unitAgent.isStopped = false;
                     
                     unitTransform.rotation = Quaternion.LookRotation(direction);
-                }
-            }
+                } 
+        }
     }
 }
