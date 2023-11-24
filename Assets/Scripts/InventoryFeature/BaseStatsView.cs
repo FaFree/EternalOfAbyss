@@ -1,4 +1,3 @@
-using System;
 using DefaultNamespace;
 using Scripts.LevelModel;
 using TMPro;
@@ -7,14 +6,14 @@ using UnityEngine.AddressableAssets;
 
 namespace Scripts.InventoryFeature
 {
-    public class PlayerStatsView : MonoBehaviour
+    public class BaseStatsView : MonoBehaviour
     {
         private RectTransform rect;
         private TextMeshProUGUI textMesh;
-
-        private Player playerModel;
-
+        
         private GameObject infoPanel;
+
+        private BaseStatConfig baseStats;
 
         private void Start()
         {
@@ -33,9 +32,7 @@ namespace Scripts.InventoryFeature
             this.rect = infoConfig.rect;
             this.textMesh = infoConfig.text;
 
-            var model = WorldModels.Default.Get<Player>();
-            
-            this.playerModel = model;
+            this.baseStats = WorldModels.Default.Get<BaseStatConfig>();
         }
 
 
@@ -45,7 +42,7 @@ namespace Scripts.InventoryFeature
 
             this.rect.anchoredPosition = new Vector2(0, 0);
             
-            textMesh.text = this.playerModel.ToString();
+            textMesh.text = this.baseStats.ToString();
         }
     }
 }

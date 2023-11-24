@@ -17,8 +17,6 @@ namespace ECS.Scripts.Components
     {
         private const string PLAYER_PREFAB = "Assets/Addressables/Player.prefab";
         
-        private const float ATTACK_LENGTH = 1.267f;
-
         public override void OnAwake()
         {
             var inventory = WorldModels.Default.Get<Inventory>();
@@ -36,15 +34,8 @@ namespace ECS.Scripts.Components
                 var key = WorldModels.Default.Get<Prefabs>().prefabMap[item.key];
 
                 var weaponPrefab = Addressables.LoadAssetAsync<GameObject>(key).WaitForCompletion();
-
-                if (item.itemStats.isRangeWeapon)
-                {
-                    var weaponGo = Instantiate(weaponPrefab, playerConfig.WeaponLeftRoot);
-                }
-                else
-                {
-                    var weaponGo = Instantiate(weaponPrefab, playerConfig.WeaponRightRoot);
-                }
+                
+                Instantiate(weaponPrefab, playerConfig.WeaponLeftRoot);
             }
 
             var entity = this.World.CreateEntity();
@@ -62,9 +53,7 @@ namespace ECS.Scripts.Components
             stateMachine.SetState<IdleState>();
             
             Animator anim = go.GetComponent<Animator>();
-
-            var unitPlayer = WorldModels.Default.Get<Player>();
-
+            
             entity.SetComponent(new PlayerComponent
             {
                 speed = 5,
@@ -72,8 +61,6 @@ namespace ECS.Scripts.Components
                 animator = anim,
             });
             
-            unitPlayer.ChangeItems();
-
             entity.SetComponent(new NavMeshAgentComponent
             {
                 agent = go.GetComponent<NavMeshAgent>()

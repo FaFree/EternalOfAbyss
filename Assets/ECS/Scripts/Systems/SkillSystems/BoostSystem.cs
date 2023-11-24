@@ -3,6 +3,7 @@ using ECS.Scripts.Events;
 using Scripts;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
+using Scripts.BoostFeature;
 using UnityEngine;
 
 namespace ECS.Scripts.Components
@@ -26,6 +27,14 @@ namespace ECS.Scripts.Components
                 var boostModel = WorldModels.Default.Get<BoostsModel>();
 
                 boostModel.AddBoost(evt.boost);
+
+                if (evt.boost.category == Categories.Base)
+                {
+                    var baseStats = WorldModels.Default.Get<BaseStatConfig>();
+
+                    baseStats.regeneration += evt.boost.regeneration;
+                    baseStats.maxHealth += evt.boost.health;
+                }
             }
         }
     }

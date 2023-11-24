@@ -1,4 +1,5 @@
 using System;
+using DefaultNamespace;
 using ECS.Scripts.Components;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Providers;
@@ -12,17 +13,11 @@ namespace ECS.Scripts.Providers
         private void Start()
         {
             ref var baseComponent = ref this.Entity.GetComponent<BaseComponent>();
-            
-            float maxHealth = baseComponent.maxHealth;
 
-            foreach (var kvp in WorldModels.Default.Get<Boosts>().GetAvailableBoosts())
-            {
-                if (kvp.Value.category == Categories.Base)
-                {
-                    maxHealth += kvp.Value.health;
-                    baseComponent.regeneration += kvp.Value.regeneration;
-                }
-            }
+            var stats = WorldModels.Default.Get<BaseStatConfig>();
+            
+            float maxHealth = stats.maxHealth;
+            baseComponent.regeneration = stats.regeneration;
 
             this.Entity.SetComponent(new HealthComponent
             {

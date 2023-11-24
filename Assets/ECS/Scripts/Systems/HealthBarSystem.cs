@@ -4,6 +4,7 @@ using ECS.Scripts.Events;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Scripts;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace ECS.Scripts.Components
@@ -15,6 +16,7 @@ namespace ECS.Scripts.Components
         private Quaternion angle = Quaternion.Euler(30, 0, 0);
 
         private const float ANIMATION_DURATION = 0.2f;
+        private float timer;
 
         private Event<DamagedEvent> damagedEvent;
         private Event<RegenerationEvent> regenerationEvent;
@@ -31,6 +33,7 @@ namespace ECS.Scripts.Components
 
         public override void OnUpdate(float deltaTime)
         {
+            timer += deltaTime;
             foreach (var entity in this.entityFilter)
             {
                 ref var healthBarComponent = ref entity.GetComponent<HealthBarComponent>();
@@ -44,17 +47,29 @@ namespace ECS.Scripts.Components
 
                 if (this.damagedEvent.IsPublished)
                 {
-                    healthBar.DOKill();
-                
-                    healthBar
-                        .DOValue(GetHealthOnPercent(health, maxHealth), ANIMATION_DURATION)
-                        .SetAutoKill(true);
-
-                    if (entity.Has<BaseComponent>())
+                    foreach (var evt in damagedEvent.BatchedChanges)
                     {
-                        ref var baseComponent = ref entity.GetComponent<BaseComponent>();
+                        healthBar.DOKill();
+                
+                        healthBar
+                            .DOValue(GetHealthOnPercent(health, maxHealth), ANIMATION_DURATION)
+                            .SetAutoKill(true);
 
-                        baseComponent.healthView.text = $"{health}/{maxHealth}";
+                        if (this.World.TryGetEntity(evt.EntityId, out var damagedEntity))
+                        {
+                            if (damagedEntity.Has<BaseComponent>() && entity.Has<BaseComponent>())
+                            {
+                                ref var baseComponent = ref damagedEntity.GetComponent<BaseComponent>();
+
+                                baseComponent.healthView.text = $"{(int)health}/{(int)maxHealth}";
+                        
+                                if (timer > 0.1f)
+                                {
+                                    baseComponent.healthView.transform.DOPunchPosition(Vector3.up * 0.2f, 0.1f);
+                                    this.timer = 0f;
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -70,7 +85,7 @@ namespace ECS.Scripts.Components
                             .DOValue(GetHealthOnPercent(health, maxHealth), ANIMATION_DURATION)
                             .SetAutoKill(true);
 
-                        baseComponent.healthView.text = $"{health}/{maxHealth}";
+                        baseComponent.healthView.text = $"{(int)health}/{(int)maxHealth}";
                     }
                 }
             }

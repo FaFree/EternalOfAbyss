@@ -79,22 +79,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - prefabs
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ef623f53bccb045f6b05e0319daf4e65
-    m_Address: Assets/Prefabs/IconItem.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fe17bdbaa8bfb4230b861d71da96a47a
-    m_Address: Assets/Prefabs/Ui/ItemInfoPanel.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - prefabs
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8d09e0251da04444ba1afca2d310f883
-    m_Address: Assets/Prefabs/Ui/EqupedItemInfoPanel.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e1e6ebbdfd1d8344b7dbdd624bf2408
     m_Address: Assets/Addressables/Weapons/SM_Wep_Hammer_Large_Wood_01.prefab
     m_ReadOnly: 0
@@ -122,16 +106,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b0643c02b055c46b6adafa50bc9efec7
     m_Address: Assets/Prefabs/Ui/PlayerInfoPanel.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c9479d8ca7c484099881ac1ca561c1fd
-    m_Address: Assets/Prefabs/Ui/UpgradeIcon.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 32268d3f2deba47639da10c4feb60221
-    m_Address: Assets/Prefabs/Ui/ItemCollectInfo.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

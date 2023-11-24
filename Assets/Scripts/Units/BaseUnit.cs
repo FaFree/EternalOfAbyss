@@ -7,16 +7,6 @@ namespace DefaultNamespace
 {
     public abstract class BaseUnit
     {
-        protected float healthWithoutItem;
-        protected float damageWithoutItem;
-        protected float attackRangeWithouItem;
-        protected float speedWithoutItem;
-        protected float critWithoutItem;
-        protected float critMultiplerWithoutItem;
-        
-        protected float attackAnimationTime;
-        protected float firstAttackTime;
-
         public float CritChance { get; private set; }
         public float CritMultipler { get; private set; }
         
@@ -45,16 +35,6 @@ namespace DefaultNamespace
             
             this.AnimationAttackTime = attackAnimationTime / this.AttackTime;
             this.FirstAttackTime = firstAttackTime / AnimationAttackTime;
-
-            this.damageWithoutItem = Damage;
-            this.healthWithoutItem = MaxHealth;
-            this.speedWithoutItem = Speed;
-            this.attackRangeWithouItem = AttackRange;
-            this.critWithoutItem = this.CritChance;
-            this.critMultiplerWithoutItem = this.CritMultipler;
-
-            this.attackAnimationTime = attackAnimationTime;
-            this.firstAttackTime = firstAttackTime;
         }
 
         public virtual void AddDamage(float damage)
@@ -81,46 +61,9 @@ namespace DefaultNamespace
             return this.Damage;
         }
 
-        public virtual void ChangeItems()
-        {
-            var currentItems = WorldModels.Default.Get<Inventory>().CurrentItems;
-            
-            float damage = 0;
-            float speed = 0;
-            float health = 0;
-            float attackRange = 0;
-            float critChance = 0;
-            float critMultipler = 0;
-
-            foreach (var item in currentItems)
-            {
-                if (item.Value != default)
-                {
-                    damage += item.Value.itemStats.damage;
-                    speed += item.Value.itemStats.speed;
-                    health += item.Value.itemStats.health;
-                    attackRange += item.Value.itemStats.attackRange;
-
-                    if (item.Value.itemType == ItemType.Weapon)
-                    {
-                        this.AttackTime = item.Value.itemStats.attackSpeed;
-                        this.AnimationAttackTime = attackAnimationTime / this.AttackTime;
-                        this.FirstAttackTime = firstAttackTime / AnimationAttackTime;
-                    }
-                }
-            }
-
-            Damage = damageWithoutItem + damage;
-            Speed = speedWithoutItem + speed;
-            MaxHealth = healthWithoutItem + health;
-            AttackRange = attackRangeWithouItem + attackRange;
-            CritChance = critWithoutItem + critChance;
-            CritMultipler = critMultiplerWithoutItem + critMultipler;
-        }
-
         public override string ToString()
         {
-            return $"Health: {this.MaxHealth} \nDamage: {this.Damage} \nSpeed: {this.Speed}\n" +
+            return $"Damage: {this.Damage} \nSpeed: {this.Speed}\n" +
                    $"AttackSpeed: {this.AttackTime}\nAttackRange: {this.AttackRange}\nCrit: {this.CritChance}\n";
         }
     }

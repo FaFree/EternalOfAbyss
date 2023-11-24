@@ -10,22 +10,22 @@ public class Boosts : ScriptableObject
 {
     [SerializeField] private List<Boost> boosts;
 
-    public Dictionary<string, Boost> BoostsMap { get; private set; }
+    public List<Boost> BoostsList { get; private set; }
 
     public void Initialize()
     {
-        this.BoostsMap = this.boosts.ToDictionary(x => x.key, x => x);
+        this.BoostsList = this.boosts;
     }
 
-    public Dictionary<string, Boost> GetAvailableBoosts()
+    public List<Boost> GetAvailableBoosts()
     {
-        var tempBoosts = new Dictionary<string, Boost>();
+        var tempBoosts = new List<Boost>();
 
-        foreach (var boost in BoostsMap)
+        foreach (var boost in BoostsList)
         {
-            if (boost.Value.isActive)
+            if (!boost.isActive)
             {
-                tempBoosts.Add(boost.Key, boost.Value);
+                tempBoosts.Add(boost);
             }
         }
 
@@ -34,9 +34,10 @@ public class Boosts : ScriptableObject
 
     public void Clear()
     {
-        foreach (var boostKvp in BoostsMap)
+        foreach (var boost in BoostsList)
         {
-            boostKvp.Value.Deactivate();
+            boost.Deactivate();
+            boost.RevertMultiply();
         }
     }
 }
@@ -44,14 +45,29 @@ public class Boosts : ScriptableObject
 [Serializable]
 public class Boost
 {
+    public Boost(Boost boost)
+    {
+        this.damage = boost.damage;
+        this.health = boost.health;
+        this.regeneration = boost.regeneration;
+        this.isMultiply = boost.isMultiply;
+        this.skillName = boost.skillName;
+        this.skillInfo = boost.skillInfo;
+        this.category = boost.category;
+        this.isPassingArrow = boost.isPassingArrow;
+        this.isReboundArrow = boost.isReboundArrow;
+        this.isTripleArrow = boost.isTripleArrow;
+        this.price = boost.price;
+        this.sprite = boost.sprite;
+    }
+    
     public float damage;
     public float health;
     public float regeneration;
 
     public bool isMultiply;
-    
-    public string key;
 
+    public string statInfo;
     public string skillName;
     public string skillInfo;
 
@@ -67,6 +83,14 @@ public class Boost
     
     public Sprite sprite;
 
+    public int purchaseCount;
+
+
+    
+    public Boost Copy()
+    {
+        return new Boost(this);
+    }
     public void Multiply()
     {
         if (!this.isMultiply)
@@ -75,6 +99,25 @@ public class Boost
         this.damage *= 1.2f;
         this.health *= 1.2f;
         this.regeneration *= 1.2f;
+        this.price *= 1.5f;
+
+        this.purchaseCount++;
+    }
+    
+    public void RevertMultiply()
+    {
+        if (!this.isMultiply || this.purchaseCount == 0)
+            return;
+
+        float revertMultiplier = Mathf.Pow(1.2f, this.purchaseCount);
+        this.damage /= revertMultiplier;
+        this.health /= revertMultiplier;
+        this.regeneration /= revertMultiplier;
+        
+        float revertPriceMultiplier = Mathf.Pow(1.5f, this.purchaseCount);
+        this.price /= revertPriceMultiplier;
+
+        this.purchaseCount = 0;
     }
 
     public void Deactivate()
@@ -85,6 +128,22 @@ public class Boost
     public void Activate()
     {
         this.isActive = true;
+    }
+
+    public override string ToString()
+    {
+        string text = "";
+
+        if (this.damage > 0)
+            text += $"Damage: {(int)this.damage} \n";
+        if (this.health > 0)
+            text += $"Health: {(int)this.health} \n";
+        if (this.regeneration > 0)
+            text += $"Regeneration: {(int)this.regeneration} \n";
+
+        this.statInfo = text;
+        
+        return text;
     }
 }
 
@@ -124,10 +183,10 @@ public class BoostsModel
     {
         boosts = new List<Boost>();
 
-        foreach (var kvp in WorldModels.Default.Get<Boosts>().BoostsMap)
+        foreach (var boost in WorldModels.Default.Get<Boosts>().BoostsList)
         {
-            if (kvp.Value.isActive)
-                this.AddBoost(kvp.Value);
+            if (boost.isActive)
+                this.AddBoost(boost);
         }
     }
 }

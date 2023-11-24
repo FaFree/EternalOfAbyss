@@ -6,6 +6,7 @@ namespace Scripts.BoostFeature
     public enum Categories
     {
         All,
+        Available,
         Player,
         Barriers,
         Base,

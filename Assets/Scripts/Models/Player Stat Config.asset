@@ -17,7 +17,8 @@ MonoBehaviour:
     speed: 5
     maxHealth: 500
     attackRange: 1
-    damage: 100
-    attackTime: 2
+    damage: 50
+    attackTime: 1
     coinReward: 0
-    xpReward: 0
+    critChance: 0
+    critMultipler: 0

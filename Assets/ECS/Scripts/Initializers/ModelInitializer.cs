@@ -7,7 +7,6 @@ using Scellecs.Morpeh.Systems;
 using Scripts.InventoryFeature;
 using Scripts.InventoryFeature.InventoryModel;
 using Scripts.LevelModel;
-using Scripts.PlayerUpgradeFeature;
 using Scripts.StorageService;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -21,14 +20,11 @@ namespace ECS.Scripts.Initializers
         [FormerlySerializedAs("levels")] [SerializeField] private Prefabs prefabs;
         [SerializeField] private PlayerStatConfig playerConfig;
         [SerializeField] private Items items;
-        [SerializeField] private UpgradesObject upgrades;
-        
-
+        [SerializeField] private BaseStatConfig baseStats;
         private Event<EndLoadEvent> endLoaded;
 
         private Inventory inventory = new Inventory();
         private Player playerModel;
-        private UpgradeModel upgradeModel = new UpgradeModel();
         private LevelsModel levelModel = new LevelsModel();
 
         private IStorageService storageService;
@@ -44,7 +40,6 @@ namespace ECS.Scripts.Initializers
                 this.boosts.Initialize();
                 this.prefabs.Initialize();
                 this.items.Initialize();
-                this.upgradeModel.Initialize(upgrades.upgrades);
 
               //  try
               //  {
@@ -56,15 +51,15 @@ namespace ECS.Scripts.Initializers
               //      playerModel = new UnitPlayer(playerConfig.config, 0.7f, 1.267f);
               //  }
                 
-                this.playerModel = new Player(playerConfig.config, 0.7f, 1.267f);
+                this.playerModel = new Player(playerConfig.config, 1f, 1.033f);
 
                 WorldModels.Default.Set<Boosts>(boosts);
                 WorldModels.Default.Set<Prefabs>(prefabs);
                 WorldModels.Default.Set<Items>(items);
                 WorldModels.Default.Set<Inventory>(inventory);
-                WorldModels.Default.Set<UpgradeModel>(upgradeModel);
                 WorldModels.Default.Set<Player>(playerModel);
                 WorldModels.Default.Set<LevelsModel>(levelModel);
+                WorldModels.Default.Set<BaseStatConfig>(baseStats);
         
                 BoostsModel boostModel = new BoostsModel();
                 WorldModels.Default.Set<BoostsModel>(boostModel);

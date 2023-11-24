@@ -70,8 +70,6 @@ MonoBehaviour:
   - enabled: 1
     system: {fileID: 11400000, guid: 65313389de852453e85ac45493ce28a9, type: 2}
   - enabled: 1
-    system: {fileID: 11400000, guid: 9e9911c32c29d40fcaf88bfc21e3034c, type: 2}
-  - enabled: 1
     system: {fileID: 11400000, guid: cee1f7204501b43b5a150af24f981c63, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: b5f13dc13719b4c69a4379a7f0e94984, type: 2}
@@ -84,8 +82,6 @@ MonoBehaviour:
   - enabled: 1
     system: {fileID: 11400000, guid: 602c4753fd51140abbd81829be6fbd68, type: 2}
   - enabled: 1
-    system: {fileID: 11400000, guid: b1a6a26f15f91420298b8c12441191d5, type: 2}
-  - enabled: 1
     system: {fileID: 11400000, guid: ee429bec6de1a4230871c38cbac26892, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: fb6e161dabc284f78ae9ab991f8118da, type: 2}
@@ -96,15 +92,7 @@ MonoBehaviour:
   - enabled: 1
     system: {fileID: 11400000, guid: 932eca27e86d34c1faf62b15bc7860c3, type: 2}
   - enabled: 1
-    system: {fileID: 11400000, guid: e1d8b1f2e382c49f28c0262cb5eb0acd, type: 2}
-  - enabled: 1
-    system: {fileID: 11400000, guid: b25c4f809fb1a4256b9d3457c196a64f, type: 2}
-  - enabled: 1
     system: {fileID: 11400000, guid: 98024ea4f409f408abb9b804ead78e8f, type: 2}
-  - enabled: 1
-    system: {fileID: 11400000, guid: f7db405c6e2464db881f4b914283caf3, type: 2}
-  - enabled: 1
-    system: {fileID: 11400000, guid: 93b855bef8d20465bb437cfde5a2b77a, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: dbc6e4eb86cef4b1187e7de9a67b7e4a, type: 2}
   - enabled: 1
