@@ -80,7 +80,7 @@ public class BoostView : MonoBehaviour
     {
         if (this.coins.IsEnough(this.Boost.price))
         {
-            if (this.Boost.isMultiply)
+            if (this.Boost.isMultiply && !this.Boost.isActive)
             {
                 var boost = this.Boost.Copy();
                 

@@ -36,7 +36,20 @@ namespace Scripts.BoostFeature
                 boostView.Init(boost);
 
                 boostView.onClick += UpdateInfo;
+                boostView.onAddedBoost += OnAddedBoost;
+            }
+
+            foreach (var boost in WorldModels.Default.Get<BoostsModel>().boosts)
+            {
+                var obj = Instantiate(skillObj, skillRoot);
+
+                var boostView = obj.GetComponent<BoostView>();
                 
+                this.boostViews.Add(boostView);
+                
+                boostView.Init(boost);
+
+                boostView.onClick += UpdateInfo;
                 boostView.onAddedBoost += OnAddedBoost;
             }
         }
