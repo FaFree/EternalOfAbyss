@@ -2181,11 +2181,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 18266935680361940, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 18266935680361940, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2194,11 +2189,6 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
-    - target: {fileID: 58319979149469255, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.barrierConfig.barrierHealth
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 337719822694128789, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2211,11 +2201,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 350849847931100231, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 350849847931100231, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2226,11 +2211,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 370277447151455708, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 370277447151455708, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2239,16 +2219,6 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
-    - target: {fileID: 420747176708032878, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.barrierConfig.barrierHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 501406426362306271, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.config.speed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 501406426362306271, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2261,11 +2231,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 510665827743895759, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 510665827743895759, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2276,11 +2241,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 785397534813314949, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 785397534813314949, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2289,16 +2249,6 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
-    - target: {fileID: 868262499312218319, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.barrierConfig.barrierHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 940620395965137539, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
     - target: {fileID: 940620395965137539, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2311,11 +2261,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 950886747430988433, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 950886747430988433, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2324,11 +2269,6 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
-    - target: {fileID: 1319837298994158560, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
     - target: {fileID: 1319837298994158560, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2346,11 +2286,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1463012909551362644, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1463012909551362644, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2361,11 +2296,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 1502245839114885029, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 2.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1502245839114885029, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2376,11 +2306,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 1798267443262983157, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1798267443262983157, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2391,11 +2316,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 2099304972302852454, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2099304972302852454, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2406,11 +2326,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 2120824389258373605, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120824389258373605, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2421,11 +2336,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 2404164324824315416, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2404164324824315416, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2436,11 +2346,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 2702865897658272016, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2702865897658272016, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2451,11 +2356,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 2961479751059680955, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2961479751059680955, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2464,21 +2364,6 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
-    - target: {fileID: 3025674763846917501, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.barrierConfig.barrierHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3119248589364900465, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.barrierConfig.barrierHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3192240760640117165, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.config.speed
-      value: 2.4
-      objectReference: {fileID: 0}
     - target: {fileID: 3192240760640117165, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2491,11 +2376,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 3195926660808471522, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3195926660808471522, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2506,11 +2386,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 3206162608871696215, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3206162608871696215, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2521,11 +2396,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 3292928760986605011, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292928760986605011, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2536,11 +2406,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 3335758673459604723, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3335758673459604723, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2551,11 +2416,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 3567101844818753508, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3567101844818753508, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2566,11 +2426,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 3576259537370441683, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576259537370441683, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2581,11 +2436,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 3818172686889112010, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3818172686889112010, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2596,11 +2446,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 3915699146904639459, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3915699146904639459, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2611,11 +2456,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 4020952864606115789, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020952864606115789, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2624,26 +2464,6 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
-    - target: {fileID: 4165344035850878516, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.barrierConfig.barrierHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4206054911277316884, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.config.damage
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 4206054911277316884, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.config.buildTime
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4206054911277316884, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.config.attackSpeed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4206054911277316884, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.config.progressBar
@@ -2656,21 +2476,6 @@ PrefabInstance:
       objectReference: {fileID: 4335054814425369441}
     - target: {fileID: 4257723929429173955, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.damage
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257723929429173955, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.config.buildTime
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257723929429173955, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.config.attackSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257723929429173955, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.config.progressBar
       value: 
       objectReference: {fileID: 4335054814425369440}
@@ -2681,11 +2486,6 @@ PrefabInstance:
       objectReference: {fileID: 4335054814425369441}
     - target: {fileID: 4303028615266493407, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4303028615266493407, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2696,11 +2496,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 4977796241218554068, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4977796241218554068, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2711,11 +2506,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 5369186836515854320, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5369186836515854320, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2726,11 +2516,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 5471625409501217115, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5471625409501217115, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2741,11 +2526,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 5587635925195265071, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 2.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5587635925195265071, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2756,11 +2536,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 5804731012361160004, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804731012361160004, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2771,11 +2546,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 6150008599902316811, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150008599902316811, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2786,11 +2556,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 6297273417340233525, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6297273417340233525, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2801,11 +2566,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 6691415655291697816, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6691415655291697816, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2816,11 +2576,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 7053896388499420304, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7053896388499420304, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2831,11 +2586,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 7431068309174644857, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7431068309174644857, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2846,11 +2596,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 7586769321391024956, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7586769321391024956, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2859,11 +2604,6 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
-    - target: {fileID: 7703062993710049967, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
     - target: {fileID: 7703062993710049967, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2926,11 +2666,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7723503035376281724, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723503035376281724, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2941,11 +2676,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 7867780691053021382, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7867780691053021382, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2956,11 +2686,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 8040383164613912691, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8040383164613912691, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2971,11 +2696,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 8103575528756516196, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8103575528756516196, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2986,11 +2706,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 8216265444084892620, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8216265444084892620, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -2999,21 +2714,6 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
-    - target: {fileID: 8253137266456526294, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.config.damage
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 8253137266456526294, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.config.buildTime
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8253137266456526294, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.config.attackSpeed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8253137266456526294, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.config.progressBar
@@ -3026,11 +2726,6 @@ PrefabInstance:
       objectReference: {fileID: 4335054814425369441}
     - target: {fileID: 8395482585116670599, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 2.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8395482585116670599, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -3041,11 +2736,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 8461437101429631303, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461437101429631303, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -3054,16 +2744,6 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
-    - target: {fileID: 8538904034377128801, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.barrierConfig.barrierHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8610177964186645807, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
     - target: {fileID: 8610177964186645807, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -3076,11 +2756,6 @@ PrefabInstance:
       objectReference: {fileID: 1226833637}
     - target: {fileID: 8708117536255942546, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8708117536255942546, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -3089,21 +2764,6 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
-    - target: {fileID: 8954435681475325918, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.config.damage
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954435681475325918, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.config.buildTime
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954435681475325918, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.config.attackSpeed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8954435681475325918, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.config.progressBar
@@ -3116,11 +2776,6 @@ PrefabInstance:
       objectReference: {fileID: 4335054814425369441}
     - target: {fileID: 9127818066710314266, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9127818066710314266, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
       value: 
       objectReference: {fileID: 104909079}
@@ -3129,11 +2784,6 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
-    - target: {fileID: 9160530041518270069, guid: 8918266be79f449fd820c9d49b0c0c8d,
-        type: 3}
-      propertyPath: serializedData.config.speed
-      value: 3.2
-      objectReference: {fileID: 0}
     - target: {fileID: 9160530041518270069, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum

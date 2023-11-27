@@ -76,8 +76,6 @@ namespace ECS.Scripts.Components
             var go = Instantiate(newLevel, position, Quaternion.identity);
 
             playerEntity.GetComponent<TransformComponent>().transform.position = go.transform.position;
-
-            playerEntity.GetComponent<HealthComponent>().health = WorldModels.Default.Get<Player>().MaxHealth;
         }
     }
 }

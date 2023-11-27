@@ -47,7 +47,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 65
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -57,15 +57,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 4654813261416255521}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 837685564996298904}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 990
       attackRange: 2
-      damage: 10
+      damage: 180
       attackTime: 1
-      coinReward: 5
+      coinReward: 140
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -116,7 +116,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 65
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -126,15 +126,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 4871231282471191087}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 9023544814263878017}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 840
       attackRange: 2
-      damage: 10
+      damage: 150
       attackTime: 1
-      coinReward: 5
+      coinReward: 110
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -198,7 +198,7 @@ MonoBehaviour:
     nextWave: {fileID: 2388335070596156277}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 50
+      speed: 2
       maxHealth: 50
       attackRange: 2
       damage: 10
@@ -254,7 +254,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 55
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -264,15 +264,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 7158517152130690243}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 7471053196844254990}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 5.2
+      maxHealth: 460
       attackRange: 2
-      damage: 10
+      damage: 79
       attackTime: 1
-      coinReward: 5
+      coinReward: 63
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -323,7 +323,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 65
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -333,15 +333,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 6426093864877160176}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 6617223855209546229}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 740
       attackRange: 2
-      damage: 10
+      damage: 130
       attackTime: 1
-      coinReward: 5
+      coinReward: 95
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -392,7 +392,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 45
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -402,15 +402,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 3062250329414324558}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 4404120582790854810}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 4.2
+      maxHealth: 335
       attackRange: 2
-      damage: 10
+      damage: 59
       attackTime: 1
-      coinReward: 5
+      coinReward: 43
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -474,7 +474,7 @@ MonoBehaviour:
     nextWave: {fileID: 7078261552977108882}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 15
+      speed: 3.2
       maxHealth: 135
       attackRange: 2
       damage: 35
@@ -530,7 +530,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 61
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -540,15 +540,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 3035891633686320931}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 7289349787766699915}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 5.8
+      maxHealth: 535
       attackRange: 2
-      damage: 10
+      damage: 91
       attackTime: 1
-      coinReward: 5
+      coinReward: 75
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -599,7 +599,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 65
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -609,15 +609,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 8179721597906148471}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 1001102716271357618}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 1040
       attackRange: 2
-      damage: 10
+      damage: 190
       attackTime: 1
-      coinReward: 5
+      coinReward: 150
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -668,7 +668,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 65
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -678,15 +678,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 9067514998620562116}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 1703502032191964704}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 1090
       attackRange: 2
-      damage: 10
+      damage: 200
       attackTime: 1
-      coinReward: 5
+      coinReward: 160
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -750,7 +750,7 @@ MonoBehaviour:
     nextWave: {fileID: 5633367670140083213}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
+      speed: 2
       maxHealth: 100
       attackRange: 2
       damage: 20
@@ -819,7 +819,7 @@ MonoBehaviour:
     nextWave: {fileID: 4418195533201452418}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
+      speed: 2
       maxHealth: 70
       attackRange: 2
       damage: 14
@@ -927,7 +927,7 @@ MonoBehaviour:
     nextWave: {fileID: 5086512667509975706}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 14
+      speed: 3
       maxHealth: 110
       attackRange: 2
       damage: 30
@@ -1042,7 +1042,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 70
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -1052,15 +1052,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 4197354456405154949}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 8969588229120348486}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 1190
       attackRange: 2
-      damage: 10
+      damage: 250
       attackTime: 1
-      coinReward: 5
+      coinReward: 180
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -1124,7 +1124,7 @@ MonoBehaviour:
     nextWave: {fileID: 1494063573609102560}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 13
+      speed: 2.8
       maxHealth: 110
       attackRange: 2
       damage: 28
@@ -1193,7 +1193,7 @@ MonoBehaviour:
     nextWave: {fileID: 1279533247312812816}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
+      speed: 2
       maxHealth: 60
       attackRange: 2
       damage: 12
@@ -1249,7 +1249,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 51
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -1259,15 +1259,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 1049675327788085531}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 5566856470249641709}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 4.8
+      maxHealth: 410
       attackRange: 2
-      damage: 10
+      damage: 71
       attackTime: 1
-      coinReward: 5
+      coinReward: 55
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -1318,7 +1318,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 110
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -1331,12 +1331,12 @@ MonoBehaviour:
     nextWave: {fileID: 0}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 1990
       attackRange: 2
-      damage: 10
+      damage: 650
       attackTime: 1
-      coinReward: 5
+      coinReward: 340
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -1387,7 +1387,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 65
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -1397,15 +1397,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 6334920750779628567}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 420717849203178702}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 690
       attackRange: 2
-      damage: 10
+      damage: 120
       attackTime: 1
-      coinReward: 5
+      coinReward: 90
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -1456,7 +1456,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 65
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -1466,15 +1466,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 1492239333432607141}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 5738697475089236554}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 590
       attackRange: 2
-      damage: 10
+      damage: 100
       attackTime: 1
-      coinReward: 5
+      coinReward: 83
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -1607,7 +1607,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 100
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -1617,15 +1617,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 8785423906647658145}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 5687279478262438327}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 1790
       attackRange: 2
-      damage: 10
+      damage: 550
       attackTime: 1
-      coinReward: 5
+      coinReward: 300
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -1676,7 +1676,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 59
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -1686,15 +1686,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 1520490723692238492}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 696772616550027167}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 5.6
+      maxHealth: 510
       attackRange: 2
-      damage: 10
+      damage: 87
       attackTime: 1
-      coinReward: 5
+      coinReward: 71
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -1745,7 +1745,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 47
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -1755,15 +1755,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 3932403314355168490}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 5148326609140460022}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 4.4
+      maxHealth: 360
       attackRange: 2
-      damage: 10
+      damage: 63
       attackTime: 1
-      coinReward: 5
+      coinReward: 47
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -1814,7 +1814,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 39
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -1824,15 +1824,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 8946039034695499177}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 5217308744990545657}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 3.6
+      maxHealth: 260
       attackRange: 2
-      damage: 10
+      damage: 50
       attackTime: 1
-      coinReward: 5
+      coinReward: 34
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -1896,7 +1896,7 @@ MonoBehaviour:
     nextWave: {fileID: 9112267931169218030}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
+      speed: 2
       maxHealth: 80
       attackRange: 2
       damage: 16
@@ -1996,7 +1996,7 @@ MonoBehaviour:
     nextWave: {fileID: 530820955086654263}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 15
+      speed: 3.2
       maxHealth: 110
       attackRange: 2
       damage: 32
@@ -2052,7 +2052,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 95
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -2062,15 +2062,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 3098142891262543279}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 4331138116404643706}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 1690
       attackRange: 2
-      damage: 10
+      damage: 500
       attackTime: 1
-      coinReward: 5
+      coinReward: 280
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -2121,7 +2121,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 49
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -2131,15 +2131,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 2479466328278824609}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 2510938571584205655}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 4.6
+      maxHealth: 385
       attackRange: 2
-      damage: 10
+      damage: 67
       attackTime: 1
-      coinReward: 5
+      coinReward: 51
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -2190,7 +2190,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 41
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -2200,15 +2200,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 4730582725189907289}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 7134927816651423177}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 3.8
+      maxHealth: 285
       attackRange: 2
-      damage: 10
+      damage: 53
       attackTime: 1
-      coinReward: 5
+      coinReward: 37
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -2259,7 +2259,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 53
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -2269,15 +2269,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 312108556023458467}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 365449526116499995}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 5
+      maxHealth: 435
       attackRange: 2
-      damage: 10
+      damage: 75
       attackTime: 1
-      coinReward: 5
+      coinReward: 59
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -2341,7 +2341,7 @@ MonoBehaviour:
     nextWave: {fileID: 7697683663249105620}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 15
+      speed: 3.2
       maxHealth: 185
       attackRange: 2
       damage: 41
@@ -2410,7 +2410,7 @@ MonoBehaviour:
     nextWave: {fileID: 6135857095466456668}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
+      speed: 2.2
       maxHealth: 110
       attackRange: 2
       damage: 22
@@ -2466,7 +2466,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 105
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -2476,15 +2476,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 788388934236206506}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 2616981859899871271}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 1890
       attackRange: 2
-      damage: 10
+      damage: 600
       attackTime: 1
-      coinReward: 5
+      coinReward: 320
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -2535,7 +2535,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 65
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -2548,7 +2548,7 @@ MonoBehaviour:
     nextWave: {fileID: 0}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
+      speed: 3.2
       maxHealth: 50
       attackRange: 2
       damage: 10
@@ -2604,7 +2604,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 65
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -2614,15 +2614,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 1881614146479796568}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 2710530269487338737}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 640
       attackRange: 2
-      damage: 10
+      damage: 110
       attackTime: 1
-      coinReward: 5
+      coinReward: 85
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -2673,7 +2673,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 65
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -2683,15 +2683,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 5700010776554267486}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 27551588737487303}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 940
       attackRange: 2
-      damage: 10
+      damage: 170
       attackTime: 1
-      coinReward: 5
+      coinReward: 130
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -2755,7 +2755,7 @@ MonoBehaviour:
     nextWave: {fileID: 7539951311834812926}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 11
+      speed: 2.4
       maxHealth: 110
       attackRange: 2
       damage: 24
@@ -2811,7 +2811,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 65
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -2821,15 +2821,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 8501950786892941246}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 185018235549859905}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 790
       attackRange: 2
-      damage: 10
+      damage: 140
       attackTime: 1
-      coinReward: 5
+      coinReward: 100
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -2893,7 +2893,7 @@ MonoBehaviour:
     nextWave: {fileID: 5576627314708624533}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 15
+      speed: 3.2
       maxHealth: 160
       attackRange: 2
       damage: 38
@@ -2949,7 +2949,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 43
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -2959,15 +2959,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 2613748563095297154}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 431956455541083562}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 4
+      maxHealth: 310
       attackRange: 2
-      damage: 10
+      damage: 56
       attackTime: 1
-      coinReward: 5
+      coinReward: 40
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -3018,7 +3018,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 63
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -3028,15 +3028,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 4194990741051573325}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 2762564319117979127}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 560
       attackRange: 2
-      damage: 10
+      damage: 95
       attackTime: 1
-      coinReward: 5
+      coinReward: 79
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -3087,7 +3087,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 37
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -3097,15 +3097,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 1197662704453020051}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 4409308221802454835}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 3.4
+      maxHealth: 235
       attackRange: 2
-      damage: 10
+      damage: 47
       attackTime: 1
-      coinReward: 5
+      coinReward: 31
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -3156,7 +3156,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 57
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -3166,15 +3166,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 4981729250882662580}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 4383292652181917519}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 5.4
+      maxHealth: 485
       attackRange: 2
-      damage: 10
+      damage: 83
       attackTime: 1
-      coinReward: 5
+      coinReward: 67
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -3238,7 +3238,7 @@ MonoBehaviour:
     nextWave: {fileID: 2178782501895327962}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 12
+      speed: 2.6
       maxHealth: 110
       attackRange: 2
       damage: 26
@@ -3294,7 +3294,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 80
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -3304,15 +3304,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 5770968691942614575}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 8035207772184398756}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 1390
       attackRange: 2
-      damage: 10
+      damage: 350
       attackTime: 1
-      coinReward: 5
+      coinReward: 220
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -3373,10 +3373,10 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 8740551770736729923}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 7357360922425513408}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 16
+      speed: 3.2
       maxHealth: 210
       attackRange: 2
       damage: 44
@@ -3432,7 +3432,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 90
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -3442,15 +3442,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 8615067810397137109}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 5117816285321294846}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 1590
       attackRange: 2
-      damage: 10
+      damage: 450
       attackTime: 1
-      coinReward: 5
+      coinReward: 260
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -3501,7 +3501,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 85
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -3511,15 +3511,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 3325140977323233466}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 8034240030210207848}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 1490
       attackRange: 2
-      damage: 10
+      damage: 400
       attackTime: 1
-      coinReward: 5
+      coinReward: 240
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -3623,7 +3623,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 75
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -3633,15 +3633,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 5862175590762678358}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 7572202847747791250}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 1290
       attackRange: 2
-      damage: 10
+      damage: 300
       attackTime: 1
-      coinReward: 5
+      coinReward: 200
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -3692,7 +3692,7 @@ MonoBehaviour:
   serializedData:
     allUnitSpawnTime: 10
     spawnedUnitCount: 0
-    maxUnitCount: 15
+    maxUnitCount: 65
     currentUnitCount: 0
     radius: 10
     timer: 0
@@ -3702,15 +3702,15 @@ MonoBehaviour:
       progressBar: {fileID: 0}
       textNum: {fileID: 0}
     position: {fileID: 8757674770815926593}
-    nextWave: {fileID: 0}
+    nextWave: {fileID: 5999161298669528586}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
-      maxHealth: 50
+      speed: 6
+      maxHealth: 890
       attackRange: 2
-      damage: 10
+      damage: 160
       attackTime: 1
-      coinReward: 5
+      coinReward: 120
       critChance: 0
       critMultipler: 0
     Level: {fileID: 1415399835812190753}
@@ -3774,7 +3774,7 @@ MonoBehaviour:
     nextWave: {fileID: 1123760490799220742}
     config:
       prefab: Assets/Addressables/Mob_Skeleton.prefab
-      speed: 10
+      speed: 2
       maxHealth: 90
       attackRange: 2
       damage: 18
@@ -3999,7 +3999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     barrierConfig:
-      barrierHealth: 500
+      barrierHealth: 100
       barrierTransform: {fileID: 788411740001594241}
       barrierCanvas: {fileID: 2562110192971782150}
       barrierHealthBar: {fileID: 2008567422605690223}
@@ -4182,7 +4182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     barrierConfig:
-      barrierHealth: 500
+      barrierHealth: 100
       barrierTransform: {fileID: 3809154284425316234}
       barrierCanvas: {fileID: 2135731287735104525}
       barrierHealthBar: {fileID: 2734257281990093156}
@@ -4353,7 +4353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     barrierConfig:
-      barrierHealth: 500
+      barrierHealth: 100
       barrierTransform: {fileID: 4496031983972284120}
       barrierCanvas: {fileID: 1664762502610748767}
       barrierHealthBar: {fileID: 3408029085327759414}
@@ -4459,17 +4459,17 @@ PrefabInstance:
     - target: {fileID: 5284081248182346516, guid: 4254e9267cf50408cac71d0285558f5a,
         type: 3}
       propertyPath: serializedData.config.damage
-      value: 1000
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5284081248182346516, guid: 4254e9267cf50408cac71d0285558f5a,
         type: 3}
       propertyPath: serializedData.config.buildTime
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5284081248182346516, guid: 4254e9267cf50408cac71d0285558f5a,
         type: 3}
       propertyPath: serializedData.config.attackSpeed
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4788,17 +4788,17 @@ PrefabInstance:
     - target: {fileID: 5284081248182346516, guid: 4254e9267cf50408cac71d0285558f5a,
         type: 3}
       propertyPath: serializedData.config.damage
-      value: 1000
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5284081248182346516, guid: 4254e9267cf50408cac71d0285558f5a,
         type: 3}
       propertyPath: serializedData.config.buildTime
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5284081248182346516, guid: 4254e9267cf50408cac71d0285558f5a,
         type: 3}
       propertyPath: serializedData.config.attackSpeed
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5284081248182346516, guid: 4254e9267cf50408cac71d0285558f5a,
         type: 3}
@@ -5052,7 +5052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     barrierConfig:
-      barrierHealth: 500
+      barrierHealth: 100
       barrierTransform: {fileID: 6838249548577367550}
       barrierCanvas: {fileID: 8617961497334290041}
       barrierHealthBar: {fileID: 5748997322330770192}
@@ -5223,7 +5223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     barrierConfig:
-      barrierHealth: 500
+      barrierHealth: 100
       barrierTransform: {fileID: 6777126302689054546}
       barrierCanvas: {fileID: 8607013987290954965}
       barrierHealthBar: {fileID: 5702662507305607612}
@@ -5388,7 +5388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     barrierConfig:
-      barrierHealth: 500
+      barrierHealth: 100
       barrierTransform: {fileID: 5237776584572481769}
       barrierCanvas: {fileID: 7047891404902253422}
       barrierHealthBar: {fileID: 6457756337791196679}
@@ -5506,17 +5506,17 @@ PrefabInstance:
     - target: {fileID: 5284081248182346516, guid: 4254e9267cf50408cac71d0285558f5a,
         type: 3}
       propertyPath: serializedData.config.damage
-      value: 1000
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5284081248182346516, guid: 4254e9267cf50408cac71d0285558f5a,
         type: 3}
       propertyPath: serializedData.config.buildTime
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5284081248182346516, guid: 4254e9267cf50408cac71d0285558f5a,
         type: 3}
       propertyPath: serializedData.config.attackSpeed
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5631,17 +5631,17 @@ PrefabInstance:
     - target: {fileID: 5284081248182346516, guid: 4254e9267cf50408cac71d0285558f5a,
         type: 3}
       propertyPath: serializedData.config.damage
-      value: 1000
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5284081248182346516, guid: 4254e9267cf50408cac71d0285558f5a,
         type: 3}
       propertyPath: serializedData.config.buildTime
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5284081248182346516, guid: 4254e9267cf50408cac71d0285558f5a,
         type: 3}
       propertyPath: serializedData.config.attackSpeed
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5809,7 +5809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     barrierConfig:
-      barrierHealth: 500
+      barrierHealth: 100
       barrierTransform: {fileID: 7384074454426086596}
       barrierCanvas: {fileID: 5694504249575939907}
       barrierHealthBar: {fileID: 8599445063497744938}

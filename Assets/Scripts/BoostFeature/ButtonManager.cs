@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +16,22 @@ namespace Scripts.BoostFeature
             foreach (var button in buttons)
             {
                 button.onClick.AddListener(() => OnClickActive(button.GetComponent<CategoryButton>().categoryButton));
+            }
+        }
+
+        public void Restart()
+        {
+            foreach (var button in buttons)
+            {
+                if (buttons[0] == button)
+                {
+                    button.interactable = false;
+                    button.gameObject.transform.SetAsFirstSibling();
+                    this.contentView.position = new Vector3(0, this.contentView.position.y, this.contentView.position.z);
+                    continue;
+                }
+
+                button.interactable = true;
             }
         }
 

@@ -4,7 +4,6 @@ using Scripts;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Scripts.BoostFeature;
-using UnityEngine;
 
 namespace ECS.Scripts.Components
 {
@@ -25,7 +24,9 @@ namespace ECS.Scripts.Components
             foreach (var evt in this.boostRequest.BatchedChanges)
             {
                 var boostModel = WorldModels.Default.Get<BoostsModel>();
+                var playerModel = WorldModels.Default.Get<Player>();
 
+                playerModel.AddBoost(evt.boost);
                 boostModel.AddBoost(evt.boost);
 
                 if (evt.boost.category == Categories.Base)

@@ -10,15 +10,15 @@ namespace DefaultNamespace
         public float CritChance { get; private set; }
         public float CritMultipler { get; private set; }
         
-        public float MaxHealth { get; private set; }
+        public float MaxHealth { get; set; }
 
         public float AttackRange { get; private set; }
         
-        public float Damage { get; private set; }
+        public float Damage { get; set; }
         
-        public float Speed { get; private set; }
+        public float Speed { get; set; }
         
-        public float AttackTime { get; private set; }
+        public float AttackTime { get; set; }
         public float FirstAttackTime { get; private set; }
         
         public float AnimationAttackTime { get; private set; }
@@ -64,7 +64,7 @@ namespace DefaultNamespace
         public override string ToString()
         {
             return $"Damage: {this.Damage} \nSpeed: {this.Speed}\n" +
-                   $"AttackSpeed: {this.AttackTime}\nAttackRange: {this.AttackRange}\nCrit: {this.CritChance}\n";
+                   $"AttackSpeed: {this.AttackTime}\nCrit: {this.CritChance}\n";
         }
     }
 }

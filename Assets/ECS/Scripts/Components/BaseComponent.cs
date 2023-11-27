@@ -12,10 +12,6 @@ namespace ECS.Scripts.Components
         public Transform position;
 
         public float regeneration;
-        
-        public int currentHealth;
-
-        public int maxHealth;
 
         public TextMeshProUGUI healthView;
 

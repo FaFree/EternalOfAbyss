@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DefaultNamespace;
 using Scripts;
 using Scripts.BoostFeature;
 using UnityEngine;
@@ -161,8 +162,25 @@ public class BoostsModel
         isTripleArrow = false;
         isPassingArrow = false;
         isReboundArrow = false;
+
+        var baseConfig = WorldModels.Default.Get<BaseStatConfig>();
+        var playerModel = WorldModels.Default.Get<Player>();
+
+        foreach (var boost in this.boosts)
+        {
+            if (boost.category == Categories.Base)
+            {
+                baseConfig.maxHealth -= boost.health;
+                baseConfig.regeneration -= boost.regeneration;
+            }
+
+            if (boost.category == Categories.Player)
+            {
+                playerModel.RemoveBoosts(); 
+            }
+        }
         
-        boosts.Clear();
+        this.boosts.Clear();
         
         WorldModels.Default.Get<Boosts>().Clear();
     }

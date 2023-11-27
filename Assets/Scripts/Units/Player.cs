@@ -1,4 +1,6 @@
+using Scellecs.Morpeh;
 using Scripts;
+using Scripts.BoostFeature;
 using Scripts.StorageService;
 
 namespace DefaultNamespace
@@ -11,6 +13,29 @@ namespace DefaultNamespace
             : base(config, firstAttackTime, attackAnimationTime)
         {
             
+        }
+
+        public void AddBoost(Boost boost)
+        {
+            if (boost.category == Categories.Player)
+            {
+                this.MaxHealth += boost.health;
+                this.Damage += boost.damage;
+            }
+        }
+
+        public void RemoveBoosts()
+        {
+            var boosts = WorldModels.Default.Get<BoostsModel>().boosts;
+
+            foreach (var boost in boosts)
+            {
+                if (boost.category == Categories.Player)
+                {
+                    this.MaxHealth -= boost.health;
+                    this.Damage -= boost.damage;
+                }
+            }
         }
     }
 }

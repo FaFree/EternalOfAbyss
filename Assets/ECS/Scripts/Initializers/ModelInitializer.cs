@@ -17,7 +17,7 @@ namespace ECS.Scripts.Initializers
     public class ModelInitializer : Initializer
     {
         [SerializeField] private Boosts boosts;
-        [FormerlySerializedAs("levels")] [SerializeField] private Prefabs prefabs;
+        [SerializeField] private Prefabs prefabs;
         [SerializeField] private PlayerStatConfig playerConfig;
         [SerializeField] private Items items;
         [SerializeField] private BaseStatConfig baseStats;

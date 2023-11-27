@@ -8,6 +8,8 @@ namespace Scripts.BoostFeature
 {
     public class BoostWindowStart : MonoBehaviour
     {
+        private const string ICON_KEY = "SkillIcon";
+
         [SerializeField] private RectTransform skillRoot;
         [SerializeField] private ButtonManager buttonManager;
 
@@ -21,25 +23,11 @@ namespace Scripts.BoostFeature
             
             this.boostViews = new List<BoostView>();
 
-            var key = WorldModels.Default.Get<Prefabs>().prefabMap["SkillIcon"];
+            var key = WorldModels.Default.Get<Prefabs>().prefabMap[ICON_KEY];
 
             this.skillObj = Addressables.LoadAssetAsync<GameObject>(key).WaitForCompletion();
 
             foreach (var boost in WorldModels.Default.Get<Boosts>().BoostsList)
-            {
-                var obj = Instantiate(skillObj, skillRoot);
-
-                var boostView = obj.GetComponent<BoostView>();
-                
-                this.boostViews.Add(boostView);
-                
-                boostView.Init(boost);
-
-                boostView.onClick += UpdateInfo;
-                boostView.onAddedBoost += OnAddedBoost;
-            }
-
-            foreach (var boost in WorldModels.Default.Get<BoostsModel>().boosts)
             {
                 var obj = Instantiate(skillObj, skillRoot);
 
