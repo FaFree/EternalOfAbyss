@@ -188,6 +188,7 @@ public class BoostsModel
         }
         
         this.boosts.Clear();
+        storageService.Save("BoostModel", this);
         
         WorldModels.Default.Get<Boosts>().Clear();
     }
@@ -211,19 +212,5 @@ public class BoostsModel
         storageService = new JsonFileStorageService();
         
         boosts = new List<Boost>();
-
-        //try
-        //{
-        //    var boostModel = storageService.Load<BoostsModel>("BoostModel");
-
-        //    foreach (var boost in boostModel.boosts)
-        //    {
-        //        this.AddBoost(boost);
-        //    }
-        //}
-        //catch (Exception e)
-        //{
-        //    
-        //}
     }
 }

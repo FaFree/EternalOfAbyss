@@ -60,11 +60,19 @@ namespace ECS.Scripts.Initializers
                 WorldModels.Default.Set<Player>(playerModel);
                 WorldModels.Default.Set<LevelsModel>(levelModel);
                 WorldModels.Default.Set<BaseStatConfig>(baseStats);
-        
-                BoostsModel boostModel = new BoostsModel();
-                WorldModels.Default.Set<BoostsModel>(boostModel);
-                
-            
+
+
+                try
+                {
+                    var boostModel = storageService.Load<BoostsModel>("BoostModel");
+                    WorldModels.Default.Set(boostModel);
+                }
+                catch (Exception exception)
+                {
+                    BoostsModel boostModel = new BoostsModel();
+                    WorldModels.Default.Set<BoostsModel>(boostModel);  
+                }
+
                 this.inventory.Initialize();
                 
                 this.endLoaded.NextFrame(new EndLoadEvent());

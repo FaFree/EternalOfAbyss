@@ -11,7 +11,7 @@ namespace ECS.Scripts.Components
     {
         private Quaternion CAMERA_ROTATION = Quaternion.Euler(30, 0, 0);
         private Vector3 CAMERA_TRANSFORM = new Vector3(0, 10, -10);
-        private Vector3 BUILD_CAMERA_TRANSFORM = new Vector3(10, 60, 15);
+        private Vector3 BUILD_CAMERA_TRANSFORM = new Vector3(10,  35, 15);
         
         private Transform camera;
         private Filter filter;
