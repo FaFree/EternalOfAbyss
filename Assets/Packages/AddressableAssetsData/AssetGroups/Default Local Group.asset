@@ -63,11 +63,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - prefabs
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b85e42ff8a9eb4ff391d0a323cee9307
-    m_Address: Assets/Addressables/Skills/UiSkills.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d43de33d69810440496f91df3f0ef668
     m_Address: Assets/Addressables/Skills/skill.prefab
     m_ReadOnly: 0
@@ -121,6 +116,36 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7bd574c802cf74ac5994c3f4e3723b35
     m_Address: Assets/Addressables/ui/WaveEndMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c51ad7e5e80654ee0ab7208650501d50
+    m_Address: Assets/Addressables/ui/BuildItem.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a7ec0274a5be476abb16b5da7ad139f
+    m_Address: Assets/Prefabs/AutoTurret/CrossBowTurret.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54a6c77bcd6684eddb3de65d0c4c7cf1
+    m_Address: Assets/Prefabs/AutoTurret/GhostTurret.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4254e9267cf50408cac71d0285558f5a
+    m_Address: Assets/Prefabs/AutoTurret/TurretPosition.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 880a05b95f2de4d6884c83d4caccecab
+    m_Address: ers/Barrier1.prefabiers/Barrier1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3a0fb2665c27480b95ea0a3f20ad757
+    m_Address: Assets/Prefabs/Barriers/BarrierGhost.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

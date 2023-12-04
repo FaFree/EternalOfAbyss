@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Walls
   - Unit
+  - BaseTag
+  - Ground
   layers:
   - Default
   - TransparentFX

@@ -100,16 +100,10 @@ MonoBehaviour:
   serializedData:
     timer: 0
     config:
-      damage: 600
-      attackSpeed: 0.5
-      cost: 500
-      maxLevel: 1
-      upgradeCost: 0
-      turretTransform: {fileID: 5239674381559923812}
-      buildTime: 0
+      damage: 50
+      attackSpeed: 1
+      buildTime: 10
       turretObject: {fileID: 5858511883865377134}
-      progressBar: {fileID: 0}
-      progressBarObj: {fileID: 0}
 --- !u!1001 &2906953118878871143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -126,17 +120,17 @@ PrefabInstance:
     - target: {fileID: 6980722786132371971, guid: 4a7ec0274a5be476abb16b5da7ad139f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.07837677
+      value: 0.053
       objectReference: {fileID: 0}
     - target: {fileID: 6980722786132371971, guid: 4a7ec0274a5be476abb16b5da7ad139f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6980722786132371971, guid: 4a7ec0274a5be476abb16b5da7ad139f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.028344631
+      value: -0.035
       objectReference: {fileID: 0}
     - target: {fileID: 6980722786132371971, guid: 4a7ec0274a5be476abb16b5da7ad139f,
         type: 3}

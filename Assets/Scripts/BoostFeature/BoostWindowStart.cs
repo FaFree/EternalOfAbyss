@@ -1,5 +1,10 @@
 using System.Collections.Generic;
+using DG.Tweening;
+using ECS.Scripts.Events;
+using ResourceFeature;
+using Scellecs.Morpeh;
 using Scripts.LevelModel;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Resources = ResourceFeature.Resources;
@@ -15,13 +20,21 @@ namespace Scripts.BoostFeature
 
         private List<BoostView> boostViews;
         
+        private Resource coins;
+
+        private Event<BoostRequest> boostRequest;
+        
         private GameObject skillObj;
         
         private void Start()
         {
             this.buttonManager.onCategoryChanged += UpdateCategory;
+
+            this.boostRequest = World.Default.GetEvent<BoostRequest>();
             
             this.boostViews = new List<BoostView>();
+
+            this.coins = Resources.GetResource("Coin");
 
             var key = WorldModels.Default.Get<Prefabs>().prefabMap[ICON_KEY];
 
@@ -37,24 +50,58 @@ namespace Scripts.BoostFeature
                 
                 boostView.Init(boost);
 
-                boostView.onClick += UpdateInfo;
-                boostView.onAddedBoost += OnAddedBoost;
+                boostView.onClick += OnClick;
             }
         }
 
-        private void OnAddedBoost(Boost boost)
+        public void OnClick(Boost boost, Object sender)
         {
-            var obj = Instantiate(skillObj, skillRoot);
+            var boostView = (BoostView) sender;
 
-            var boostView = obj.GetComponent<BoostView>();
-            
-            this.boostViews.Add(boostView);
-            
-            boostView.Init(boost);
+            if (this.coins.IsEnough(boost.price))
+            {
+                if (boost.isMultiply && !boost.isActive)
+                {
+                    var boostCopy = boost.Copy();
+                
+                    boostCopy.Activate();
+                    
+                    this.boostRequest.NextFrame(new BoostRequest
+                    {
+                        boost = boostCopy
+                    });
+                
+                    boostView.Multiply();
 
-            boostView.onAddedBoost += OnAddedBoost;
-            boostView.onClick += UpdateInfo;
+                    this.coins.TakeResource(boostCopy.price);
+
+                    this.UpdateInfo();
+
+                    return;
+                }
+
+                else
+                {
+                    this.boostRequest.NextFrame(new BoostRequest
+                    {
+                        boost = boost,
+                    });
+                    
+                    boost.Activate();
+                    
+                    this.coins.TakeResource(boost.price);
+                    
+                    this.UpdateInfo();
+
+                    return;
+                }
+            }
+            
+            boostView.gameObject.transform.DOPunchPosition(Vector3.up * 10, 1);
+
+            this.UpdateInfo();
         }
+        
 
         private void UpdateCategory(Categories category)
         {

@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using BuilderFeature;
 using DefaultNamespace;
 using Scripts;
 using Scripts.BoostFeature;
+using Scripts.StorageService;
 using UnityEngine;
 
 [Serializable]
@@ -60,6 +61,10 @@ public class Boost
         this.isTripleArrow = boost.isTripleArrow;
         this.price = boost.price;
         this.sprite = boost.sprite;
+        this.isBuilding = boost.isBuilding;
+        this.ghostObj = boost.ghostObj;
+        this.buildObj = boost.buildObj;
+        this.buildingTag = boost.buildingTag;
     }
     
     public float damage;
@@ -77,12 +82,18 @@ public class Boost
     public bool isReboundArrow;
     public bool isTripleArrow;
     public bool isPassingArrow;
+    public bool isBuilding;
 
     public float price;
+    public float firstPrice;
 
     public bool isActive;
     
     public Sprite sprite;
+
+    public string buildObj;
+    public string ghostObj;
+    public string buildingTag;
 
     public int purchaseCount;
 
@@ -97,12 +108,12 @@ public class Boost
         if (!this.isMultiply)
             return;
 
-        this.damage *= 1.2f;
-        this.health *= 1.2f;
-        this.regeneration *= 1.2f;
-        this.price *= 1.5f;
-
+        if (this.purchaseCount == 0)
+            this.firstPrice = this.price;
+        
         this.purchaseCount++;
+
+        this.price = (float) (this.firstPrice * Math.Pow(1.09, purchaseCount));
     }
     
     public void RevertMultiply()
@@ -110,13 +121,7 @@ public class Boost
         if (!this.isMultiply || this.purchaseCount == 0)
             return;
 
-        float revertMultiplier = Mathf.Pow(1.2f, this.purchaseCount);
-        this.damage /= revertMultiplier;
-        this.health /= revertMultiplier;
-        this.regeneration /= revertMultiplier;
-        
-        float revertPriceMultiplier = Mathf.Pow(1.5f, this.purchaseCount);
-        this.price /= revertPriceMultiplier;
+        this.price = this.firstPrice;
 
         this.purchaseCount = 0;
     }
@@ -148,6 +153,7 @@ public class Boost
     }
 }
 
+[Serializable]
 public class BoostsModel
 {
     public bool isTripleArrow;
@@ -156,6 +162,7 @@ public class BoostsModel
     
     public List<Boost> boosts;
 
+    private IStorageService storageService;
 
     public void Clear()
     {
@@ -195,16 +202,28 @@ public class BoostsModel
             this.isPassingArrow = true;
         if (boost.isReboundArrow)
             this.isReboundArrow = true;
+        
+        storageService.Save("BoostModel", this);
     }
     
     public BoostsModel()
     {
+        storageService = new JsonFileStorageService();
+        
         boosts = new List<Boost>();
 
-        foreach (var boost in WorldModels.Default.Get<Boosts>().BoostsList)
-        {
-            if (boost.isActive)
-                this.AddBoost(boost);
-        }
+        //try
+        //{
+        //    var boostModel = storageService.Load<BoostsModel>("BoostModel");
+
+        //    foreach (var boost in boostModel.boosts)
+        //    {
+        //        this.AddBoost(boost);
+        //    }
+        //}
+        //catch (Exception e)
+        //{
+        //    
+        //}
     }
 }

@@ -50,6 +50,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4581226746965203106, guid: 208dbab6a2c294d04b62c997f3b7b07f,
+        type: 3}
+      propertyPath: serializedData.barrierConfig.barrierTransform
+      value: 
+      objectReference: {fileID: 1413296247120576907}
+    - target: {fileID: 4975385830512264387, guid: 208dbab6a2c294d04b62c997f3b7b07f,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8761394362597949241, guid: 208dbab6a2c294d04b62c997f3b7b07f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58,7 +68,7 @@ PrefabInstance:
     - target: {fileID: 8761394362597949241, guid: 208dbab6a2c294d04b62c997f3b7b07f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8761394362597949241, guid: 208dbab6a2c294d04b62c997f3b7b07f,
         type: 3}

@@ -21,6 +21,8 @@ namespace DefaultNamespace
             {
                 this.MaxHealth += boost.health;
                 this.Damage += boost.damage;
+                
+                this.storageService.Save("PlayerModel", this);
             }
         }
 
@@ -34,8 +36,17 @@ namespace DefaultNamespace
                 {
                     this.MaxHealth -= boost.health;
                     this.Damage -= boost.damage;
+                    
+                    this.Save();
                 }
             }
+        }
+
+        private void Save()
+        {
+            var config = new UnitConfig("", this.Speed, (int)this.MaxHealth, this.AttackRange, this.Damage, this.AttackTime, 0, this.CritChance, this.CritMultipler);
+            
+            this.storageService.Save("PlayerModel", config);
         }
     }
 }

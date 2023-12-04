@@ -3876,6 +3876,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: -740
       objectReference: {fileID: 0}
+    - target: {fileID: 2356999587015728151, guid: 264762da6d2b04e66b5a154c4daa3c7f,
+        type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356999587015728151, guid: 264762da6d2b04e66b5a154c4daa3c7f,
+        type: 3}
+      propertyPath: m_Padding.m_Right
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2794635944796339308, guid: 264762da6d2b04e66b5a154c4daa3c7f,
         type: 3}
       propertyPath: m_AnchorMax.y

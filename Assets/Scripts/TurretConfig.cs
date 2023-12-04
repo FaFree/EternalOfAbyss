@@ -9,14 +9,9 @@ namespace Scripts
     {
         public float damage;
         public float attackSpeed;
-
-        public Transform turretTransform;
-
+        
         public float buildTime;
 
         public GameObject turretObject;
-
-        public Slider progressBar;
-        public GameObject progressBarObj;
     }
 }

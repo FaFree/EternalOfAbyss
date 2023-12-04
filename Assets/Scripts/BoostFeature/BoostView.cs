@@ -9,19 +9,27 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.TestTools;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 using Resources = ResourceFeature.Resources;
 
 public class BoostView : MonoBehaviour
 {
     [SerializeField] private Image image;
+    
     [SerializeField] private Button button;
+    
     [SerializeField] private TextMeshProUGUI skillName;
     [SerializeField] private TextMeshProUGUI skillInfo;
     [SerializeField] private TextMeshProUGUI statInfo;
     [SerializeField] private TextMeshProUGUI price;
+    [SerializeField] private TextMeshProUGUI counter;
+    
+    [SerializeField] private GameObject counterObj;
 
     [SerializeField] private RectTransform completeRoot;
     [SerializeField] private RectTransform unavailableRoot;
+
+    private const float ANIMATION_TIME = 0.1f;
 
     private Resource coins;
  
@@ -33,8 +41,7 @@ public class BoostView : MonoBehaviour
 
     public Boost Boost;
 
-    public Action onClick;
-    public Action<Boost> onAddedBoost;
+    public Action<Boost, Object> onClick;
 
     public void Init(Boost boost)
     {
@@ -53,6 +60,8 @@ public class BoostView : MonoBehaviour
         {
             this.completeRoot.gameObject.SetActive(true);
             this.button.interactable = false;
+
+            return;
         }
 
         if (!this.coins.IsEnough(this.Boost.price) && !this.Boost.isActive)
@@ -64,6 +73,12 @@ public class BoostView : MonoBehaviour
         {
             this.price.color = new Color(1, 1, 1, 1);
             this.unavailableRoot.gameObject.SetActive(false);
+        }
+
+        if (this.Boost.purchaseCount > 0)
+        {
+            this.counterObj.SetActive(true);
+            this.counter.text = this.Boost.purchaseCount.ToString();
         }
     }
 
@@ -78,57 +93,16 @@ public class BoostView : MonoBehaviour
 
     public void OnClick()
     {
-        if (this.coins.IsEnough(this.Boost.price))
-        {
-            if (this.Boost.isMultiply && !this.Boost.isActive)
-            {
-                var boost = this.Boost.Copy();
-                
-                boost.Activate();
-
-                this.onAddedBoost?.Invoke(boost);
-                this.onClick?.Invoke();
-                
-                this.boostRequest.NextFrame(new BoostRequest
-                {
-                    boost = boost
-                });
-                
-                this.Boost.Multiply();
-                
-                this.Init(this.Boost);
-                
-                this.coins.TakeResource(this.Boost.price);
-
-                return;
-            }
-
-            else
-            {
-                this.boostRequest.NextFrame(new BoostRequest
-                {
-                    boost = this.Boost,
-                });
-
-                this.button.interactable = false;
-
-                this.Boost.Activate();
-
-                this.completeRoot.gameObject.SetActive(true);
-
-                this.coins.TakeResource(this.Boost.price);
-
-                this.onClick?.Invoke();
-
-                return;
-            }
-        }
-
-        if (DOTween.IsTweening(this.gameObject.transform))
+        if (DOTween.IsTweening(this.gameObject.transform) || DOTween.IsTweening(counter.gameObject.transform))
             return;
-
-        this.gameObject.transform.DOPunchPosition(Vector3.up * 10, 1);
         
-        this.onClick?.Invoke();
+        this.onClick?.Invoke(this.Boost, this);
+    }
+
+    public void Multiply()
+    {
+        this.Boost.Multiply();
+
+        this.counter.gameObject.transform.DOPunchScale(Vector3.up * 0.2f, 0.1f);
     }
 }

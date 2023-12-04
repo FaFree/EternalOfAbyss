@@ -1,7 +1,9 @@
+using DefaultNamespace;
 using DG.Tweening;
 using ResourceFeature;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
+using Scripts;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,6 +26,8 @@ namespace ECS.Scripts.Components
         private float currentProgress;
 
         private bool isBuilding;
+
+        private bool isInitialized;
         
         public override void OnAwake()
         {
@@ -39,6 +43,16 @@ namespace ECS.Scripts.Components
 
         public override void OnUpdate(float deltaTime)
         {
+            if (!this.isInitialized)
+            {
+                var config = WorldModels.Default.Get<ProgressBarConfig>();
+
+                this.progressBar = config.progressBarSlider;
+                this.progressBarObj = config.progressBarObj;
+
+                this.isInitialized = true;
+            }
+            
             var playerEntity = this.playerFilter.FirstOrDefault();
 
             if (playerEntity == default)
@@ -63,8 +77,6 @@ namespace ECS.Scripts.Components
 
                         progressMarker.progress += deltaTime;
                         
-                        this.progressBar = turretComponent.config.progressBar;
-                        this.progressBarObj = turretComponent.config.progressBarObj;
                         this.currentEntity = turretEntity;
                         
                         this.progressBarObj.SetActive(true);
@@ -76,9 +88,7 @@ namespace ECS.Scripts.Components
                             turretEntity.AddComponent<ActiveMarker>();
                         
                             turretComponent.config.turretObject.SetActive(true);
-
-                            turretComponent.config.progressBarObj.SetActive(false);
-
+                            
                             this.progressBarObj.SetActive(false);
                         }
                         
@@ -97,8 +107,6 @@ namespace ECS.Scripts.Components
 
                             ref var progressMarker = ref turretEntity.GetComponent<ProgressMarker>();
 
-                            this.progressBar = turretComponent.config.progressBar;
-                            this.progressBarObj = turretComponent.config.progressBarObj;
                             this.currentEntity = turretEntity;
                             
                             this.progressBarObj.SetActive(true);
@@ -115,12 +123,16 @@ namespace ECS.Scripts.Components
                 }
             }
 
-            if (!this.isBuilding && !this.progressBarObj.IsUnityNull())
+            if (!this.isBuilding)
             {
                 this.currentProgress = 0;
                 this.progressBar.value = 0;
                 this.progressBarObj.SetActive(false);
-                this.currentEntity.RemoveComponent<ProgressMarker>();
+                
+                if (!this.currentEntity.IsUnityNull())
+                {
+                    this.currentEntity.RemoveComponent<ProgressMarker>();
+                }
             }
 
             this.isBuilding = false;

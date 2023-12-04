@@ -17,7 +17,7 @@ namespace Scripts
         public float critMultipler;
 
         public UnitConfig(string prefab, float speed, int maxHealth, float attackRange, float damage, 
-            float attackTime, int coinReward, int xpReward, float critChance, float critMultipler)
+            float attackTime, int coinReward, float critChance, float critMultipler)
         {
             this.prefab = prefab;
             this.speed = speed;

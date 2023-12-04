@@ -395,6 +395,130 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155233094}
   m_CullTransparentMesh: 1
+--- !u!1001 &239655992
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1465841686}
+    m_Modifications:
+    - target: {fileID: 3761916102759247493, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_Name
+      value: BuildMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 375b51d1bb0a2464a83b2f3cd31433c8, type: 3}
+--- !u!224 &239655993 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7278887259817965605, guid: 375b51d1bb0a2464a83b2f3cd31433c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 239655992}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &358663406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1515,6 +1639,7 @@ GameObject:
   - component: {fileID: 1465841685}
   - component: {fileID: 1465841684}
   - component: {fileID: 1465841683}
+  - component: {fileID: 1465841687}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1602,6 +1727,7 @@ RectTransform:
   - {fileID: 833902221}
   - {fileID: 1593138555}
   - {fileID: 155233095}
+  - {fileID: 239655993}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1609,6 +1735,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1465841687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465841682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0271c164097c4ecab02799bc8a65a92a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config:
+    progressBarObj: {fileID: 4335054814425369441}
+    progressBarSlider: {fileID: 4335054814425369440}
 --- !u!224 &1593138555 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 878259165626294037, guid: ed86635a72bcc42acb2ce5959cdad538,
@@ -1763,7 +1904,7 @@ PrefabInstance:
     - target: {fileID: 656624218031085966, guid: 66db0b779ea514cfcbb25aee8377df90,
         type: 3}
       propertyPath: updateSystems.Array.size
-      value: 41
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 656624218031085966, guid: 66db0b779ea514cfcbb25aee8377df90,
         type: 3}
@@ -2015,7 +2156,7 @@ PrefabInstance:
         type: 3}
       propertyPath: updateSystems.Array.data[41].system
       value: 
-      objectReference: {fileID: 11400000, guid: 8f0995e356ec744a1abceb450886eb8b,
+      objectReference: {fileID: 11400000, guid: 3fd605204b05f4158b817e7c21c3e230,
         type: 2}
     - target: {fileID: 656624218031085966, guid: 66db0b779ea514cfcbb25aee8377df90,
         type: 3}
@@ -2189,6 +2330,21 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 210475799487694230, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 288192360505824715, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 312290118878830294, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 337719822694128789, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2219,6 +2375,16 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 377810040599935859, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 419140569786136605, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 501406426362306271, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2239,6 +2405,11 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 765803637089615363, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 785397534813314949, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2249,6 +2420,16 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 904771719566021589, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 939573368202523934, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 940620395965137539, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2304,6 +2485,11 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 1712945854018960734, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 1798267443262983157, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2314,6 +2500,11 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 1976326716689033719, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 2099304972302852454, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2324,6 +2515,11 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 2106693607589624324, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 2120824389258373605, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2334,6 +2530,16 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 2137448027390425565, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 2205330160730035862, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 2404164324824315416, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2344,6 +2550,11 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 2475622067184101201, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 2702865897658272016, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2364,6 +2575,11 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 3011694437528956748, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 3192240760640117165, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2414,6 +2630,16 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 3387695233487141766, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3444686596979447774, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 3567101844818753508, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2434,6 +2660,16 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 3732911610535450658, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791904327214187397, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 3818172686889112010, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2444,6 +2680,11 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 3837859979787711282, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 3915699146904639459, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2464,6 +2705,11 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 4068525071391894738, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4206054911277316884, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.config.progressBar
@@ -2484,6 +2730,11 @@ PrefabInstance:
       propertyPath: serializedData.config.progressBarObj
       value: 
       objectReference: {fileID: 4335054814425369441}
+    - target: {fileID: 4294006062465452373, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4303028615266493407, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2494,6 +2745,16 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 4449837702193195085, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642148117579846005, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: BaseTag
+      objectReference: {fileID: 0}
     - target: {fileID: 4977796241218554068, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2504,6 +2765,26 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 5140557301984341246, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168368459617628048, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199218682184739552, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 5274641138494192317, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 5369186836515854320, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2534,6 +2815,16 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 5685452093445669976, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732504540561760765, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 5804731012361160004, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2544,6 +2835,16 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 5815794294920926940, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143579134696663485, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6150008599902316811, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2554,6 +2855,16 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 6228818117257807606, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261395567602779439, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6297273417340233525, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2564,6 +2875,11 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 6479177022466866452, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: BaseTag
+      objectReference: {fileID: 0}
     - target: {fileID: 6691415655291697816, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2574,6 +2890,16 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 6858496411674651966, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6979689533688247218, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 7053896388499420304, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2584,6 +2910,26 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 7067054461183758439, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 7211798475709491445, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232153926172018084, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7267413870729528493, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 7431068309174644857, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2604,6 +2950,11 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 7603102650325538938, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 7703062993710049967, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2674,6 +3025,11 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 7731637826318597039, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 7867780691053021382, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2684,6 +3040,16 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 7875115370080486205, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: BaseTag
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891565884414062437, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: BaseTag
+      objectReference: {fileID: 0}
     - target: {fileID: 8040383164613912691, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2694,6 +3060,11 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 8092923965527094910, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 8103575528756516196, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2704,6 +3075,11 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 8163351383575760065, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 8216265444084892620, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2724,6 +3100,11 @@ PrefabInstance:
       propertyPath: serializedData.config.progressBarObj
       value: 
       objectReference: {fileID: 4335054814425369441}
+    - target: {fileID: 8335816888769172473, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 8395482585116670599, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2754,6 +3135,16 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 8630351336479696849, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 8652962861061629705, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 8708117536255942546, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2764,6 +3155,11 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 8859062598076348465, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 8954435681475325918, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.config.progressBar
@@ -2774,6 +3170,11 @@ PrefabInstance:
       propertyPath: serializedData.config.progressBarObj
       value: 
       objectReference: {fileID: 4335054814425369441}
+    - target: {fileID: 9122702838885207065, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 9127818066710314266, guid: 8918266be79f449fd820c9d49b0c0c8d,
         type: 3}
       propertyPath: serializedData.waveProgressConfig.textNum
@@ -2794,8 +3195,15 @@ PrefabInstance:
       propertyPath: serializedData.waveProgressConfig.progressBar
       value: 
       objectReference: {fileID: 1226833637}
+    - target: {fileID: 9171303914820222126, guid: 8918266be79f449fd820c9d49b0c0c8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8884678414272546342, guid: 8918266be79f449fd820c9d49b0c0c8d, type: 3}
+    - {fileID: 1625657976490935071, guid: 8918266be79f449fd820c9d49b0c0c8d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8918266be79f449fd820c9d49b0c0c8d, type: 3}
