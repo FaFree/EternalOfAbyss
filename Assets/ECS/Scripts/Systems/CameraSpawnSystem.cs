@@ -14,7 +14,7 @@ namespace ECS.Scripts.Components
         private Vector3 BUILD_CAMERA_TRANSFORM = new Vector3(10,  35, 15);
         
         private Transform camera;
-        private Filter filter;
+        private Filter playerFilter;
 
         private bool isBuildEnded;
 
@@ -24,12 +24,14 @@ namespace ECS.Scripts.Components
         {
             this.buildEndEvent = this.World.GetEvent<BuildEndedEvent>();
             
-            this.filter = this.World.Filter
+            this.playerFilter = this.World.Filter
                 .With<PlayerComponent>()
                 .With<TransformComponent>();
-            var exampleGo = new GameObject("Camera");
-            var go = Instantiate(exampleGo);
-            Destroy(exampleGo);
+            
+            var prefab = new GameObject("Camera");
+            
+            var go = Instantiate(prefab);
+            Destroy(prefab);
             
             go.AddComponent<Camera>();
             go.AddComponent<Physics2DRaycaster>();
@@ -41,7 +43,9 @@ namespace ECS.Scripts.Components
             });
 
             camera = go.GetComponent<Transform>();
+            
             camera.rotation = Quaternion.Euler(90, 0,0);
+            
             camera.position = BUILD_CAMERA_TRANSFORM;
             
             WorldModels.Default.Set(camera.GetComponent<Camera>());
@@ -58,9 +62,10 @@ namespace ECS.Scripts.Components
             if (!this.isBuildEnded)
                 return;
             
-            foreach (var player in filter)
+            foreach (var player in this.playerFilter)
             {
                 ref var transform = ref player.GetComponent<TransformComponent>();
+                
                 this.camera.position = transform.transform.position + CAMERA_TRANSFORM;
             }
         }

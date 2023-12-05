@@ -27,7 +27,7 @@ namespace ECS.Scripts.Components.AttackSystems
             if (!this.rangeAttackRequest.IsPublished)
                 return;
 
-            var playerEntity = playerFilter.FirstOrDefault();
+            var playerEntity = this.playerFilter.FirstOrDefault();
             
             ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
             
@@ -41,7 +41,7 @@ namespace ECS.Scripts.Components.AttackSystems
 
                 playerTransform.rotation = rotate;
                         
-                arrowRequest.NextFrame(new ArrowRequest
+                this.arrowRequest.NextFrame(new ArrowRequest
                 {
                     direction = new Vector3(0, 0, 1),
                     spawnPosition = playerTransform.position,

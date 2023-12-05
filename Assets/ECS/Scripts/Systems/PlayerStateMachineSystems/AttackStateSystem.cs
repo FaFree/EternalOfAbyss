@@ -29,7 +29,7 @@ namespace ECS.Scripts.Components
         
         public override void OnUpdate(float deltaTime)
         {
-            foreach (var playerEntity in playerFilter)
+            foreach (var playerEntity in this.playerFilter)
             {
                 this.timer += deltaTime;
 
@@ -44,9 +44,7 @@ namespace ECS.Scripts.Components
 
                     continue;
                 }
-
-                ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
-
+                
                 var playerModel = WorldModels.Default.Get<Player>();
 
                 ref var attackStateMarker = ref playerEntity.GetComponent<AttackStateMarker>();

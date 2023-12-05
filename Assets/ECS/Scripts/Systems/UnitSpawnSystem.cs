@@ -23,12 +23,12 @@ namespace ECS.Scripts.Components
 
         public override void OnUpdate(float deltaTime)
         {
-            if (!unitSpawnRequest.IsPublished)
+            if (!this.unitSpawnRequest.IsPublished)
             {
                 return;
             }
 
-            foreach (var evt in unitSpawnRequest.BatchedChanges)
+            foreach (var evt in this.unitSpawnRequest.BatchedChanges)
             {
                 ref var zoneComponent = ref evt.zone.GetComponent<ZoneComponent>();
             

@@ -19,6 +19,7 @@ namespace ECS.Scripts.Components
         private Filter playerFilter;
 
         private Slider progressBar;
+        
         private GameObject progressBarObj;
 
         private Entity currentEntity;
@@ -63,6 +64,7 @@ namespace ECS.Scripts.Components
             foreach (var turretEntity in this.turretFilter)
             {
                 ref var turretTransform = ref turretEntity.GetComponent<TransformComponent>().transform;
+                
                 ref var turretComponent = ref turretEntity.GetComponent<TurretComponent>();
 
                 var distance = Vector3.SqrMagnitude(playerTransform.position - turretTransform.position);

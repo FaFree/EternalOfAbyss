@@ -28,13 +28,9 @@ public class BoostView : MonoBehaviour
 
     [SerializeField] private RectTransform completeRoot;
     [SerializeField] private RectTransform unavailableRoot;
-
-    private const float ANIMATION_TIME = 0.1f;
-
+    
     private Resource coins;
- 
-    private Event<BoostRequest> boostRequest;
-
+    
     private Transform parent;
 
     private string boostKey;
@@ -84,8 +80,6 @@ public class BoostView : MonoBehaviour
 
     private void Awake()
     {
-        this.boostRequest = World.Default.GetEvent<BoostRequest>();
-
         this.coins = Resources.GetResource("Coin");
         
         this.button.interactable = true;

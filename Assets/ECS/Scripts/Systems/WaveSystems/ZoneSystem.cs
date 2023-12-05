@@ -41,13 +41,11 @@ namespace ECS.Scripts.Components
                 }
             }
 
-            foreach (var zoneEntity in zoneFilter)
+            foreach (var zoneEntity in this.zoneFilter)
             {
                 ref var zoneComponent = ref zoneEntity.GetComponent<ZoneComponent>();
 
                 ref var slider = ref zoneComponent.waveProgressConfig.progressBar;
-
-                ref var textNum = ref zoneComponent.waveProgressConfig.textNum;
                 
                 var timePerMob = zoneComponent.allUnitSpawnTime / zoneComponent.maxUnitCount;
 
@@ -55,7 +53,7 @@ namespace ECS.Scripts.Components
 
                 if (zoneComponent.timer > timePerMob && !zoneComponent.isSpawned)
                 {
-                    unitSpawnRequest.NextFrame(new UnitSpawnRequest
+                    this.unitSpawnRequest.NextFrame(new UnitSpawnRequest
                     {
                         zone = zoneEntity,
                         config = zoneComponent.config
@@ -67,12 +65,14 @@ namespace ECS.Scripts.Components
 
                     slider.DOKill();
                     
-                    slider.DOValue((float)zoneComponent.spawnedUnitCount / (float)zoneComponent.maxUnitCount, 1f);
+                    slider.DOValue(zoneComponent.spawnedUnitCount / (float)zoneComponent.maxUnitCount, 1f);
                     
                     zoneComponent.isSpawned = zoneComponent.spawnedUnitCount == zoneComponent.maxUnitCount;
                 }
 
-                if (zoneComponent.currentUnitCount == 0 && !zoneComponent.nextWave.IsUnityNull() && zoneComponent.maxUnitCount == zoneComponent.spawnedUnitCount && !zoneComponent.isEnded)
+                if (zoneComponent.currentUnitCount == 0 && !zoneComponent.nextWave.IsUnityNull() 
+                                                        && zoneComponent.maxUnitCount == zoneComponent.spawnedUnitCount
+                                                        && !zoneComponent.isEnded)
                 {
                     this.waveEndEvent.NextFrame(new WaveEndEvent
                     {

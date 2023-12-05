@@ -9,7 +9,7 @@ namespace ECS.Scripts.Components
     {
         private Event<BuildEndedEvent> buildEndedEvent;
         
-        private bool isEnable = false;
+        private bool isEnable;
         
         
         public override void OnAwake()

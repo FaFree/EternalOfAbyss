@@ -1,8 +1,6 @@
 using ECS.Scripts.Events;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
-using Scripts;
-using State_Machine.MobStateMachine;
 using UnityEngine;
 
 namespace ECS.Scripts.Components
@@ -15,7 +13,6 @@ namespace ECS.Scripts.Components
         private Filter arrowFilter;
 
         private Event<DamageRequest> damageRequest;
-        private Event<OnArrowCollisionEnter> onArrowCollisionEnter;
 
         public override void OnAwake()
         {
@@ -23,8 +20,6 @@ namespace ECS.Scripts.Components
             this.unitFilter = this.World.Filter.With<UnitComponent>();
 
             this.damageRequest = this.World.GetEvent<DamageRequest>();
-            this.onArrowCollisionEnter = this.World.GetEvent<OnArrowCollisionEnter>();
-
         }
 
         public override void OnUpdate(float deltaTime)
@@ -55,6 +50,7 @@ namespace ECS.Scripts.Components
 
                         arrowTransform.position += direction.normalized * (deltaTime * arrowComponent.speed);
                     }
+                    
                     else
                     {
                         arrowTransform.position += arrowTransform.forward * (deltaTime * arrowComponent.speed);
@@ -88,7 +84,7 @@ namespace ECS.Scripts.Components
                                 break;
                             }
 
-                            else if (arrowComponent.isPassing && arrowComponent.passingCount != 0)
+                            if (arrowComponent.isPassing && arrowComponent.passingCount != 0)
                             {
                                 arrowComponent.passingCount--;
                                 arrowTransform.position += arrowComponent.direction.normalized * 2.5f;
@@ -103,27 +99,6 @@ namespace ECS.Scripts.Components
                         }
                     }
                 }
-            }
-
-            this.CheckCollision();
-        }
-
-        private void CheckCollision()
-        {
-            if (!this.onArrowCollisionEnter.IsPublished)
-            {
-                return;
-            }
-
-            var boostModel = WorldModels.Default.Get<BoostsModel>();
-
-            foreach (var evt in this.onArrowCollisionEnter.BatchedChanges)
-            {
-                if (!this.World.TryGetEntity(evt.entityId, out var arrowEntity))
-                {
-                    continue;
-                }
-
             }
         }
     }

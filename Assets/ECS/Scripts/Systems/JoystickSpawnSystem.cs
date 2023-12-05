@@ -8,16 +8,16 @@ namespace ECS.Scripts.Components
 {
     public class JoystickSpawnSystem : UpdateSystem
     {
-        private Filter filter;
         private Transform canvas;
         private const string PREFAB = "Assets/Addressables/Floating Joystick.prefab";
         public override void OnAwake()
         {
-            this.filter = this.World.Filter.With<PlayerComponent>();
-            
             var canvasObject = new GameObject("Canvas");
+            
             var canvasComponent = canvasObject.AddComponent<Canvas>();
+            
             canvasObject.AddComponent<CanvasScaler>();
+            
             canvasObject.AddComponent<GraphicRaycaster>();
 
             canvasComponent.sortingOrder = -1;
@@ -28,7 +28,8 @@ namespace ECS.Scripts.Components
 
             var prefab = Addressables.LoadAssetAsync<GameObject>(PREFAB).WaitForCompletion();
             
-            var go = Object.Instantiate(prefab, Vector3.zero, Quaternion.identity);
+            var go = Instantiate(prefab, Vector3.zero, Quaternion.identity);
+            
             go.transform.SetParent(canvas, false);
 
             var joystickEntity = this.World.CreateEntity();

@@ -7,22 +7,26 @@ namespace ECS.Scripts.Components
 {
     public class RunStateSystem : UpdateSystem
     {
-        private Filter filter;
+        private Filter playerFilter;
         public override void OnAwake()
         {
-            this.filter = this.World.Filter
+            this.playerFilter = this.World.Filter
                 .With<PlayerComponent>()
                 .With<RunStateMarker>();
         }
 
         public override void OnUpdate(float deltaTime)
         {
-            foreach (var playerEntity in filter)
+            foreach (var playerEntity in this.playerFilter)
             {
                 ref PlayerComponent playerComponent = ref playerEntity.GetComponent<PlayerComponent>();
+                
                 ref StateMachine stateMachine = ref playerComponent.stateMachine;
+                
                 ref var navMeshAgent = ref playerEntity.GetComponent<NavMeshAgentComponent>().agent;
+                
                 var playerSpeed = playerComponent.speed;
+                
                 ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
 
                 var directionV3 = playerComponent.direction;
@@ -31,6 +35,7 @@ namespace ECS.Scripts.Components
                     stateMachine.SetState<IdleState>();
 
                 navMeshAgent.nextPosition += (directionV3 * (playerSpeed * deltaTime));
+                
                 playerTransform.transform.rotation = Quaternion.LookRotation(directionV3);
             }
         }

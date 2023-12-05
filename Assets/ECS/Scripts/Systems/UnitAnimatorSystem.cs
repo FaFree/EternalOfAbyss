@@ -22,7 +22,7 @@ namespace ECS.Scripts.Components
 
         public override void OnUpdate(float deltaTime)
         {
-            foreach (var unitEntity in unitFilter)
+            foreach (var unitEntity in this.unitFilter)
             {
                 ref var unitComponent = ref unitEntity.GetComponent<UnitComponent>();
                 ref var animator = ref unitComponent.animator;

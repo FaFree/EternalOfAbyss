@@ -19,10 +19,10 @@ namespace ECS.Scripts.Components
 
         public override void OnUpdate(float deltaTime)
         {
-            if (!updateRequest.IsPublished)
+            if (!this.updateRequest.IsPublished)
                 return;
 
-            foreach (var meshEntity in meshFilter)
+            foreach (var meshEntity in this.meshFilter)
             {
                 ref var mesh = ref meshEntity.GetComponent<NavMeshSurfaceComponent>().navMeshSurface;
 

@@ -28,7 +28,7 @@ namespace ECS.Scripts.Components
 
         public override void OnUpdate(float deltaTime)
         {
-            foreach (var playerEntity in playerFilter)
+            foreach (var playerEntity in this.playerFilter)
             {
                 ref var player = ref playerEntity.GetComponent<PlayerComponent>();
                 var animator = player.animator;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Scripts.InventoryFeature
-
 {
     public enum RareType
     {

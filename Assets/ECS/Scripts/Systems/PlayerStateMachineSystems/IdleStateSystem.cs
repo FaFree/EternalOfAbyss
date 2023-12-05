@@ -1,10 +1,6 @@
-using DefaultNamespace;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
-using Scripts;
-using Scripts.InventoryFeature;
 using State_Machine;
-using State_Machine.MobStateMachine;
 using UnityEngine;
 
 namespace ECS.Scripts.Components
@@ -22,12 +18,12 @@ namespace ECS.Scripts.Components
 
         public override void OnUpdate(float deltaTime)
         {
-            foreach (var playerEntity in playerFilter)
+            foreach (var playerEntity in this.playerFilter)
             {
                 var direction = playerEntity.GetComponent<PlayerComponent>().direction;
                 ref var stateMachine = ref playerEntity.GetComponent<PlayerComponent>().stateMachine;
 
-                if (direction != UnityEngine.Vector3.zero)
+                if (direction != Vector3.zero)
                 {
                     stateMachine.SetState<RunState>();
 

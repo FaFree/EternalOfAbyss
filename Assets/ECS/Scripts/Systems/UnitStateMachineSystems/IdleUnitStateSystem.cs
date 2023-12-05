@@ -1,8 +1,6 @@
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using State_Machine.MobStateMachine;
-using UnityEngine;
-using UnityEngine.AI;
 
 namespace ECS.Scripts.Components.MobStateMachineSystems
 {
@@ -20,10 +18,9 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
 
         public override void OnUpdate(float deltaTime)
         {
-            foreach (var unitEntity in mobFilter)
+            foreach (var unitEntity in this.mobFilter)
             {
                 {
-
                     ref var unitAgent = ref unitEntity.GetComponent<NavMeshAgentComponent>().agent;
                     ref var unitComponent = ref unitEntity.GetComponent<UnitComponent>();
                     ref var unitModel = ref unitComponent.unit;

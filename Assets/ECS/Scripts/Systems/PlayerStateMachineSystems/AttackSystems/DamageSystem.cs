@@ -37,14 +37,14 @@ namespace ECS.Scripts.Components.AttackSystems
                 {
                     if (!entity.Has<NotAttackMarker>())
                     {
-                        dieRequest.NextFrame(new DieRequestEvent
+                        this.dieRequest.NextFrame(new DieRequestEvent
                         {
                             entityId = entity.ID
                         });
 
                         healthComponent.health = 0;
 
-                        damagedEvent.NextFrame(new DamagedEvent
+                        this.damagedEvent.NextFrame(new DamagedEvent
                         {
                             EntityId = entity.ID,
                             Damage = evt.Damage
@@ -58,7 +58,7 @@ namespace ECS.Scripts.Components.AttackSystems
                 {
                     healthComponent.health -= evt.Damage;
 
-                    damagedEvent.NextFrame(new DamagedEvent
+                    this.damagedEvent.NextFrame(new DamagedEvent
                     {
                         EntityId = entity.ID,
                         Damage = evt.Damage

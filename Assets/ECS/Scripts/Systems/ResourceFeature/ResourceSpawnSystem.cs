@@ -19,6 +19,8 @@ namespace ECS.Scripts
         private const int MAX_COUNT = 6;
         
         private const float DIE_ANIMATION_TIME = 3.25f;
+        
+        private const float SPAWN_RADIUS = 1f;
 
         private const string COIN_PREFAB = "Assets/Addressables/coin.prefab";
 
@@ -27,7 +29,7 @@ namespace ECS.Scripts
         private PullObject coinPullObject;
         
         private Event<DieRequestEvent> dieRequest;
-        private float radius = 1f;
+        
         
         public override void OnAwake()
         {
@@ -37,16 +39,16 @@ namespace ECS.Scripts
             
             var prefabGo = Addressables.LoadAssetAsync<GameObject>(COIN_PREFAB).WaitForCompletion();
 
-            GameObject coinRoot = new GameObject("CoinRoot");
+            var coinRoot = new GameObject("CoinRoot");
 
             this.coinPullObject = new PullObject(prefabGo, coinRoot.transform, 20);
         }
 
         public override void OnUpdate(float deltaTime)
         {
-            if (dieRequest.IsPublished)
+            if (this.dieRequest.IsPublished)
             {
-                foreach (var evt in dieRequest.BatchedChanges)
+                foreach (var evt in this.dieRequest.BatchedChanges)
                 {
                     if (this.World.TryGetEntity(evt.entityId, out var unitEntity))
                     {
@@ -73,7 +75,7 @@ namespace ECS.Scripts
                     
                     for (int i = 0; i < coinCount; i++)
                     {
-                        SpawnResource(spawnPosition, (int) coinPrice, COIN_PREFAB, "Coin", 0.15f);
+                        SpawnResource(spawnPosition, (int) coinPrice, "Coin", 0.15f);
                     }
 
                     unit.RemoveComponent<DieAnimationMarker>();
@@ -86,13 +88,13 @@ namespace ECS.Scripts
             }
         }
 
-        private void SpawnResource(Vector3 unitPosition, int reward, string prefab, string resourceType, float scaleMax)
+        private void SpawnResource(Vector3 unitPosition, int reward, string resourceType, float scaleMax)
         {
             var go = this.coinPullObject.GetFreeElement();
 
             go.transform.position = unitPosition;
             
-            go.transform.DOJump(Random.insideUnitSphere * radius + unitPosition + Vector3.up, 3, 1, 0.5f, false);
+            go.transform.DOJump(Random.insideUnitSphere * SPAWN_RADIUS + unitPosition + Vector3.up, 3, 1, 0.5f, false);
 
             go.transform.DOScale(Vector3.one * scaleMax, 1).SetLoops(-1, LoopType.Yoyo);
 

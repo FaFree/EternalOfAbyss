@@ -40,7 +40,7 @@ MonoBehaviour:
     - prefabs
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8918266be79f449fd820c9d49b0c0c8d
-    m_Address: Assets/Addressables/Levels/Level1.prefab
+    m_Address: essables/Levels/Level1
     m_ReadOnly: 0
     m_SerializedLabels:
     - prefabs

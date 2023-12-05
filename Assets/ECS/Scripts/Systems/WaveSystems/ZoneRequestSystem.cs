@@ -3,7 +3,6 @@ using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Scripts;
 using Scripts.LevelModel;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -11,7 +10,7 @@ namespace ECS.Scripts.Components
 {
     public class ZoneRequestSystem : UpdateSystem
     {
-        private string KEY = "WaveMenu";
+        private const string KEY = "WaveMenu";
 
         private Entity waveEntity;
 

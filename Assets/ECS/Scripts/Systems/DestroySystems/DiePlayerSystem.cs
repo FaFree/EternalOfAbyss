@@ -17,12 +17,12 @@ namespace ECS.Scripts.Components
 
         public override void OnUpdate(float deltaTime)
         {
-            if (!playerDieRequestEvent.IsPublished)
+            if (!this.playerDieRequestEvent.IsPublished)
                 return;
 
-            foreach (var evt in playerDieRequestEvent.BatchedChanges)
+            foreach (var evt in this.playerDieRequestEvent.BatchedChanges)
             {
-                playerDestroyRequestEvent.NextFrame(new PlayerDestroyRequestEvent
+                this.playerDestroyRequestEvent.NextFrame(new PlayerDestroyRequestEvent
                 {
                     entityId = evt.entityId
                 });

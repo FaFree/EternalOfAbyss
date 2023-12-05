@@ -16,10 +16,10 @@ namespace ECS.Scripts.Components
 
         public override void OnUpdate(float deltaTime)
         {
-            if (!destroyUnitRequestEvent.IsPublished)
+            if (!this.destroyUnitRequestEvent.IsPublished)
                 return;
 
-            foreach (var evt in destroyUnitRequestEvent.BatchedChanges)
+            foreach (var evt in this.destroyUnitRequestEvent.BatchedChanges)
             {
                 if (this.World.TryGetEntity(evt.entityId, out var entity))
                 {

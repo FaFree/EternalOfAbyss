@@ -2,7 +2,6 @@ using ECS.Scripts.Events;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using State_Machine.MobStateMachine;
-using UnityEngine;
 
 namespace ECS.Scripts.Components.MobStateMachineSystems
 {
@@ -50,6 +49,7 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                     stateMachine.SetState<RunMobState>();
                     attackStateMarker.timer = 0f;
                     attackStateMarker.isFirstAttack = true;
+                    
                     continue;
                 }
 
@@ -72,14 +72,14 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
 
                             if (attackedEntity.Has<BaseComponent>())
                             {
-                                baseDieRequestEvent.NextFrame(new BaseDieRequestEvent
+                                this.baseDieRequestEvent.NextFrame(new BaseDieRequestEvent
                                 {
                                     entityId = attackedEntityId
                                 });
                             }
                             else
                             {
-                                destroyRequestEvent.NextFrame(new DestroyBarrierRequest()
+                                this.destroyRequestEvent.NextFrame(new DestroyBarrierRequest()
                                 {
                                     entityId = attackedEntityId
                                 });
@@ -101,7 +101,7 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                     {
                         health -= damage;
                          
-                         damagedEvent.NextFrame(new DamagedEvent()
+                         this.damagedEvent.NextFrame(new DamagedEvent()
                          {
                              EntityId = attackedEntityId,
                              Damage =  damage,

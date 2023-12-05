@@ -10,9 +10,10 @@ namespace ECS.Scripts.Components
 {
     public class RestartSystem : UpdateSystem
     {
-        private Event<PlayerDestroyedEvent> playerDestroyedEvent;
         private const string UI_MENU = "Assets/Addresables/UIRestart.prefab";
-        private string SCENE_NAME;
+        
+        private Event<PlayerDestroyedEvent> playerDestroyedEvent;
+
         public override void OnAwake()
         {
             this.playerDestroyedEvent = this.World.GetEvent<PlayerDestroyedEvent>();

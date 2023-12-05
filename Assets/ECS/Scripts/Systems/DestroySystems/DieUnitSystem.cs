@@ -11,7 +11,7 @@ namespace ECS.Scripts.Components
 {
     public class DieUnitSystem : UpdateSystem
     {
-        private const float AnimationDieTime = 3.9f;
+        private const float ANIMATION_DIE_TIME = 3.9f;
 
         private Filter unitDieFilter;
 
@@ -29,9 +29,9 @@ namespace ECS.Scripts.Components
 
         public override void OnUpdate(float deltaTime)
         {
-            if (dieRequestEvent.IsPublished)
+            if (this.dieRequestEvent.IsPublished)
             {
-                foreach (var evt in dieRequestEvent.BatchedChanges)
+                foreach (var evt in this.dieRequestEvent.BatchedChanges)
                 {
                     if (this.World.TryGetEntity(evt.entityId, out var unit))
                     {
@@ -51,13 +51,13 @@ namespace ECS.Scripts.Components
                 }
             }
 
-            foreach (var unitEntity in unitDieFilter)
+            foreach (var unitEntity in this.unitDieFilter)
             {
                 ref var dieMarker = ref unitEntity.GetComponent<DieStateMarker>();
 
-                if (dieMarker.timer > AnimationDieTime)
+                if (dieMarker.timer > ANIMATION_DIE_TIME)
                 {
-                    destroyUnitRequestEvent.NextFrame(new DestroyUnitRequestEvent
+                    this.destroyUnitRequestEvent.NextFrame(new DestroyUnitRequestEvent
                     {
                         entityId = unitEntity.ID
                     });

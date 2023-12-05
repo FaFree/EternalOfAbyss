@@ -60,11 +60,11 @@ namespace ECS.Scripts.Components
                         entityId = unitEntity.ID
                     });
 
-                    Quaternion toRotation = Quaternion.LookRotation(direction);
+                    var toRotation = Quaternion.LookRotation(direction);
 
-                    Quaternion fromRotation = turretComponent.config.turretObject.transform.rotation;
+                    var fromRotation = turretComponent.config.turretObject.transform.rotation;
                     
-                    Quaternion rotationDifference = toRotation * Quaternion.Inverse(fromRotation);
+                    var rotationDifference = toRotation * Quaternion.Inverse(fromRotation);
                     
                     turretComponent.config.turretObject.transform.DORotateQuaternion(fromRotation * rotationDifference, 1f);
                 }
@@ -74,6 +74,7 @@ namespace ECS.Scripts.Components
         private Entity GetNearbyUnit(Transform turretPosition)
         {
             var minDistance = 100000f;
+            
             Entity entity = default;
             
             foreach (var unitEntity in this.unitFilter)

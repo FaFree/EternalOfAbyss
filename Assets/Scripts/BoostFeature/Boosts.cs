@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using BuilderFeature;
 using DefaultNamespace;
 using Scripts;
 using Scripts.BoostFeature;
@@ -17,21 +16,6 @@ public class Boosts : ScriptableObject
     public void Initialize()
     {
         this.BoostsList = this.boosts;
-    }
-
-    public List<Boost> GetAvailableBoosts()
-    {
-        var tempBoosts = new List<Boost>();
-
-        foreach (var boost in BoostsList)
-        {
-            if (!boost.isActive)
-            {
-                tempBoosts.Add(boost);
-            }
-        }
-
-        return tempBoosts;
     }
 
     public void Clear()
@@ -72,8 +56,7 @@ public class Boost
     public float regeneration;
 
     public bool isMultiply;
-
-    public string statInfo;
+    
     public string skillName;
     public string skillInfo;
 
@@ -103,6 +86,7 @@ public class Boost
     {
         return new Boost(this);
     }
+    
     public void Multiply()
     {
         if (!this.isMultiply)
@@ -146,8 +130,6 @@ public class Boost
             text += $"Health: {(int)this.health} \n";
         if (this.regeneration > 0)
             text += $"Regeneration: {(int)this.regeneration} \n";
-
-        this.statInfo = text;
         
         return text;
     }
@@ -188,6 +170,7 @@ public class BoostsModel
         }
         
         this.boosts.Clear();
+        
         storageService.Save("BoostModel", this);
         
         WorldModels.Default.Get<Boosts>().Clear();

@@ -1,21 +1,19 @@
-using DefaultNamespace;
 using DG.Tweening;
 using ECS.Scripts.Events;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
-using Scripts;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace ECS.Scripts.Components
 {
     public class HealthBarSystem : UpdateSystem
     {
-        private Filter entityFilter;
+        private const float ANIMATION_DURATION = 0.2f;
 
         private Quaternion angle = Quaternion.Euler(30, 0, 0);
+        
+        private Filter entityFilter;
 
-        private const float ANIMATION_DURATION = 0.2f;
         private float timer;
 
         private Event<DamagedEvent> damagedEvent;
@@ -34,6 +32,7 @@ namespace ECS.Scripts.Components
         public override void OnUpdate(float deltaTime)
         {
             timer += deltaTime;
+            
             foreach (var entity in this.entityFilter)
             {
                 ref var healthBarComponent = ref entity.GetComponent<HealthBarComponent>();
@@ -47,7 +46,7 @@ namespace ECS.Scripts.Components
 
                 if (this.damagedEvent.IsPublished)
                 {
-                    foreach (var evt in damagedEvent.BatchedChanges)
+                    foreach (var evt in this.damagedEvent.BatchedChanges)
                     {
                         healthBar.DOKill();
                 

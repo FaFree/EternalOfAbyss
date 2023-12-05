@@ -14,6 +14,7 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
         private Filter baseFilter;
         private Filter unitFilter;
         private Filter barrierFilter;
+        
         public override void OnAwake()
         {
             this.baseFilter = this.World.Filter
@@ -40,7 +41,7 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
             ref var baseTransform = ref baseEntity.GetComponent<BaseComponent>().position;
             
             
-                foreach (var unitEntity in unitFilter)
+                foreach (var unitEntity in this.unitFilter)
                 {
                     ref var unitTransform = ref unitEntity.GetComponent<TransformComponent>().transform;
                     ref var unitComponent = ref unitEntity.GetComponent<UnitComponent>();
@@ -54,7 +55,7 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
 
                         var sqrDistance = Vector3.SqrMagnitude(barrierTransform.position - unitTransform.position);
                         
-                        if (sqrDistance <= 4)
+                        if (sqrDistance <= Math.Pow(HIT_DISTANCE, 2))
                         {
                             unitAgent.isStopped = true;
                             stateMachine.SetState<AttackMobState>();
@@ -72,10 +73,12 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                     {
                         unitAgent.isStopped = true;
                         stateMachine.SetState<AttackMobState>();
+                        
                         unitEntity.SetComponent(new TargetMarker
                         {
                             entityId = baseEntity.ID
                         });
+                        
                         continue;
                     }
 

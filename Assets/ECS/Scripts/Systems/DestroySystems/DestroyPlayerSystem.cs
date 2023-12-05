@@ -32,10 +32,9 @@ namespace ECS.Scripts.Components
                     var boostModel = WorldModels.Default.Get<BoostsModel>();
                     boostModel.Clear();
                     
-                    RewardCoinScaler.UpdateScale();
-                    
                     this.World.RemoveEntity(entity);
-                    playerDestroyedEvent.NextFrame(new PlayerDestroyedEvent());
+                    
+                    this.playerDestroyedEvent.NextFrame(new PlayerDestroyedEvent());
                 }
             }
         }

@@ -10,6 +10,7 @@ namespace ECS.Scripts.Components
     {
         private Filter joyFilter;
         private Filter playerFilter;
+        
         public override void OnAwake()
         {
             this.joyFilter = this.World.Filter.With<JoystickComponent>();

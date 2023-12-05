@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using ECS.Scripts.Components;
 using ECS.Scripts.Events.BankEvents;
@@ -11,30 +10,30 @@ namespace ECS.Scripts
 {
     public class ResourceCollectSystem : UpdateSystem
     {
+        private const float COIN_SPEED = 6f;
+
         private Filter resourceFilter;
         private Filter playerFilter;
-
-        private float speed = 6f;
-
-        private Event<OnResourceChanged> OnResourceChanged;
+        
+        private Event<OnResourceChanged> onResourceChanged;
         public override void OnAwake()
         {
             this.resourceFilter = this.World.Filter.With<ResourceComponent>();
             this.playerFilter = this.World.Filter.With<PlayerComponent>();
 
-            this.OnResourceChanged = this.World.GetEvent<OnResourceChanged>();
+            this.onResourceChanged = this.World.GetEvent<OnResourceChanged>();
         }
 
         public override void OnUpdate(float deltaTime)
         {
-            var playerEntity = playerFilter.FirstOrDefault();
+            var playerEntity = this.playerFilter.FirstOrDefault();
 
             if (playerEntity == default)
                 return;
 
             var playerTransform = playerEntity.GetComponent<TransformComponent>().transform;
 
-            foreach (var resourceEntity in resourceFilter)
+            foreach (var resourceEntity in this.resourceFilter)
             {
                 ref var resourceComponent = ref resourceEntity.GetComponent<ResourceComponent>();
                 ref var resourceTransform = ref resourceComponent.transform;
@@ -43,7 +42,7 @@ namespace ECS.Scripts
 
                 var sqrDistance = Vector3.SqrMagnitude(direction);
 
-                resourceTransform.position += direction * (deltaTime * speed);
+                resourceTransform.position += direction * (deltaTime * COIN_SPEED);
 
                 if (sqrDistance < 0.7f)
                 {
@@ -53,11 +52,12 @@ namespace ECS.Scripts
 
                     Resources.SaveResources();
 
-                    OnResourceChanged.NextFrame(new OnResourceChanged());
+                    onResourceChanged.NextFrame(new OnResourceChanged());
 
                     resourceTransform.DOKill();
 
                     resourceTransform.gameObject.SetActive(false);
+                    
                     this.World.RemoveEntity(resourceEntity);
                 }
             }

@@ -1,5 +1,3 @@
-using System.Linq;
-using DefaultNamespace;
 using DG.Tweening;
 using ECS.Scripts.Events;
 using Scellecs.Morpeh;
@@ -34,7 +32,7 @@ namespace ECS.Scripts.Components
 
         public override void OnUpdate(float deltaTime)
         {
-            if (!restartRequest.IsPublished)
+            if (!this.restartRequest.IsPublished)
                 return;
 
             var zoneEntity = this.zoneFilter.FirstOrDefault();
@@ -50,20 +48,20 @@ namespace ECS.Scripts.Components
 
             Destroy(levelGo);
             
-            foreach (var entity in unitFilter)
+            foreach (var entity in this.unitFilter)
             {
                 Destroy(entity.GetComponent<TransformComponent>().transform.gameObject);
                 this.World.RemoveEntity(entity);
             }
 
-            foreach (var entity in coinFilter)
+            foreach (var entity in this.coinFilter)
             {
                 entity.GetComponent<ResourceComponent>().transform.DOKill();
                 entity.GetComponent<ResourceComponent>().transform.gameObject.SetActive(false);
                 this.World.RemoveEntity(entity);
             }
             
-            foreach (var entity in levelFilter)
+            foreach (var entity in this.levelFilter)
             {
                 this.World.RemoveEntity(entity);
             }

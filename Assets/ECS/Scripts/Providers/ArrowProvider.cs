@@ -1,4 +1,3 @@
-using System;
 using ECS.Scripts.Components;
 using ECS.Scripts.Events;
 using Scellecs.Morpeh;
