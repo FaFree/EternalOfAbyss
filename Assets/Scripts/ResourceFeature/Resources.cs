@@ -4,6 +4,7 @@ using System.Linq;
 using ECS.Scripts.Events.BankEvents;
 using Scellecs.Morpeh;
 using Scripts.StorageService;
+using Unity.VisualScripting;
 
 namespace ResourceFeature
 {
@@ -24,7 +25,6 @@ namespace ResourceFeature
             resourcesMap.Add("Coin", new Resource("Coin")); 
             
             GetResources();
-            resourcesMap["Coin"].SetAmount(0);
         }
 
         public static Resource GetResource(string resourceName)
@@ -73,7 +73,13 @@ namespace ResourceFeature
                 }
                 
                 resourcesMap[savedResource.resourceType].SetAmount(savedResource.resourceCount);
+                resourcesMap[savedResource.resourceType].onResourceChangedEvent += OnResourceChangedEvent;
             }
+        }
+
+        private static void OnResourceChangedEvent()
+        {
+            SaveResources();
         }
     }
     
@@ -82,6 +88,8 @@ namespace ResourceFeature
         public string ResourceType { get; private set; }
         
         public double ResourceCount { get; private set; }
+
+        public event Action onResourceChangedEvent;
         
         private Event<OnResourceChanged> onResourceChanged;
         
@@ -97,6 +105,8 @@ namespace ResourceFeature
             this.ResourceCount += resourceCount;
             
             onResourceChanged.NextFrame(new OnResourceChanged());
+            
+            this.onResourceChangedEvent?.Invoke();
         }
         
         public void SetAmount(double amount)
@@ -104,6 +114,8 @@ namespace ResourceFeature
             this.ResourceCount = amount;
             
             onResourceChanged.NextFrame(new OnResourceChanged());
+            
+            this.onResourceChangedEvent?.Invoke();
         }
 
         public bool IsEnough(double resourceCount)
@@ -120,6 +132,8 @@ namespace ResourceFeature
                 
             this.ResourceCount -= resourceCount;
             
+            this.onResourceChangedEvent?.Invoke();
+
             onResourceChanged.NextFrame(new OnResourceChanged());
 
             return true;

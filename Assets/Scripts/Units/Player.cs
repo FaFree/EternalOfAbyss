@@ -21,8 +21,6 @@ namespace DefaultNamespace
             {
                 this.MaxHealth += boost.health;
                 this.Damage += boost.damage;
-                
-                this.storageService.Save("PlayerModel", this);
             }
         }
 
@@ -36,8 +34,6 @@ namespace DefaultNamespace
                 {
                     this.MaxHealth -= boost.health;
                     this.Damage -= boost.damage;
-                    
-                    this.Save();
                 }
             }
         }

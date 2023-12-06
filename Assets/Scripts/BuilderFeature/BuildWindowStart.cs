@@ -49,7 +49,6 @@ namespace BuilderFeature
                     if (buildItemView != default)
                     {
                         buildItemView.Add(boost);
-                        buildItemView.onClick += OnClick;
                     }
                     else
                     {
@@ -58,6 +57,8 @@ namespace BuilderFeature
                         buildItemView = obj.GetComponent<BuildItemView>();
                         
                         buildItemView.Add(boost);
+                        
+                        buildItemView.onClick += OnClick;
                         
                         this.buildItemsViews.Add(buildItemView);
                     }

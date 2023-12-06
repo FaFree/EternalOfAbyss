@@ -41,18 +41,8 @@ namespace ECS.Scripts.Initializers
                 this.prefabs.Initialize();
                 this.items.Initialize();
 
-                try
-                {
-                    var config = storageService.Load<UnitConfig>("PlayerModel");
-                    playerModel = new Player(config, 1f, 1.033f);
-                }
-                catch
-                {
-                    playerModel = new Player(playerConfig.config, 1f, 1.033f);
-                }
-                
                 this.playerModel = new Player(playerConfig.config, 1f, 1.033f);
-
+                
                 WorldModels.Default.Set<Boosts>(boosts);
                 WorldModels.Default.Set<Prefabs>(prefabs);
                 WorldModels.Default.Set<Items>(items);
@@ -66,6 +56,7 @@ namespace ECS.Scripts.Initializers
                 {
                     var boostModel = storageService.Load<BoostsModel>("BoostModel");
                     WorldModels.Default.Set(boostModel);
+                    boostModel.Initialize();
                 }
                 catch (Exception exception)
                 {

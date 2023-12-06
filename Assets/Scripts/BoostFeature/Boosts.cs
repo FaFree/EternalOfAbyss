@@ -176,6 +176,24 @@ public class BoostsModel
         WorldModels.Default.Get<Boosts>().Clear();
     }
 
+    public void Initialize()
+    {
+        foreach (var boost in this.boosts)
+        {
+            var playerModel = WorldModels.Default.Get<Player>();
+
+            playerModel.AddBoost(boost);
+            
+            if (boost.category == Categories.Base)
+            {
+                var baseStats = WorldModels.Default.Get<BaseStatConfig>();
+
+                baseStats.regeneration += boost.regeneration;
+                baseStats.maxHealth += boost.health;
+            }
+        }
+    }
+
     public void AddBoost(Boost boost)
     {
         boosts.Add(boost);
