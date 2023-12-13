@@ -35,7 +35,7 @@ namespace ECS.Scripts.Components
                 var radius = zoneComponent.radius;
                 var position = zoneComponent.position.position;
             
-                var pos = new Vector3(Random.Range(position.x - radius, position.x + radius), 0,
+                var pos = new Vector3(Random.Range(position.x - radius, position.x + radius), position.y,
                     Random.Range(position.z - radius, position.z + radius));
                 
                 var prefab = Addressables.LoadAssetAsync<GameObject>(evt.config.prefab).WaitForCompletion();

@@ -6,6 +6,7 @@ using ECS.Scripts.Providers;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Scripts;
+using Scripts.InventoryFeature;
 using Scripts.LevelModel;
 using Scripts.PullObjectFeature;
 using UnityEngine;
@@ -17,21 +18,23 @@ namespace ECS.Scripts.Components
     {
         private Event<ArrowRequest> arrowRequest;
         
-        private GameObject arrowPrefab;
+        private GameObject ammoPrefab;
 
-        private PullObject arrowPull;
+        private PullObject ammoPull;
 
         public override void OnAwake()
         {
             this.arrowRequest = this.World.GetEvent<ArrowRequest>();
 
-            var arrowAddress = WorldModels.Default.Get<Prefabs>().prefabMap["Arrow"];
+            var inventory = WorldModels.Default.Get<Inventory>();
 
-            this.arrowPrefab = Addressables.LoadAssetAsync<GameObject>(arrowAddress).WaitForCompletion();
+            var ammoKey = WorldModels.Default.Get<Prefabs>().prefabMap[inventory.CurrentItems[ItemType.Weapon].ammoKey];
+
+            this.ammoPrefab = Addressables.LoadAssetAsync<GameObject>(ammoKey).WaitForCompletion();
             
-            GameObject arrowRoot = new GameObject("ArrowRoot");
+            GameObject ammoRoot = new GameObject("AmmoRoot");
 
-            this.arrowPull = new PullObject(arrowPrefab, arrowRoot.transform, 5);
+            this.ammoPull = new PullObject(ammoPrefab, ammoRoot.transform, 10);
         }
 
         public override void OnUpdate(float deltaTime)
@@ -43,7 +46,7 @@ namespace ECS.Scripts.Components
             
             foreach (var evt in arrowRequest.BatchedChanges)
             {
-                var spawnPosition = new Vector3(evt.spawnPosition.x, 0, evt.spawnPosition.z);
+                var spawnPosition = new Vector3(evt.spawnPosition.x, evt.spawnPosition.y, evt.spawnPosition.z);
                 
                 SpawnArrow(spawnPosition, evt.direction.normalized, evt.damage, 
                     boostModel.isTripleArrow, boostModel.isReboundArrow, 
@@ -54,19 +57,21 @@ namespace ECS.Scripts.Components
         private void SpawnArrow(Vector3 spawnPosition, Vector3 direction, float damage, 
             bool isTripleArrow, bool isRebound, bool isPassing, bool isPlayer, bool isAutoArrow, EntityId entityId)
         {
-            var go = this.arrowPull.GetFreeElement();
+            var go = this.ammoPull.GetFreeElement();
 
-            var trail = go.GetComponent<ArrowConfig>().trailObject;
+            var trail = go.GetComponent<AmmoConfig>().trailObject;
             
             trail.SetActive(false);
             
             go.transform.position = spawnPosition;
-            
-            trail.SetActive(true);
-
             go.transform.rotation = Quaternion.LookRotation(direction);
-
-            var entity = go.GetComponent<ArrowProvider>().Entity;
+            
+            var entity = go.GetComponent<AmmoProvider>().Entity;
+            
+            entity.SetComponent(new TrailMarker
+            {
+                trailObject = trail
+            });
             
             this.SetComponents(entity, damage, 4, 10, direction.normalized, isRebound, go.transform, isPassing, isPlayer);
 
@@ -92,26 +97,34 @@ namespace ECS.Scripts.Components
                 Quaternion rotation1 = Quaternion.LookRotation(direction1);
                 Quaternion rotation2 = Quaternion.LookRotation(direction2);
 
-                var go1 = this.arrowPull.GetFreeElement();
+                var go1 = this.ammoPull.GetFreeElement();
 
-                var trail1 = go1.GetComponent<ArrowConfig>().trailObject;
+                var trail1 = go1.GetComponent<AmmoConfig>().trailObject;
                 
                 trail1.SetActive(false);
                 go1.transform.position = spawnPosition;
-                trail1.SetActive(true);
                 go1.transform.rotation = rotation1;
 
-                var go2 = this.arrowPull.GetFreeElement();
+                var go2 = this.ammoPull.GetFreeElement();
 
-                var trail2 = go2.GetComponent<ArrowConfig>().trailObject;
+                var trail2 = go2.GetComponent<AmmoConfig>().trailObject;
                 trail2.SetActive(false);
                 go2.transform.position = spawnPosition;
-                trail2.SetActive(true);
 
                 go2.transform.rotation = rotation2;
 
-                var entity1 = go1.GetComponent<ArrowProvider>().Entity;
-                var entity2 = go2.GetComponent<ArrowProvider>().Entity;
+                var entity1 = go1.GetComponent<AmmoProvider>().Entity;
+                var entity2 = go2.GetComponent<AmmoProvider>().Entity;
+                
+                entity1.SetComponent(new TrailMarker
+                {
+                    trailObject = trail1
+                });
+                
+                entity2.SetComponent(new TrailMarker
+                {
+                    trailObject = trail2
+                });
 
                 SetComponents(entity1, damage, 3, 10, direction1.normalized, isRebound, go1.transform, isPassing, isPlayer);
                 SetComponents(entity2, damage, 3, 10, direction2.normalized, isRebound, go2.transform, isPassing, isPlayer);

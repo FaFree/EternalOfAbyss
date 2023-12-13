@@ -1,3 +1,4 @@
+using Configs;
 using DefaultNamespace;
 using Scripts;
 using Scellecs.Morpeh;
@@ -16,14 +17,25 @@ namespace ECS.Scripts.Components
     public class PlayerSpawnSystem : UpdateSystem
     {
         private const string PLAYER_PREFAB = "Assets/Addressables/Player.prefab";
+
+        private Filter baseFilter;
         
         public override void OnAwake()
         {
+            this.baseFilter = this.World.Filter.With<BaseComponent>();
+
+            var baseEntity = this.baseFilter.FirstOrDefault();
+
+            if (baseEntity == default)
+                return;
+
+            ref var baseComponent = ref baseEntity.GetComponent<BaseComponent>();
+            
             var inventory = WorldModels.Default.Get<Inventory>();
             
             var prefab = Addressables.LoadAssetAsync<GameObject>(PLAYER_PREFAB).WaitForCompletion();
 
-            var go = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
+            var go = Instantiate(prefab, baseComponent.playerSpawnPosition.position , Quaternion.identity);
 
             var playerConfig = go.GetComponent<PlayerConfig>();
 
@@ -31,11 +43,19 @@ namespace ECS.Scripts.Components
             {
                 var item = inventory.CurrentItems[ItemType.Weapon];
 
+                var player = WorldModels.Default.Get<Player>();
+                
+                player.ChangeWeapon(item);
+
                 var key = WorldModels.Default.Get<Prefabs>().prefabMap[item.key];
 
                 var weaponPrefab = Addressables.LoadAssetAsync<GameObject>(key).WaitForCompletion();
-                
-                Instantiate(weaponPrefab, playerConfig.WeaponLeftRoot);
+
+                var weaponObj = Instantiate(weaponPrefab, playerConfig.WeaponLeftRoot);
+
+                var ammoRoot = weaponObj.GetComponent<WeaponMonoConfig>().ammoSpawnRoot;
+
+                playerConfig.ammoSpawnRoot = ammoRoot;
             }
 
             var entity = this.World.CreateEntity();
@@ -59,6 +79,7 @@ namespace ECS.Scripts.Components
                 speed = 5,
                 stateMachine = stateMachine,
                 animator = anim,
+                ammoSpawnRoot = playerConfig.ammoSpawnRoot
             });
             
             entity.SetComponent(new NavMeshAgentComponent

@@ -7,7 +7,7 @@ namespace ECS.Scripts.Components
 {
     public class ArrowSystem : UpdateSystem
     {
-        private const int HIT_DISTANCE = 2;
+        private const float HIT_DISTANCE = 2f;
         
         private Filter unitFilter;
         private Filter arrowFilter;
@@ -28,12 +28,17 @@ namespace ECS.Scripts.Components
             {
                 ref var arrowComponent = ref arrowEntity.GetComponent<ArrowComponent>();
                 ref var arrowTransform = ref arrowEntity.GetComponent<TransformComponent>().transform;
+                
+                ref var ammoTrail = ref arrowEntity.GetComponent<TrailMarker>().trailObject;
 
                 arrowComponent.currentDuration += deltaTime;
+                
+                ammoTrail.SetActive(true);
 
                 if (arrowComponent.currentDuration > arrowComponent.maxDuration)
                 {
                     arrowTransform.gameObject.SetActive(false);
+                    arrowEntity.GetComponent<TrailMarker>().trailObject.SetActive(false);
                     this.World.RemoveEntity(arrowEntity);
                     continue;
                 }
@@ -65,7 +70,9 @@ namespace ECS.Scripts.Components
                 {
                     ref var unitTransform = ref unitEntity.GetComponent<TransformComponent>().transform;
 
-                    var sqrDirection = Vector3.SqrMagnitude(arrowTransform.position - unitTransform.position);
+                    var sqrDirection = Vector3.SqrMagnitude(new Vector3
+                        (arrowTransform.position.x, arrowTransform.position.y -1, arrowTransform.position.z) 
+                                                            - unitTransform.position);
 
                     if (sqrDirection <= HIT_DISTANCE)
                     {
@@ -80,6 +87,7 @@ namespace ECS.Scripts.Components
                             if (arrowComponent.isPassing && arrowComponent.passingCount == 0)
                             {
                                 arrowTransform.gameObject.SetActive(false);
+                                arrowEntity.GetComponent<TrailMarker>().trailObject.SetActive(false);
                                 this.World.RemoveEntity(arrowEntity);
                                 break;
                             }
@@ -93,6 +101,7 @@ namespace ECS.Scripts.Components
                             else
                             {
                                 arrowTransform.gameObject.SetActive(false);
+                                arrowEntity.GetComponent<TrailMarker>().trailObject.SetActive(false);
                                 this.World.RemoveEntity(arrowEntity);
                                 break;
                             }

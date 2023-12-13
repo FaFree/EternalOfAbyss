@@ -1,7 +1,9 @@
 using System;
 using ECS.Scripts.Components;
+using Models;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Providers;
+using Scripts;
 
 namespace ECS.Scripts.Providers
 {
@@ -10,6 +12,8 @@ namespace ECS.Scripts.Providers
         private void Start()
         {
             ref var barrierComponent = ref this.Entity.GetComponent<BarrierComponent>();
+
+            barrierComponent.barrierConfig.barrierHealth = WorldModels.Default.Get<BarrierStatConfig>().health;
             
             this.Entity.SetComponent(new TransformComponent
             {

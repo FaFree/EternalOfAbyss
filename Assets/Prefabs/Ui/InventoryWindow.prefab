@@ -922,6 +922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724cd2b90f234097bcedd83c89472333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentCategory: 2
   buttons:
   - {fileID: 9191321682983951642}
   - {fileID: 2746004934826670649}

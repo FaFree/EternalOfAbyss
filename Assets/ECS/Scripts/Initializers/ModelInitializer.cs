@@ -1,6 +1,8 @@
 using System;
+using Configs;
 using DefaultNamespace;
 using ECS.Scripts.Events;
+using Models;
 using Scellecs.Morpeh;
 using Scripts;
 using Scellecs.Morpeh.Systems;
@@ -9,7 +11,6 @@ using Scripts.InventoryFeature.InventoryModel;
 using Scripts.LevelModel;
 using Scripts.StorageService;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace ECS.Scripts.Initializers
 {
@@ -21,6 +22,9 @@ namespace ECS.Scripts.Initializers
         [SerializeField] private PlayerStatConfig playerConfig;
         [SerializeField] private Items items;
         [SerializeField] private BaseStatConfig baseStats;
+        [SerializeField] private TurretStatConfig turretStats;
+        [SerializeField] private BarrierStatConfig barrierStats;
+        
         private Event<EndLoadEvent> endLoaded;
 
         private Inventory inventory = new Inventory();
@@ -50,6 +54,8 @@ namespace ECS.Scripts.Initializers
                 WorldModels.Default.Set<Player>(playerModel);
                 WorldModels.Default.Set<LevelsModel>(levelModel);
                 WorldModels.Default.Set<BaseStatConfig>(baseStats);
+                WorldModels.Default.Set<TurretStatConfig>(turretStats);
+                WorldModels.Default.Set<BarrierStatConfig>(barrierStats);
 
 
                 try

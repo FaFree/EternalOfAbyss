@@ -92,8 +92,6 @@ MonoBehaviour:
   - enabled: 1
     system: {fileID: 11400000, guid: 932eca27e86d34c1faf62b15bc7860c3, type: 2}
   - enabled: 1
-    system: {fileID: 11400000, guid: 98024ea4f409f408abb9b804ead78e8f, type: 2}
-  - enabled: 1
     system: {fileID: 11400000, guid: dbc6e4eb86cef4b1187e7de9a67b7e4a, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: e1d2d417f476f4ecb83141a43b7194df, type: 2}

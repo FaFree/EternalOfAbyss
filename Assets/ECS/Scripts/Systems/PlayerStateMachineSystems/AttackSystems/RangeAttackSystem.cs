@@ -3,6 +3,7 @@ using ECS.Scripts.Events;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using Scripts;
+using Scripts.InventoryFeature;
 using UnityEngine;
 using State_Machine;
 
@@ -30,21 +31,24 @@ namespace ECS.Scripts.Components.AttackSystems
             var playerEntity = this.playerFilter.FirstOrDefault();
             
             ref var playerTransform = ref playerEntity.GetComponent<TransformComponent>().transform;
+
+            ref var playerComponent = ref playerEntity.GetComponent<PlayerComponent>();
             
             var playerModel = WorldModels.Default.Get<Player>();
             
             foreach (var evt in this.rangeAttackRequest.BatchedChanges)
             {
                 Quaternion rotate = Quaternion.LookRotation(new Vector3(0, 0, 1));
-
-                rotate = rotate * Quaternion.Euler(0, 90, 0);
+                
+                if (!WorldModels.Default.Get<Inventory>().CurrentItems[ItemType.Weapon].isGun)
+                    rotate = rotate * Quaternion.Euler(0, 90, 0);
 
                 playerTransform.rotation = rotate;
                         
                 this.arrowRequest.NextFrame(new ArrowRequest
                 {
                     direction = new Vector3(0, 0, 1),
-                    spawnPosition = playerTransform.position,
+                    spawnPosition = playerComponent.ammoSpawnRoot.position,
                     damage = playerModel.GetDamage(),
                     isPlayer = true
                 });

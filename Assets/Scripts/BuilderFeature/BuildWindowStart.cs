@@ -99,7 +99,7 @@ namespace BuilderFeature
             if (!this.isDragging)
                 return;
             
-            Vector3 cursorScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 35f);
+            Vector3 cursorScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 32f);
             Vector3 cursorPosition = WorldModels.Default.Get<Camera>().ScreenToWorldPoint(cursorScreenPoint);
 
             this.currentGhostObject.transform.position = cursorPosition;

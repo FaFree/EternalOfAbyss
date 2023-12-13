@@ -139,7 +139,7 @@ PrefabInstance:
     - target: {fileID: 656624218031085966, guid: 66db0b779ea514cfcbb25aee8377df90,
         type: 3}
       propertyPath: updateSystems.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 656624218031085966, guid: 66db0b779ea514cfcbb25aee8377df90,
         type: 3}
@@ -151,7 +151,7 @@ PrefabInstance:
         type: 3}
       propertyPath: updateSystems.Array.data[0].system
       value: 
-      objectReference: {fileID: 11400000, guid: 79045b9b9bbc34dd898d5c7c005e2766,
+      objectReference: {fileID: 11400000, guid: 9650a09ac62a249279db7ad366170040,
         type: 2}
     - target: {fileID: 656624218031085966, guid: 66db0b779ea514cfcbb25aee8377df90,
         type: 3}

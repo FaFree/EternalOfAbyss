@@ -23,14 +23,10 @@ namespace Scripts.InventoryFeature.InventoryView
 
         private void OnEnable()
         {
-            this.buttonManager.onCategoryChanged += UpdateCategory;
-            
             this.boostViews = new List<BoostView>();
 
             this.statRoot.text = WorldModels.Default.Get<Player>().ToString();
-            
-            buttonManager.Restart();
-            
+
             var key = WorldModels.Default.Get<Prefabs>().prefabMap[ICON_KEY];
 
             this.skillObj = Addressables.LoadAssetAsync<GameObject>(key).WaitForCompletion();
@@ -41,11 +37,11 @@ namespace Scripts.InventoryFeature.InventoryView
 
                 var boostView = obj.GetComponent<BoostView>();
                 
-                boostView.gameObject.SetActive(boostView.Boost.category == Categories.Player);
-                
-                this.boostViews.Add(boostView);
-                
                 boostView.Init(boost);
+
+                boostView.gameObject.SetActive(boostView.Boost.category == Categories.Player);
+
+                this.boostViews.Add(boostView);
             }
         }
 
@@ -67,11 +63,11 @@ namespace Scripts.InventoryFeature.InventoryView
 
                 var boostView = obj.GetComponent<BoostView>();
                 
+                boostView.Init(boost);
+
                 boostView.gameObject.SetActive(boostView.Boost.category == Categories.Player);
 
                 this.boostViews.Add(boostView);
-                
-                boostView.Init(boost);
             }
         }
 

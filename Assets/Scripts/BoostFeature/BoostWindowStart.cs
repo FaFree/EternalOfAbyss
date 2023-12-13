@@ -56,6 +56,7 @@ namespace Scripts.BoostFeature
 
         public void OnClick(Boost boost, Object sender)
         {
+            var boostModel = WorldModels.Default.Get<BoostsModel>();
             var boostView = (BoostView) sender;
 
             if (this.coins.IsEnough(boost.price))
@@ -65,6 +66,8 @@ namespace Scripts.BoostFeature
                     var boostCopy = boost.Copy();
                 
                     boostCopy.Activate();
+                    
+                    boostModel.AddBoost(boostCopy);
                     
                     this.boostRequest.NextFrame(new BoostRequest
                     {
@@ -88,6 +91,8 @@ namespace Scripts.BoostFeature
                     });
                     
                     boost.Activate();
+                    
+                    boostModel.AddBoost(boost);
                     
                     this.coins.TakeResource(boost.price);
                     

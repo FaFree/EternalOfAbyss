@@ -10,6 +10,7 @@ namespace Scripts.BoostFeature
         Player,
         Barriers,
         Base,
-        Turrets
+        Turrets,
+        Weapons
     }
 }

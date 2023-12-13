@@ -21,13 +21,7 @@ namespace Scripts.InventoryFeature
     
     public class Inventory
     {
-        private const string saveKey = "Inventory";
-
         private Event<OnItemChanged> onItemChanged;
-
-        private IStorageService storageService;
-
-        private InventorySaver inventorySaver;
         
         public List<Item> AllItems { get; private set; }
         public List<Item> InventoryItems { get; private set; }
@@ -36,8 +30,6 @@ namespace Scripts.InventoryFeature
 
         public Inventory()
         {
-            storageService = new JsonFileStorageService();
-            
             CurrentItems = new Dictionary<ItemType, Item>();
             InventoryItems = new List<Item>();
             AllItems = new List<Item>();
@@ -50,12 +42,6 @@ namespace Scripts.InventoryFeature
             var itemsMap = WorldModels.Default.Get<Items>().ItemsMap;
             
             this.AddItem(itemsMap["DEFAULT_BOW"]);
-            this.AddItem(itemsMap["CHEST01"]);
-            this.AddItem(itemsMap["DEFAULT_WEAPON"]);
-            this.AddItem(itemsMap["BOOTS01"]);
-            this.AddItem(itemsMap["PANTS01"]);
-            this.AddItem(itemsMap["RING01"]);
-            this.AddItem(itemsMap["HELMET01"]);
 
             CurrentItems.Add(ItemType.Helmet, default);
             CurrentItems.Add(ItemType.Chest, default);
@@ -146,70 +132,6 @@ namespace Scripts.InventoryFeature
                 InventoryItems.Add(lastItem);
                 CurrentItems[itemType] = default;
             }
-        }
-
-        public bool TryUpgradeItem(string itemID)
-        {
-            var item = GetItemOrDefault(itemID);
-
-            if (item == default)
-                return false;
-
-            if (item.currentItemLevel == item.itemStats.maxLevel)
-                return false;
-
-            var coins = Resources.GetResource("Coin");
-
-            if (coins.ResourceCount < item.upgradeCost)
-                return false;
-
-            coins.TakeResource(item.upgradeCost);
-            item.Upgrade();
-            
-            return true;
-        }
-
-        private void Load()
-        {
-            inventorySaver = storageService.Load<InventorySaver>(saveKey);
-
-            this.InventoryItems = inventorySaver.items;
-
-            foreach (var item in InventoryItems)
-            {
-                if (item.isEquip)
-                {
-                    CurrentItems[item.itemType] = item;
-                    InventoryItems.Remove(item);
-                }
-            }
-        }
-        
-        private void Save()
-        {
-            List<Item> items = new List<Item>();
-            
-            items.AddRange(this.InventoryItems.ToArray());
-
-            foreach (var item in CurrentItems)
-            {
-                items.Add(item.Value);
-            }
-            
-            inventorySaver = new InventorySaver(items);
-            
-            storageService.Save(saveKey, inventorySaver);
-        }
-    }
-
-    [Serializable]
-    public struct InventorySaver
-    {
-        public List<Item> items;
-
-        public InventorySaver(List<Item> items)
-        {
-            this.items = items;
         }
     }
 }

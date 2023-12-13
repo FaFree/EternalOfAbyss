@@ -34,12 +34,22 @@ namespace BuilderFeature
 
         public void Init(Boost boost)
         {
+            switch (boost.category)
+            {
+                case Categories.Turrets: 
+                    this.buildingTag = boost.turretBoostConfig.buildingTag;
+                    this.ghostObjectKey = boost.turretBoostConfig.ghostObj;
+                    this.objectKey = boost.turretBoostConfig.buildObj;
+                    break;
+                
+                case Categories.Barriers:
+                    this.buildingTag = boost.barrierBoostConfig.buildingTag;
+                    this.ghostObjectKey = boost.barrierBoostConfig.ghostObj;
+                    this.objectKey = boost.barrierBoostConfig.buildObj;
+                    break;
+            }
+            
             this.image.sprite = boost.sprite;
-
-            this.buildingTag = boost.buildingTag;
-            this.ghostObjectKey = boost.ghostObj;
-            this.objectKey = boost.buildObj;
-
             this.category = boost.category;
         }
         

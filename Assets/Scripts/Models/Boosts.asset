@@ -13,13 +13,30 @@ MonoBehaviour:
   m_Name: Boosts
   m_EditorClassIdentifier: 
   boosts:
-  - damage: 0
-    health: 0
-    regeneration: 0
-    isMultiply: 0
+  - isMultiply: 0
     skillName: Triple Arrow
     skillInfo: Added 2 arrows in shot
     category: 2
+    barrierBoostConfig:
+      health: 0
+      buildObj: 
+      ghostObj: 
+      buildingTag: 
+    baseBoostConfig:
+      health: 0
+      regeneration: 0
+    playerBoostConfig:
+      damage: 0
+      coinScaler: 0
+    turretBoostConfig:
+      damage: 0
+      buildTime: 0
+      isBuilding: 0
+      buildObj: 
+      ghostObj: 
+      buildingTag: 
+    weaponConfig:
+      weaponKey: 
     isReboundArrow: 0
     isTripleArrow: 1
     isPassingArrow: 0
@@ -28,17 +45,31 @@ MonoBehaviour:
     firstPrice: 0
     isActive: 0
     sprite: {fileID: 21300000, guid: b123bdad4f47a734c80135e456f2d162, type: 3}
-    buildObj: 
-    ghostObj: 
-    buildingTag: 
     purchaseCount: 0
-  - damage: 0
-    health: 0
-    regeneration: 0
-    isMultiply: 0
+  - isMultiply: 0
     skillName: Rebound Arrow
     skillInfo: Arrows Rebound
     category: 2
+    barrierBoostConfig:
+      health: 0
+      buildObj: 
+      ghostObj: 
+      buildingTag: 
+    baseBoostConfig:
+      health: 0
+      regeneration: 0
+    playerBoostConfig:
+      damage: 0
+      coinScaler: 0
+    turretBoostConfig:
+      damage: 0
+      buildTime: 0
+      isBuilding: 0
+      buildObj: 
+      ghostObj: 
+      buildingTag: 
+    weaponConfig:
+      weaponKey: 
     isReboundArrow: 1
     isTripleArrow: 0
     isPassingArrow: 0
@@ -47,17 +78,31 @@ MonoBehaviour:
     firstPrice: 0
     isActive: 0
     sprite: {fileID: 21300000, guid: 530bcabb1501d8148a19a77465ecac03, type: 3}
-    buildObj: 
-    ghostObj: 
-    buildingTag: 
     purchaseCount: 0
-  - damage: 0
-    health: 0
-    regeneration: 0
-    isMultiply: 0
+  - isMultiply: 0
     skillName: Passing Arrow
     skillInfo: Arrow Passing
     category: 2
+    barrierBoostConfig:
+      health: 0
+      buildObj: 
+      ghostObj: 
+      buildingTag: 
+    baseBoostConfig:
+      health: 0
+      regeneration: 0
+    playerBoostConfig:
+      damage: 0
+      coinScaler: 0
+    turretBoostConfig:
+      damage: 0
+      buildTime: 0
+      isBuilding: 0
+      buildObj: 
+      ghostObj: 
+      buildingTag: 
+    weaponConfig:
+      weaponKey: 
     isReboundArrow: 0
     isTripleArrow: 0
     isPassingArrow: 1
@@ -66,17 +111,31 @@ MonoBehaviour:
     firstPrice: 0
     isActive: 0
     sprite: {fileID: 21300000, guid: 8d95bcf261f259f4786a397bc66e3705, type: 3}
-    buildObj: 
-    ghostObj: 
-    buildingTag: 
     purchaseCount: 0
-  - damage: 50
-    health: 0
-    regeneration: 0
-    isMultiply: 1
+  - isMultiply: 1
     skillName: Auto Turret
     skillInfo: Add auto turret
     category: 5
+    barrierBoostConfig:
+      health: 0
+      buildObj: 
+      ghostObj: 
+      buildingTag: 
+    baseBoostConfig:
+      health: 0
+      regeneration: 0
+    playerBoostConfig:
+      damage: 0
+      coinScaler: 0
+    turretBoostConfig:
+      damage: 0
+      buildTime: 0
+      isBuilding: 0
+      buildObj: Assets/Prefabs/AutoTurret/TurretPosition.prefab
+      ghostObj: Assets/Prefabs/AutoTurret/GhostTurret.prefab
+      buildingTag: BaseTag
+    weaponConfig:
+      weaponKey: 
     isReboundArrow: 0
     isTripleArrow: 0
     isPassingArrow: 0
@@ -85,17 +144,31 @@ MonoBehaviour:
     firstPrice: 500
     isActive: 0
     sprite: {fileID: 21300000, guid: 1b11533f86e0a4e90983b1c91374a97b, type: 3}
-    buildObj: Assets/Prefabs/AutoTurret/TurretPosition.prefab
-    ghostObj: Assets/Prefabs/AutoTurret/GhostTurret.prefab
-    buildingTag: BaseTag
     purchaseCount: 0
-  - damage: 0
-    health: 100
-    regeneration: 0
-    isMultiply: 1
+  - isMultiply: 1
     skillName: Barrier
     skillInfo: Barrier for stoping zombie
     category: 3
+    barrierBoostConfig:
+      health: 0
+      buildObj: Assets/Prefabs/Barriers/Main_Barricade.prefab
+      ghostObj: Assets/Prefabs/Barriers/Ghost_Barricade.prefab
+      buildingTag: Ground
+    baseBoostConfig:
+      health: 0
+      regeneration: 0
+    playerBoostConfig:
+      damage: 0
+      coinScaler: 0
+    turretBoostConfig:
+      damage: 0
+      buildTime: 0
+      isBuilding: 0
+      buildObj: 
+      ghostObj: 
+      buildingTag: 
+    weaponConfig:
+      weaponKey: 
     isReboundArrow: 0
     isTripleArrow: 0
     isPassingArrow: 0
@@ -104,17 +177,31 @@ MonoBehaviour:
     firstPrice: 200
     isActive: 0
     sprite: {fileID: 21300000, guid: 2eebd6df90ee44f888b7cb640d762af0, type: 3}
-    buildObj: ers/Barrier1.prefabiers/Barrier1.prefab
-    ghostObj: Assets/Prefabs/Barriers/BarrierGhost.prefab
-    buildingTag: Ground
     purchaseCount: 0
-  - damage: 0
-    health: 200
-    regeneration: 0
-    isMultiply: 1
+  - isMultiply: 1
     skillName: Base Health
     skillInfo: Added Health
     category: 4
+    barrierBoostConfig:
+      health: 0
+      buildObj: 
+      ghostObj: 
+      buildingTag: 
+    baseBoostConfig:
+      health: 200
+      regeneration: 0
+    playerBoostConfig:
+      damage: 0
+      coinScaler: 0
+    turretBoostConfig:
+      damage: 0
+      buildTime: 0
+      isBuilding: 0
+      buildObj: 
+      ghostObj: 
+      buildingTag: 
+    weaponConfig:
+      weaponKey: 
     isReboundArrow: 0
     isTripleArrow: 0
     isPassingArrow: 0
@@ -123,17 +210,97 @@ MonoBehaviour:
     firstPrice: 200
     isActive: 0
     sprite: {fileID: 21300000, guid: dbb56c756e0d94e8ca8eb4faab84284e, type: 3}
-    buildObj: 
-    ghostObj: 
-    buildingTag: 
     purchaseCount: 0
-  - damage: 50
-    health: 0
-    regeneration: 0
-    isMultiply: 1
+  - isMultiply: 1
     skillName: Player Damage
     skillInfo: Added player damage
     category: 2
+    barrierBoostConfig:
+      health: 0
+      buildObj: 
+      ghostObj: 
+      buildingTag: 
+    baseBoostConfig:
+      health: 0
+      regeneration: 0
+    playerBoostConfig:
+      damage: 50
+      coinScaler: 0
+    turretBoostConfig:
+      damage: 0
+      buildTime: 0
+      isBuilding: 0
+      buildObj: 
+      ghostObj: 
+      buildingTag: 
+    weaponConfig:
+      weaponKey: 
+    isReboundArrow: 0
+    isTripleArrow: 0
+    isPassingArrow: 0
+    isBuilding: 0
+    price: 237.62
+    firstPrice: 200
+    isActive: 0
+    sprite: {fileID: 21300000, guid: 10b623c5789534fe39ca96bec544d0fd, type: 3}
+    purchaseCount: 2
+  - isMultiply: 1
+    skillName: Health regeneration
+    skillInfo: Base health regeneration
+    category: 4
+    barrierBoostConfig:
+      health: 0
+      buildObj: 
+      ghostObj: 
+      buildingTag: 
+    baseBoostConfig:
+      health: 0
+      regeneration: 10
+    playerBoostConfig:
+      damage: 0
+      coinScaler: 0
+    turretBoostConfig:
+      damage: 0
+      buildTime: 0
+      isBuilding: 0
+      buildObj: 
+      ghostObj: 
+      buildingTag: 
+    weaponConfig:
+      weaponKey: 
+    isReboundArrow: 0
+    isTripleArrow: 0
+    isPassingArrow: 0
+    isBuilding: 0
+    price: 100
+    firstPrice: 100
+    isActive: 0
+    sprite: {fileID: 21300000, guid: b96a7e56d64ac4e49a60929bdee19771, type: 3}
+    purchaseCount: 0
+  - isMultiply: 1
+    skillName: Upgrade Turrets
+    skillInfo: Add 50 damage
+    category: 5
+    barrierBoostConfig:
+      health: 0
+      buildObj: 
+      ghostObj: 
+      buildingTag: 
+    baseBoostConfig:
+      health: 0
+      regeneration: 0
+    playerBoostConfig:
+      damage: 0
+      coinScaler: 0
+    turretBoostConfig:
+      damage: 50
+      buildTime: 0
+      isBuilding: 0
+      buildObj: 
+      ghostObj: 
+      buildingTag: 
+    weaponConfig:
+      weaponKey: 
     isReboundArrow: 0
     isTripleArrow: 0
     isPassingArrow: 0
@@ -141,8 +308,38 @@ MonoBehaviour:
     price: 200
     firstPrice: 200
     isActive: 0
-    sprite: {fileID: 21300000, guid: 10b623c5789534fe39ca96bec544d0fd, type: 3}
-    buildObj: 
-    ghostObj: 
-    buildingTag: 
+    sprite: {fileID: 21300000, guid: 1b11533f86e0a4e90983b1c91374a97b, type: 3}
+    purchaseCount: 0
+  - isMultiply: 0
+    skillName: AK47
+    skillInfo: Weapon for kill zombies
+    category: 6
+    barrierBoostConfig:
+      health: 0
+      buildObj: 
+      ghostObj: 
+      buildingTag: 
+    baseBoostConfig:
+      health: 0
+      regeneration: 0
+    playerBoostConfig:
+      damage: 0
+      coinScaler: 0
+    turretBoostConfig:
+      damage: 0
+      buildTime: 0
+      isBuilding: 0
+      buildObj: 
+      ghostObj: 
+      buildingTag: 
+    weaponConfig:
+      weaponKey: AK47
+    isReboundArrow: 0
+    isTripleArrow: 0
+    isPassingArrow: 0
+    isBuilding: 0
+    price: 5000
+    firstPrice: 0
+    isActive: 0
+    sprite: {fileID: 21300000, guid: c2b2e1323c8ef8b489afe04fc2018a68, type: 3}
     purchaseCount: 0

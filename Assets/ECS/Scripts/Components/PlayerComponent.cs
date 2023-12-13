@@ -10,4 +10,5 @@ public struct PlayerComponent : IComponent
     public StateMachine stateMachine;
     public Vector3 direction;
     public Animator animator;
+    public Transform ammoSpawnRoot;
 }

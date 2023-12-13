@@ -11,6 +11,8 @@ namespace ECS.Scripts.Components
     {
         public Transform position;
 
+        public Transform playerSpawnPosition;
+
         public float regeneration;
 
         public TextMeshProUGUI healthView;

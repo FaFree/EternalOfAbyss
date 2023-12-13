@@ -149,6 +149,31 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: add809f1cc3c153499203a879095e396
+    m_Address: Assets/PolygonApocalypse/Prefabs/Props/SM_Prop_Barricade_Wired_01.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 020a856c5ada445baaed960dea6be9f6
+    m_Address: Assets/Prefabs/Barriers/Ghost_Barricade.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69f5f663bba1b46dc9f8abc7fb3d347f
+    m_Address: Assets/Prefabs/Barriers/Main_Barricade.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa40f2a85d9c34927a0f1687e7d3e76a
+    m_Address: Assets/Addressables/Weapons/Roots/WeaponRoot.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1f7594c36cc64f8da39d6adf7cab552
+    m_Address: Assets/Addressables/bullet.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: bc78e5816f38b47e78192b2f6716f131, type: 2}
   m_SchemaSet:

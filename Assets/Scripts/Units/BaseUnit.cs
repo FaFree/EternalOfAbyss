@@ -19,7 +19,7 @@ namespace DefaultNamespace
         public float Speed { get; set; }
         
         public float AttackTime { get; set; }
-        public float FirstAttackTime { get; private set; }
+        public float FirstAttackTime { get; set; }
         
         public float AnimationAttackTime { get; private set; }
         

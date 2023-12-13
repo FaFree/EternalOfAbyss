@@ -69,7 +69,7 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
 
                     unitAgent.speed = unitModel.Speed;
 
-                    if (unitTransform.position.z - baseTransform.localPosition.z <= HIT_DISTANCE)
+                    if (Math.Pow(unitTransform.position.z - baseTransform.position.z, 2) <= Math.Pow(HIT_DISTANCE, 2)) 
                     {
                         unitAgent.isStopped = true;
                         stateMachine.SetState<AttackMobState>();
@@ -82,9 +82,9 @@ namespace ECS.Scripts.Components.MobStateMachineSystems
                         continue;
                     }
 
-                    var direction = new Vector3(0, 0, -1);
+                    var direction = new Vector3(unitTransform.position.x, baseTransform.position.y, baseTransform.position.z) - unitTransform.position;
                     
-                    unitAgent.nextPosition += (direction * (deltaTime * unitModel.Speed));
+                    unitAgent.nextPosition += (direction.normalized * (deltaTime * unitModel.Speed));
                     unitAgent.isStopped = false;
                     
                     unitTransform.rotation = Quaternion.LookRotation(direction);

@@ -1,6 +1,7 @@
 using Scellecs.Morpeh;
 using Scripts;
 using Scripts.BoostFeature;
+using Scripts.InventoryFeature;
 using Scripts.StorageService;
 
 namespace DefaultNamespace
@@ -19,8 +20,29 @@ namespace DefaultNamespace
         {
             if (boost.category == Categories.Player)
             {
-                this.MaxHealth += boost.health;
-                this.Damage += boost.damage;
+                this.Damage += boost.playerBoostConfig.damage * this.AttackTime;
+            }
+        }
+
+        public void ChangeWeapon(Item item)
+        {
+            this.RemoveBoosts();
+            
+            this.Damage = item.itemStats.damage;
+            this.AttackTime = item.itemStats.attackSpeed;
+
+            if (item.isGun)
+                this.FirstAttackTime = 0.7f;
+            else
+            {
+                this.FirstAttackTime = 1.01f;
+            }
+
+            var boosts = WorldModels.Default.Get<BoostsModel>().boosts;
+
+            foreach (var boost in boosts)
+            {
+                this.AddBoost(boost);
             }
         }
 
@@ -32,8 +54,7 @@ namespace DefaultNamespace
             {
                 if (boost.category == Categories.Player)
                 {
-                    this.MaxHealth -= boost.health;
-                    this.Damage -= boost.damage;
+                    this.Damage -= boost.playerBoostConfig.damage;
                 }
             }
         }

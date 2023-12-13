@@ -39,3 +39,7 @@ MonoBehaviour:
     address: Assets/Prefabs/Ui/ItemCollectInfo.prefab
   - key: WaveMenu
     address: Assets/Addressables/ui/WaveEndMenu.prefab
+  - key: Bullet
+    address: Assets/Addressables/bullet.prefab
+  - key: AK47
+    address: Assets/Addressables/Weapons/Roots/WeaponRoot.prefab

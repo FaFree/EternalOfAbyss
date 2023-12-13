@@ -13,7 +13,7 @@ namespace ECS.Scripts.Components
         private static readonly int IsIdle = Animator.StringToHash("isIdle");
         private static readonly int IsAttack = Animator.StringToHash("isAttack");
         private static readonly int AttackSpeed = Animator.StringToHash("attackSpeed");
-        private static readonly int IsRange = Animator.StringToHash("isRange");
+        private static readonly int IsGun = Animator.StringToHash("isGun");
         
         private Filter playerFilter;
         private Inventory inventory;
@@ -37,17 +37,14 @@ namespace ECS.Scripts.Components
                 var isIdle = playerEntity.Has<IdleStateMarker>();
                 var isAttack = playerEntity.Has<AttackStateMarker>();
 
-                bool isRange = false;
+                bool isGun = inventory.CurrentItems[ItemType.Weapon].isGun;
 
-                if (inventory.CurrentItems[ItemType.Weapon] != default)
-                    isRange = inventory.CurrentItems[ItemType.Weapon].itemStats.isRangeWeapon;
-                
                 animator.SetFloat(AttackSpeed, WorldModels.Default.Get<Player>().AnimationAttackTime);
                 
                 animator.SetBool(IsRunning, isRunning);
                 animator.SetBool(IsIdle, isIdle);
                 animator.SetBool(IsAttack, isAttack);
-                animator.SetBool(IsRange, isRange);
+                animator.SetBool(IsGun, isGun);
             }
         }
     }

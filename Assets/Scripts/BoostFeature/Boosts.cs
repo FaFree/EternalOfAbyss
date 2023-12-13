@@ -1,6 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Configs;
+using Configs.BoostsConfig;
 using DefaultNamespace;
+using ECS.Scripts.Events;
+using Models;
+using Scellecs.Morpeh;
 using Scripts;
 using Scripts.BoostFeature;
 using Scripts.StorageService;
@@ -33,9 +38,6 @@ public class Boost
 {
     public Boost(Boost boost)
     {
-        this.damage = boost.damage;
-        this.health = boost.health;
-        this.regeneration = boost.regeneration;
         this.isMultiply = boost.isMultiply;
         this.skillName = boost.skillName;
         this.skillInfo = boost.skillInfo;
@@ -46,21 +48,26 @@ public class Boost
         this.price = boost.price;
         this.sprite = boost.sprite;
         this.isBuilding = boost.isBuilding;
-        this.ghostObj = boost.ghostObj;
-        this.buildObj = boost.buildObj;
-        this.buildingTag = boost.buildingTag;
+
+        this.barrierBoostConfig = boost.barrierBoostConfig;
+        this.baseBoostConfig = boost.baseBoostConfig;
+        this.playerBoostConfig = boost.playerBoostConfig;
+        this.turretBoostConfig = boost.turretBoostConfig;
     }
     
-    public float damage;
-    public float health;
-    public float regeneration;
-
     public bool isMultiply;
     
     public string skillName;
     public string skillInfo;
 
     public Categories category;
+
+    public BarrierBoostConfig barrierBoostConfig;
+    public BaseBoostConfig baseBoostConfig;
+    public PlayerBoostConfig playerBoostConfig;
+    public TurretBoostConfig turretBoostConfig;
+    public WeaponConfig weaponConfig;
+    
 
     public bool isReboundArrow;
     public bool isTripleArrow;
@@ -73,10 +80,6 @@ public class Boost
     public bool isActive;
     
     public Sprite sprite;
-
-    public string buildObj;
-    public string ghostObj;
-    public string buildingTag;
 
     public int purchaseCount;
 
@@ -122,16 +125,15 @@ public class Boost
 
     public override string ToString()
     {
-        string text = "";
+        switch (category)
+        {
+            case Categories.Barriers: return barrierBoostConfig.ToString();
+            case Categories.Base: return baseBoostConfig.ToString();
+            case Categories.Player: return playerBoostConfig.ToString();
+            case Categories.Turrets: return turretBoostConfig.ToString();
+        }
 
-        if (this.damage > 0)
-            text += $"Damage: {(int)this.damage} \n";
-        if (this.health > 0)
-            text += $"Health: {(int)this.health} \n";
-        if (this.regeneration > 0)
-            text += $"Regeneration: {(int)this.regeneration} \n";
-        
-        return text;
+        return "";
     }
 }
 
@@ -146,26 +148,39 @@ public class BoostsModel
 
     private IStorageService storageService;
 
+    private Event<BoostRequest> boostRequest;
+
     public void Clear()
     {
         isTripleArrow = false;
         isPassingArrow = false;
         isReboundArrow = false;
 
-        var baseConfig = WorldModels.Default.Get<BaseStatConfig>();
         var playerModel = WorldModels.Default.Get<Player>();
 
         foreach (var boost in this.boosts)
         {
-            if (boost.category == Categories.Base)
+            switch (boost.category)
             {
-                baseConfig.maxHealth -= boost.health;
-                baseConfig.regeneration -= boost.regeneration;
-            }
-
-            if (boost.category == Categories.Player)
-            {
-                playerModel.RemoveBoosts(); 
+                case  Categories.Base:
+                    var baseStats = WorldModels.Default.Get<BaseStatConfig>();
+                    baseStats.regeneration -= boost.baseBoostConfig.regeneration;
+                    baseStats.maxHealth -= boost.baseBoostConfig.health;
+                    break;
+                  
+                case Categories.Barriers:
+                    var barrierStats = WorldModels.Default.Get<BarrierStatConfig>();
+                    barrierStats.health -= boost.barrierBoostConfig.health;
+                    break;
+                  
+                case Categories.Turrets:
+                    var turretStats = WorldModels.Default.Get<TurretStatConfig>();
+                    turretStats.damage -= boost.turretBoostConfig.damage;
+                    break;
+                
+                case Categories.Player:
+                    playerModel.RemoveBoosts();
+                    break;
             }
         }
         
@@ -178,19 +193,14 @@ public class BoostsModel
 
     public void Initialize()
     {
+        this.boostRequest = World.Default.GetEvent<BoostRequest>();
+        
         foreach (var boost in this.boosts)
         {
-            var playerModel = WorldModels.Default.Get<Player>();
-
-            playerModel.AddBoost(boost);
-            
-            if (boost.category == Categories.Base)
+            this.boostRequest.NextFrame(new BoostRequest
             {
-                var baseStats = WorldModels.Default.Get<BaseStatConfig>();
-
-                baseStats.regeneration += boost.regeneration;
-                baseStats.maxHealth += boost.health;
-            }
+                boost = boost
+            });
         }
     }
 

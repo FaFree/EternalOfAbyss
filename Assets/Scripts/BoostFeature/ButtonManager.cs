@@ -8,12 +8,15 @@ namespace Scripts.BoostFeature
     public class ButtonManager : MonoBehaviour
     {
         public Action<Categories> onCategoryChanged;
+
+        [SerializeField] public Categories currentCategory;
         
         [SerializeField] private List<Button> buttons;
         [SerializeField] private RectTransform contentView;
+        
         private void Start()
         {
-            foreach (var button in buttons)
+            foreach (var button in this.buttons)
             {
                 button.onClick.AddListener(() => OnClickActive(button.GetComponent<CategoryButton>().categoryButton));
             }
@@ -21,7 +24,7 @@ namespace Scripts.BoostFeature
 
         public void Restart()
         {
-            foreach (var button in buttons)
+            foreach (var button in this.buttons)
             {
                 if (buttons[0] == button)
                 {
@@ -37,7 +40,7 @@ namespace Scripts.BoostFeature
 
         public void OnClick(Button clickedButton)
         {
-            foreach (var button in buttons)
+            foreach (var button in this.buttons)
             {
                 button.interactable = button != clickedButton;
             }
@@ -48,7 +51,8 @@ namespace Scripts.BoostFeature
 
         private void OnClickActive(Categories category)
         {
-            onCategoryChanged?.Invoke(category);
+            this.currentCategory = category;
+            this.onCategoryChanged?.Invoke(category);
         }
     }
 }
