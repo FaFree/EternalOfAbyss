@@ -11,7 +11,7 @@ namespace ECS.Scripts.Components
         private Filter unitFilter;
         private Filter turretFilter;
 
-        private Event<ArrowRequest> arrowRequest;
+        private Event<AmmoRequest> ammoRequest;
         public override void OnAwake()
         {
             this.unitFilter = this.World.Filter
@@ -22,7 +22,7 @@ namespace ECS.Scripts.Components
                 .With<TurretComponent>()
                 .With<ActiveMarker>();
 
-            this.arrowRequest = this.World.GetEvent<ArrowRequest>();
+            this.ammoRequest = this.World.GetEvent<AmmoRequest>();
         }
 
         public override void OnUpdate(float deltaTime)
@@ -50,7 +50,7 @@ namespace ECS.Scripts.Components
 
                     var direction = (unitTransform.position - turretTransform.position).normalized;
                 
-                    this.arrowRequest.NextFrame(new ArrowRequest
+                    this.ammoRequest.NextFrame(new AmmoRequest
                     {
                         damage = turretComponent.config.damage,
                         direction = direction,

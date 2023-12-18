@@ -32,7 +32,7 @@ namespace ECS.Scripts.Providers
 
                 var boostModel = WorldModels.Default.Get<BoostsModel>();
                 
-                ref var arrowComponent = ref arrowEntity.GetComponent<ArrowComponent>();
+                ref var arrowComponent = ref arrowEntity.GetComponent<AmmoComponent>();
                 
                 ref var arrowTransform = ref arrowEntity.GetComponent<TransformComponent>().transform;
 

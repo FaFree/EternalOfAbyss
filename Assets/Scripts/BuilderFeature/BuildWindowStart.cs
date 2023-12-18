@@ -3,6 +3,7 @@ using ECS.Scripts.Events;
 using Scellecs.Morpeh;
 using Scripts;
 using Scripts.BoostFeature;
+using Scripts.LevelModel;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -77,8 +78,10 @@ namespace BuilderFeature
             
             this.isDragging = true;
             this.currentBuildItemView = buildItemView;
+
+            var ghostKey = WorldModels.Default.Get<Prefabs>().prefabMap[buildItemView.ghostObjectKey];
             
-            var prefab = Addressables.LoadAssetAsync<GameObject>(buildItemView.ghostObjectKey).WaitForCompletion();
+            var prefab = Addressables.LoadAssetAsync<GameObject>(ghostKey).WaitForCompletion();
 
             this.currentGhostObject = Instantiate(prefab);
         }
@@ -123,7 +126,9 @@ namespace BuilderFeature
             {
                 if (hit.collider.gameObject.CompareTag(this.currentBuildItemView.buildingTag) && this.CheckPosition(hit.point))
                 {
-                    var prefab = Addressables.LoadAssetAsync<GameObject>(this.currentBuildItemView.objectKey).WaitForCompletion();
+                    var objectKey = WorldModels.Default.Get<Prefabs>().prefabMap[this.currentBuildItemView.objectKey];
+                    
+                    var prefab = Addressables.LoadAssetAsync<GameObject>(objectKey).WaitForCompletion();
                         
                     var go = Instantiate(prefab, hit.point, Quaternion.identity);
                     

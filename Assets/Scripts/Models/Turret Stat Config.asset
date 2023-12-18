@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: Turret Stat Config
   m_EditorClassIdentifier: 
   damage: 50
+  ammoKey: Arrow
+  prefab: DEFAULT_TURRET
+  ghostPrefab: GHOST_DEFAULT_TURRET

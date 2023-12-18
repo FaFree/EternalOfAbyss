@@ -7,5 +7,7 @@ namespace Models
     public class BarrierStatConfig : ScriptableObject
     {
         public float health;
+        public string prefab;
+        public string ghostPrefab;
     }
 }

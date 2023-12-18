@@ -1,4 +1,7 @@
 using System;
+using Configs;
+using Models;
+using Scripts;
 using Scripts.BoostFeature;
 using TMPro;
 using UnityEngine;
@@ -34,18 +37,21 @@ namespace BuilderFeature
 
         public void Init(Boost boost)
         {
+            var turretConfig = WorldModels.Default.Get<TurretStatConfig>();
+            var barrierConfig = WorldModels.Default.Get<BarrierStatConfig>();
+            
             switch (boost.category)
             {
                 case Categories.Turrets: 
                     this.buildingTag = boost.turretBoostConfig.buildingTag;
-                    this.ghostObjectKey = boost.turretBoostConfig.ghostObj;
-                    this.objectKey = boost.turretBoostConfig.buildObj;
+                    this.ghostObjectKey = turretConfig.ghostPrefab;
+                    this.objectKey = turretConfig.prefab;
                     break;
                 
                 case Categories.Barriers:
                     this.buildingTag = boost.barrierBoostConfig.buildingTag;
-                    this.ghostObjectKey = boost.barrierBoostConfig.ghostObj;
-                    this.objectKey = boost.barrierBoostConfig.buildObj;
+                    this.ghostObjectKey = barrierConfig.ghostPrefab;
+                    this.objectKey = barrierConfig.prefab;
                     break;
             }
             

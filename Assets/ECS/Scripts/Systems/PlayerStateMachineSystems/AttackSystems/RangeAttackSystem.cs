@@ -12,13 +12,13 @@ namespace ECS.Scripts.Components.AttackSystems
     public class RangeAttackSystem : UpdateSystem
     {
         private Event<RangeAttackRequest> rangeAttackRequest;
-        private Event<ArrowRequest> arrowRequest;
+        private Event<AmmoRequest> ammoRequest;
 
         private Filter playerFilter;
         public override void OnAwake()
         {
             this.rangeAttackRequest = this.World.GetEvent<RangeAttackRequest>();
-            this.arrowRequest = this.World.GetEvent<ArrowRequest>();
+            this.ammoRequest = this.World.GetEvent<AmmoRequest>();
 
             this.playerFilter = this.World.Filter.With<PlayerComponent>();
         }
@@ -45,7 +45,7 @@ namespace ECS.Scripts.Components.AttackSystems
 
                 playerTransform.rotation = rotate;
                         
-                this.arrowRequest.NextFrame(new ArrowRequest
+                this.ammoRequest.NextFrame(new AmmoRequest
                 {
                     direction = new Vector3(0, 0, 1),
                     spawnPosition = playerComponent.ammoSpawnRoot.position,

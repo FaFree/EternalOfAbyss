@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Barrier Stat Config
   m_EditorClassIdentifier: 
   health: 100
+  prefab: DEFAULT_BARRIER
+  ghostPrefab: GHOST_DEFAULT_BARRIER
